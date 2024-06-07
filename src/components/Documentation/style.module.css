@@ -1,0 +1,43 @@
+.list_position {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  top: 120px;
+  transform: translate(-140%, -50%);
+  gap: 4px;
+  box-sizing: border-box;
+}
+
+.list_position li {
+  list-style-type: none;
+}
+
+.list_position a {
+  text-decoration: none;
+  color: gray;
+  font-weight: 340;
+  display: block;
+  width: 200px;
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+
+.active[aria-current='false']:hover {
+  background: #f4f4f4;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.active[aria-current='page'] {
+  font-weight: 600;
+  color: rgb(83, 135, 232);
+  background: #e0efff;
+  transition: all 0.2s, font-weight 0s;
+}
+
+.active[aria-current='false'] {
+  font-weight: 400;
+  background: transparent;
+  transition: all 0.15s, font-weight 0s;
+}

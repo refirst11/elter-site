@@ -1,0 +1,51 @@
+---
+title: 'Orverview'
+subtitle: 'The summarys'
+date: '2024-06-02'
+---
+
+# Orverview
+
+## What is Typed CSSX?
+
+### Zero Runtime and RSC
+
+It's a CSS in JS library with a simple syntax. Its characteristic feature is the powerful typed that enables autocomplete during development.
+
+It is exported as static CSS at production build time.  
+Since it is compiled before building, it can be cached on the CDN server.
+
+It functions as a complete React Server Component (RSC) and can be previewed as "use client" during development in Next.js.
+
+### Hard Typed
+
+It is properties is typed and does not allow typos as much as possible.  
+Therefore, it may feel strange if you are not used to TypeScript development.
+
+### Hot Reload
+
+Since objects are attached to dynamic styles in development mode, there is no need to reload during development.
+
+### Production environment
+
+Styles exported by the compiler as static CSS Modules are split into components and further optimized by the framework.
+
+### Inspirations
+
+Although this library is a fairly latecomer to the CSS in JS world, it is heavily by these and other earlier libraries.
+
+- **[Styled-JSX](https://styled-system.com/):** Very stable CSS in JS, template literals were easy to write with VSC's autocompletion.
+
+- **[Emotion](https://emotion.sh/docs/introduction/):** I found writing template literals to be very easy, This was the standard CSS in JS.
+
+- **[React Native](https://reactnative.dev/):** `StyleSheet Class` is impeccable. It's standard in Typed CSS is inspired by React Native.
+
+- **[Vue.js](https://vuejs.org/):** A Vue.js `Scoped CSS` which excels in simplicity and directness.
+
+- **[Linaria](https://github.com/callstack/linaria):** Typed CSS was also inspired by this `static extraction` concept.
+
+### What's Next?
+
+Now that you have a sense of what Kuma UI is all about, dive into the documentation to explore in detail. You can start by learning about our theming system, or jump straight into our component docs.
+
+Welcome to Kuma UI. We can't wait to see what you build with it 🐻‍❄️

@@ -8,6 +8,8 @@ import { Tab, Tabs } from '../components/Tabs/index';
 
 # Installation
 
+## NPM
+
 This page describes installation and build settings, and other details.
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
@@ -36,3 +38,42 @@ This page describes installation and build settings, and other details.
     ```
   </Tab>
 </Tabs>
+
+## Build Setting
+
+Add the compile command to the `package.json` script field.
+
+<Tabs items={["npm", "pnpm", "yarn"]} storageKey="manager">
+  {/* prettier-ignore */}
+  <Tab>
+  ```json copy
+    "scripts": {
+      "build": "npm run compiled && next build",
+      "compile": "cd node_modules/typedcssx && npm run compile"
+    },
+  ```
+  </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+  ```json copy
+    "scripts": {
+      "build": "npm run compiled && next build",
+      "compile": "cd node_modules/typedcssx && npm run compile"
+    },
+  ```
+  </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+  ```json copy
+    "scripts": {
+      "build": "npm run compiled && next build",
+      "compile": "cd node_modules/typedcssx && npm run compile"
+    },
+  ```
+  </Tab>
+</Tabs>
+
+## Node.js currently work version is v18.18.0
+
+The Node.js version that has been confirmed to work is v18.18.0.  
+It has been confirmed that ts-node does not currently work with versions 20 and above.

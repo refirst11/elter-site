@@ -4,6 +4,8 @@ subtitle: 'The summarys'
 date: '2024-06-02'
 ---
 
+<TocBot />
+
 # Orverview
 
 ## What is Typed CSSX?
@@ -17,18 +19,56 @@ Since it is compiled before building, it can be cached on the CDN server.
 
 It functions as a complete React Server Component (RSC) and can be previewed as "use client" during development in Next.js.
 
-### Hard Typed
+### Hard Type an Hot Reload
 
 It is properties is typed and does not allow typos as much as possible.  
 Therefore, it may feel strange if you are not used to TypeScript development.
-
-### Hot Reload
 
 Since objects are attached to dynamic styles in development mode, there is no need to reload during development.
 
 ### Production environment
 
 Styles exported by the compiler as static CSS Modules are split into components and further optimized by the framework.
+
+<Tabs>
+  <Tab>
+```ts
+import { Scoped } from 'typedcssx';
+
+export const styles = Scoped.sheet({
+  header_nav: {
+    position: 'absolute',
+    top: 0,
+  },
+});
+
+export const style = Scoped.style({
+  fontSize: 16,
+  color: 'black',
+});
+```
+  </Tab>
+</Tabs>
+
+<Tabs>
+  <Tab>
+```tsx
+import { styles } from './style.css';
+
+const Header = () => {
+return (
+
+<header className={styles.header_nav}>
+  <nav>
+    <a className={style}>content</a>
+    <a>home</a>
+  </nav>
+</header>
+); };
+
+```
+  </Tab>
+</Tabs>
 
 ### Inspirations
 
@@ -46,6 +86,6 @@ Although this library is a fairly latecomer to the CSS in JS world, it is heavil
 
 ### What's Next?
 
-Now that you have a sense of what Kuma UI is all about, dive into the documentation to explore in detail. You can start by learning about our theming system, or jump straight into our component docs.
+Where creativity meets precision is the Typed CSSX Dive into class functions or explore Pseudo docs to unleash its full potential.
 
-Welcome to Kuma UI. We can't wait to see what you build with it 🐻‍❄️
+Welcome to Typed CSSX. We can't wait to see what you'll create 🇹

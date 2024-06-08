@@ -6,10 +6,10 @@ export const styles = Scoped.sheet({
   button_initialize: {
     zIndex: '1',
     position: 'relative',
+    top: '24px',
     padding: '10px 20px',
     right: '36px',
     cursor: 'pointer',
-    // background: 'pink',
     marginTop: '30px',
     display: 'inline-block',
   },
@@ -18,10 +18,14 @@ export const styles = Scoped.sheet({
     width: '772px',
     margin: '0 auto',
   },
-  wrapper: {
+  code_box: {
     position: 'relative',
     right: '40px',
     bottom: '15px',
+  },
+  wrapper: {
+    display: 'flex',
+    alignItems: 'flex-end',
   },
   copyButton: {
     zIndex: '1',
@@ -29,7 +33,7 @@ export const styles = Scoped.sheet({
     fontSize: '12px',
     marginLeft: 'auto',
     right: '46px',
-    top: '80px',
+    top: '62px',
     height: '30px',
     width: '30px',
     backgroundColor: 'rgb(245, 245, 253)',

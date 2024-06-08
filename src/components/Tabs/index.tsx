@@ -3,11 +3,11 @@
 import React, { ReactNode, useState } from 'react';
 import { styles } from './style.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { FiCopy, FiCheck } from 'react-icons/fi';
+import { FiCopy } from 'react-icons/fi';
 
 type TabsProps = {
   children: ReactNode;
-  items: string[];
+  items?: string[];
 };
 
 export const Tabs = ({ items, children }: TabsProps) => {
@@ -41,8 +41,8 @@ export const Tabs = ({ items, children }: TabsProps) => {
 
   return (
     <div className={styles.container}>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        {items.map((item, index) => (
+      <div className={styles.wrapper}>
+        {items?.map((item, index) => (
           <button
             style={{
               borderBottom: activeTab === index ? 'solid 2px lightblue' : 'white',
@@ -68,7 +68,7 @@ export const Tabs = ({ items, children }: TabsProps) => {
           </button>
         </CopyToClipboard>
       </div>
-      <div onMouseEnter={() => setVisible(true)} onMouseLeave={() => setVisible(false)} className={styles.wrapper}>
+      <div onMouseEnter={() => setVisible(true)} onMouseLeave={() => setVisible(false)} className={styles.code_box}>
         {React.Children.toArray(children)[activeTab]}
       </div>
     </div>

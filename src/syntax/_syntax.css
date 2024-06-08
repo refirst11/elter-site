@@ -40,18 +40,19 @@
 }
 
 .toc-link {
+  font-size: 14px;
   color: #878787;
   text-decoration: none;
   font-weight: 300;
 }
 
 .toc-link:hover:not(.is-active-link) {
-  color: #5a5a5a;
+  color: #555555;
 }
 
 .is-active-link {
   color: #006be6;
-  font-weight: 330;
+  font-weight: 350;
 }
 
 pre {

@@ -9,7 +9,7 @@ export const TocBot = () => {
       tocSelector: '.toc',
       contentSelector: 'body',
       headingSelector: 'h2, h3',
-      headingsOffset: 170,
+      headingsOffset: 220,
       scrollSmoothOffset: -70,
       orderedList: false,
     });

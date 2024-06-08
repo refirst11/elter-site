@@ -55,16 +55,15 @@ export const style = Scoped.style({
 ```tsx
 import { styles } from './style.css';
 
-const Header = () => {
+export const Header = () => {
 return (
-
-<header className={styles.header_nav}>
-  <nav>
-    <a className={style}>content</a>
-    <a>home</a>
-  </nav>
-</header>
-); };
+  <header className={styles.header_nav}>
+    <nav>
+      <a className={style}>content</a>
+      <a>home</a>
+    </nav>
+  </header>
+)};
 
 ```
   </Tab>

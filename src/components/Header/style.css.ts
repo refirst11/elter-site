@@ -55,7 +55,7 @@ export default Scoped.global({
     color: '#006BE6',
   },
   p: {
-    margin: '24px 0 0',
+    margin: '28px 0 0',
     fontWeight: '330',
   },
   button: {
@@ -65,13 +65,14 @@ export default Scoped.global({
   },
   h1: {
     color: 'rgb(70, 86, 86)',
-    margin: '60px 0',
+    margin: '80px 0',
+    fontWeight: '600',
   },
   h2: {
     color: 'rgb(70, 86, 86)',
     fontSize: '30px',
     fontWeight: '550',
-    margin: '40px 0 0',
+    margin: '44px 0 0',
     height: '50px',
     paddingBottom: '4px',
     borderBottom: 'solid 1px #eaeaea',
@@ -80,7 +81,7 @@ export default Scoped.global({
     color: 'rgb(70, 86, 86)',
     fontSize: '24px',
     fontWeight: '550',
-    margin: '32px 0 0',
+    margin: '36px 0 0',
   },
   strong: {
     fontWeight: '600',

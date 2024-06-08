@@ -28,6 +28,32 @@
     --shiki-token-link: #ffffff;
   }
 }
+
+.toc {
+  position: fixed;
+  margin: 50px auto auto 860px;
+}
+
+.toc-list {
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+.toc-link {
+  color: #878787;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.toc-link:hover:not(.is-active-link) {
+  color: #5a5a5a;
+}
+
+.is-active-link {
+  color: #006be6;
+  font-weight: 330;
+}
+
 pre {
   box-sizing: border-box;
   width: 772px;

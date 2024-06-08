@@ -3,11 +3,14 @@ import path from 'path';
 import type { ReturnData, PostData } from 'types/PostData';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { Tabs, Tab } from 'components/Tabs';
+import { TocBot } from 'components/TocBot';
 import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
 
 const Element = {
   Tabs,
   Tab,
+  TocBot,
 };
 
 const getPostMdx = async (slug: string): Promise<ReturnData> => {
@@ -21,6 +24,7 @@ const getPostMdx = async (slug: string): Promise<ReturnData> => {
       parseFrontmatter: true,
       mdxOptions: {
         rehypePlugins: [
+          rehypeSlug,
           [
             rehypePrettyCode,
             {

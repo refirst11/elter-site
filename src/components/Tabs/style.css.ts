@@ -1,6 +1,6 @@
-import { Scoped, media } from 'typedcssx';
+import { Scoped, media } from 'typedcssx'
 
-const sm = media('300px <= 600px');
+const sm = media('300px <= 600px')
 
 export const styles = Scoped.sheet({
   button_initialize: {
@@ -11,21 +11,21 @@ export const styles = Scoped.sheet({
     right: '36px',
     cursor: 'pointer',
     marginTop: '30px',
-    display: 'inline-block',
+    display: 'inline-block'
   },
   container: {
     position: 'relative',
     width: '772px',
-    margin: '0 auto',
+    margin: '0 auto'
   },
   code_box: {
     position: 'relative',
     right: '40px',
-    bottom: '15px',
+    bottom: '15px'
   },
   wrapper: {
     display: 'flex',
-    alignItems: 'flex-end',
+    alignItems: 'flex-end'
   },
   copyButton: {
     zIndex: '1',
@@ -40,24 +40,24 @@ export const styles = Scoped.sheet({
     border: 'solid 1px rgb(220, 220, 220)',
     padding: '5px 10px',
     cursor: 'pointer',
-    borderRadius: '6px',
+    borderRadius: '6px'
   },
   icon_position: {
     position: 'absolute',
     right: '5px',
-    top: '5px',
+    top: '5px'
   },
   noactive: {
     transition: 'all 0.2s',
-    scale: '1.2',
+    scale: '1.2'
   },
   active: {
-    transition: 'all 0.2s',
+    transition: 'all 0.2s'
   },
   visible: {
-    opacity: '1',
+    opacity: '1'
   },
   hidden: {
-    opacity: '0',
-  },
-});
+    opacity: '0'
+  }
+})

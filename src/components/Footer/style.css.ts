@@ -1,4 +1,4 @@
-import { Scoped, media } from 'typedcssx';
+import { Scoped, media } from 'typedcssx'
 
 export const styles = Scoped.sheet({
   footer_container: {
@@ -6,7 +6,7 @@ export const styles = Scoped.sheet({
     width: '100%',
     top: '280px',
     textAlign: 'center',
-    marginRight: '500px',
+    marginRight: '500px'
   },
   footer_main: {
     position: 'relative',
@@ -16,6 +16,6 @@ export const styles = Scoped.sheet({
     padding: '48px 24px',
     width: '100%',
     height: '360px',
-    borderTop: 'solid 1px #eaeaea',
-  },
-});
+    borderTop: 'solid 1px #eaeaea'
+  }
+})

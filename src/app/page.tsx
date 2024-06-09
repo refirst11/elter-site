@@ -5,5 +5,5 @@ export default function Home() {
         <h1>Typed CSS X</h1>
       </div>
     </main>
-  );
+  )
 }

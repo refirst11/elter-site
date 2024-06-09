@@ -1,16 +1,16 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { styles } from './style.css';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import React from 'react'
+import { styles } from './style.css'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export const Header = () => {
-  const pathname = usePathname();
+  const pathname = usePathname()
   const links = [
     { href: '/', label: 'Home' },
-    { href: '/docs', label: 'Documentation' },
-  ];
+    { href: '/docs', label: 'Documentation' }
+  ]
 
   return (
     <header className={styles.container}>
@@ -22,5 +22,5 @@ export const Header = () => {
         ))}
       </nav>
     </header>
-  );
-};
+  )
+}

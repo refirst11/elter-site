@@ -1,7 +1,7 @@
 type SeoData = {
-  title: string;
-  subtitle: string;
-  date?: string;
-};
+  title: string
+  subtitle: string
+  date?: string
+}
 
-export default SeoData;
+export default SeoData

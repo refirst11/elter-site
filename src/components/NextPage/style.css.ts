@@ -1,4 +1,4 @@
-import { Scoped, media } from 'typedcssx';
+import { Scoped, media } from 'typedcssx'
 
 export const styles = Scoped.sheet({
   container: {
@@ -6,6 +6,6 @@ export const styles = Scoped.sheet({
     height: '92px',
     width: '100%',
     padding: '32px 0',
-    borderTop: 'solid 1px #eaeaea',
-  },
-});
+    borderTop: 'solid 1px #eaeaea'
+  }
+})

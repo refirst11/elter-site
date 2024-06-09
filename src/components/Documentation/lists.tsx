@@ -1,16 +1,16 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import PostsData from 'types/PostsData';
-import { usePathname } from 'next/navigation';
-import styles from './style.module.css';
+import Link from 'next/link'
+import PostsData from 'types/PostsData'
+import { usePathname } from 'next/navigation'
+import styles from './style.module.css'
 
 type ListsProps = {
-  posts: PostsData[];
-};
+  posts: PostsData[]
+}
 
 const Lists = ({ posts }: ListsProps) => {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     pathname !== '/' && (
@@ -24,7 +24,7 @@ const Lists = ({ posts }: ListsProps) => {
         ))}
       </ul>
     )
-  );
-};
+  )
+}
 
-export default Lists;
+export default Lists

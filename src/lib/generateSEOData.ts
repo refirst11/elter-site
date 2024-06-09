@@ -1,4 +1,4 @@
-import SeoData from 'types/SeoData';
+import SeoData from 'types/SeoData'
 
 const generateSEOData = ({ title, subtitle, date }: SeoData) => {
   return {
@@ -8,8 +8,8 @@ const generateSEOData = ({ title, subtitle, date }: SeoData) => {
     alternates: {
       canonical: '/',
       languages: {
-        'en-US': '/en-US',
-      },
+        'en-US': '/en-US'
+      }
     },
     openGraph: {
       title: title,
@@ -19,8 +19,8 @@ const generateSEOData = ({ title, subtitle, date }: SeoData) => {
       images: {
         url: `${process.env.PROD_URL}/api/ogp?title=${title}&date=${date}`,
         width: 1200,
-        height: 600,
-      },
+        height: 600
+      }
     },
     twitter: {
       card: 'summary_large_image',
@@ -29,12 +29,12 @@ const generateSEOData = ({ title, subtitle, date }: SeoData) => {
       images: {
         url: `${process.env.PROD_URL}/api/ogp?title=${title}&date=${date}`,
         width: 1200,
-        height: 600,
+        height: 600
       },
       site: '@refirst11',
-      creator: '@refirst11',
-    },
-  };
-};
+      creator: '@refirst11'
+    }
+  }
+}
 
-export default generateSEOData;
+export default generateSEOData

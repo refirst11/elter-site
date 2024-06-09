@@ -1,11 +1,11 @@
-import withMDX from "@next/mdx";
-import rehypePrettyCode from "rehype-pretty-code";
-import { getHighlighter } from "shiki";
+import withMDX from '@next/mdx'
+import rehypePrettyCode from 'rehype-pretty-code'
+import { getHighlighter } from 'shiki'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
-};
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx']
+}
 
 const withMDXConfig = withMDX({
   options: {
@@ -13,13 +13,13 @@ const withMDXConfig = withMDX({
       [
         rehypePrettyCode,
         {
-          theme: "github-light",
+          theme: 'github-light',
           keepBacground: true,
-          getHighlighter,
-        },
-      ],
-    ],
-  },
-});
+          getHighlighter
+        }
+      ]
+    ]
+  }
+})
 
-export default withMDXConfig(nextConfig);
+export default withMDXConfig(nextConfig)

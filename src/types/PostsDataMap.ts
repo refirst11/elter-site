@@ -1,7 +1,7 @@
-import PostsData from './PostsData';
+import PostsData from './PostsData'
 
 type PostsDataMap = {
-  [key: string]: PostsData;
-};
+  [key: string]: PostsData
+}
 
-export default PostsDataMap;
+export default PostsDataMap

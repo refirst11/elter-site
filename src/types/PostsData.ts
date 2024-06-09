@@ -1,9 +1,9 @@
 type PostsData = {
-  slug: string;
-  title: string;
-  subtitle: string;
-  date: string;
-  length?: number;
-};
+  slug: string
+  title: string
+  subtitle: string
+  date: string
+  length?: number
+}
 
-export default PostsData;
+export default PostsData

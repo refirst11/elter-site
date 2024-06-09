@@ -1,7 +1,7 @@
-'use client';
+'use client'
 
-import { useEffect } from 'react';
-import tocbot from 'tocbot';
+import { useEffect } from 'react'
+import tocbot from 'tocbot'
 
 export const TocBot = () => {
   useEffect(() => {
@@ -11,11 +11,11 @@ export const TocBot = () => {
       headingSelector: 'h2, h3',
       headingsOffset: 220,
       scrollSmoothOffset: -70,
-      orderedList: false,
-    });
+      orderedList: false
+    })
 
-    return () => tocbot.destroy();
-  }, []);
+    return () => tocbot.destroy()
+  }, [])
 
-  return <nav className="toc" />;
-};
+  return <nav className="toc" />
+}

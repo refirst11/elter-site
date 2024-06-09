@@ -33,11 +33,15 @@
   font-weight: 600;
   color: rgb(83, 135, 232);
   background: #e0efff;
-  transition: all 0.2s, font-weight 0s;
+  transition:
+    all 0.2s,
+    font-weight 0s;
 }
 
 .active[aria-current='false'] {
   font-weight: 400;
   background: transparent;
-  transition: all 0.15s, font-weight 0s;
+  transition:
+    all 0.15s,
+    font-weight 0s;
 }

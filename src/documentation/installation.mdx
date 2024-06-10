@@ -39,7 +39,7 @@ This page describes installation and build settings, and other details.
   </Tab>
 </Tabs>
 
-## Build Setting
+## build setting
 
 Add the compile command to the `package.json` script field.
 
@@ -48,7 +48,7 @@ Add the compile command to the `package.json` script field.
   <Tab>
   ```json copy
     "scripts": {
-      "build": "npm run compiled && next build",
+      "build": "npm run compile && next build",
       "compile": "cd node_modules/typedcssx && npm run compile"
     },
   ```
@@ -57,7 +57,7 @@ Add the compile command to the `package.json` script field.
   <Tab>
   ```json copy
     "scripts": {
-      "build": "npm run compiled && next build",
+      "build": "npm run compile && next build",
       "compile": "cd node_modules/typedcssx && npm run compile"
     },
   ```
@@ -66,12 +66,30 @@ Add the compile command to the `package.json` script field.
   <Tab>
   ```json copy
     "scripts": {
-      "build": "npm run compiled && next build",
+      "build": "npm run compile && next build",
       "compile": "cd node_modules/typedcssx && npm run compile"
     },
   ```
   </Tab>
 </Tabs>
+
+## tsconfig.json
+
+<Tabs>
+  <Tab>
+  ```json
+    "include": ["**/*css.ts"],
+  ```
+  </Tab>
+</Tabs>
+
+## Global style sheet
+
+set the layout.tsx
+```tsx
+import '../../node_modules/typedcssx/dist/core/styles/global.css'
+```
+
 
 ## Node.js currently work version is v18.18.0
 

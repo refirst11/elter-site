@@ -10,7 +10,7 @@ export const TocBot = () => {
       contentSelector: 'body',
       headingSelector: 'h2, h3',
       headingsOffset: 220,
-      scrollSmoothOffset: -70,
+      scrollSmoothOffset: -220,
       orderedList: false
     })
 

@@ -3,6 +3,7 @@
 import React from 'react'
 import { styles } from './style.css'
 import Link from 'next/link'
+import isCurrentLink from 'lib/isCurrentLink'
 import { usePathname } from 'next/navigation'
 
 export const Header = () => {
@@ -16,7 +17,7 @@ export const Header = () => {
     <header className={styles.container}>
       <nav className={styles.wrapper}>
         {links.map((link) => (
-          <Link key={link.href} href={link.href} className={styles.link + ' ' + (pathname === link.href ? styles.active : styles.noactive)}>
+          <Link key={link.href} href={link.href} className={styles.link + ' ' + (isCurrentLink(link.href, pathname) ? styles.active : styles.noactive)}>
             {link.label}
           </Link>
         ))}

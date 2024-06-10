@@ -50,7 +50,9 @@ export default Scoped.global({
     textAlign: 'left',
     minHeight: '100vh'
   },
-
+  li: {
+    textAlign: 'left'
+  },
   a: {
     color: '#006BE6'
   },

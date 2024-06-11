@@ -1,6 +1,7 @@
 import { Header } from 'components/Header'
 import { Footer } from 'components/Footer'
-import Documentation from 'components/Documentation'
+import { Documentation } from 'components/Documentation'
+import { ThemeProvider } from 'next-themes'
 import '../../node_modules/typedcssx/dist/core/styles/global.css'
 import 'syntax/_syntax.css'
 
@@ -15,14 +16,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Header />
-        <main>
-          <Documentation />
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          <main>
+            <Documentation />
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

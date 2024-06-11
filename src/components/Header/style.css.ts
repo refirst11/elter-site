@@ -8,8 +8,8 @@ export const styles = Scoped.sheet({
     left: '0px',
     right: '0px',
     height: '64px',
-    borderBottom: 'solid 1px #eaeaea',
-    background: 'rgb(247, 247, 247)'
+    borderBottom: 'solid 1px var(--color-border)',
+    background: 'var(--color-bg)'
   },
 
   wrapper: {
@@ -27,11 +27,12 @@ export const styles = Scoped.sheet({
     textDecoration: 'none'
   },
   active: {
-    color: '#333',
-    fontWeight: '500'
+    color: 'var(--color-heading)',
+    fontWeight: '550'
   },
   noactive: {
-    color: '#4b5563'
+    color: 'var(--color-heading)',
+    fontWeight: '300'
   }
 })
 
@@ -40,8 +41,8 @@ export default Scoped.global({
     margin: 'auto',
     textAlign: 'center',
     lineHeight: '150%',
-    color: '#4b5563',
-    background: 'rgb(247, 247, 247)'
+    color: 'var(--color-text)', // #4b5563
+    background: 'var(--color-bg)' // rgb(247, 247, 247)
   },
   main: {
     width: '928px',
@@ -50,6 +51,7 @@ export default Scoped.global({
     textAlign: 'left',
     minHeight: '100vh'
   },
+
   li: {
     textAlign: 'left'
   },
@@ -66,21 +68,21 @@ export default Scoped.global({
     background: 'none'
   },
   h1: {
-    color: 'rgb(70, 86, 86)',
+    color: 'var(--color-heading)',
     margin: '80px 0',
     fontWeight: '600'
   },
   h2: {
-    color: 'rgb(70, 86, 86)',
+    color: 'var(--color-heading)',
     fontSize: '30px',
     fontWeight: '550',
     margin: '44px 0 0',
     height: '50px',
     paddingBottom: '4px',
-    borderBottom: 'solid 1px #eaeaea'
+    borderBottom: 'solid 1px var(--color-border)'
   },
   h3: {
-    color: 'rgb(70, 86, 86)',
+    color: 'var(--color-heading)',
     fontSize: '24px',
     fontWeight: '550',
     margin: '36px 0 0'
@@ -90,5 +92,21 @@ export default Scoped.global({
   },
   '*': {
     boxSizing: 'border-box'
+  }
+})
+
+Scoped.root({
+  "&[data-theme='dark']": {
+    '--color-text': 'rgb(180 180 190)',
+    '--color-bg': 'rgb(42 43 43)',
+    '--color-heading': 'rgb(230, 255, 247)',
+    '--color-border': 'rgba(10, 10, 10, 0.3)'
+  },
+
+  "&[data-theme='light']": {
+    '--color-text': '#4b5563',
+    '--color-bg': 'rgb(247, 247, 247)',
+    '--color-heading': 'rgb(70, 86, 86)',
+    '--color-border': '#eaeaea'
   }
 })

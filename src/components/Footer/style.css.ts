@@ -16,6 +16,6 @@ export const styles = Scoped.sheet({
     padding: '48px 24px',
     width: '100%',
     height: '360px',
-    borderTop: 'solid 1px #eaeaea'
+    borderTop: 'solid 1px var(--color-border)'
   }
 })

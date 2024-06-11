@@ -4,7 +4,8 @@
   flex-direction: column;
   font-size: 14px;
   top: 120px;
-  transform: translate(-140%, -50%);
+  transform: translate(-120%, -50%);
+  /* left: 22%; */
   gap: 4px;
   box-sizing: border-box;
 }
@@ -15,7 +16,7 @@
 
 .list_position a {
   text-decoration: none;
-  color: gray;
+  color: #878787;
   font-weight: 340;
   display: block;
   width: 200px;

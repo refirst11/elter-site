@@ -17,5 +17,10 @@ export const TocBot = () => {
     return () => tocbot.destroy()
   }, [])
 
-  return <nav className="toc" />
+  return (
+    <div>
+      <p className="title">On this page</p>
+      <nav className="toc" />
+    </div>
+  )
 }

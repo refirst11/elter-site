@@ -29,9 +29,18 @@
   }
 }
 
+.title {
+  z-index: 3;
+  position: fixed;
+  margin: 70px auto auto 880px;
+  font-weight: 550;
+  font-size: 14px;
+  color: rgb(70, 86, 86);
+}
+
 .toc {
   position: fixed;
-  margin: 50px auto auto 860px;
+  margin: 80px auto auto 860px;
 }
 
 .toc-list {

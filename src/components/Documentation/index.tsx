@@ -7,9 +7,7 @@ async function getPosts() {
   return posts
 }
 
-const Documentation = async () => {
+export const Documentation = async () => {
   const posts = await getPosts()
   return <Lists posts={posts} />
 }
-
-export default Documentation

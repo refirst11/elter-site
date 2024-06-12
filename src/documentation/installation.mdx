@@ -8,7 +8,7 @@ date: '2024-06-07'
 
 # Installation
 
-## NPM
+### NPM
 
 This page describes installation and build settings, and other details.
 
@@ -39,7 +39,7 @@ This page describes installation and build settings, and other details.
   </Tab>
 </Tabs>
 
-## build setting
+### build setting
 
 Add the compile command to the `package.json` script field.
 
@@ -73,7 +73,7 @@ Add the compile command to the `package.json` script field.
   </Tab>
 </Tabs>
 
-## tsconfig.json
+### tsconfig.json
 
 <Tabs>
   <Tab>
@@ -83,15 +83,19 @@ Add the compile command to the `package.json` script field.
   </Tab>
 </Tabs>
 
-## Global style sheet
+### Global style sheet
 
 set the layout.tsx
+
+<Tabs>
+  <Tab>
 ```tsx
 import '../../node_modules/typedcssx/dist/core/styles/global.css'
 ```
+  </Tab>
+</Tabs>
 
-
-## Node.js currently work version is v18.18.0
+### Node.js currently work version is v18.18.0
 
 The Node.js version that has been confirmed to work is v18.18.0.  
 It has been confirmed that ts-node does not currently work with versions 20 and above.

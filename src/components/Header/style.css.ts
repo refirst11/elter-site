@@ -100,7 +100,7 @@ Scoped.root({
     '--color-text': 'rgb(180 180 190)',
     '--color-bg': 'rgb(42 43 43)',
     '--color-heading': 'rgb(230, 255, 247)',
-    '--color-border': 'rgba(10, 10, 10, 0.3)'
+    '--color-border': 'rgba(30, 30, 30, 0.43)'
   },
 
   "&[data-theme='light']": {

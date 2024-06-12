@@ -8,31 +8,26 @@ export const styles = Scoped.sheet({
     position: 'relative',
     top: '24px',
     padding: '10px 20px',
-    right: '36px',
     cursor: 'pointer',
     marginTop: '30px',
     display: 'inline-block'
   },
-  container: {
-    position: 'relative',
-    width: '772px',
-    margin: '0 auto'
-  },
+
   code_box: {
     position: 'relative',
-    right: '40px',
     bottom: '15px'
   },
   wrapper: {
     display: 'flex',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    height: 0
   },
   copyButton: {
     zIndex: '1',
     position: 'relative',
     fontSize: '12px',
     marginLeft: 'auto',
-    right: '46px',
+    right: '68px',
     top: '62px',
     height: '30px',
     width: '30px',

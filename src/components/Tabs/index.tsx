@@ -40,7 +40,7 @@ export const Tabs = ({ items, children }: TabsProps) => {
   const codeToCopy = getTextFromChildren(React.Children.toArray(children)[activeTab])
 
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.wrapper}>
         {items?.map((item, index) => (
           <button
@@ -67,7 +67,7 @@ export const Tabs = ({ items, children }: TabsProps) => {
       <div onMouseEnter={() => setVisible(true)} onMouseLeave={() => setVisible(false)} className={styles.code_box}>
         {React.Children.toArray(children)[activeTab]}
       </div>
-    </div>
+    </>
   )
 }
 

@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import PostsData from 'types/PostsData'
 import { usePathname } from 'next/navigation'
-import styles from './style.module.css'
+import { styles } from './style.css'
 
 type ListsProps = {
   posts: PostsData[]

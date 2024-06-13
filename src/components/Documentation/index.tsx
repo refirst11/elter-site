@@ -1,6 +1,6 @@
 import getAllPosts from 'lib/getAllPosts'
 
-import Lists from './lists'
+import Lists from './List'
 
 async function getPosts() {
   const posts = await getAllPosts()

@@ -9,7 +9,6 @@ export const styles = Scoped.sheet({
     top: '24px',
     padding: '10px 20px',
     cursor: 'pointer',
-    marginTop: '30px',
     display: 'inline-block'
   },
 
@@ -18,6 +17,7 @@ export const styles = Scoped.sheet({
     bottom: '15px'
   },
   wrapper: {
+    marginTop: '30px',
     display: 'flex',
     alignItems: 'flex-end',
     height: 0

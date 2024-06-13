@@ -1,32 +1,29 @@
-@media (prefers-color-scheme: light) {
-  :root {
-    --shiki-color-text: #555555;
-    --shikii-color-background: #ffffff;
-    --shiki-token-constant: rgb(255, 130, 130);
-    --shiki-token-string: #2e2c40;
-    --shiki-token-comment: #555555;
-    --shiki-token-keyword: #6fd5e7;
-    --shiki-token-parameter: 555555;
-    --shiki-token-function: #ff8ebb;
-    --shiki-token-string-expression: #ff9e9e;
-    --shiki-token-punctuation: 555555;
-    --shiki-token-link: 555555;
-  }
+:root[data-theme='light'] {
+  --shiki-color-text: #555555;
+  --shikii-color-background: #ffffff;
+  --shiki-token-constant: rgb(207, 85, 154);
+  --shiki-token-string: #2e2c40;
+  --shiki-token-comment: #555555;
+  --shiki-token-keyword: #52c2d6;
+  --shiki-token-parameter: #555555;
+  --shiki-token-function: #ff6ca7;
+  --shiki-token-string-expression: #ff8e8e;
+  --shiki-token-punctuation: #555555;
+  --shiki-token-link: #555555;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --shiki-color-text: #ffffff;
-    --shiki-color-background: #202020;
-    --shiki-token-constant: #afffff;
-    --shiki-token-string: #ffffff;
-    --shiki-token-comment: #ffffff;
-    --shiki-token-keyword: #77b7d7;
-    --shiki-token-parameter: #ffffff;
-    --shiki-token-function: #ffffff;
-    --shiki-token-string-expression: #7c99dc;
-    --shiki-token-punctuation: #ffffff;
-    --shiki-token-link: #ffffff;
-  }
+
+:root[data-theme='dark'] {
+  --shiki-color-text: #ffffff;
+  --shiki-color-background: #202020;
+  --shiki-token-constant: #afffff;
+  --shiki-token-string: #ffffff;
+  --shiki-token-comment: #ffffff;
+  --shiki-token-keyword: #77b7d7;
+  --shiki-token-parameter: #ffffff;
+  --shiki-token-function: #ffffff;
+  --shiki-token-string-expression: #7c99dc;
+  --shiki-token-punctuation: #ffffff;
+  --shiki-token-link: #ffffff;
 }
 
 .title {
@@ -35,7 +32,7 @@
   margin: 70px auto auto 880px;
   font-weight: 550;
   font-size: 14px;
-  color: rgb(70, 86, 86);
+  color: var(--color-heading);
 }
 
 .toc {
@@ -50,17 +47,17 @@
 
 .toc-link {
   font-size: 14px;
-  color: #878787;
+  color: var(--color-text);
   text-decoration: none;
   font-weight: 300;
 }
 
 .toc-link:hover:not(.is-active-link) {
-  color: #555555;
+  color: var(--color-sublink);
 }
 
 .is-active-link {
-  color: #006be6;
+  color: var(--color-link);
   font-weight: 350;
 }
 
@@ -72,11 +69,13 @@ pre {
   overflow: auto;
   border-radius: 4px;
   box-shadow: 0 0 2px -0.5px rgb(0 0 0 / 40%);
-  transition: all 0.8s;
+  background: var(--shiki-color-background);
 }
 
 code {
-  font-family: var(--source);
+  font-size: 14px;
+  font-family: ui-monospace;
+  color: var(--shiki-color-text);
 }
 
 figure {

@@ -19,6 +19,7 @@ export const styles = Scoped.sheet({
     gap: '20px',
     top: '20px',
     left: '400px',
+    height: '0',
     listStyleType: 'none',
     listStylePosition: 'inside'
   },
@@ -56,7 +57,8 @@ export default Scoped.global({
     textAlign: 'left'
   },
   a: {
-    color: '#006BE6'
+    color: 'var(--color-link)',
+    fontWeight: '330'
   },
   p: {
     margin: '28px 0 0',
@@ -87,6 +89,13 @@ export default Scoped.global({
     fontWeight: '550',
     margin: '36px 0 0'
   },
+  h4: {
+    position: 'relative',
+    top: 12,
+    fontSize: '22px',
+    fontWeight: '500',
+    margin: '0 auto'
+  },
   strong: {
     fontWeight: '600'
   },
@@ -100,13 +109,21 @@ Scoped.root({
     '--color-text': 'rgb(180 180 190)',
     '--color-bg': 'rgb(42 43 43)',
     '--color-heading': 'rgb(230, 255, 247)',
-    '--color-border': 'rgba(30, 30, 30, 0.43)'
+    '--color-border': 'rgba(30, 30, 30, 0.43)',
+    '--color-accent': 'rgb(100 100 100)',
+    '--color-link': 'rgb(100 200 200)',
+    '--color-list': 'rgba(80, 87, 80, 0.3)',
+    '--color-sub': 'rgb(220 220 220)'
   },
 
   "&[data-theme='light']": {
     '--color-text': '#4b5563',
-    '--color-bg': 'rgb(247, 247, 247)',
+    '--color-bg': 'rgb(255, 255, 255)',
     '--color-heading': 'rgb(70, 86, 86)',
-    '--color-border': '#eaeaea'
+    '--color-border': '#eaeaea',
+    '--color-accent': 'rgb(160 160 220)',
+    '--color-link': '#006BE6',
+    '--color-list': '#e0efff',
+    '--color-sub': '#666'
   }
 })

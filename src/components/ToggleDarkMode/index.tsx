@@ -45,10 +45,12 @@ export const ToggleDarkMode = (): JSX.Element | null => {
   }
 
   return (
-    <div className={styles.toggle_wrapper}>
-      <button className={styles.toggle_button} onClick={handleChangeDarkMode}>
-        {darkMode ? <FiMoon /> : <FiSun size={10} />}
-      </button>
+    <div className={styles.border_wrapper}>
+      <div className={styles.toggle_wrapper}>
+        <button className={styles.toggle_button} onClick={handleChangeDarkMode}>
+          {darkMode ? <FiMoon /> : <FiSun size={10} />}
+        </button>
+      </div>
     </div>
   )
 }

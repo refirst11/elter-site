@@ -53,7 +53,8 @@
 }
 
 .toc-link:hover:not(.is-active-link) {
-  color: var(--color-sublink);
+  color: var(--color-sub);
+  font-weight: 350;
 }
 
 .is-active-link {

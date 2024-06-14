@@ -26,13 +26,13 @@ export const styles = Scoped.sheet({
   },
   active: {
     "&[aria-current='false']:hover": {
-      background: 'var(--color-border)',
+      background: 'var(--color-card)',
       color: 'var(--color-sub)',
       transition: 'all 0.2s'
     },
     "&[aria-current='page']": {
       fontWeight: 600,
-      color: 'rgb(83, 135, 232)',
+      color: 'var(--color-link)',
       background: 'var(--color-list)',
       transition: 'all 0.2s, font-weight 0s'
     },

@@ -113,7 +113,8 @@ Scoped.root({
     '--color-accent': 'rgb(100 100 100)',
     '--color-link': 'rgb(100 200 200)',
     '--color-list': 'rgba(80, 87, 80, 0.3)',
-    '--color-sub': 'rgb(220 220 220)'
+    '--color-sub': 'rgb(220 220 220)',
+    '--color-card': 'rgba(33, 33, 33, 0.3)'
   },
 
   "&[data-theme='light']": {
@@ -122,8 +123,9 @@ Scoped.root({
     '--color-heading': 'rgb(70, 86, 86)',
     '--color-border': '#eaeaea',
     '--color-accent': 'rgb(160 160 220)',
-    '--color-link': '#006BE6',
+    '--color-link': 'rgb(60, 135, 232)',
     '--color-list': '#e0efff',
-    '--color-sub': '#666'
+    '--color-sub': '#222',
+    '--color-card': 'rgb(245 245 245)'
   }
 })

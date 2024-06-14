@@ -7,6 +7,7 @@ export const styles = Scoped.sheet({
     zIndex: '1',
     position: 'relative',
     top: '24px',
+    left: 4,
     padding: '10px 20px',
     cursor: 'pointer',
     display: 'inline-block'

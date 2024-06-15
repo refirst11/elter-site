@@ -43,7 +43,7 @@ export const styles = Style.create({
     '& h2': {
       fontSize: 24,
       borderBottom: 'none',
-      marginTop: 80,
+      marginTop: 50,
       height: 'max-content'
     },
     '& p': {
@@ -51,7 +51,7 @@ export const styles = Style.create({
     },
     '& div span': {
       position: 'absolute',
-      margin: '26px 0 0 0px',
+      top: 6,
       display: 'block',
       fontSize: 36
     }

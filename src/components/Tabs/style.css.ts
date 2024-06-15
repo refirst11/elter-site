@@ -26,7 +26,7 @@ export const styles = Style.create({
     position: 'relative',
     fontSize: '12px',
     marginLeft: 'auto',
-    right: '68px',
+    right: '8px',
     top: '62px',
     height: '30px',
     width: '30px',

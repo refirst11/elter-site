@@ -31,6 +31,9 @@ export const Tabs = ({ items, children }: TabsProps) => {
       if (typeof child === 'string') {
         text += child
       } else if (React.isValidElement(child)) {
+        if (child.type === 'figcaption') {
+          return
+        }
         text += getTextFromChildren(child.props.children)
       }
     })
@@ -59,7 +62,7 @@ export const Tabs = ({ items, children }: TabsProps) => {
             onMouseEnter={() => setVisible(true)}
             className={`${copied ? styles.noactive + ' ' + styles.copyButton : styles.active + ' ' + styles.copyButton} ${visible ? styles.visible : styles.hidden}`}>
             <div className={styles.icon_position}>
-              <FiCopy size={16} color={copied ? '#333' : 'gray'} className={copied ? styles.noactive : styles.active} />
+              <FiCopy size={16} color={copied ? '#555' : 'gray'} className={copied ? styles.noactive : styles.active} />
             </div>
           </button>
         </CopyToClipboard>

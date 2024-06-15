@@ -1,6 +1,6 @@
-import { Scoped } from 'typedcssx'
+import { Style } from 'typedcssx'
 
-export default Scoped.global({
+export default Style.global({
   h1: {
     color: 'red'
   },

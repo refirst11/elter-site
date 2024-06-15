@@ -33,18 +33,20 @@ Styles exported by the compiler as static CSS Modules are split into components 
 <Tabs>
   <Tab>
 ```ts
-import { Scoped } from 'typedcssx';
+import { Style } from 'typedcssx';
 
-export const styles = Scoped.sheet({
+export const styles = Style.create({
   header_nav: {
     position: 'absolute',
     top: 0,
   },
 });
 
-export const style = Scoped.style({
-  fontSize: 16,
-  color: 'black',
+export const navStyle = Style.set({
+  '& a':{
+    fontSize: 16,
+    color: 'black',
+  },
 });
 ```
   </Tab>
@@ -53,18 +55,17 @@ export const style = Scoped.style({
 <Tabs>
   <Tab>
 ```tsx
-import { styles } from './style.css';
+import { styles, navStyle } from './style.css';
 
 export const Header = () => {
 return (
   <header className={styles.header_nav}>
-    <nav>
-      <a className={style}>content</a>
+    <nav className={navStyle}>
+      <a>content</a>
       <a>home</a>
     </nav>
   </header>
 )};
-
 ```
   </Tab>
 </Tabs>
@@ -83,8 +84,10 @@ Although this library is a fairly latecomer to the CSS in JS world, it is heavil
 
 - **[Linaria](https://github.com/callstack/linaria):** Typed CSS was also inspired by this `static extraction` concept.
 
+There integrated the standout features from each of these libraries into Typed CSS X. This is our expression of gratitude to these exceptional open-source projects and our contribution to the community.
+
 ### What's Next?
 
 Where creativity meets precision is the Typed CSSX Dive into class functions or explore Pseudo docs to unleash its full potential.
 
-Welcome to Typed CSSX. We can't wait to see what you'll create 🇹
+Welcome to Typed CSSX. We can't wait to see what you'll create.

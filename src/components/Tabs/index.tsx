@@ -46,7 +46,7 @@ export const Tabs = ({ items, children }: TabsProps) => {
           <button
             style={{
               borderBottom: activeTab === index ? 'solid 2px lightblue' : 'white',
-              color: activeTab === index ? 'skyblue' : 'black'
+              color: activeTab === index ? 'skyblue' : 'var(--color-heading)'
             }}
             className={styles.button_initialize}
             key={index}

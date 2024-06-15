@@ -1,9 +1,5 @@
-export default function Home() {
-  return (
-    <main>
-      <div>
-        <h1>Typed CSS X</h1>
-      </div>
-    </main>
-  )
+import { Home } from 'components/Home'
+
+export default function Page() {
+  return <Home />
 }

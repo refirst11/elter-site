@@ -1,6 +1,6 @@
-import { Scoped, media } from 'typedcssx'
+import { Style } from 'typedcssx'
 
-export const styles = Scoped.sheet({
+export const styles = Style.create({
   toggle_button: {
     position: 'absolute',
     cursor: 'pointer',

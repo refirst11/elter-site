@@ -1,8 +1,6 @@
-import { Scoped, media } from 'typedcssx'
+import { Style } from 'typedcssx'
 
-const sm = media('300px <= 600px')
-
-export const styles = Scoped.sheet({
+export const styles = Style.create({
   button_initialize: {
     zIndex: '1',
     position: 'relative',

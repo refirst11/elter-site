@@ -1,13 +1,12 @@
-import { Scoped } from 'typedcssx'
+import { Style } from 'typedcssx'
 
-export const styles = Scoped.sheet({
+export const styles = Style.create({
   list_position: {
     position: 'fixed',
     display: 'flex',
     flexDirection: 'column',
     fontSize: 14,
-    top: 120,
-    transform: 'translate(-120%, -50%)',
+    transform: 'translate(-120%, 100%)',
     gap: 4,
     boxSizing: 'border-box',
     '& li': {

@@ -1,6 +1,6 @@
-import { Scoped, media } from 'typedcssx'
+import { Style, media } from 'typedcssx'
 
-export const styles = Scoped.sheet({
+export const styles = Style.create({
   container: {
     zIndex: '2',
     position: 'fixed',
@@ -37,7 +37,7 @@ export const styles = Scoped.sheet({
   }
 })
 
-export default Scoped.global({
+export default Style.global({
   body: {
     margin: 'auto',
     textAlign: 'center',
@@ -71,6 +71,7 @@ export default Scoped.global({
   },
   h1: {
     color: 'var(--color-heading)',
+    padding: '20px 0',
     margin: '80px 0',
     fontWeight: '600'
   },
@@ -104,17 +105,18 @@ export default Scoped.global({
   }
 })
 
-Scoped.root({
+Style.root({
   "&[data-theme='dark']": {
     '--color-text': 'rgb(180 180 190)',
     '--color-bg': 'rgb(42 43 43)',
     '--color-heading': 'rgb(230, 255, 247)',
     '--color-border': 'rgba(30, 30, 30, 0.43)',
-    '--color-accent': 'rgb(100 100 100)',
     '--color-link': 'rgb(100 200 200)',
     '--color-list': 'rgba(80, 87, 80, 0.3)',
     '--color-sub': 'rgb(220 220 220)',
-    '--color-card': 'rgba(33, 33, 33, 0.3)'
+    '--color-card': 'rgba(33, 33, 33, 0.3)',
+    '--color-logo': 'rgb(100 220 200)',
+    '--color-accent': 'rgb(206 206 206)'
   },
 
   "&[data-theme='light']": {
@@ -122,10 +124,11 @@ Scoped.root({
     '--color-bg': 'rgb(255, 255, 255)',
     '--color-heading': 'rgb(70, 86, 86)',
     '--color-border': '#eaeaea',
-    '--color-accent': 'rgb(160 160 220)',
     '--color-link': 'rgb(60, 135, 232)',
     '--color-list': '#e0efff',
     '--color-sub': '#222',
-    '--color-card': 'rgb(245 245 245)'
+    '--color-card': 'rgb(245 245 245)',
+    '--color-logo': 'rgb(60 165 140) ',
+    '--color-accent': 'rgb(70, 86, 86)'
   }
 })

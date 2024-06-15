@@ -1,6 +1,6 @@
-import { Scoped } from 'typedcssx'
+import { Style } from 'typedcssx'
 
-export const style = Scoped.style({
+export const style = Style.set({
   position: 'absolute',
   top: 2,
   marginLeft: '272px',

@@ -15,25 +15,25 @@ This page describes installation and build settings, and other details.
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
   {/* prettier-ignore */}
   <Tab>
-    ```bash
+    ```bash title="shell"
     npm install typedcssx
     ```
   </Tab>
   {/* prettier-ignore */}
   <Tab>
-    ```bash
+    ```bash title="shell"
     pnpm install typedcssx
     ```
   </Tab>
   {/* prettier-ignore */}
   <Tab>
-    ```bash
+    ```bash title="shell"
     yarn add typedcssx
     ```
   </Tab>
   {/* prettier-ignore */}
   <Tab>
-    ```bash
+    ```bash title="shell"
     bun add typedcssx
     ```
   </Tab>
@@ -43,10 +43,10 @@ This page describes installation and build settings, and other details.
 
 Add the compile command to the `package.json` script field.
 
-<Tabs items={["npm", "pnpm", "yarn"]} storageKey="manager">
+<Tabs items={["npm", "pnpm", "yarn", "bun"]} storageKey="manager">
   {/* prettier-ignore */}
   <Tab>
-  ```json copy
+  ```json title="package.json"
     "scripts": {
       "build": "npm run compile && next build",
       "compile": "cd node_modules/typedcssx && npm run compile"
@@ -55,7 +55,7 @@ Add the compile command to the `package.json` script field.
   </Tab>
   {/* prettier-ignore */}
   <Tab>
-  ```json copy
+  ```json title="package.json"
     "scripts": {
       "build": "npm run compile && next build",
       "compile": "cd node_modules/typedcssx && npm run compile"
@@ -64,7 +64,16 @@ Add the compile command to the `package.json` script field.
   </Tab>
   {/* prettier-ignore */}
   <Tab>
-  ```json copy
+  ```json title="package.json"
+    "scripts": {
+      "build": "npm run compile && next build",
+      "compile": "cd node_modules/typedcssx && npm run compile"
+    },
+  ```
+  </Tab>
+    {/* prettier-ignore */}
+  <Tab>
+  ```json title="package.json"
     "scripts": {
       "build": "npm run compile && next build",
       "compile": "cd node_modules/typedcssx && npm run compile"
@@ -76,7 +85,7 @@ Add the compile command to the `package.json` script field.
 #### tsconfig.json
 <Tabs>
   <Tab>
-  ```json
+  ```json title="tsconfig.json"
     "include": ["**/*css.ts"],
   ```
   </Tab>
@@ -85,7 +94,7 @@ Add the compile command to the `package.json` script field.
 #### Global style sheet
 <Tabs>
   <Tab>
-```tsx
+```tsx title="layout.tsx"
 import '../../node_modules/typedcssx/dist/core/styles/global.css'
 ```
   </Tab>

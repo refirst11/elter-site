@@ -1,0 +1,90 @@
+---
+title: 'Media'
+subtitle: 'The Media guide'
+date: '2024-06-17'
+---
+
+<TocBot />
+
+# Media
+The media function is a higher-order function that provides a wrapper function in its return value.  
+When used with create, the key will be inaccessible. To resolve this, use a second normal key selector or wrap the properties.
+
+Take a look at the media queries in the mobile functions and compare them.
+
+### In put
+```ts title="style.css.ts"
+import { Style, media } from '../../components/typedcss/src/core';
+
+const mobile = media('max-width: 799.99px');
+
+export const styles = Style.create({
+    logo: {
+      left: 400,
+      top: 12,
+      ...mobile({
+        left: 6,
+        top: 6,
+      }),
+    },
+});
+
+Style.global({
+  ...mobile({
+    body: {
+      width: '100%',
+      padding: '120px 24px',
+      fontSize: 12,
+    },
+    h1: {
+      color: 'var(--color-heading)',
+      padding: 0,
+      margin: 0,
+      fontSize: '20px',
+      fontWeight: 400
+    },
+    h2: {
+      color: 'var(--color-heading)',
+      fontSize: '18px',
+      fontWeight: '400',
+    },
+  }),
+});
+```
+
+### Out put
+```css title="css"
+.logo_nBXWJ {
+  left: 400px;
+  top: 12px;
+}
+
+@media (max-width: 799.99px) {
+  .logo_nBXWJ {
+    left: 6px;
+    top: 6px;
+  }
+}
+
+@media (max-width: 799.99px) {
+  body {
+    width: 100%;
+    padding: 120px 24px;
+    font-size: 12px;
+  }
+
+  h1 {
+    color: var(--color-heading);
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  h2 {
+    color: var(--color-heading);
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+```

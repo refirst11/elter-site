@@ -1,11 +1,19 @@
 'use client'
+import Link from 'next/link'
 import { styles } from './style.css'
 
 export function Home() {
   return (
     <div className={styles.container}>
       <span className={styles.Logo}>Typed CSS X</span>
+      <Link className={styles.link1} href="/docs">
+        Get Started
+      </Link>
+      <Link className={styles.link2} href="/installation">
+        Installation
+      </Link>
       <p className={styles.text}>CSS in JS</p>
+      <p className={styles.tagline}>A Type Safety and seamless CSS in JS on Next.js</p>
       <div>
         <span>📡</span>
         <h2>Console lover</h2>

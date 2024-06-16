@@ -1,13 +1,50 @@
 import { Style, media } from 'typedcssx'
 
 export const styles = Style.create({
+  link1: {
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: 14,
+    top: -140,
+    marginRight: 160,
+    height: '40px',
+    padding: '12px 24px',
+    background: 'var(--color-logo2)',
+    color: 'var(--color-bg)',
+    fontWeight: '500',
+    borderRadius: '20px',
+    textDecoration: 'none',
+    hover: {
+      background: 'var(--color-logo)'
+    }
+  },
+  link2: {
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: -140,
+    marginLeft: 160,
+    height: '40px',
+    width: 125.75,
+    padding: '12px 24px',
+    background: 'var(--color-bg2)',
+    color: 'var(--color-text2)',
+    fontWeight: '500',
+    borderRadius: '20px',
+    textDecoration: 'none',
+    hover: {
+      background: 'var(--color-bg3)'
+    }
+  },
   Logo: {
     position: 'absolute',
     display: 'flex',
     alignItems: 'center',
     fontSize: 55,
     fontWeight: '600',
-    top: -160,
+    top: -250,
     height: '75px',
     color: 'var(--color-logo)'
   },
@@ -15,12 +52,22 @@ export const styles = Style.create({
     position: 'absolute',
     display: 'flex',
     alignItems: 'center',
-    fontSize: 55,
+    fontSize: 36,
     fontWeight: '600',
-    top: -100,
-    marginRight: 80,
+    top: -140,
+    left: 20,
     height: '75px',
     color: 'var(--color-accent)'
+  },
+  tagline: {
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: 24,
+    fontWeight: '400',
+    top: -80,
+    left: 26,
+    color: 'var(--color-text)'
   },
   container: {
     position: 'absolute',

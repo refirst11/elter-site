@@ -36,12 +36,14 @@ export const NextPage = () => {
     <div className={styles.container}>
       {prevPost && (
         <Link href={`/${prevPost.slug}`} className={styles.prev}>
-          {`< ${prevPost.title}`}
+          <span className={styles.desc}>Previous page</span>
+          <span>{prevPost.title}</span>
         </Link>
       )}
       {nextPost && (
         <Link href={`/${nextPost.slug}`} className={styles.next}>
-          {`${nextPost.title} >`}
+          <span className={styles.desc}>Next page</span>
+          <span>{nextPost.title}</span>
         </Link>
       )}
     </div>

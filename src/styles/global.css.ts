@@ -5,10 +5,12 @@ Style.global({
     margin: 'auto',
     textAlign: 'center',
     lineHeight: 1.75,
-    color: 'var(--color-text)', // #4b5563
-    background: 'var(--color-bg)' // rgb(247, 247, 247)
+    color: 'var(--color-text)',
+    background: 'var(--color-bg)'
   },
   main: {
+    position: 'relative',
+    top: 24,
     width: '928px',
     padding: '16px 48px',
     margin: '0 auto',
@@ -35,7 +37,7 @@ Style.global({
   h1: {
     color: 'var(--color-heading)',
     padding: '20px 0',
-    margin: '80px 0',
+    margin: '20px 0',
     fontWeight: '600'
   },
   h2: {
@@ -54,7 +56,6 @@ Style.global({
     margin: '36px 0 0'
   },
   h4: {
-    position: 'relative',
     top: 12,
     fontSize: '22px',
     fontWeight: '500',
@@ -65,6 +66,17 @@ Style.global({
   },
   '*': {
     boxSizing: 'border-box'
+  },
+  'h1::after, h2::after, h3::after, h4::after, h5::after, h6::after': {
+    content: '"#"',
+    position: 'relative',
+    left: 8,
+    opacity: 0,
+    color: 'var(--color-heading)',
+    transition: 'all 0.2s'
+  },
+  'h1:hover::after, h2:hover::after, h3:hover::after, h4:hover::after, h5:hover::after, h6:hover::after': {
+    opacity: 0.2
   }
 })
 
@@ -79,7 +91,12 @@ Style.root({
     '--color-sub': 'rgb(220 220 220)',
     '--color-card': 'rgba(33, 33, 33, 0.3)',
     '--color-logo': 'rgb(100 220 200)',
-    '--color-accent': 'rgb(206 206 206)'
+    '--color-accent': 'rgb(206 206 206)',
+    '--color-bg2': 'rgb(56 56 56)',
+    '--color-bg3': 'rgb(66 66 66)',
+    '--color-text2': 'rgb(206 206 206)',
+    '--color-logo2': 'rgb(80 200 180)',
+    '--color-border2': 'rgba(200, 200, 200, 0.2)'
   },
 
   "&[data-theme='light']": {
@@ -92,6 +109,11 @@ Style.root({
     '--color-sub': '#222',
     '--color-card': 'rgb(245 245 245)',
     '--color-logo': 'rgb(60 165 140) ',
-    '--color-accent': 'rgb(70, 86, 86)'
+    '--color-accent': 'rgb(70, 86, 86)',
+    '--color-bg2': '#4b5563',
+    '--color-bg3': 'rgb(95 105 119)',
+    '--color-text2': 'rgb(255, 255, 255)',
+    '--color-logo2': 'rgb(40 145 120) ',
+    '--color-border2': 'rgba(200, 200, 200, 0.2)'
   }
 })

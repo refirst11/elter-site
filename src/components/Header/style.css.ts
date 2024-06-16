@@ -23,6 +23,15 @@ export const styles = Style.create({
     listStyleType: 'none',
     listStylePosition: 'inside'
   },
+
+  logo: {
+    position: 'absolute',
+    color: 'var(--color-heading)',
+    fontWeight: '500',
+    marginRight: 2020,
+    width: 100,
+    textDecoration: 'none'
+  },
   link: {
     fontSize: '14px',
     textDecoration: 'none'

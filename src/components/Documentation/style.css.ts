@@ -6,7 +6,7 @@ export const styles = Style.create({
     display: 'flex',
     flexDirection: 'column',
     fontSize: 14,
-    transform: 'translate(-120%, 100%)',
+    transform: 'translate(-120%, 40%)',
     gap: 4,
     boxSizing: 'border-box',
     '& li': {

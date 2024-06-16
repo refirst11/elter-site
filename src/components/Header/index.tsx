@@ -8,6 +8,7 @@ import isCurrentLink from 'lib/isCurrentLink'
 import { usePathname } from 'next/navigation'
 import { ToggleDarkMode } from 'components/ToggleDarkMode'
 import { GitIcon } from 'components/GitIcon'
+import { SearchBox } from 'components/SearchBox'
 
 export const Header = () => {
   const pathname = usePathname()
@@ -19,6 +20,10 @@ export const Header = () => {
   return (
     <header className={styles.container}>
       <nav className={styles.wrapper}>
+        <Link href="/" className={styles.logo}>
+          Typed CSS X
+        </Link>
+        <SearchBox />
         <ToggleDarkMode />
         <GitIcon />
         {links.map((link) => (

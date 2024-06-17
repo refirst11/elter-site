@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Command } from 'cmdk'
 import { SearchResults } from 'components/SearchResults'
 import { styles } from './style.css'
 

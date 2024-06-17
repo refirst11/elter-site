@@ -75,7 +75,7 @@ export const styles = Style.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    top: '50%',
+    top: '60%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     gap: 40,

@@ -23,7 +23,7 @@ const myTheme = createCssVariablesTheme({
   fontStyle: true
 })
 
-const getPostMdx = async (slug: string): Promise<ReturnData> => {
+async function getPostMdx(slug: string): Promise<ReturnData> {
   const folder = path.join(process.cwd(), '/src/documentation')
   const fullPath = path.join(folder, `${slug}.mdx`)
   const file = fs.readFileSync(fullPath, 'utf8')
@@ -54,3 +54,8 @@ const getPostMdx = async (slug: string): Promise<ReturnData> => {
 }
 
 export default getPostMdx
+
+export const getPageContent = async (slug: string) => {
+  const postData = await getPostMdx(slug)
+  return postData
+}

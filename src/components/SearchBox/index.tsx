@@ -6,7 +6,9 @@ import { styles } from './style.css'
 
 export const SearchBox = () => {
   const [keyword, setKeyword] = useState('')
+  const [showResults, setShowResults] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -16,17 +18,41 @@ export const SearchBox = () => {
       }
     }
 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setShowResults(false)
+      }
+    }
+
     document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('mousedown', handleClickOutside)
+
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
 
+  const closeLink = () => {
+    setShowResults(false)
+    setKeyword('')
+  }
+
   return (
-    <div className={styles.box}>
-      <input ref={inputRef} className={styles.inputBox} value={keyword} placeholder={'Search Documents...'} type="text" onChange={(e) => setKeyword(e.target.value)} />
+    <div ref={containerRef} className={styles.box}>
+      <input
+        ref={inputRef}
+        className={styles.inputBox}
+        value={keyword}
+        placeholder={'Search Documents...'}
+        type="text"
+        onChange={(e) => {
+          setKeyword(e.target.value)
+          setShowResults(true)
+        }}
+      />
       <div className={styles.cmdk}>⌘ K</div>
-      {keyword && <SearchResults keyword={keyword} />}
+      {showResults && keyword && <SearchResults onClick={closeLink} keyword={keyword} />}
     </div>
   )
 }

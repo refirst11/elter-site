@@ -5,13 +5,17 @@ export const styles = Style.create({
     display: 'flex',
     position: 'relative',
     background: 'var(--color-card)',
-    outline: 'none',
     border: 'none',
     width: '100%',
     height: '100%',
     borderRadius: '8px',
     paddingLeft: 12,
-    caretColor: 'var(--color-text)'
+    caretColor: 'var(--color-text)',
+    transition: 'all 0.2s',
+    outline: '3px solid transparent',
+    focus: {
+      outline: '3px solid skyblue'
+    }
   },
   box: {
     position: 'absolute',

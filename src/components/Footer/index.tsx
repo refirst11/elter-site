@@ -2,8 +2,8 @@
 
 import React from 'react'
 import { styles } from './style.css'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 export const Footer = () => {
   const pathname = usePathname()
@@ -14,7 +14,10 @@ export const Footer = () => {
 
   return (
     <footer className={styles.footer_main}>
-      <div className={styles.footer_container}>MIT 2024 © refirst</div>
+      <div className={styles.footer_container}>
+        <span>MIT 2024 © refirst</span>
+      </div>
+      <Image className={styles.nextlogo} src="/next.svg" alt="Next.js Logo" width={80} height={20} />
     </footer>
   )
 }

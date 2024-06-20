@@ -7,10 +7,12 @@ export const styles = Style.create({
     width: '100%',
     top: '120px',
     textAlign: 'center',
-    marginRight: '500px',
     paddingTop: 50,
     height: 140,
-    borderTop: 'solid 1px var(--color-border)'
+    borderTop: 'solid 1px var(--color-border)',
+    '& span': {
+      marginRight: 1180
+    }
   },
   footer_main: {
     position: 'relative',
@@ -19,5 +21,12 @@ export const styles = Style.create({
     justifyContent: 'flex-end',
     width: '100%',
     height: '140px'
+  },
+  nextlogo: {
+    zIndex: '0',
+    position: 'absolute',
+    right: '25%',
+    top: '170px',
+    textAlign: 'center'
   }
 })

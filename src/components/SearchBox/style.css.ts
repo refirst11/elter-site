@@ -30,9 +30,13 @@ export const styles = Style.create({
     borderRadius: '12px'
   },
   cmdk: {
+    zIndex: '3',
     position: 'relative',
-    left: 190,
-    top: -32,
+    left: 110,
+    top: -42,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     color: 'black',
     background: '#fff',
     border: 'solid 1px rgba(100, 100, 100, 0.3)',

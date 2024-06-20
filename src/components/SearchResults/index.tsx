@@ -3,9 +3,8 @@ import Link from 'next/link'
 import styles from './styles.module.css'
 import { JSXElementConstructor, ReactElement, useEffect, useState } from 'react'
 import getAllPosts from 'lib/getAllPosts'
-import { getPageContent } from 'lib/getPostMdx'
+import getPostMdx from 'lib/getPostMdx'
 import PostsData from 'types/PostsData'
-import React from 'react'
 
 type KeywordProps = {
   keyword: string
@@ -80,19 +79,14 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
       const postsData = await getAllPosts()
       setPosts(postsData)
 
-      const fetchContents = async (postsData: PostsData[]) => {
-        const contents = await Promise.all(
-          postsData.map(async ({ slug }) => {
-            const { meta, content } = await getPageContent(slug)
-            const matchedSections = extractHeadingsAndParagraphs(content)
+      const contents = await Promise.all(
+        postsData.map(async ({ slug }) => {
+          const { meta, content } = await getPostMdx(slug)
+          const matchedSections = extractHeadingsAndParagraphs(content)
 
-            return { slug, meta, content, matchedSections }
-          })
-        )
-
-        return contents
-      }
-      const contents = await fetchContents(postsData)
+          return { slug, meta, content, matchedSections }
+        })
+      )
 
       const contentMap = contents.reduce(
         (acc, { slug, meta, content, matchedSections }) => {

@@ -143,7 +143,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
                       onClick={() =>
                         setTimeout(() => {
                           scrollToHeading(id)
-                        }, 80)
+                        }, 100)
                       }>
                       <div className={styles.heading3} dangerouslySetInnerHTML={{ __html: heading.replace(keywordRegex, `<span class=${styles.highlight}>$1</span>`) }} />
 

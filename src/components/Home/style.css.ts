@@ -77,7 +77,7 @@ export const styles = Style.create({
     alignItems: 'center',
     top: '60%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
+    transform: 'translate(-50%, -20%)',
     gap: 40,
     width: 'max-content',
     '& div': {

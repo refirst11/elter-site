@@ -77,6 +77,9 @@ Style.global({
   },
   'h1:hover::after, h2:hover::after, h3:hover::after, h4:hover::after, h5:hover::after, h6:hover::after': {
     opacity: 0.2
+  },
+  'input::-webkit-scrollbar-thumb': {
+    background: '#888'
   }
 })
 

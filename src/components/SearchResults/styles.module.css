@@ -1,7 +1,8 @@
 .list {
-  position: relative;
-  top: -16px;
-  margin: 0;
+  z-index: 2;
+  position: fixed;
+  top: 48px;
+  margin-left: -84px;
   padding: 12px;
   width: 580px;
   height: 400px;

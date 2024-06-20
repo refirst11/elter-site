@@ -91,8 +91,12 @@ export const styles = Style.create({
       fontSize: 24,
       borderBottom: 'none',
       marginTop: 50,
-      height: 'max-content'
+      height: 'max-content',
+      '&::after': {
+        content: 'none'
+      }
     },
+
     '& p': {
       marginTop: 8
     },

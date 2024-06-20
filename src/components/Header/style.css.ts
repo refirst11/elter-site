@@ -27,9 +27,9 @@ export const styles = Style.create({
   logo: {
     position: 'absolute',
     color: 'var(--color-heading)',
-    fontWeight: '500',
+    fontWeight: '700',
     marginRight: 2020,
-    width: 100,
+    width: 110,
     textDecoration: 'none'
   },
   link: {

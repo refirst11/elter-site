@@ -3,19 +3,23 @@ import { Style } from 'typedcssx'
 export const styles = Style.create({
   inputBox: {
     display: 'flex',
-    position: 'relative',
+    zIndex: '3',
+    position: 'fixed',
+    top: 16,
     background: 'var(--color-card)',
     border: 'none',
-    width: '100%',
-    height: '100%',
+    width: 240,
+    height: 33.5,
     borderRadius: '8px',
     paddingLeft: 12,
+    marginLeft: -80,
     caretColor: 'var(--color-text)',
     transition: 'all 0.2s',
     outline: '3px solid transparent',
     focus: {
       outline: '3px solid skyblue'
-    }
+    },
+    color: 'var(--color-text)'
   },
   box: {
     position: 'absolute',

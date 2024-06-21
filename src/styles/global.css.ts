@@ -1,21 +1,43 @@
-import { Style } from 'typedcssx'
+import { Style, media } from 'typedcssx'
+
+const mobile = media('max-width: 799.99px')
 
 Style.global({
+  html: {
+    width: '100%',
+    height: '100%',
+    padding: 0,
+    margin: 0
+  },
   body: {
-    margin: 'auto',
     textAlign: 'center',
+    fontSize: 16,
     lineHeight: 1.75,
+    wordBreak: 'break-all',
+    margin: '0 auto',
     color: 'var(--color-text)',
     background: 'var(--color-bg)'
   },
+  ...mobile({
+    body: {
+      padding: '64px 24px',
+      fontSize: 14
+    }
+  }),
   main: {
     position: 'relative',
-    top: 24,
+    minHeight: '100vh',
+    top: 64,
     width: '928px',
     padding: '16px 48px',
     margin: '0 auto',
     textAlign: 'left',
-    minHeight: '100vh'
+    ...mobile({
+      top: 14,
+      width: '100%',
+      padding: 0,
+      minHeight: '100vh'
+    })
   },
 
   li: {
@@ -38,7 +60,11 @@ Style.global({
     color: 'var(--color-heading)',
     padding: '20px 0',
     margin: '20px 0',
-    fontWeight: '600'
+    fontWeight: '600',
+    ...mobile({
+      padding: '8px 0',
+      fontSize: 30
+    })
   },
   h2: {
     color: 'var(--color-heading)',
@@ -47,13 +73,19 @@ Style.global({
     margin: '44px 0 0',
     height: '50px',
     paddingBottom: '4px',
-    borderBottom: 'solid 1px var(--color-border)'
+    borderBottom: 'solid 1px var(--color-border)',
+    ...mobile({
+      fontSize: 28
+    })
   },
   h3: {
     color: 'var(--color-heading)',
     fontSize: '24px',
     fontWeight: '550',
-    margin: '36px 0 0'
+    margin: '36px 0 0',
+    ...mobile({
+      fontSize: 22
+    })
   },
   h4: {
     top: 12,

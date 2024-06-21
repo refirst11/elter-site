@@ -136,22 +136,23 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
             {matchedSections.map(
               ({ heading, paragraphs, id }, index) =>
                 (heading.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) || paragraphs.some((paragraph) => paragraph.toLowerCase().includes(keyword.toLowerCase()))) && (
-                  <div key={index} className={styles.box}>
-                    <Link
-                      className={styles.link}
-                      href={`/${slug}`}
-                      onClick={() =>
-                        setTimeout(() => {
-                          scrollToHeading(id)
-                        }, 100)
-                      }>
+                  <Link
+                    key={index}
+                    className={styles.link}
+                    href={`/${slug}`}
+                    onClick={() =>
+                      setTimeout(() => {
+                        scrollToHeading(id)
+                      }, 100)
+                    }>
+                    <div className={styles.box}>
                       <div className={styles.heading3} dangerouslySetInnerHTML={{ __html: heading.replace(keywordRegex, `<span class=${styles.highlight}>$1</span>`) }} />
 
                       {paragraphs.map((paragraph, idx) => (
                         <p className={styles.desc} key={idx} dangerouslySetInnerHTML={{ __html: paragraph.replace(keywordRegex, `<span class=${styles.highlight}>$1</span>`) }} />
                       ))}
-                    </Link>
-                  </div>
+                    </div>
+                  </Link>
                 )
             )}
           </li>

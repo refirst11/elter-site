@@ -4,6 +4,7 @@ import generateSEOData from 'lib/generateSEOData'
 import { Metadata } from 'next'
 import getSlugPath from 'lib/getSlugPath'
 import { NextPage } from 'components/NextPage'
+import { Documentation } from 'components/Documentation'
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { meta } = await getPageContent(params.slug)
@@ -20,6 +21,7 @@ async function Page({ params }: Params) {
 
   return (
     <main>
+      <Documentation />
       {content}
       <NextPage />
     </main>

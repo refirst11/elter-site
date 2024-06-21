@@ -1,6 +1,5 @@
 import { Header } from 'components/Header'
 import { Footer } from 'components/Footer'
-import { Documentation } from 'components/Documentation'
 import { ThemeProvider } from 'next-themes'
 import '../../node_modules/typedcssx/dist/core/styles/global.css'
 import 'syntax/_syntax.css'
@@ -20,10 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <ThemeProvider>
           <Header />
-          <main>
-            <Documentation />
-            {children}
-          </main>
+
+          {children}
+
           <Footer />
         </ThemeProvider>
       </body>

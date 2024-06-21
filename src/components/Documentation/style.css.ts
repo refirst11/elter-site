@@ -1,4 +1,6 @@
-import { Style } from 'typedcssx'
+import { Style, media } from 'typedcssx'
+
+const mobile = media('max-width: 799px')
 
 export const styles = Style.create({
   list_position: {
@@ -6,7 +8,7 @@ export const styles = Style.create({
     display: 'flex',
     flexDirection: 'column',
     fontSize: 14,
-    transform: 'translate(-115%, 25%)',
+    transform: 'translate(-120%, 0%)',
     gap: 4,
     boxSizing: 'border-box',
     '& li': {
@@ -23,6 +25,11 @@ export const styles = Style.create({
       borderRadius: '4px'
     }
   },
+  ...mobile({
+    list_position: {
+      display: 'none'
+    }
+  }),
   active: {
     "&[aria-current='false']:hover": {
       background: 'var(--color-card)',
@@ -39,5 +46,10 @@ export const styles = Style.create({
       background: 'transparent',
       transition: 'all 0.15s, font-weight 0s'
     }
-  }
+  },
+  ...mobile({
+    active: {
+      visibility: 'hidden'
+    }
+  })
 })

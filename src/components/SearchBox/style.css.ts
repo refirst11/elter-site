@@ -31,9 +31,10 @@ export const styles = Style.create({
   },
   cmdk: {
     zIndex: '3',
-    position: 'relative',
-    left: 110,
-    top: -42,
+    position: 'fixed',
+    marginLeft: 110,
+    top: 18,
+    height: 30,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

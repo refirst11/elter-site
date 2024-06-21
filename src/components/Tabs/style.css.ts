@@ -12,6 +12,7 @@ export const styles = Style.create({
   },
 
   code_box: {
+    zIndex: '0',
     position: 'relative',
     bottom: '15px'
   },
@@ -19,7 +20,8 @@ export const styles = Style.create({
     marginTop: '30px',
     display: 'flex',
     alignItems: 'flex-end',
-    height: 0
+    height: 0,
+    width: '100%'
   },
   copyButton: {
     zIndex: '1',

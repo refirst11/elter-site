@@ -18,7 +18,7 @@ export const TocBot = () => {
   }, [])
 
   return (
-    <div>
+    <div className="disp">
       <p className="title">On this page</p>
       <nav className="toc" />
     </div>

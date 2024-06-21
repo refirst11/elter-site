@@ -63,16 +63,19 @@
 }
 
 pre {
-  z-index: 2;
-  position: static;
+  z-index: 3;
+  position: relative;
   box-sizing: border-box;
-  width: 832px;
+  width: 100%;
   padding: 20px;
   margin: 40px 0;
   overflow: auto;
   border-radius: 4px 0 4px 4px;
   box-shadow: 0 0 2px -0.5px rgb(0 0 0 / 40%);
   background: var(--shiki-color-background);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
 }
 
 code {
@@ -149,10 +152,13 @@ code[data-line-numbers] .line::before {
   counter-increment: lineNumber;
 }
 
-@media screen and (max-width: 739.98px) {
+@media screen and (max-width: 799.98px) {
   pre {
-    width: 100%;
-    overflow: auto;
+    width: '100%';
+  }
+
+  .disp {
+    display: none;
   }
 
   [data-rehype-pretty-code-fragment] code .line span {

@@ -1,5 +1,7 @@
 import { Style, media } from 'typedcssx'
 
+const mobile = media('max-width: 799px')
+
 export const styles = Style.create({
   container: {
     zIndex: '1',
@@ -38,7 +40,10 @@ export const styles = Style.create({
     border: 'solid 1px var(--color-border2)',
     hover: {
       border: 'solid 1px var(--color-link)'
-    }
+    },
+    ...mobile({
+      width: 140
+    })
   },
   next: {
     position: 'absolute',
@@ -57,6 +62,9 @@ export const styles = Style.create({
     border: 'solid 1px var(--color-border2)',
     hover: {
       border: 'solid 1px var(--color-link)'
-    }
+    },
+    ...mobile({
+      width: 140
+    })
   }
 })

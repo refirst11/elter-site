@@ -73,8 +73,6 @@ pre {
   border-radius: 4px 0 4px 4px;
   box-shadow: 0 0 2px -0.5px rgb(0 0 0 / 40%);
   background: var(--shiki-color-background);
-  white-space: pre-wrap;
-  word-wrap: break-word;
   overflow-x: auto;
 }
 

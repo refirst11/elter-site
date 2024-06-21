@@ -1,6 +1,13 @@
 import { Style, media } from 'typedcssx'
 
+const mobile = media('max-width: 799.99px')
+
 export const styles = Style.create({
+  top_wrapper: {
+    ...mobile({
+      height: '1280px'
+    })
+  },
   link1: {
     position: 'absolute',
     display: 'flex',
@@ -17,7 +24,10 @@ export const styles = Style.create({
     textDecoration: 'none',
     hover: {
       background: 'var(--color-logo)'
-    }
+    },
+    ...mobile({
+      top: -240
+    })
   },
   link2: {
     position: 'absolute',
@@ -36,7 +46,10 @@ export const styles = Style.create({
     textDecoration: 'none',
     hover: {
       background: 'var(--color-bg3)'
-    }
+    },
+    ...mobile({
+      top: -240
+    })
   },
   Logo: {
     position: 'absolute',
@@ -46,7 +59,11 @@ export const styles = Style.create({
     fontWeight: '600',
     top: -250,
     height: '75px',
-    color: 'var(--color-logo)'
+    color: 'var(--color-logo)',
+    ...mobile({
+      top: -476,
+      fontSize: 45
+    })
   },
   text: {
     position: 'absolute',
@@ -54,10 +71,15 @@ export const styles = Style.create({
     alignItems: 'center',
     fontSize: 36,
     fontWeight: '600',
-    top: -140,
-    left: 20,
+    margin: 0,
+    top: -80,
+    left: 12,
     height: '75px',
-    color: 'var(--color-accent)'
+    color: 'var(--color-accent)',
+    ...mobile({
+      top: -376,
+      fontSize: 26
+    })
   },
   tagline: {
     position: 'absolute',
@@ -65,27 +87,48 @@ export const styles = Style.create({
     alignItems: 'center',
     fontSize: 24,
     fontWeight: '400',
-    top: -80,
-    left: 26,
-    color: 'var(--color-text)'
+    margin: 0,
+    top: -20,
+    left: 16,
+    color: 'var(--color-text)',
+    ...mobile({
+      top: -318,
+      fontSize: 14
+    })
   },
-  container: {
-    position: 'absolute',
+  card_container: {
+    position: 'relative',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    top: '60%',
+    gap: 40,
+    ...mobile({
+      bottom: 200,
+      flexDirection: 'column'
+    })
+  },
+
+  container: {
+    position: 'absolute',
+    display: 'flex',
+    justifyContent: 'center',
+    top: '55%',
     left: '50%',
     transform: 'translate(-50%, -20%)',
-    gap: 40,
     width: 'max-content',
     '& div': {
+      position: 'relative',
+      top: 40,
       width: 300,
       height: 240,
       background: 'var(--color-card)',
       padding: '10px 20px',
-      borderRadius: '16px'
+      borderRadius: '16px',
+      ...mobile({
+        top: 60,
+        height: 220
+      })
     },
     '& h2': {
       fontSize: 24,
@@ -94,11 +137,17 @@ export const styles = Style.create({
       height: 'max-content',
       '&::after': {
         content: 'none'
-      }
+      },
+      ...mobile({
+        fontSize: 22
+      })
     },
 
-    '& p': {
-      marginTop: 8
+    '& div p': {
+      marginTop: 8,
+      ...mobile({
+        fontSize: 14
+      })
     },
     '& div span': {
       position: 'absolute',

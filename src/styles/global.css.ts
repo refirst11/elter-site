@@ -97,7 +97,8 @@ Style.global({
     marginTop: 12
   },
   '*': {
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    scrollbarColor: 'auto'
   },
   'h1::after, h2::after, h3::after, h4::after, h5::after, h6::after': {
     content: '"#"',

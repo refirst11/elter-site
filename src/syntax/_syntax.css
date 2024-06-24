@@ -63,7 +63,7 @@
 }
 
 pre {
-  z-index: 3;
+  z-index: 2;
   position: relative;
   box-sizing: border-box;
   width: 100%;

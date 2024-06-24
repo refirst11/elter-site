@@ -39,7 +39,7 @@ export const SearchBox = () => {
   }
 
   return (
-    <div ref={containerRef} className={styles.box}>
+    <div ref={containerRef}>
       <input
         ref={inputRef}
         className={styles.inputBox}

@@ -1,4 +1,5 @@
 import { Style } from 'typedcssx'
+import { mobile } from '../../lib/mobile'
 
 export const styles = Style.create({
   inputBox: {
@@ -19,15 +20,11 @@ export const styles = Style.create({
     focus: {
       outline: '3px solid skyblue'
     },
-    color: 'var(--color-text)'
-  },
-  box: {
-    position: 'absolute',
-    marginRight: 1460,
-    top: -4,
-    width: 240,
-    height: 33.5,
-    borderRadius: '12px'
+    color: 'var(--color-text)',
+    ...mobile({
+      marginLeft: 'auto',
+      left: 20
+    })
   },
   cmdk: {
     zIndex: '3',
@@ -43,6 +40,9 @@ export const styles = Style.create({
     border: 'solid 1px rgba(100, 100, 100, 0.3)',
     width: 50,
     borderRadius: '8px',
-    scale: 0.65
+    scale: 0.65,
+    ...mobile({
+      marginLeft: 186
+    })
   }
 })

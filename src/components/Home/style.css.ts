@@ -38,7 +38,7 @@ export const styles = Style.create({
     marginLeft: 160,
     height: '40px',
     width: 125.75,
-    padding: '12px 24px',
+    padding: '12px 20px',
     background: 'var(--color-bg2)',
     color: 'var(--color-text2)',
     fontWeight: '500',
@@ -153,7 +153,11 @@ export const styles = Style.create({
       position: 'absolute',
       top: 6,
       display: 'block',
-      fontSize: 36
+      fontSize: 36,
+      ...mobile({
+        top: 8,
+        fontSize: 34
+      })
     }
   }
 })

@@ -9,7 +9,7 @@ date: '2024-06-16'
 
 # Style class
 
-### Style.create
+### Style create
 Create a stylesheet that takes the key as a className.  
 Since this function is created almost only once, we recommend using styles as the variable name.
 ```ts title="style.css.ts"
@@ -40,7 +40,7 @@ A hashed prefix of the object is added to the class name, so styles do not confl
 }
 ```
 
-### Style.global
+### Style global
 Global css can be defined here.  
 There is no need to put it in a variable, you can preview it by importing it to 'use client' and loading it.
 ```ts title="global.css.ts"
@@ -85,7 +85,7 @@ h2 {
 }
 ```
 
-### Style.set
+### Style set
 In set you define the properties directly, there's no need to worry about classNames here, we recommend using the variable name ~Style.
 ```ts title="style.css.ts"
 import { Style } from 'typedcssx'
@@ -133,7 +133,7 @@ The hash of the object is directly attached to the className.
 }
 ```
 
-### Style.root
+### Style root
 The root was created primarily to manage CSS variables.
 ```ts title="global.css.ts"
 Style.root({

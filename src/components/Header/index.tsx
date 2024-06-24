@@ -8,6 +8,7 @@ import isCurrentLink from 'lib/isCurrentLink'
 import { usePathname } from 'next/navigation'
 import { ToggleDarkMode } from 'components/ToggleDarkMode'
 import { GitIcon } from 'components/GitIcon'
+import { Menu } from 'components/Menu'
 
 export const Header = () => {
   const pathname = usePathname()
@@ -22,11 +23,11 @@ export const Header = () => {
         <Link href="/" className={styles.logo}>
           Typed CSS X
         </Link>
-
+        <Menu />
         <ToggleDarkMode />
         <GitIcon />
         {links.map((link) => (
-          <Link key={link.href} href={link.href} className={styles.link + ' ' + (isCurrentLink(link.href, pathname) ? styles.active : styles.noactive)}>
+          <Link key={link.href} href={link.href} className={styles.link + ' ' + styles.active} aria-current={isCurrentLink(link.href, pathname) ? 'page' : 'false'}>
             {link.label}
           </Link>
         ))}

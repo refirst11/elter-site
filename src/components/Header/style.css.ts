@@ -51,11 +51,13 @@ export const styles = Style.create({
     })
   },
   active: {
-    color: 'var(--color-heading)',
-    fontWeight: '550'
-  },
-  noactive: {
-    color: 'var(--color-heading)',
-    fontWeight: '300'
+    "&[aria-current='page']": {
+      color: 'var(--color-heading)',
+      fontWeight: '550'
+    },
+    "&[aria-current='false']": {
+      color: 'var(--color-heading)',
+      fontWeight: '300'
+    }
   }
 })

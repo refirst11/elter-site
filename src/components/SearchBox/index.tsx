@@ -38,6 +38,12 @@ export const SearchBox = () => {
     setKeyword('')
   }
 
+  const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Escape') {
+      closeLink()
+    }
+  }
+
   return (
     <div ref={containerRef}>
       <input
@@ -50,8 +56,9 @@ export const SearchBox = () => {
           setKeyword(e.target.value)
           setShowResults(true)
         }}
+        onKeyDown={handleInputKeyDown}
       />
-      <div className={styles.cmdk}>⌘ K</div>
+      <div className={styles.cmdk}>{keyword ? 'ESC' : '⌘ K'}</div>
       {showResults && keyword && <SearchResults onClick={closeLink} keyword={keyword} />}
     </div>
   )

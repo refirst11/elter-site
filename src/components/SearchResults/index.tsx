@@ -67,7 +67,11 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   }
 
   if (isLoading) {
-    return <ul className={styles.list}></ul>
+    return (
+      <ul className={styles.list}>
+        <p className={styles.no_result}>Loading...</p>
+      </ul>
+    )
   }
 
   return (

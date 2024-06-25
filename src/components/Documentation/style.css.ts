@@ -39,12 +39,11 @@ export const styles = Style.create({
     "&[aria-current='page']": {
       fontWeight: 600,
       color: 'var(--color-link)',
-      background: 'var(--color-list)',
-      transition: 'all 0.2s, font-weight 0s'
+      background: 'var(--color-list)'
     },
     "&[aria-current='false']": {
       background: 'transparent',
-      transition: 'all 0.15s, font-weight 0s'
+      transition: 'background 0.15s, font-weight 0s'
     }
   },
   ...mobile({

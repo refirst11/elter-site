@@ -13,9 +13,9 @@ export const styles = Style.create({
     height: 33.5,
     borderRadius: '8px',
     paddingLeft: 12,
-    marginLeft: -80,
+    marginLeft: -10,
     caretColor: 'var(--color-text)',
-    transition: 'all 0.2s',
+    transition: 'outline 0.2s',
     outline: '3px solid transparent',
     focus: {
       outline: '3px solid skyblue'
@@ -29,7 +29,7 @@ export const styles = Style.create({
   cmdk: {
     zIndex: '3',
     position: 'fixed',
-    marginLeft: 110,
+    marginLeft: 180,
     top: 18,
     height: 30,
     display: 'flex',

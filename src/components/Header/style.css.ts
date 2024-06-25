@@ -16,12 +16,13 @@ export const styles = Style.create({
   },
 
   wrapper: {
+    zIndex: '2',
     position: 'relative',
     display: 'flex',
     justifyContent: 'center',
     gap: '20px',
-    top: '20px',
-    left: '400px',
+    top: '-8px',
+    left: '420px',
     height: '0',
     listStyleType: 'none',
     listStylePosition: 'inside'
@@ -31,23 +32,25 @@ export const styles = Style.create({
     position: 'absolute',
     color: 'var(--color-heading)',
     fontWeight: '700',
-    marginRight: 2020,
+    marginLeft: -665,
+    top: 18,
     width: 110,
     textDecoration: 'none',
     ...mobile({
-      position: 'absolute',
-      marginRight: 0,
-      left: '20px'
+      display: 'block',
+      marginLeft: 'auto',
+      top: 20,
+      left: 20
     })
   },
 
   link: {
     fontSize: '14px',
     textDecoration: 'none',
+    width: 'fit-content',
+    height: '26px',
     ...mobile({
-      position: 'absolute',
-      marginRight: 0,
-      left: '20px'
+      display: 'none'
     })
   },
   active: {

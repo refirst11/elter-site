@@ -1,6 +1,6 @@
 :root[data-theme='light'] {
   --shiki-color-text: #555555;
-  --shiki-color-background: #faffff;
+  --shiki-color-background: #f7ffff;
   --shiki-token-constant: rgb(207, 85, 154);
   --shiki-token-string: #2e2c40;
   --shiki-token-comment: #555555;
@@ -89,6 +89,7 @@ figure {
 }
 
 [data-rehype-pretty-code-figure] figcaption {
+  z-index: 3;
   position: absolute;
   top: -24px;
   right: 0;

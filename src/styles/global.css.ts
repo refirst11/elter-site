@@ -68,14 +68,14 @@ Style.global({
   },
   h2: {
     color: 'var(--color-heading)',
-    fontSize: '30px',
+    fontSize: '28px',
     fontWeight: '550',
     margin: '44px 0 0',
     height: '50px',
     paddingBottom: '4px',
     borderBottom: 'solid 1px var(--color-border)',
     ...mobile({
-      fontSize: 28
+      fontSize: 26
     })
   },
   h3: {
@@ -91,7 +91,10 @@ Style.global({
     top: 12,
     fontSize: '22px',
     fontWeight: '500',
-    margin: '0 auto'
+    margin: '0 auto',
+    ...mobile({
+      fontSize: 20
+    })
   },
   'ul li p': {
     marginTop: 12

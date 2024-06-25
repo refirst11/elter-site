@@ -2,7 +2,7 @@ import { Style } from 'typedcssx'
 
 export const styles = Style.create({
   button_initialize: {
-    zIndex: '1',
+    zIndex: '0',
     position: 'relative',
     top: '24px',
     left: 4,

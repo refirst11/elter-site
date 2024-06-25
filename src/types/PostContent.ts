@@ -1,6 +1,6 @@
 import { JSXElementConstructor, ReactElement } from 'react'
 
-interface HeadingWithParagraphs {
+export interface HeadingWithParagraphs {
   heading: string
   paragraphs: string[]
   id: string

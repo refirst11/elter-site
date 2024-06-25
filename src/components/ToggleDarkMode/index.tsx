@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { styles } from './style.css'
 import { FiMoon, FiSun } from 'react-icons/fi'
 
-export const ToggleDarkMode = (): JSX.Element | null => {
+export const ToggleDarkMode = ({ classStyle }: { classStyle?: string }): JSX.Element | null => {
   const [darkMode, setDarkMode] = useState<boolean | undefined>(undefined)
 
   useEffect(() => {
@@ -45,12 +45,10 @@ export const ToggleDarkMode = (): JSX.Element | null => {
   }
 
   return (
-    <div className={styles.border_wrapper}>
-      <div className={styles.toggle_wrapper}>
-        <button className={styles.toggle_button} onClick={handleChangeDarkMode}>
-          {darkMode ? <FiMoon /> : <FiSun size={10} />}
-        </button>
-      </div>
+    <div className={`${styles.toggle_wrapper} ${classStyle}`}>
+      <button className={styles.toggle_button} onClick={handleChangeDarkMode}>
+        {darkMode ? <FiMoon /> : <FiSun size={10} />}
+      </button>
     </div>
   )
 }

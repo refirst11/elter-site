@@ -1,6 +1,6 @@
 import ReactDOMServer from 'react-dom/server'
 import { JSXElementConstructor, ReactElement } from 'react'
-import { HeadingWithParagraphs } from 'types/HeadingWithParagraphs'
+import { HeadingWithParagraphs } from 'types/PostContent'
 
 export const extractHeadingsAndParagraphs = (content: ReactElement<string, string | JSXElementConstructor<string>>): HeadingWithParagraphs[] => {
   const htmlContent = ReactDOMServer.renderToString(content)

@@ -1,22 +1,13 @@
-import { useState } from 'react'
-import { styles } from './style.css'
+import getAllPosts from 'lib/getAllPosts'
 
-export const Menu = () => {
-  const [open, setOpen] = useState(false)
+import MenuList from './MenuList'
 
-  return (
-    <div className={styles.Line}>
-      <button
-        aria-expanded={open}
-        onClick={() => {
-          setOpen(!open)
-        }}
-        aria-label="Toggle mobile navigation menu"
-        type="button">
-        <span />
-        <span />
-        <span />
-      </button>
-    </div>
-  )
+async function getPosts() {
+  const posts = await getAllPosts()
+  return posts
+}
+
+export const Menu = async () => {
+  const posts = await getPosts()
+  return <MenuList posts={posts} />
 }

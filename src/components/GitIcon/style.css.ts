@@ -24,16 +24,10 @@ export const styles = Style.create({
     borderLeft: 'solid 1px var(--color-border)',
     borderRight: 'solid 1px var(--color-border)',
     ...mobile({
-      display: 'none',
-      marginLeft: '0',
-      left: 140
+      position: 'absolute',
+      marginLeft: 'auto',
+      top: 20,
+      right: 114
     })
   }
-})
-
-export const displayOnGit = Style.set({
-  display: 'flex',
-  position: 'absolute',
-  left: '66%',
-  top: 6
 })

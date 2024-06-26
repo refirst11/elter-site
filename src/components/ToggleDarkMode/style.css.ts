@@ -30,17 +30,10 @@ export const styles = Style.create({
     },
     transition: 'all 0.2s',
     ...mobile({
-      display: 'none',
-      marginLeft: '0',
-      top: -5,
-      left: 220
+      position: 'absolute',
+      marginLeft: 'auto',
+      top: 22,
+      right: 70
     })
   }
-})
-
-export const displayOnDark = Style.set({
-  display: 'flex',
-  position: 'absolute',
-  left: '88%',
-  top: 10
 })

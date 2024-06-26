@@ -94,14 +94,14 @@ export const styles = Style.create({
   menu_list: {
     zIndex: '1',
     position: 'fixed',
-    overflowY: 'scroll',
+    overflowY: 'auto',
     top: 64,
     left: 0,
     display: 'flex',
     flexDirection: 'column',
     gap: 4,
     width: '100%',
-    height: '100%',
+    height: 'calc(100% - 64px)',
     margin: 'auto',
     padding: '20px',
     background: 'var(--color-bg)',
@@ -140,16 +140,20 @@ export const styles = Style.create({
     marginLeft: 12,
     paddingLeft: 12,
     opacity: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 4,
     visibility: 'hidden',
     transition: 'all 0.2s'
   },
 
   headingItems: {
-    position: 'relative',
-    top: 4,
     borderLeft: 'solid 1px var(--color-border)',
     marginLeft: 12,
     paddingLeft: 12,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 4,
     transition: 'all 0.2s'
   },
 
@@ -172,15 +176,5 @@ export const styles = Style.create({
     "&[aria-current='false']": {
       background: 'transparent'
     }
-  },
-  menu_footer: {
-    zIndex: '2',
-    position: 'absolute',
-    width: '100%',
-    height: '44px',
-    borderTop: 'solid 1px var(--color-border)',
-    borderRadius: '8px',
-    bottom: 62,
-    left: 0
   }
 })

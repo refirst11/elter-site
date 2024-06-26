@@ -23,7 +23,8 @@ export const styles = Style.create({
     color: 'var(--color-text)',
     ...mobile({
       marginLeft: 'auto',
-      left: 20
+      left: 20,
+      width: 200
     })
   },
   cmdk: {
@@ -42,7 +43,7 @@ export const styles = Style.create({
     borderRadius: '8px',
     scale: 0.65,
     ...mobile({
-      marginLeft: 186
+      marginLeft: 146
     })
   }
 })

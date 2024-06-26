@@ -7,10 +7,6 @@ import type PostsData from 'types/PostsData'
 import { usePathname, useRouter } from 'next/navigation'
 import { IoMdArrowDropright } from 'react-icons/io'
 import { handleLinkClick } from 'lib/handleLinkClick'
-import { ToggleDarkMode } from 'components/ToggleDarkMode'
-import { GitIcon } from 'components/GitIcon'
-import { displayOnGit } from 'components/GitIcon/style.css'
-import { displayOnDark } from 'components/ToggleDarkMode/style.css'
 
 type MenuProps = {
   posts: PostsData[]
@@ -91,8 +87,27 @@ const MenuList = ({ posts }: MenuProps) => {
         { id: 'input', text: '# Input' },
         { id: 'output', text: '# Output' }
       ]
+    },
+    {
+      heading: [
+        { id: 'types', text: '# Types' },
+        { id: 'pseudo-hover-example', text: '# Pseudo hover example' },
+        { id: 'compiled-hover', text: '# Compiled hover' },
+        { id: 'pseudo-lang-example', text: '# Pseudo lang example' },
+        { id: 'compiled-lang', text: '# Compiled lang' },
+        { id: 'pseudo-not-example', text: '# Pseudo not example' },
+        { id: 'compiled-not', text: '# Compiled not' },
+        { id: 'pseudo-has-example', text: '# Pseudo has example' },
+        { id: 'compiled-has', text: '# Compiled has' },
+        { id: 'and-string-selector', text: '# And string Selector' },
+        { id: 'compiled-and-string-selector', text: '# Compiled and string Selector' }
+      ]
     }
   ]
+
+  useEffect(() => {
+    if (pathname !== '/') setIsListVisible(true)
+  }, [pathname])
 
   return (
     <>
@@ -149,10 +164,6 @@ const MenuList = ({ posts }: MenuProps) => {
               </>
             ))}
           </ul>
-          <div className={styles.menu_footer}>
-            <GitIcon classStyle={displayOnGit} />
-            <ToggleDarkMode classStyle={displayOnDark} />
-          </div>
         </ul>
       </div>
     </>

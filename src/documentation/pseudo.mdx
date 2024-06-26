@@ -1,8 +1,296 @@
 ---
-title: 'Pseudos'
+title: 'Pseudo selector'
 subtitle: 'The Pseudo guide'
 date: '2024-06-18'
 ---
 
 <SearchBox />
 <TocBot />
+
+# Pseudo selector
+
+## Types
+The following pseudo-classes and pseudo-elements can be used as wrapper selectors.
+```ts title="types.ts"
+  active?: CustomCSSProperties;
+  hover?: CustomCSSProperties;
+  link?: CustomCSSProperties;
+  visited?: CustomCSSProperties;
+  empty?: CustomCSSProperties;
+  lang?: undefined;
+  not?: undefined;
+  notClass?: undefined;
+  has?: undefined;
+  hasChild?: undefined;
+  hasPlus?: undefined;
+  hasClass?: undefined;
+  hasClassChild?: undefined;
+  hasClassPlus?: undefined;
+  firstChild?: CustomCSSProperties;
+  lastChild?: CustomCSSProperties;
+  nthChild?: undefined;
+  nthLastChild?: undefined;
+  nthLastOfType?: undefined;
+  nthOfType?: undefined;
+  checked?: CustomCSSProperties;
+  disabled?: CustomCSSProperties;
+  enabled?: CustomCSSProperties;
+  focus?: CustomCSSProperties;
+  inRange?: CustomCSSProperties;
+  invalid?: CustomCSSProperties;
+  valid?: CustomCSSProperties;
+  optional?: CustomCSSProperties;
+  outOfRange?: CustomCSSProperties;
+  readOnly?: CustomCSSProperties;
+  readWrite?: CustomCSSProperties;
+  required?: CustomCSSProperties;
+  target?: CustomCSSProperties;
+  after?: CustomCSSProperties;
+  before?: CustomCSSProperties;
+  firstLetter?: CustomCSSProperties;
+  firstLine?: CustomCSSProperties;
+  marker?: CustomCSSProperties;
+  selection?: CustomCSSProperties;
+  ```
+
+### Pseudo hover example
+Other pseudo-classes and pseudo-elements, such as before and after, can also be treated as wrappers in the same way.
+```ts title="style.css.ts"
+  export const hoverStyle = Style.set({
+    fontSize: '14px',
+    color: '#333',
+    hover: {
+      fontSize: '16px',
+      color: 'skyblue',
+      fontWeight: '500'
+    }
+  })
+```
+
+### Compiled hover
+```css title="css"
+._a6JtM {
+  font-size: 14px;
+  color: #333;
+}
+
+._a6JtM:hover {
+  font-size: 16px;
+  color: skyblue;
+  font-weight: 500;
+}
+```
+Some of you may be wondering about the "undefined" that doesn't match the CustomCSSProperty here.  
+Selectors such as lang and not are implemented as argument selectors and are handled in camel case, such as langEn and notDiv.
+  
+### Pseudo lang example
+So let's look at it the same way.
+```ts title="style.css.ts"
+  export const langStyle = Style.set({
+    langEn: {
+      color: 'skyblue',
+    },
+    langIt: {
+      color: 'yellow',
+    }
+  })
+```
+
+### Compiled lang 
+```css title="css"
+._lEQJa:lang(en) {
+  color: skyblue;
+}
+._lEQJa:lang(it) {
+  color: yellow;
+}
+```
+
+### Pseudo not example
+If you connect it to notClass using camel case, the part following will become the class name as an argument.
+```ts title="style.css.ts"
+  export const notStyle = Style.set({
+    notDiv: {
+      fontSize: '14px',
+      color: '#333',
+    },
+    notClassHeader_main: {
+      fontSize: '12px',
+      color: '#444',
+    }
+  })
+```
+
+### Compiled not
+```css title="css"
+._g664C:not(div) {
+  font-size: 14px;
+  color: #333;
+}
+._g664C:not(.header-main) {
+  font-size: 12px;
+  color: #444;
+}
+```
+
+### Pseudo has example
+It's a bit long, but let's look at it.
+```ts title="style.css.ts"
+export const hasStyle = Style.set({
+  hasDiv: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasPlusDiv: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasChildDiv: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasDivPlusTest: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasDivPlusP: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasDivChildTest: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasDivChildP: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasClassTest: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasClassPlusTest: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasClassChildTest: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasClassTest_aPlusTest_b: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasClassTest_aPlusDiv: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasClassTest_aChildTest_b: {
+    fontSize: '12px',
+    color: '#333',
+  },
+  hasClassTest_aChildDiv: {
+    fontSize: '12px',
+    color: '#333',
+  },
+});
+```
+
+### Compiled has
+The selector for has can express a+b or a>b at most.  
+Also, more complex expressions can be written directly using &.
+```css title="css"
+._Wtyoh:has(div) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(+ div) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(> div) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(div + .test) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(div + p) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(div > .test) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(div > p) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(.test) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(+ .test) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(> .test) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(.test-a + .test-b) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(.test-a + div) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(.test-a > .test-b) {
+  font-size: 12px;
+  color: #333;
+}
+._Wtyoh:has(.test-a > div) {
+  font-size: 12px;
+  color: #333;
+}
+```
+
+### And string selector
+You can write the selector as a wrapper by starting the string expression with &.  
+The string following & can be anything.
+```ts title="style.css.ts"
+export const andStyle = Style.set({
+  '& ul li': {
+    fontSize: '12px',
+    color: '#333',
+  },
+  '&::after:hover': {
+    fontSize: '12px',
+    color: '#333',
+  },
+  '&:has(> h1:is(:hover, :focus)) h2': {
+    fontSize: '12px',
+    color: '#333',
+  },
+});
+```
+
+### Compiled and string selector
+The characters you enter after & continue directly after the className.
+```css title="css"
+._p6lcU ul li {
+  font-size: 12px;
+  color: #333;
+}
+._p6lcU::after:hover {
+  font-size: 12px;
+  color: #333;
+}
+._p6lcU:has(> h1:is(:hover, :focus)) h2 {
+  font-size: 12px;
+  color: #333;
+}
+```

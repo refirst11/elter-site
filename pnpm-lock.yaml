@@ -63,8 +63,8 @@ dependencies:
     specifier: ^4.28.2
     version: 4.28.2
   typedcssx:
-    specifier: ^1.2.12
-    version: 1.2.12(typescript@5.5.2)
+    specifier: ^1.2.13
+    version: 1.2.13(typescript@5.5.2)
 
 devDependencies:
   '@types/node':
@@ -4706,8 +4706,8 @@ packages:
       possible-typed-array-names: 1.0.0
     dev: true
 
-  /typedcssx@1.2.12(typescript@5.5.2):
-    resolution: {integrity: sha512-3Dt/IyaJl20S9v0y82yKQL+w4WlM84mubs85j8kPrs/aMnQF7fxm2FrxVZpYoqb/jetQ4jJhOXT/iDHtOZo8LA==}
+  /typedcssx@1.2.13(typescript@5.5.2):
+    resolution: {integrity: sha512-lkwwm9big2WodIbdmPmt5S+0PjHIN6MXDpdPbN/A6eqhWoozXTIEnQowVUH3A7aBHmQVjQJ+Oa7BkRGTC4p4uA==}
     dependencies:
       '@types/css-modules': 1.0.5
       '@types/node': 20.14.9

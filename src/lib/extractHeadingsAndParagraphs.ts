@@ -33,11 +33,9 @@ export const extractHeadingsAndParagraphs = (content: ReactElement<string, strin
     return paragraphs
   }
 
-  const generateId = (text: string) => text.toLowerCase().replace(/\s+/g, '-')
-
   headings.forEach((heading) => {
     const headingText = heading.textContent?.trim() || ''
-    const headingId = generateId(headingText)
+    const headingId = heading.id
     const afterParagraphs = getParagraphs(heading.nextSibling, 2)
     const paragraphs = [...afterParagraphs]
 

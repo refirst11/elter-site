@@ -1,11 +1,11 @@
 import { extractHeadingsAndParagraphs } from 'lib/extractHeadingsAndParagraphs'
 import Link from 'next/link'
 import { styles } from './style.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import getAllPosts from 'lib/getAllPosts'
 import getPostMdx from 'lib/getPostMdx'
 import type PostsData from 'types/PostsData'
-import type PostContent from 'types/PostContent'
+import PostContent, { HeadingWithParagraphs } from 'types/PostContent'
 
 type KeywordProps = {
   keyword: string
@@ -47,12 +47,26 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     fetchPostsAndContents()
   }, [])
 
-  const filteredPosts = posts.filter(({ title, slug }) => {
-    const matchedSections = postContents[slug]?.matchedSections || []
-    return matchedSections.some(
-      ({ heading, paragraphs }) => heading.toLowerCase().includes(keyword.toLowerCase()) || paragraphs.some((paragraph) => paragraph.toLowerCase().includes(keyword.toLowerCase()))
-    )
-  })
+  const { filteredPosts, matchedSectionsMap } = useMemo(() => {
+    const filteredPostsArray: PostsData[] = []
+    const matchedSectionsMap = new Map()
+
+    posts.forEach((post) => {
+      const { slug } = post
+      const matchedSections = postContents[slug]?.matchedSections || []
+      const filteredSections = matchedSections.filter(
+        ({ heading, paragraphs }) =>
+          heading.toLowerCase().includes(keyword.toLowerCase()) || paragraphs.some((paragraph) => paragraph.toLowerCase().includes(keyword.toLowerCase()))
+      )
+
+      if (filteredSections.length > 0) {
+        filteredPostsArray.push(post)
+        matchedSectionsMap.set(slug, filteredSections)
+      }
+    })
+
+    return { filteredPosts: filteredPostsArray, matchedSectionsMap }
+  }, [posts, postContents, keyword])
 
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id)
@@ -78,7 +92,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     <ul onClick={onClick} className={styles.list}>
       {filteredPosts.length > 0 ? (
         filteredPosts.map(({ slug }) => {
-          const matchedSections = postContents[slug]?.matchedSections || []
+          const matchedSections = matchedSectionsMap.get(slug) as HeadingWithParagraphs[]
           const keywordRegex = new RegExp(`(${keyword})`, 'gi')
 
           return (

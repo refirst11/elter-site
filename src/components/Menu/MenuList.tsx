@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import { styles } from './style.css'
 import Link from 'next/link'
 import type PostsData from 'types/PostsData'
@@ -140,7 +140,7 @@ const MenuList = ({ posts }: MenuProps) => {
           </li>
           <ul className={`${styles.documentItems} ${isListVisible ? styles.visible : ''}`}>
             {posts?.map(({ slug, title }, postIndex) => (
-              <>
+              <Fragment key={postIndex}>
                 <li key={slug}>
                   <Link className={styles.active} href={`/${slug}`} onClick={() => setOpen(false)} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
                     {title}
@@ -164,7 +164,7 @@ const MenuList = ({ posts }: MenuProps) => {
                     ))}
                   </ul>
                 )}
-              </>
+              </Fragment>
             ))}
           </ul>
         </ul>

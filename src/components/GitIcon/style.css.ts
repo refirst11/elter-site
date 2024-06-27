@@ -27,7 +27,7 @@ export const styles = Style.create({
       position: 'absolute',
       marginLeft: 'auto',
       top: 20,
-      right: 114
+      right: 110
     })
   }
 })

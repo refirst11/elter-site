@@ -33,7 +33,7 @@ export const styles = Style.create({
       position: 'absolute',
       marginLeft: 'auto',
       top: 22,
-      right: 70
+      right: 68
     })
   }
 })

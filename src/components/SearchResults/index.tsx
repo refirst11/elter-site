@@ -17,35 +17,28 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   const [isLoading, setIsLoading] = useState(true)
   const [postContents, setPostContents] = useState<{ [slug: string]: PostContent }>({})
 
-  const fetchPostsAndContents = useCallback(async () => {
-    setIsLoading(true)
-    const postsData = await getAllPosts()
-    setPosts(postsData)
-
-    const contents = await Promise.all(
-      postsData.map(async ({ slug }) => {
-        const { meta, content } = await getPostMdx(slug)
-        const matchedSections = extractHeadingsAndParagraphs(content)
-
-        return { slug, meta, content, matchedSections }
-      })
-    )
-
-    const contentMap = contents.reduce(
-      (acc, { slug, meta, content, matchedSections }) => {
-        acc[slug] = { meta, content, matchedSections }
-        return acc
-      },
-      {} as { [slug: string]: PostContent }
-    )
-
-    setPostContents(contentMap)
-    setIsLoading(false)
-  }, [])
-
   useEffect(() => {
+    const fetchPostsAndContents = async () => {
+      setIsLoading(true)
+      const postsData = await getAllPosts()
+      setPosts(postsData)
+
+      const contentMap: { [slug: string]: PostContent } = {}
+
+      await Promise.all(
+        postsData.map(async ({ slug }) => {
+          const { meta, content } = await getPostMdx(slug)
+          const matchedSections = extractHeadingsAndParagraphs(content)
+          contentMap[slug] = { meta, content, matchedSections }
+        })
+      )
+
+      setPostContents(contentMap)
+      setIsLoading(false)
+    }
+
     fetchPostsAndContents()
-  }, [fetchPostsAndContents])
+  }, [])
 
   const { filteredPosts, matchedSectionsMap } = useMemo(() => {
     const filteredPostsArray: PostsData[] = []

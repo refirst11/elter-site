@@ -67,7 +67,10 @@ const MenuList = ({ posts }: MenuProps) => {
     {
       heading: [
         { id: 'npm', text: '# NPM' },
-        { id: 'build-setting', text: '# Build setting' }
+        { id: 'build-setting', text: '# Build setting' },
+        { id: 'tsconfigjson', text: '# tsconfig.json' },
+        { id: 'global-style-sheet', text: '# Global style sheet' },
+        { id: 'supported-nodejs-versions-v18---v22', text: '# Supported Node.js Versions: v18 - v22' }
       ]
     },
     {

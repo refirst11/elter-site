@@ -56,7 +56,8 @@ Add the compile command to the `package.json` script field.
   </Tab>
 </Tabs>
 
-#### tsconfig.json
+### tsconfig.json
+Add **/*css.ts to icludes in tsconfig.json
 <Tabs>
   <Tab>
   ```json title="tsconfig.json"
@@ -65,7 +66,8 @@ Add the compile command to the `package.json` script field.
   </Tab>
 </Tabs>
 
-#### Global style sheet
+## Global style sheet
+Load global.css in layout.tsx, which is the root directory of the app.
 <Tabs>
   <Tab>
 ```tsx title="layout.tsx"
@@ -74,7 +76,7 @@ import '../../node_modules/typedcssx/dist/core/styles/global.css'
   </Tab>
 </Tabs>
 
-#### Node.js working version
+## Supported Node.js Versions: v18 - v22
 
-The Node.js version that has been confirmed to work is v18.18.0.  
-It has been confirmed that ts-node does not currently work with versions 20 and above.
+This project has been tested and is confirmed to work with Node.js versions from v18 to v22. Please ensure you are using one of these versions for optimal compatibility and performance.
+

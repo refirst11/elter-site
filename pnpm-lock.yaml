@@ -63,8 +63,8 @@ dependencies:
     specifier: ^4.28.2
     version: 4.28.2
   typedcssx:
-    specifier: 1.2.16-beta.19
-    version: 1.2.16-beta.19
+    specifier: 1.2.16-beta.24
+    version: 1.2.16-beta.24
 
 devDependencies:
   '@types/node':
@@ -2165,6 +2165,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /esm@3.2.25:
+    resolution: {integrity: sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==}
+    engines: {node: '>=6'}
+    dev: false
 
   /espree@9.6.1:
     resolution: {integrity: sha512-oruZaFkjorTpF32kDSI5/75ViwGeZginGGy2NoOSg3Q9bnwlnmDm4HLnkl0RE3n+njDXR037aY1+x58Z/zFdwQ==}
@@ -4706,11 +4711,12 @@ packages:
       possible-typed-array-names: 1.0.0
     dev: true
 
-  /typedcssx@1.2.16-beta.19:
-    resolution: {integrity: sha512-Gi4HqBRwiaYaOmWoZW1aMXg+ub8tIVuIdHHQQonmt2r70fBm6liDUXQYlic73WRD79IfHjlMRD2ghNnvoQngEA==}
+  /typedcssx@1.2.16-beta.24:
+    resolution: {integrity: sha512-W53BVVFHd3BwpMiaBhgjB/K6UW6NFjXwXX3o7noDogBPQsGjLb9QZUgNoJ3DSYrdz0yVFBKOAjt0x28iFNc+QA==}
     dependencies:
       '@types/css-modules': 1.0.5
       '@types/node': 20.14.9
+      esm: 3.2.25
       fast-glob: 3.3.2
       ts-node: 10.9.2(@types/node@20.14.9)(typescript@5.5.2)
       typescript: 5.5.2

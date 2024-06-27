@@ -1,6 +1,7 @@
 import SeoData from 'types/SeoData'
 
 const generateSEOData = ({ title, subtitle, date }: SeoData) => {
+  const url = process.env.PROD_URL
   return {
     title: title,
     description: subtitle,
@@ -17,7 +18,7 @@ const generateSEOData = ({ title, subtitle, date }: SeoData) => {
       url: process.env.PROD_URL,
       type: 'website',
       images: {
-        url: `${process.env.PROD_URL}/api/ogp?title=${title}&date=${date}`,
+        url: url + '/typedcssx_ogp.png',
         width: 1200,
         height: 600
       }
@@ -27,7 +28,7 @@ const generateSEOData = ({ title, subtitle, date }: SeoData) => {
       title: title,
       description: subtitle,
       images: {
-        url: `${process.env.PROD_URL}/api/ogp?title=${title}&date=${date}`,
+        url: url + '/typedcssx_ogp.png',
         width: 1200,
         height: 600
       },

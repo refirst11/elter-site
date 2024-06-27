@@ -64,7 +64,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY - 100
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY - 76
 
       window.scrollTo({
         top: elementPosition,

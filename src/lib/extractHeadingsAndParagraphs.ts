@@ -36,7 +36,7 @@ export const extractHeadingsAndParagraphs = (content: ReactElement<string, strin
   headings.forEach((heading) => {
     const headingText = heading.textContent?.trim() || ''
     const headingId = heading.id
-    const afterParagraphs = getParagraphs(heading.nextSibling, 2)
+    const afterParagraphs = getParagraphs(heading.nextSibling, 1)
     const paragraphs = [...afterParagraphs]
 
     if (headingText && paragraphs.length > 0) {

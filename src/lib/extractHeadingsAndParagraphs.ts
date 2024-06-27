@@ -6,27 +6,23 @@ export const extractHeadingsAndParagraphs = (content: ReactElement<string, strin
   const htmlContent = ReactDOMServer.renderToString(content)
   const parser = new DOMParser()
   const doc = parser.parseFromString(htmlContent, 'text/html')
-  const headingsH1 = doc.querySelectorAll('h1')
-  const headingsH2 = doc.querySelectorAll('h2')
-  const headingsH3 = doc.querySelectorAll('h3')
+  const headings = Array.from(doc.querySelectorAll('h2, h3'))
 
-  const headings = [...headingsH1, ...headingsH2, ...headingsH3]
   const result: HeadingWithParagraphs[] = []
 
   const getParagraphs = (startNode: Node | null, limit: number): string[] => {
     const paragraphs: string[] = []
     let currentNode: Node | null = startNode
-    let count = 0
 
-    while (currentNode && count < limit) {
-      if (currentNode.nodeType === Node.ELEMENT_NODE && currentNode.nodeName.toLowerCase() === 'p') {
-        const paragraph = currentNode.textContent?.trim() || ''
-        paragraphs.push(paragraph)
-        count++
-      } else if (currentNode.nodeType === Node.ELEMENT_NODE && currentNode.nodeName.toLowerCase() === 'h3') {
-        break
+    while (currentNode && paragraphs.length < limit) {
+      if (currentNode.nodeType === Node.ELEMENT_NODE) {
+        const element = currentNode as HTMLElement
+        if (element.tagName.toLowerCase() === 'p') {
+          paragraphs.push(element.textContent?.trim() || '')
+        } else if (/h[1-3]/i.test(element.tagName)) {
+          break
+        }
       }
-
       currentNode = currentNode.nextSibling
     }
 
@@ -36,8 +32,7 @@ export const extractHeadingsAndParagraphs = (content: ReactElement<string, strin
   headings.forEach((heading) => {
     const headingText = heading.textContent?.trim() || ''
     const headingId = heading.id
-    const afterParagraphs = getParagraphs(heading.nextSibling, 1)
-    const paragraphs = [...afterParagraphs]
+    const paragraphs = getParagraphs(heading.nextSibling, 1)
 
     if (headingText && paragraphs.length > 0) {
       result.push({ heading: headingText, paragraphs, id: headingId })

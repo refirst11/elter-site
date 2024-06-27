@@ -4,8 +4,8 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = generateSEOData({ title: 'Home', subtitle: 'typedcssx homepage' });
 
-function Page() {
+export default function Page() {
   return <Home />
 }
 
-export default Page
+

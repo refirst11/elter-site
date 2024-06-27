@@ -16,7 +16,7 @@ const getPageContent = async (slug: string) => {
   return { meta, content }
 }
 
-async function Page({ params }: Params) {
+export default async function Page({ params }: Params) {
   const { content } = await getPageContent(params.slug)
 
   return (
@@ -36,4 +36,4 @@ export async function generateStaticParams() {
   }))
 }
 
-export default Page
+

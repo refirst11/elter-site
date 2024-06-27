@@ -75,13 +75,13 @@ const MenuList = ({ posts }: MenuProps) => {
     },
     {
       heading: [
-        { id: 'style-create', text: '# Style create' },
+        { id: 'stylecreate', text: '# Style.create' },
         { id: 'compiled-create', text: '# Compiled create' },
-        { id: 'style-global', text: '# Style global' },
+        { id: 'styleglobal', text: '# Style.global' },
         { id: 'compiled-global', text: '# Compiled global' },
-        { id: 'style-set', text: '# Style set' },
+        { id: 'styleset', text: '# Style.set' },
         { id: 'compiled-set', text: '# Compiled set' },
-        { id: 'style-root', text: '# Style root' },
+        { id: 'styleroot', text: '# Style.root' },
         { id: 'compiled-root', text: '# Compiled root' }
       ]
     },

@@ -88,15 +88,24 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     )
   }
 
+  const highlightText = (text: string, keyword: string) => {
+    if (!keyword.trim()) return text
+    const parts = text.split(new RegExp(`(${keyword})`, 'gi'))
+    return parts.map((part, i) => (
+      <span key={i} className={part.toLowerCase() === keyword.toLowerCase() ? styles.highlight : undefined}>
+        {part}
+      </span>
+    ))
+  }
+
   return (
     <ul onClick={onClick} className={styles.list}>
       {filteredPosts.length > 0 ? (
-        filteredPosts.map(({ slug }) => {
+        filteredPosts.map(({ slug }, index) => {
           const matchedSections = matchedSectionsMap.get(slug) as HeadingWithParagraphs[]
-          const keywordRegex = new RegExp(`(${keyword})`, 'gi')
 
           return (
-            <li key={slug}>
+            <li key={index}>
               {matchedSections.map(
                 ({ heading, paragraphs, id }, index) =>
                   (heading.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) ||
@@ -111,10 +120,12 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
                         }, 120)
                       }>
                       <div className={styles.box}>
-                        <div className={styles.heading3} dangerouslySetInnerHTML={{ __html: heading.replace(keywordRegex, `<span class=${styles.highlight}>$1</span>`) }} />
+                        <div className={styles.heading3}>{highlightText(heading, keyword)}</div>
 
                         {paragraphs.map((paragraph, idx) => (
-                          <p className={styles.desc} key={idx} dangerouslySetInnerHTML={{ __html: paragraph.replace(keywordRegex, `<span class=${styles.highlight}>$1</span>`) }} />
+                          <p className={styles.desc} key={idx}>
+                            {highlightText(paragraph, keyword)}
+                          </p>
                         ))}
                       </div>
                     </Link>

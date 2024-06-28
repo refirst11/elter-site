@@ -44,7 +44,7 @@ export const styles = Style.create({
     '& [aria-expanded="true"] span:nth-of-type(1)': {
       transition: 'transform 0.25s, translate 0.25s 0.25s, rotate 0.25s 0.25s',
       transform: 'translateY(6px)',
-      translate: '4px 1.8px',
+      translate: '4px 1.6px',
       rotate: '45deg'
     },
     '& [aria-expanded="true"] span:nth-of-type(2)': {
@@ -54,7 +54,7 @@ export const styles = Style.create({
     '& [aria-expanded="true"] span:nth-of-type(3)': {
       transition: 'transform 0.25s, translate 0.25s 0.25s, rotate 0.25s 0.25s',
       transform: 'translateY(-6px)',
-      translate: '4px -1.8px',
+      translate: '4px -1.6px',
       rotate: '-45deg'
     },
     '& [aria-expanded="false"] span:nth-of-type(1)': {

@@ -31,39 +31,32 @@ Since objects are attached to dynamic styles in development mode, there is no ne
 
 Styles exported by the compiler as static CSS Modules are split into components and further optimized by the framework.
 
+
 <Tabs>
   <Tab>
-```ts
+```tsx title="Header.css.tsx"
 import { Style } from 'typedcssx';
 
-export const styles = Style.create({
+const styles = Style.create({
   header_nav: {
     position: 'absolute',
     top: 0,
   },
 });
 
-export const navStyle = Style.set({
+const navStyle = Style.set({
   '& a':{
     fontSize: 16,
     color: 'black',
   },
 });
-```
-  </Tab>
-</Tabs>
-
-<Tabs>
-  <Tab>
-```tsx
-import { styles, navStyle } from './style.css';
 
 export const Header = () => {
 return (
   <header className={styles.header_nav}>
     <nav className={navStyle}>
-      <a>content</a>
       <a>home</a>
+      <a>about</a>
     </nav>
   </header>
 )};

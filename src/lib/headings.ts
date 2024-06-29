@@ -46,8 +46,8 @@ export const headings = [
       { id: 'compiled-not', text: '# Compiled not' },
       { id: 'pseudo-has-example', text: '# Pseudo has example' },
       { id: 'compiled-has', text: '# Compiled has' },
-      { id: 'and-string-selector', text: '# And string Selector' },
-      { id: 'compiled-and-string-selector', text: '# Compiled and string Selector' }
+      { id: '-string-selector', text: '# & string Selector' },
+      { id: 'compiled--string-selector', text: '# Compiled & string Selector' }
     ]
   }
 ]

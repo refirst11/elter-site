@@ -6,13 +6,11 @@ date: '2024-06-17'
 <SearchBox />
 <TocBot />
 
-# Media function
-The media function is a higher-order function that provides a wrapper function in its return value.  
-When used with create, the key will be inaccessible. To resolve this, use a normal key selector or wrap the properties.
-
-
+# Media Function
 
 ## Input
+The media function returns a wrapper function. When using it with create, the key becomes inaccessible. To fix this, use a normal key selector or wrap the properties.
+
 Take a look at the media queries in the mobile functions and compare them.
 ```ts title="style.css.ts"
 import { Style, media } from '../../components/typedcss/src/core';

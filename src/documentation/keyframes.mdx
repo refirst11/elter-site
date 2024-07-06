@@ -1,0 +1,69 @@
+---
+title: '@Keyframes'
+subtitle: 'The Keyframes Guide'
+date: '2024-07-06'
+---
+
+<SearchBox />
+<TocBot />
+
+# @Keyframes
+
+## Input
+@keyframes is defined in Style.global.
+```ts title="global.css.ts"
+Style.global({
+  '@keyframes fade': {
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: 1,
+    },
+  },
+  '@keyframes move': {
+    '0%': {
+      transform: 'translate(0px)'
+    },
+    '100%': {
+      transform: 'translate(100px)'
+    },
+  },
+});
+```
+
+## Output
+```css title="css"
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px);
+  }
+  100% {
+    transform: translate(100px);
+  }
+}
+```
+
+## Uses
+The created animation can be used with Style.create, Style.set, etc.
+```ts title="style.css.ts"
+const styles = Style.create({
+  box: {
+    padding: '20px',
+    animation: 'move 2s'
+  },
+  heading: {
+    fontSize: 24,
+    animation: 'fade 3s infinite'
+  }
+});
+```

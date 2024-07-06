@@ -31,12 +31,6 @@ export const headings = [
   },
   {
     heading: [
-      { id: 'input', text: '# Input' },
-      { id: 'output', text: '# Output' }
-    ]
-  },
-  {
-    heading: [
       { id: 'types', text: '# Types' },
       { id: 'pseudo-hover-example', text: '# Pseudo hover example' },
       { id: 'compiled-hover', text: '# Compiled hover' },
@@ -48,6 +42,19 @@ export const headings = [
       { id: 'compiled-has', text: '# Compiled has' },
       { id: '-string-selector', text: '# & string Selector' },
       { id: 'compiled--string-selector', text: '# Compiled & string Selector' }
+    ]
+  },
+  {
+    heading: [
+      { id: 'input', text: '# Input' },
+      { id: 'output', text: '# Output' }
+    ]
+  },
+  {
+    heading: [
+      { id: 'input', text: '# Input' },
+      { id: 'output', text: '# Output' },
+      { id: 'uses', text: '# Uses' }
     ]
   }
 ]

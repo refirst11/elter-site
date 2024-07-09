@@ -77,9 +77,12 @@ pre {
 }
 
 code {
-  font-size: 14px;
-  font-family: ui-monospace;
+  font-family: 'Consolas', 'Menlo', 'Ubuntu Mono', 'DejaVu Sans Mono', 'Courier New', 'Courier', monospace;
   color: var(--shiki-color-text);
+}
+
+[data-rehype-pretty-code-figure] pre code span {
+  font-size: 12.8px;
 }
 
 figure {
@@ -114,10 +117,6 @@ figure {
   padding: 0 20px;
   line-height: 1.5;
   border-left: solid 4px transparent;
-}
-
-[data-rehype-pretty-code-fragment] code .line span {
-  font-size: 14.4px;
 }
 
 p code {
@@ -160,7 +159,7 @@ code[data-line-numbers] .line::before {
     display: none;
   }
 
-  [data-rehype-pretty-code-fragment] code .line span {
+  code {
     font-size: 12.4px;
   }
 }

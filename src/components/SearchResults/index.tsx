@@ -86,15 +86,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     }
   }, [])
 
-  if (isLoading) {
-    return (
-      <ul className={styles.list}>
-        <p className={styles.no_result}>Loading...</p>
-      </ul>
-    )
-  }
-
-  const highlightText = (text: string, keyword: string) => {
+  const highlightText = useCallback((text: string, keyword: string) => {
     if (!keyword.trim()) return text
     const parts = text.split(new RegExp(`(${keyword})`, 'gi'))
     return parts.map((part, i) => (
@@ -102,6 +94,14 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
         {part}
       </span>
     ))
+  }, [])
+
+  if (isLoading) {
+    return (
+      <ul className={styles.list}>
+        <p className={styles.no_result}>Loading...</p>
+      </ul>
+    )
   }
 
   return (

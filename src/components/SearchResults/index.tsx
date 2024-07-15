@@ -6,6 +6,7 @@ import getAllPosts from 'lib/getAllPosts'
 import getPostMdx from 'lib/getPostMdx'
 import type PostsData from 'types/PostsData'
 import PostContent, { HeadingWithParagraphs } from 'types/PostContent'
+import { debounce } from 'lodash'
 
 type KeywordProps = {
   keyword: string
@@ -16,31 +17,43 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   const [posts, setPosts] = useState<PostsData[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [postContents, setPostContents] = useState<{ [slug: string]: PostContent }>({})
+  const [debouncedKeyword, setDebouncedKeyword] = useState(keyword)
+
+  useEffect(() => {
+    const handler = debounce(() => setDebouncedKeyword(keyword), 300)
+    handler()
+    return () => {
+      handler.cancel()
+    }
+  }, [keyword])
 
   useEffect(() => {
     const fetchPostsAndContents = async () => {
       setIsLoading(true)
       const postsData = await getAllPosts()
       setPosts(postsData)
-
-      const contentMap: { [slug: string]: PostContent } = {}
-
-      await Promise.all(
-        postsData.map(async ({ slug }) => {
-          const { meta, content } = await getPostMdx(slug)
-          const matchedSections = extractHeadingsAndParagraphs(content)
-          contentMap[slug] = { meta, content, matchedSections }
-        })
-      )
-
-      setPostContents(contentMap)
       setIsLoading(false)
     }
 
     fetchPostsAndContents()
   }, [])
 
+  useEffect(() => {
+    const fetchPostContent = async (slug: string) => {
+      if (!postContents[slug]) {
+        const { meta, content } = await getPostMdx(slug)
+        const matchedSections = extractHeadingsAndParagraphs(content)
+        setPostContents((prev) => ({ ...prev, [slug]: { meta, content, matchedSections } }))
+      }
+    }
+
+    if (debouncedKeyword) {
+      posts.forEach(({ slug }) => fetchPostContent(slug))
+    }
+  }, [debouncedKeyword, posts, postContents])
+
   const { filteredPosts, matchedSectionsMap } = useMemo(() => {
+    if (!debouncedKeyword) return { filteredPosts: [], matchedSectionsMap: new Map() }
     const filteredPostsArray: PostsData[] = []
     const matchedSectionsMap = new Map()
 
@@ -49,7 +62,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
       const matchedSections = postContents[slug]?.matchedSections || []
       const filteredSections = matchedSections.filter(
         ({ heading, paragraphs }) =>
-          heading.toLowerCase().includes(keyword.toLowerCase()) || paragraphs.some((paragraph) => paragraph.toLowerCase().includes(keyword.toLowerCase()))
+          heading.toLowerCase().includes(debouncedKeyword.toLowerCase()) || paragraphs.some((paragraph) => paragraph.toLowerCase().includes(debouncedKeyword.toLowerCase()))
       )
 
       if (filteredSections.length > 0) {
@@ -59,9 +72,9 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     })
 
     return { filteredPosts: filteredPostsArray, matchedSectionsMap }
-  }, [posts, postContents, keyword])
+  }, [debouncedKeyword, posts, postContents])
 
-  const scrollToHeading = (id: string) => {
+  const scrollToHeading = useCallback((id: string) => {
     const element = document.getElementById(id)
     if (element) {
       const elementPosition = element.getBoundingClientRect().top + window.scrollY - 76
@@ -71,7 +84,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
         behavior: 'smooth'
       })
     }
-  }
+  }, [])
 
   if (isLoading) {
     return (
@@ -101,8 +114,8 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
             <li key={index}>
               {matchedSections.map(
                 ({ heading, paragraphs, id }, index) =>
-                  (heading.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) ||
-                    paragraphs.some((paragraph) => paragraph.toLowerCase().includes(keyword.toLowerCase()))) && (
+                  (heading.toLocaleLowerCase().includes(debouncedKeyword.toLocaleLowerCase()) ||
+                    paragraphs.some((paragraph) => paragraph.toLowerCase().includes(debouncedKeyword.toLowerCase()))) && (
                     <Link
                       key={index}
                       className={styles.link}
@@ -113,11 +126,11 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
                         }, 120)
                       }>
                       <div className={styles.box}>
-                        <div className={styles.heading3}>{highlightText(heading, keyword)}</div>
+                        <div className={styles.heading3}>{highlightText(heading, debouncedKeyword)}</div>
 
                         {paragraphs.map((paragraph, idx) => (
                           <p className={styles.desc} key={idx}>
-                            {highlightText(paragraph, keyword)}
+                            {highlightText(paragraph, debouncedKeyword)}
                           </p>
                         ))}
                       </div>

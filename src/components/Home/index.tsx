@@ -17,9 +17,9 @@ export function Home() {
         <p className={styles.tagline}>A Type Safety and seamless CSS in JS on Next.js</p>
         <section className={styles.card_container}>
           <div>
-            <span>🔭</span>
-            <h2>Directly Scoped</h2>
-            <p>Hash based class names provide unique scoping, CSS in tsx enables seamless design with React components.</p>
+            <span>📡</span>
+            <h2>Console lover</h2>
+            <p>Compiled CSS code is directly output to the console, ensuring you never write incorrect code during development.</p>
           </div>
 
           <div>
@@ -28,7 +28,7 @@ export function Home() {
             <p>Experience efficiency with zero runtime overhead, boosting performance and streamlining your workflow.</p>
           </div>
           <div>
-            <span>⚙️</span>
+            <span>🔭</span>
             <h2>Autocomplete</h2>
             <p>Enjoy seamless coding with advanced autocomplete, speeding up development and improving accuracy. </p>
           </div>

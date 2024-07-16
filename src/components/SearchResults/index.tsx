@@ -14,64 +14,42 @@ type KeywordProps = {
 
 export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   const [posts, setPosts] = useState<PostsData[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [postContents, setPostContents] = useState<{ [slug: string]: PostContent }>({})
-  const [initialPostsLoaded, setInitialPostsLoaded] = useState(false)
   const [isContentLoading, setIsContentLoading] = useState(true)
+  const [cachedContents, setCachedContents] = useState<{ [slug: string]: PostContent }>({})
+  const [loadingPosts, setLoadingPosts] = useState<Set<string>>(new Set())
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      setIsLoading(true)
+    const fetchPostsAndContents = async () => {
       const postsData = await getAllPosts()
       setPosts(postsData)
-      setIsLoading(false)
     }
 
-    fetchPosts()
+    fetchPostsAndContents()
   }, [])
 
   useEffect(() => {
-    const fetchInitialPostContents = async () => {
-      const initialPosts = posts.slice(0, 5)
-      const initialContents = await Promise.all(
-        initialPosts.map(async ({ slug }) => {
-          const { meta, content } = await getPostMdx(slug)
-          const matchedSections = extractHeadingsAndParagraphs(content)
-          return { slug, meta, content, matchedSections }
+    const fetchPostContent = async (slug: string) => {
+      if (!cachedContents[slug] && !loadingPosts.has(slug)) {
+        setLoadingPosts((prev) => new Set(prev).add(slug))
+        const { meta, content } = await getPostMdx(slug)
+        const matchedSections = extractHeadingsAndParagraphs(content)
+        setCachedContents((prev) => ({
+          ...prev,
+          [slug]: { meta, content, matchedSections }
+        }))
+        setLoadingPosts((prev) => {
+          const newSet = new Set(prev)
+          newSet.delete(slug)
+          return newSet
         })
-      )
-      const contentMap = initialContents.reduce((map: { [slug: string]: PostContent }, { slug, meta, content, matchedSections }) => {
-        map[slug] = { meta, content, matchedSections }
-        return map
-      }, {})
-      setPostContents(contentMap)
-      setInitialPostsLoaded(true)
-      setIsContentLoading(false)
+        setIsContentLoading(false)
+      }
     }
 
-    if (posts.length > 0) {
-      fetchInitialPostContents()
+    if (keyword) {
+      posts.forEach(({ slug }) => fetchPostContent(slug))
     }
-  }, [posts])
-
-  useEffect(() => {
-    const fetchRemainingPostContents = async () => {
-      const remainingPosts = posts.slice(5)
-      await Promise.all(
-        remainingPosts.map(async ({ slug }) => {
-          if (!postContents[slug]) {
-            const { meta, content } = await getPostMdx(slug)
-            const matchedSections = extractHeadingsAndParagraphs(content)
-            setPostContents((prev) => ({ ...prev, [slug]: { meta, content, matchedSections } }))
-          }
-        })
-      )
-    }
-
-    if (initialPostsLoaded) {
-      fetchRemainingPostContents()
-    }
-  }, [initialPostsLoaded, posts, postContents])
+  }, [keyword, posts, cachedContents, loadingPosts])
 
   const { filteredPosts, matchedSectionsMap } = useMemo(() => {
     if (!keyword) return { filteredPosts: [], matchedSectionsMap: new Map() }
@@ -80,7 +58,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
 
     posts.forEach((post) => {
       const { slug } = post
-      const matchedSections = postContents[slug]?.matchedSections || []
+      const matchedSections = cachedContents[slug]?.matchedSections || []
       const filteredSections = matchedSections.filter(
         ({ heading, paragraphs }) =>
           heading.toLowerCase().includes(keyword.toLowerCase()) || paragraphs.some((paragraph) => paragraph.toLowerCase().includes(keyword.toLowerCase()))
@@ -93,7 +71,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     })
 
     return { filteredPosts: filteredPostsArray, matchedSectionsMap }
-  }, [keyword, posts, postContents])
+  }, [cachedContents, keyword, posts])
 
   const scrollToHeading = useCallback((id: string) => {
     const element = document.getElementById(id)
@@ -117,7 +95,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     ))
   }, [])
 
-  if (isLoading || isContentLoading) {
+  if (isContentLoading) {
     return (
       <ul className={styles.list}>
         <p className={styles.no_result}>Loading...</p>
@@ -130,6 +108,10 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
       {filteredPosts.length > 0 ? (
         filteredPosts.map(({ slug }, index) => {
           const matchedSections = matchedSectionsMap.get(slug) as HeadingWithParagraphs[]
+
+          if (!cachedContents[slug]) {
+            return <li key={index}>Loading post content...</li>
+          }
 
           return (
             <li key={index}>

@@ -1,6 +1,5 @@
-import { Style, media } from 'typedcssx'
-
-const mobile = media('max-width: 799px')
+import { Style } from 'typedcssx'
+import { mobile } from '../../lib/mobile'
 
 export const styles = Style.create({
   container: {
@@ -21,7 +20,7 @@ export const styles = Style.create({
     display: 'flex',
     justifyContent: 'center',
     gap: '20px',
-    top: '-8px',
+    top: '-40px',
     left: '420px',
     height: '0',
     listStyleType: 'none',
@@ -32,15 +31,13 @@ export const styles = Style.create({
     position: 'absolute',
     color: 'var(--color-heading)',
     fontWeight: '700',
-    marginLeft: -665,
+    left: '50%',
+    transform: 'translate(-608%)',
     top: 18,
     width: 110,
     textDecoration: 'none',
     ...mobile({
-      display: 'block',
-      marginLeft: 'auto',
-      top: 20,
-      left: 20
+      display: 'none'
     })
   },
 

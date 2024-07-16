@@ -6,7 +6,6 @@ export const styles = Style.create({
     zIndex: '2',
     position: 'fixed',
     top: 48,
-    marginLeft: -84,
     padding: 12,
     width: 580,
     height: 400,
@@ -14,6 +13,8 @@ export const styles = Style.create({
     border: 'solid 2px var(--color-border)',
     borderRadius: '8px',
     overflowY: 'scroll',
+    left: '50%',
+    transform: 'translate(-74.2%)',
     '& li': {
       listStyleType: 'none'
     },
@@ -25,9 +26,10 @@ export const styles = Style.create({
       marginTop: 40
     },
     ...mobile({
-      marginLeft: -24,
+      left: '0',
+      transform: 'translate(0)',
       width: '100%',
-      height: '100%'
+      height: 'calc(100% - 64px)'
     })
   },
 

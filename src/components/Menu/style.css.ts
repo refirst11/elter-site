@@ -1,6 +1,5 @@
 import { Style, media } from 'typedcssx'
-const desktop = media('min-width: 800px')
-const mobile = media('max-width: 799.98px')
+const desktop = media('min-width: 1079px')
 
 export const styles = Style.create({
   Line: {

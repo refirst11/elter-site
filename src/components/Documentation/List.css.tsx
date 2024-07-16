@@ -3,9 +3,8 @@
 import Link from 'next/link'
 import PostsData from 'types/PostsData'
 import { usePathname } from 'next/navigation'
-import { Style, media } from 'typedcssx'
-
-const mobile = media('max-width: 799px')
+import { Style } from 'typedcssx'
+import { mobile } from '../../lib/mobile'
 
 const styles = Style.create({
   list_position: {

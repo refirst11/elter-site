@@ -1,6 +1,5 @@
-import { Style, media } from 'typedcssx'
-
-const mobile = media('max-width: 799.99px')
+import { Style } from 'typedcssx'
+import { mobile } from '../../lib/mobile'
 
 export const styles = Style.create({
   top_wrapper: {
@@ -113,7 +112,7 @@ export const styles = Style.create({
     position: 'absolute',
     display: 'flex',
     justifyContent: 'center',
-    top: '55%',
+    top: '60%',
     left: '50%',
     transform: 'translate(-50%, -20%)',
     width: 'max-content',

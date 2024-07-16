@@ -1,6 +1,5 @@
-import { Style, media } from 'typedcssx'
-
-const mobile = media('max-width: 799px')
+import { Style } from 'typedcssx'
+import { mobile } from '../../lib/mobile'
 
 export const styles = Style.create({
   footer_main: {

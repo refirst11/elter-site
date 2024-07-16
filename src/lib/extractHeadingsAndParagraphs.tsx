@@ -1,9 +1,18 @@
 import ReactDOMServer from 'react-dom/server'
-import { JSXElementConstructor, ReactElement } from 'react'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { HeadingWithParagraphs } from 'types/PostContent'
+import { Tabs, Tab } from 'components/Tabs'
+import { TocBot } from 'components/TocBot'
 
-export const extractHeadingsAndParagraphs = (content: ReactElement<string, string | JSXElementConstructor<string>>): HeadingWithParagraphs[] => {
-  const htmlContent = ReactDOMServer.renderToString(content)
+export const extractHeadingsAndParagraphs = (content: MDXRemoteSerializeResult): HeadingWithParagraphs[] => {
+  const components = {
+    Tabs,
+    Tab,
+    TocBot
+  }
+
+  const Component = <MDXRemote {...content} components={components} />
+  const htmlContent = ReactDOMServer.renderToString(Component)
   const parser = new DOMParser()
   const doc = parser.parseFromString(htmlContent, 'text/html')
   const headings = Array.from(doc.querySelectorAll('h2, h3'))

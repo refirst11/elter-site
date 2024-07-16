@@ -31,7 +31,11 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     const fetchPostContent = async (slug: string) => {
       if (!cachedContents[slug] && !loadingPosts.has(slug)) {
         setLoadingPosts((prev) => new Set(prev).add(slug))
-        const { meta, content } = await getPostMdx(slug)
+        const response = await fetch(`/api/getPostMdx?slug=${slug}`)
+        if (!response.ok) {
+          throw new Error(`Failed to fetch post content for ${slug}`)
+        }
+        const { meta, content } = await response.json()
         const matchedSections = extractHeadingsAndParagraphs(content)
         setCachedContents((prev) => ({
           ...prev,

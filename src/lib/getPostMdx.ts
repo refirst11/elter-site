@@ -3,20 +3,10 @@
 import fs from 'fs'
 import path from 'path'
 import type { ReturnData, PostData } from 'types/PostData'
-import { compileMDX } from 'next-mdx-remote/rsc'
-import { Tabs, Tab } from 'components/Tabs'
-import { TocBot } from 'components/TocBot'
+import { serialize } from 'next-mdx-remote/serialize'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import { createCssVariablesTheme } from 'shiki'
-import { SearchBox } from 'components/SearchBox'
-
-const Element = {
-  Tabs,
-  Tab,
-  TocBot,
-  SearchBox
-}
 
 async function getPostMdx(slug: string): Promise<ReturnData> {
   const folder = path.join(process.cwd(), '/src/documentation')
@@ -30,29 +20,29 @@ async function getPostMdx(slug: string): Promise<ReturnData> {
     fontStyle: true
   })
 
-  const { frontmatter, content } = await compileMDX<PostData>({
-    components: Element,
-    source: file,
-    options: {
-      parseFrontmatter: true,
-      mdxOptions: {
-        rehypePlugins: [
-          rehypeSlug,
-          [
-            rehypePrettyCode,
-            {
-              theme: myTheme,
-              keepBackground: false,
-              onVisitHighlightedLine(node: { properties: { className: string[] } }) {
-                node.properties.className.push('highlighted')
-              }
+  const mdxSource = await serialize<PostData>(file, {
+    parseFrontmatter: true,
+    mdxOptions: {
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypePrettyCode,
+          {
+            theme: myTheme,
+            keepBackground: false,
+            onVisitHighlightedLine(node: { properties: { className: string[] } }) {
+              node.properties.className.push('highlighted')
             }
-          ]
+          }
         ]
-      }
+      ]
     }
   })
-  return { meta: { ...frontmatter }, content: content }
+
+  return {
+    meta: { ...(mdxSource.frontmatter as PostData) },
+    content: mdxSource
+  }
 }
 
 export default getPostMdx

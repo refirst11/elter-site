@@ -1,12 +1,11 @@
-import { ReactElement, JSXElementConstructor } from 'react'
-
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 export type ReturnData = {
   meta: {
     title: string
     subtitle: string
     date: string
   }
-  content: ReactElement<string, string | JSXElementConstructor<string>>
+  content: MDXRemoteSerializeResult
 }
 
 export type PostData = {

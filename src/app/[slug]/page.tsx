@@ -5,24 +5,20 @@ import { Metadata } from 'next'
 import getSlugPath from 'lib/getSlugPath'
 import { NextPage } from 'components/NextPage'
 import { Documentation } from 'components/Documentation'
+import { PostContent } from 'components/MDX'
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { meta } = await getPageContent(params.slug)
+  const { meta } = await getPostMdx(params.slug)
   return generateSEOData({ title: meta.title, subtitle: meta.subtitle, date: meta.date })
 }
 
-const getPageContent = async (slug: string) => {
-  const { meta, content } = await getPostMdx(slug)
-  return { meta, content }
-}
-
 export default async function Page({ params }: Params) {
-  const { content } = await getPageContent(params.slug)
+  const { content } = await getPostMdx(params.slug)
 
   return (
     <main>
       <Documentation />
-      {content}
+      <PostContent content={content} />
       <NextPage />
     </main>
   )
@@ -35,5 +31,3 @@ export async function generateStaticParams() {
     slug: post.slug
   }))
 }
-
-

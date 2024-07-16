@@ -1,4 +1,4 @@
-import { JSXElementConstructor, ReactElement } from 'react'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 export interface HeadingWithParagraphs {
   heading: string
@@ -12,7 +12,7 @@ type PostContent = {
     subtitle: string
     date: string
   }
-  content: ReactElement<string, string | JSXElementConstructor<string>>
+  content: MDXRemoteSerializeResult
   matchedSections: HeadingWithParagraphs[]
 }
 

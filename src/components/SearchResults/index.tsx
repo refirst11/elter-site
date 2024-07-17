@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { styles } from './style.css'
 import { useEffect, useState, useMemo, useCallback } from 'react'
 import getAllPosts from 'lib/getAllPosts'
-import getPostMdx from 'lib/getPostMdx'
 import type PostsData from 'types/PostsData'
 import PostContent, { HeadingWithParagraphs } from 'types/PostContent'
 

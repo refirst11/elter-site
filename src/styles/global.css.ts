@@ -101,7 +101,7 @@ Style.global({
   },
   '*': {
     boxSizing: 'border-box',
-    scrollbarColor: 'auto'
+    scrollbarColor: 'rgb(166, 166, 166) rgb(241, 241, 241)'
   },
   'h1::after, h2::after, h3::after, h4::after, h5::after, h6::after': {
     content: '"#"',

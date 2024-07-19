@@ -13,14 +13,17 @@ type KeywordProps = {
 
 export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   const [posts, setPosts] = useState<PostsData[]>([])
+  const [isLoading, setIsLoading] = useState(true)
   const [isContentLoading, setIsContentLoading] = useState(true)
   const [cachedContents, setCachedContents] = useState<{ [slug: string]: PostContent }>({})
   const [loadingPosts, setLoadingPosts] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     const fetchPostsAndContents = async () => {
+      setIsLoading(true)
       const postsData = await getAllPosts()
       setPosts(postsData)
+      setIsLoading(false)
     }
 
     fetchPostsAndContents()
@@ -98,7 +101,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     ))
   }, [])
 
-  if (isContentLoading) {
+  if (isLoading || isContentLoading) {
     return (
       <ul className={styles.list}>
         <p className={styles.no_result}>Loading...</p>

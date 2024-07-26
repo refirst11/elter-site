@@ -69,7 +69,6 @@ pre {
   width: 100%;
   padding: 20px;
   margin: 40px 0;
-  overflow: auto;
   border-radius: 4px 0 4px 4px;
   box-shadow: 0 0 2px -0.5px rgb(0 0 0 / 40%);
   background: var(--shiki-color-background);
@@ -152,7 +151,7 @@ code[data-line-numbers] .line::before {
 
 @media screen and (max-width: 1079px) {
   pre {
-    width: '100%';
+    width: 100%;
   }
 
   .disp {

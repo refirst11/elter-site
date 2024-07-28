@@ -35,7 +35,7 @@ Styles exported by the compiler as static CSS Modules are split into components 
 <Tabs>
   <Tab>
 ```tsx title="Header.css.tsx"
-import { Style } from 'typedcssx';
+import Style from 'typedcssx';
 
 const styles = Style.create({
   header_nav: {
@@ -68,15 +68,17 @@ return (
 
 Although this library is a fairly latecomer to the CSS in JS world, it is heavily by these and other earlier libraries.
 
-- **[Styled-JSX](https://styled-system.com/):** Very stable CSS in JS, template literals were easy to write with VSC's autocompletion.
+- **[Styled-JSX](https://styled-system.com/):** Very stable CSS in JS, template literals were easy to write with **VSC's autocompletion**.
 
-- **[Emotion](https://emotion.sh/docs/introduction/):** I found writing template literals easy. This was the standard CSS in JS in React.
+- **[Emotion](https://emotion.sh/docs/introduction/):** I found writing **template literals easy**. This was the standard CSS in JS in React.
 
 - **[React Native](https://reactnative.dev/):** **StyleSheet Class** is impeccable. It's standard in Typed CSS is inspired by React Native.
 
 - **[Vue.js](https://vuejs.org/):** **Scoped CSS** in Vue.js excels in simplicity and directness.
 
-- **[Linaria](https://github.com/callstack/linaria):**  Typed CSS was also inspired by the concept of static CSS extraction.
+- **[Vanilla Extract](https://vanilla-extract.style/):** It is inspired by vanilla extract's concept of **object, property types**.
+
+- **[Linaria](https://github.com/callstack/linaria):**  Typed CSS was also inspired by the concept of **static CSS extraction**.
 
 There integrated the standout features from each of these libraries into Typed CSS X. This is our expression of gratitude to these exceptional open-source projects and our contribution to the community.
 

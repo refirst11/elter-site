@@ -7,6 +7,7 @@ import { serialize } from 'next-mdx-remote/serialize'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import { createCssVariablesTheme } from 'shiki'
+import remarkGfm from 'remark-gfm'
 
 async function getPostMdx(slug: string): Promise<ReturnData> {
   const folder = path.join(process.cwd(), '/src/documentation')
@@ -23,6 +24,7 @@ async function getPostMdx(slug: string): Promise<ReturnData> {
   const mdxSource = await serialize<PostData>(file, {
     parseFrontmatter: true,
     mdxOptions: {
+      remarkPlugins: [remarkGfm],
       rehypePlugins: [
         rehypeSlug,
         [

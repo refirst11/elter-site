@@ -96,6 +96,60 @@ Style.global({
       fontSize: 20
     })
   },
+  table: {
+    width: '100%',
+    borderCollapse: 'collapse',
+    overflowX: 'auto',
+    display: 'block'
+  },
+  thead: {
+    display: 'table',
+    width: '100%',
+    tableLayout: 'fixed',
+    '& th': {
+      padding: '10px 5px',
+      borderBottom: '1px solid var(--color-border)',
+      whiteSpace: 'pre-wrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      fontSize: 14,
+      '&:nth-child(1)': {
+        width: '25%'
+      },
+      '&:nth-child(2)': {
+        width: '25%'
+      },
+      '&:nth-child(3)': {
+        width: '55%'
+      }
+    }
+  },
+  tbody: {
+    display: 'table',
+    width: '100%',
+    tableLayout: 'fixed',
+    '& td': {
+      fontSize: 14,
+      padding: '10px 5px',
+      borderBottom: '1px solid var(--color-border)',
+      whiteSpace: 'pre-wrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      '&:nth-child(1)': {
+        width: '25%'
+      },
+      '&:nth-child(2)': {
+        width: '25%'
+      },
+      '&:nth-child(3)': {
+        width: '55%'
+      }
+    }
+  },
+  strong: {
+    fontWeight: 450,
+    color: 'var(--color-heading)'
+  },
   'ul li p': {
     marginTop: 12
   },

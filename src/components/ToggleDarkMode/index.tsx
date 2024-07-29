@@ -4,6 +4,12 @@ import { FiMoon, FiSun } from 'react-icons/fi'
 
 export const ToggleDarkMode = (): JSX.Element | null => {
   const [darkMode, setDarkMode] = useState<boolean | undefined>(undefined)
+  let initialTheme: 'dark' | 'light' | null = null
+
+  if (typeof window !== 'undefined') {
+    const currentTheme = localStorage.getItem('theme')
+    initialTheme = currentTheme as 'dark' | 'light' | null
+  }
 
   useEffect(() => {
     const currentTheme = localStorage.getItem('theme')
@@ -41,7 +47,13 @@ export const ToggleDarkMode = (): JSX.Element | null => {
   }
 
   if (darkMode === undefined) {
-    return null
+    return (
+      <div className={styles.toggle_wrapper}>
+        <button className={styles.toggle_button} onClick={handleChangeDarkMode}>
+          <FiSun size={10} style={{ visibility: 'hidden' }} />
+        </button>
+      </div>
+    )
   }
 
   return (

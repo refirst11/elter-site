@@ -10,7 +10,7 @@ Style.global({
   body: {
     textAlign: 'center',
     fontSize: 16,
-    lineHeight: 1.75,
+    lineHeight: 1.6,
     wordBreak: 'break-all',
     margin: '0 auto',
     color: 'var(--color-text)',

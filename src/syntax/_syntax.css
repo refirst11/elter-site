@@ -114,7 +114,6 @@ figure {
 
 [data-rehype-pretty-code-fragment] .line {
   padding: 0 20px;
-  line-height: 1.5;
   border-left: solid 4px transparent;
 }
 

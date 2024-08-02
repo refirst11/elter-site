@@ -66,8 +66,8 @@ dependencies:
     specifier: ^4.28.2
     version: 4.28.2
   typedcssx:
-    specifier: ^1.3.8
-    version: 1.3.8
+    specifier: ^2.0.5
+    version: 2.0.5
 
 devDependencies:
   '@types/node':
@@ -4748,8 +4748,8 @@ packages:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
     dev: false
 
-  /tsx@4.16.2:
-    resolution: {integrity: sha512-C1uWweJDgdtX2x600HjaFaucXTilT7tgUZHbOE4+ypskZ1OP8CRCSDkCxG6Vya9EwaFIVagWwpaVAn5wzypaqQ==}
+  /tsx@4.16.5:
+    resolution: {integrity: sha512-ArsiAQHEW2iGaqZ8fTA1nX0a+lN5mNTyuGRRO6OW3H/Yno1y9/t1f9YOI1Cfoqz63VAthn++ZYcbDP7jPflc+A==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
@@ -4820,13 +4820,13 @@ packages:
       possible-typed-array-names: 1.0.0
     dev: true
 
-  /typedcssx@1.3.8:
-    resolution: {integrity: sha512-a5bEtwqDQrG+isiB3sOSgHbJ7kECpqjZU2YWPiNz0I7BhvS9sqNksCZOHm1/XkiYBcNkapFoyHzTpWxi/XqZyA==}
+  /typedcssx@2.0.5:
+    resolution: {integrity: sha512-1cNG7LpZOqxuO7hRy9TpBKpwdX0emTRTzf+6XYXWluCkMDCycRpUVYS6EC1gWpTBmGH1cawKxgjLzuiliXeCxw==}
     dependencies:
       '@types/css-modules': 1.0.5
       '@types/node': 20.14.9
       fast-glob: 3.3.2
-      tsx: 4.16.2
+      tsx: 4.16.5
     dev: false
 
   /typescript@5.5.2:

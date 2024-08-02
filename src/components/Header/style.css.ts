@@ -1,5 +1,4 @@
-import { Style } from 'typedcssx'
-import { mobile } from '../../lib/mobile'
+import Style, { max_xl } from 'typedcssx'
 
 export const styles = Style.create({
   container: {
@@ -36,9 +35,9 @@ export const styles = Style.create({
     top: 18,
     width: 110,
     textDecoration: 'none',
-    ...mobile({
+    [max_xl]: {
       display: 'none'
-    })
+    }
   },
 
   link: {
@@ -46,9 +45,9 @@ export const styles = Style.create({
     textDecoration: 'none',
     width: 'fit-content',
     height: '26px',
-    ...mobile({
+    [max_xl]: {
       display: 'none'
-    })
+    }
   },
   active: {
     "&[aria-current='page']": {

@@ -1,5 +1,4 @@
-import { Style, media } from 'typedcssx'
-const desktop = media('min-width: 1079px')
+import Style, { min_xl } from 'typedcssx'
 
 export const styles = Style.create({
   Line: {
@@ -72,9 +71,9 @@ export const styles = Style.create({
       translate: '0 0',
       rotate: '0deg'
     },
-    ...desktop({
+    [min_xl]: {
       display: 'none'
-    })
+    }
   },
   menu: {
     display: 'block',
@@ -85,9 +84,9 @@ export const styles = Style.create({
     '&[aria-hidden="false"] ul': {
       transform: 'translateY(0%)'
     },
-    ...desktop({
+    [min_xl]: {
       display: 'none'
-    })
+    }
   },
 
   menu_list: {

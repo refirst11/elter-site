@@ -1,5 +1,4 @@
-import { Style } from 'typedcssx'
-import { mobile } from '../../lib/mobile'
+import Style, { max_xl } from 'typedcssx'
 
 export const styles = Style.create({
   inputBox: {
@@ -22,12 +21,12 @@ export const styles = Style.create({
       outline: '3px solid skyblue'
     },
     color: 'var(--color-text)',
-    ...mobile({
+    [max_xl]: {
       transform: 'translate(0)',
       top: 16,
       left: 20,
       width: '50%'
-    })
+    }
   },
   cmdk: {
     zIndex: '3',
@@ -45,10 +44,10 @@ export const styles = Style.create({
     scale: 0.65,
     left: '50%',
     transform: 'translate(-730%)',
-    ...mobile({
+    [max_xl]: {
       transform: 'translate(0)',
       top: 18,
       marginLeft: -30
-    })
+    }
   }
 })

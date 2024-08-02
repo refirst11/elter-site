@@ -3,8 +3,7 @@
 import Link from 'next/link'
 import PostsData from 'types/PostsData'
 import { usePathname } from 'next/navigation'
-import { Style } from 'typedcssx'
-import { mobile } from '../../lib/mobile'
+import Style, { max_xl } from 'typedcssx'
 
 const styles = Style.create({
   list_position: {
@@ -29,11 +28,11 @@ const styles = Style.create({
       borderRadius: '4px'
     }
   },
-  ...mobile({
+  [max_xl]: {
     list_position: {
       display: 'none'
     }
-  }),
+  },
   active: {
     "&[aria-current='false']:hover": {
       background: 'var(--color-card)',
@@ -48,13 +47,11 @@ const styles = Style.create({
     "&[aria-current='false']": {
       background: 'transparent',
       transition: 'background 0.15s, font-weight 0s'
-    }
-  },
-  ...mobile({
-    active: {
+    },
+    [max_xl]: {
       visibility: 'hidden'
     }
-  })
+  }
 })
 
 type ListsProps = {

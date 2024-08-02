@@ -1,5 +1,4 @@
-import { Style } from 'typedcssx'
-import { mobile } from '../../lib/mobile'
+import Style, { max_xl } from 'typedcssx'
 
 export const styles = Style.create({
   toggle_button: {
@@ -28,11 +27,11 @@ export const styles = Style.create({
       border: 'solid 1px var(--color-accent)'
     },
     transition: 'all 0.2s',
-    ...mobile({
+    [max_xl]: {
       position: 'absolute',
       marginLeft: 'auto',
       top: 22,
       right: 68
-    })
+    }
   }
 })

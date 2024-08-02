@@ -1,4 +1,4 @@
-import { Style } from 'typedcssx'
+import Style from 'typedcssx'
 
 export const styles = Style.create({
   button_initialize: {

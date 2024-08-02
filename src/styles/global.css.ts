@@ -1,6 +1,4 @@
-import { Style, media } from 'typedcssx'
-
-const mobile = media('max-width: 799.99px')
+import Style, { max_xl } from 'typedcssx'
 
 Style.global({
   html: {
@@ -16,14 +14,13 @@ Style.global({
     wordBreak: 'break-all',
     margin: '0 auto',
     color: 'var(--color-text)',
-    background: 'var(--color-bg)'
-  },
-  ...mobile({
-    body: {
+    background: 'var(--color-bg)',
+    [max_xl]: {
       padding: '64px 24px',
       fontSize: 14
     }
-  }),
+  },
+
   main: {
     position: 'relative',
     minHeight: '100vh',
@@ -32,12 +29,12 @@ Style.global({
     padding: '16px 48px',
     margin: '0 auto',
     textAlign: 'left',
-    ...mobile({
+    [max_xl]: {
       top: 14,
       width: '100%',
       padding: 0,
       minHeight: '100vh'
-    })
+    }
   },
 
   li: {
@@ -61,10 +58,10 @@ Style.global({
     padding: '20px 0',
     margin: '20px 0',
     fontWeight: '600',
-    ...mobile({
+    [max_xl]: {
       padding: '8px 0',
       fontSize: 30
-    })
+    }
   },
   h2: {
     color: 'var(--color-heading)',
@@ -74,27 +71,27 @@ Style.global({
     height: '50px',
     paddingBottom: '4px',
     borderBottom: 'solid 1px var(--color-border)',
-    ...mobile({
+    [max_xl]: {
       fontSize: 26
-    })
+    }
   },
   h3: {
     color: 'var(--color-heading)',
     fontSize: '24px',
     fontWeight: '550',
     margin: '36px 0 0',
-    ...mobile({
+    [max_xl]: {
       fontSize: 22
-    })
+    }
   },
   h4: {
     top: 12,
     fontSize: '22px',
     fontWeight: '500',
     margin: '0 auto',
-    ...mobile({
+    [max_xl]: {
       fontSize: 20
-    })
+    }
   },
   table: {
     width: '100%',

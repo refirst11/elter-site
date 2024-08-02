@@ -1,5 +1,4 @@
-import { Style } from 'typedcssx'
-import { mobile } from '../../lib/mobile'
+import Style, { max_xl } from 'typedcssx'
 
 export const styles = Style.create({
   list: {
@@ -25,12 +24,12 @@ export const styles = Style.create({
       padding: 0,
       marginTop: 40
     },
-    ...mobile({
+    [max_xl]: {
       left: '0',
       transform: 'translate(0)',
       width: '100%',
       height: 'calc(100% - 64px)'
-    })
+    }
   },
 
   link: {

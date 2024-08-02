@@ -1,5 +1,4 @@
-import { Style } from 'typedcssx'
-import { mobile } from '../../lib/mobile'
+import Style, { max_xl } from 'typedcssx'
 
 export const styles = Style.create({
   container: {
@@ -41,9 +40,9 @@ export const styles = Style.create({
     hover: {
       border: 'solid 1px var(--color-link)'
     },
-    ...mobile({
+    [max_xl]: {
       width: 140
-    })
+    }
   },
   next: {
     position: 'absolute',
@@ -63,8 +62,8 @@ export const styles = Style.create({
     hover: {
       border: 'solid 1px var(--color-link)'
     },
-    ...mobile({
+    [max_xl]: {
       width: 140
-    })
+    }
   }
 })

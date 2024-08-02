@@ -1,5 +1,4 @@
-import { Style } from 'typedcssx'
-import { mobile } from '../../lib/mobile'
+import Style, { max_xl } from 'typedcssx'
 
 export const iconStyle = Style.set({
   zIndex: '3',
@@ -23,11 +22,11 @@ export const styles = Style.create({
     height: 26,
     borderLeft: 'solid 1px var(--color-border)',
     borderRight: 'solid 1px var(--color-border)',
-    ...mobile({
+    [max_xl]: {
       position: 'absolute',
       marginLeft: 'auto',
       top: 20,
       right: 110
-    })
+    }
   }
 })

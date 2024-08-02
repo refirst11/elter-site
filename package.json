@@ -7,7 +7,7 @@
     "build": "npm run compile && next build",
     "start": "next start",
     "lint": "next lint",
-    "compile": "cd node_modules/typedcssx && npm run compile",
+    "compile": "cd node_modules/typedcssx && npm run compiler",
     "prettier": "prettier --write ."
   },
   "dependencies": {

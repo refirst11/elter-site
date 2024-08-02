@@ -14,7 +14,7 @@ export const headings = [
       { id: 'build-setting', text: '# Build setting' },
       { id: 'tsconfigjson', text: '# tsconfig.json' },
       { id: 'global-style-sheet', text: '# Global style sheet' },
-      { id: 'supported-nodejs-versions-v18---v22', text: '# Supported Node.js Versions: v18 - v22' }
+      { id: 'support-nodejs-v18---22', text: '# Support Node.js v18 - v22' }
     ]
   },
   {
@@ -31,7 +31,7 @@ export const headings = [
   },
   {
     heading: [
-      { id: 'types', text: '# Types' },
+      { id: 'wrapper-selector', text: '# Wrapper selectors' },
       { id: 'pseudo-hover-example', text: '# Pseudo hover example' },
       { id: 'compiled-hover', text: '# Compiled hover' },
       { id: 'pseudo-lang-example', text: '# Pseudo lang example' },

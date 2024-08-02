@@ -8,8 +8,8 @@ date: '2024-06-19'
 
 # BreakPoints
 
-| Breakpoint prefix   | Minimum Maximum | CSS                                               |
-|---------------------|-----------------|---------------------------------------------------|
+| Breakpoint prefix   | Minimum Maximum | CSS                                    |
+|---------------------|-----------------|----------------------------------------|
 | \`min_sm\`          | 640px           | \`@media (min-width: 640px) \{ ... }\` |
 | \`min_md\`          | 768px           | \`@media (min-width: 768px) \{ ... }\` |
 | \`min_lg\`          | 1024px          | \`@media (min-width: 1024px) \{ ... }\`|
@@ -26,8 +26,6 @@ date: '2024-06-19'
 Take a look at the media queries in the mobile functions and compare them.
 ```ts title="style.css.ts"
 import Style, { max_md } from 'typedcssx';
-
-const mobile = media('max-width: 799.99px');
 
 export const styles = Style.create({
     logo: {

@@ -66,8 +66,8 @@ dependencies:
     specifier: ^4.28.2
     version: 4.28.2
   typedcssx:
-    specifier: ^2.0.5
-    version: 2.0.5
+    specifier: ^2.0.6
+    version: 2.0.6
 
 devDependencies:
   '@types/node':
@@ -776,10 +776,6 @@ packages:
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
     dependencies:
       '@types/estree': 1.0.5
-    dev: false
-
-  /@types/css-modules@1.0.5:
-    resolution: {integrity: sha512-oeKafs/df9lwOvtfiXVliZsocFVOexK9PZtLQWuPeuVCFR7jwiqlg60lu80JTe5NFNtH3tnV6Fs/ySR8BUPHAw==}
     dev: false
 
   /@types/debug@4.1.12:
@@ -4820,11 +4816,9 @@ packages:
       possible-typed-array-names: 1.0.0
     dev: true
 
-  /typedcssx@2.0.5:
-    resolution: {integrity: sha512-1cNG7LpZOqxuO7hRy9TpBKpwdX0emTRTzf+6XYXWluCkMDCycRpUVYS6EC1gWpTBmGH1cawKxgjLzuiliXeCxw==}
+  /typedcssx@2.0.6:
+    resolution: {integrity: sha512-5RFJ7u0tc7Wxj9ZYcAg09R/+KQpQ2yKzvPxxFhkMSHTM7SZyLWMh/y5vII0pGi0wIwQfFNePtCnziDD/qX0q4w==}
     dependencies:
-      '@types/css-modules': 1.0.5
-      '@types/node': 20.14.9
       fast-glob: 3.3.2
       tsx: 4.16.5
     dev: false

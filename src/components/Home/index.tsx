@@ -1,4 +1,3 @@
-'use client'
 import Link from 'next/link'
 import { styles } from './style.css'
 
@@ -34,8 +33,8 @@ export function Home() {
           </div>
           <div>
             <span>🌌</span>
-            <h2>Support RSC</h2>
-            <p>Take advantage of full React Server Components (RSC) support in Next.js, optimizing for the latest React 18 features.</p>
+            <h2>Support App Router</h2>
+            <p>Take full advantage of the App Router in Next.js to make the most of the latest features in React 18.</p>
           </div>
         </section>
       </div>

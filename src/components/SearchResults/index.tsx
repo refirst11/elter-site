@@ -19,10 +19,12 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   const [loadingPosts, setLoadingPosts] = useState<Set<string>>(new Set())
 
   useEffect(() => {
+    const categories = ['documentation', 'coreapi', 'helpers', 'hooks']
+
     const fetchPostsAndContents = async () => {
       setIsLoading(true)
-      const postsData = await getAllPosts()
-      setPosts(postsData)
+      const postsData = await Promise.all(categories.map((category) => getAllPosts(category)))
+      setPosts(postsData.flat())
       setIsLoading(false)
     }
 
@@ -112,7 +114,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   return (
     <ul onClick={onClick} className={styles.list}>
       {filteredPosts.length > 0 ? (
-        filteredPosts.map(({ slug }, index) => {
+        filteredPosts.map(({ slug, category }, index) => {
           const matchedSections = matchedSectionsMap.get(slug) as HeadingWithParagraphs[]
 
           if (!cachedContents[slug]) {
@@ -125,7 +127,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
                 <Link
                   key={index}
                   className={styles.link}
-                  href={`/${slug}`}
+                  href={`/${category}${slug}`}
                   onClick={() =>
                     setTimeout(() => {
                       scrollToHeading(id)

@@ -9,8 +9,8 @@ import rehypeSlug from 'rehype-slug'
 import { createCssVariablesTheme } from 'shiki'
 import remarkGfm from 'remark-gfm'
 
-async function getPostMdx(slug: string): Promise<ReturnData> {
-  const folder = path.join(process.cwd(), '/src/documentation')
+async function getPostMdx(slug: string, sourcePath: string): Promise<ReturnData> {
+  const folder = path.join(process.cwd(), `/src/${sourcePath}`)
   const fullPath = path.join(folder, `${slug}.mdx`)
   const file = fs.readFileSync(fullPath, 'utf8')
 

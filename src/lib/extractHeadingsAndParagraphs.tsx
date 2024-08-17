@@ -15,7 +15,7 @@ export const extractHeadingsAndParagraphs = (content: MDXRemoteSerializeResult):
   const htmlContent = ReactDOMServer.renderToString(Component)
   const parser = new DOMParser()
   const doc = parser.parseFromString(htmlContent, 'text/html')
-  const headings = Array.from(doc.querySelectorAll('h2, h3'))
+  const headings = Array.from(doc.querySelectorAll('h1, h2, h3'))
 
   const result: HeadingWithParagraphs[] = []
 

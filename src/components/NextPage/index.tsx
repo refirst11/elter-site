@@ -14,16 +14,36 @@ export const NextPage = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const posts = await getAllPosts()
-      const currentIndex = posts.findIndex((post) => `/${post.slug}` === pathname)
+      const documentationPosts = await getAllPosts('documentation')
+      const corePosts = await getAllPosts('coreapi')
+      const helpPosts = await getAllPosts('helpers')
+      const hooks = await getAllPosts('hooks')
+      const allPosts = [
+        ...documentationPosts.map((post) => ({ ...post, category: 'documentation' })),
+        ...corePosts.map((post) => ({ ...post, category: 'coreapi' })),
+        ...helpPosts.map((post) => ({ ...post, category: 'helpers' })),
+        ...hooks.map((post) => ({ ...post, category: 'hooks' }))
+      ]
+
+      const currentIndex = allPosts.findIndex((post) => {
+        let postPath = `/${post.slug}`
+        if (post.category === 'coreapi') {
+          postPath = `/core-api/${post.slug}`
+        } else if (post.category === 'helpers') {
+          postPath = `/helpers/${post.slug}`
+        } else if (post.category === 'hooks') {
+          postPath = `/hooks/${post.slug}`
+        }
+        return postPath === pathname
+      })
 
       if (currentIndex > 0) {
-        setPrevPost(posts[currentIndex - 1])
+        setPrevPost(allPosts[currentIndex - 1])
       } else {
         setPrevPost(null)
       }
-      if (currentIndex < posts.length - 1) {
-        setNextPost(posts[currentIndex + 1])
+      if (currentIndex >= 0 && currentIndex < allPosts.length - 1) {
+        setNextPost(allPosts[currentIndex + 1])
       } else {
         setNextPost(null)
       }
@@ -32,16 +52,27 @@ export const NextPage = () => {
     fetchPosts()
   }, [pathname])
 
+  const getPostLink = (post: PostsData) => {
+    if (post.category === 'coreapi') {
+      return `/core-api/${post.slug}`
+    } else if (post.category === 'helpers') {
+      return `/helpers/${post.slug}`
+    } else if (post.category === 'hooks') {
+      return `/hooks/${post.slug}`
+    }
+    return `/${post.slug}`
+  }
+
   return (
     <div className={styles.container}>
       {prevPost && (
-        <Link href={`/${prevPost.slug}`} className={styles.prev}>
+        <Link href={getPostLink(prevPost)} className={styles.prev}>
           <span className={styles.desc}>Previous page</span>
           <span>{prevPost.title}</span>
         </Link>
       )}
       {nextPost && (
-        <Link href={`/${nextPost.slug}`} className={styles.next}>
+        <Link href={getPostLink(nextPost)} className={styles.next}>
           <span className={styles.desc}>Next page</span>
           <span>{nextPost.title}</span>
         </Link>

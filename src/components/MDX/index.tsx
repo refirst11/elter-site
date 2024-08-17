@@ -2,13 +2,14 @@
 
 import { Tabs, Tab } from 'components/Tabs'
 import { TocBot } from 'components/TocBot'
-import { SearchBox } from 'components/SearchBox'
+import Animation from 'components/Firemotion/Animation.css'
 import { MDXRemoteSerializeResult, MDXRemote } from 'next-mdx-remote'
 
 const components = {
   Tabs,
   Tab,
-  TocBot
+  TocBot,
+  Animation
 }
 
 export function PostContent({ content }: { content: MDXRemoteSerializeResult }) {

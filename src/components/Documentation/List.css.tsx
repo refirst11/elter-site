@@ -4,8 +4,37 @@ import Link from 'next/link'
 import PostsData from 'types/PostsData'
 import { usePathname } from 'next/navigation'
 import Style, { max_xl } from 'typedcssx'
+import Accordion from './Accordion.css'
 
-const styles = Style.create({
+type ListsProps = {
+  docs: PostsData[]
+  core: PostsData[]
+  helpers: PostsData[]
+  hooks: PostsData[]
+}
+
+const Lists = ({ docs, core, helpers, hooks }: ListsProps) => {
+  const pathname = usePathname()
+
+  return (
+    pathname !== '/' && (
+      <ul className={styles.list_position}>
+        {docs?.map(({ slug, title }) => (
+          <li key={slug}>
+            <Link className={styles.active} href={`/${slug}`} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
+              {title}
+            </Link>
+          </li>
+        ))}
+        <Accordion core={core} helpers={helpers} hooks={hooks} />
+      </ul>
+    )
+  )
+}
+
+export default Lists
+
+export const styles = Style.create({
   list_position: {
     position: 'fixed',
     display: 'flex',
@@ -24,7 +53,7 @@ const styles = Style.create({
       display: 'block',
       width: 200,
       height: 32,
-      padding: '4px 8px',
+      padding: '6px 8px',
       borderRadius: '4px'
     }
   },
@@ -53,27 +82,3 @@ const styles = Style.create({
     }
   }
 })
-
-type ListsProps = {
-  posts: PostsData[]
-}
-
-const Lists = ({ posts }: ListsProps) => {
-  const pathname = usePathname()
-
-  return (
-    pathname !== '/' && (
-      <ul className={styles.list_position}>
-        {posts?.map(({ slug, title }) => (
-          <li key={slug}>
-            <Link className={styles.active} href={`/${slug}`} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
-              {title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    )
-  )
-}
-
-export default Lists

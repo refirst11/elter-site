@@ -15,7 +15,7 @@ export const styles = Style.create({
   },
   desc: {
     position: 'absolute',
-    top: 12,
+    top: 4,
     fontSize: 12,
     color: 'var(--color-text)'
   },
@@ -29,19 +29,19 @@ export const styles = Style.create({
     left: 0,
     bottom: 0,
     width: 280,
-    height: 64,
-    padding: '0 0 6px 18px',
+    height: 54,
+    padding: '0 0 6px 12px',
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
-    borderRadius: '12px',
+    borderRadius: '4px',
     background: 'var(--color-card)',
     border: 'solid 1px var(--color-border2)',
     hover: {
       border: 'solid 1px var(--color-link)'
     },
     [max_xl]: {
-      width: 140
+      width: 120
     }
   },
   next: {
@@ -51,19 +51,19 @@ export const styles = Style.create({
     right: 0,
     bottom: 0,
     width: 280,
-    height: 64,
-    padding: '0 18px 6px 0',
+    height: 54,
+    padding: '0 12px 6px 0',
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    borderRadius: '12px',
+    borderRadius: '4px',
     background: 'var(--color-card)',
     border: 'solid 1px var(--color-border2)',
     hover: {
       border: 'solid 1px var(--color-link)'
     },
     [max_xl]: {
-      width: 140
+      width: 120
     }
   }
 })

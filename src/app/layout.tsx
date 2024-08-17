@@ -6,14 +6,14 @@ import '../../node_modules/typedcssx/dist/core/styles/global.css'
 import 'syntax/_syntax.css'
 import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
-export const fetchCache = 'force-cache';
-export const dynamicParams = false;
+const inter = Inter({ subsets: ['latin'], variable: '--Inter' })
+export const fetchCache = 'force-cache'
+export const dynamicParams = false
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={inter.variable}>
         <ThemeProvider>
           <Header />
           <Menu />

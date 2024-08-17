@@ -8,6 +8,7 @@ Style.global({
     margin: 0
   },
   body: {
+    fontFamily: "-apple-system, system-ui, var(--Inter), BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     textAlign: 'center',
     fontSize: 16,
     lineHeight: 1.6,
@@ -22,6 +23,7 @@ Style.global({
   },
 
   main: {
+    zIndex: 0,
     position: 'relative',
     minHeight: '100vh',
     top: 64,
@@ -49,6 +51,8 @@ Style.global({
     fontWeight: '330'
   },
   button: {
+    color: '#959595',
+    fontFamily: "-apple-system, system-ui, var(--Inter), BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     border: 'none',
     outline: 'none',
     background: 'none'
@@ -100,6 +104,7 @@ Style.global({
     display: 'block'
   },
   thead: {
+    color: 'var(--color-heading)',
     display: 'table',
     width: '100%',
     tableLayout: 'fixed',
@@ -111,13 +116,13 @@ Style.global({
       textOverflow: 'ellipsis',
       fontSize: 14,
       '&:nth-child(1)': {
-        width: '25%'
+        width: '40%'
       },
       '&:nth-child(2)': {
-        width: '25%'
+        width: '30%'
       },
       '&:nth-child(3)': {
-        width: '55%'
+        width: '50%'
       }
     }
   },
@@ -126,20 +131,21 @@ Style.global({
     width: '100%',
     tableLayout: 'fixed',
     '& td': {
-      fontSize: 14,
-      padding: '10px 5px',
+      fontSize: 12,
+      padding: '5px',
       borderBottom: '1px solid var(--color-border)',
       whiteSpace: 'pre-wrap',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       '&:nth-child(1)': {
-        width: '25%'
+        width: '40%'
       },
       '&:nth-child(2)': {
-        width: '25%'
+        width: '30%',
+        fontSize: 14
       },
       '&:nth-child(3)': {
-        width: '55%'
+        width: '50%'
       }
     }
   },
@@ -175,7 +181,7 @@ Style.root({
     '--color-text': 'rgb(180 180 190)',
     '--color-bg': 'rgb(42 43 43)',
     '--color-heading': 'rgb(230, 255, 247)',
-    '--color-border': 'rgba(30, 30, 30, 0.43)',
+    '--color-border': 'rgba(10, 10, 10, 0.24)',
     '--color-link': 'rgb(100 200 200)',
     '--color-list': 'rgba(80, 87, 80, 0.3)',
     '--color-sub': 'rgb(220 220 220)',

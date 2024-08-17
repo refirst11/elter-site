@@ -14,26 +14,17 @@ export const NextPage = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const documentationPosts = await getAllPosts('documentation')
-      const corePosts = await getAllPosts('coreapi')
-      const helpPosts = await getAllPosts('helpers')
-      const hooks = await getAllPosts('hooks')
-      const allPosts = [
-        ...documentationPosts.map((post) => ({ ...post, category: 'documentation' })),
-        ...corePosts.map((post) => ({ ...post, category: 'coreapi' })),
-        ...helpPosts.map((post) => ({ ...post, category: 'helpers' })),
-        ...hooks.map((post) => ({ ...post, category: 'hooks' }))
-      ]
+      const [documentationPosts, corePosts, helperPosts, hookPosts] = await Promise.all([
+        getAllPosts('documentation'),
+        getAllPosts('coreapi'),
+        getAllPosts('helpers'),
+        getAllPosts('hooks')
+      ])
+
+      const allPosts = [...documentationPosts, ...corePosts, ...helperPosts, ...hookPosts]
 
       const currentIndex = allPosts.findIndex((post) => {
-        let postPath = `/${post.slug}`
-        if (post.category === 'coreapi') {
-          postPath = `/core-api/${post.slug}`
-        } else if (post.category === 'helpers') {
-          postPath = `/helpers/${post.slug}`
-        } else if (post.category === 'hooks') {
-          postPath = `/hooks/${post.slug}`
-        }
+        const postPath = `/${post.category}${post.slug}`
         return postPath === pathname
       })
 
@@ -53,14 +44,7 @@ export const NextPage = () => {
   }, [pathname])
 
   const getPostLink = (post: PostsData) => {
-    if (post.category === 'coreapi') {
-      return `/core-api/${post.slug}`
-    } else if (post.category === 'helpers') {
-      return `/helpers/${post.slug}`
-    } else if (post.category === 'hooks') {
-      return `/hooks/${post.slug}`
-    }
-    return `/${post.slug}`
+    return `/${post.category}${post.slug}`
   }
 
   return (

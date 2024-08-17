@@ -34,7 +34,7 @@ export const styles = Style.create({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
-    borderRadius: '4px',
+    borderRadius: '5px',
     background: 'var(--color-card)',
     border: 'solid 1px var(--color-border2)',
     hover: {
@@ -56,7 +56,7 @@ export const styles = Style.create({
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    borderRadius: '4px',
+    borderRadius: '5px',
     background: 'var(--color-card)',
     border: 'solid 1px var(--color-border2)',
     hover: {

@@ -1,4 +1,5 @@
 type PostsData = {
+  category: string
   slug: string
   title: string
   subtitle: string

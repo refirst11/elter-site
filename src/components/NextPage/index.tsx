@@ -14,14 +14,8 @@ export const NextPage = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const [documentationPosts, corePosts, helperPosts, hookPosts] = await Promise.all([
-        getAllPosts('documentation'),
-        getAllPosts('coreapi'),
-        getAllPosts('helpers'),
-        getAllPosts('hooks')
-      ])
-
-      const allPosts = [...documentationPosts, ...corePosts, ...helperPosts, ...hookPosts]
+      const response = await fetch('/api/getAllPosts')
+      const allPosts: PostsData[] = await response.json()
 
       const currentIndex = allPosts.findIndex((post) => {
         const postPath = `/${post.category}${post.slug}`

@@ -19,12 +19,11 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   const [loadingPosts, setLoadingPosts] = useState<Set<string>>(new Set())
 
   useEffect(() => {
-    const categories = ['documentation', 'coreapi', 'helpers', 'hooks']
-
     const fetchPostsAndContents = async () => {
       setIsLoading(true)
-      const postsData = await Promise.all(categories.map((category) => getAllPosts(category)))
-      setPosts(postsData.flat())
+      const response = await fetch('/api/getAllPosts')
+      const postsData: PostsData[] = await response.json()
+      setPosts(postsData)
       setIsLoading(false)
     }
 

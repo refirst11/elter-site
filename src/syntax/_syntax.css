@@ -27,7 +27,7 @@
 }
 
 .title {
-  z-index: 3;
+  z-index: 0;
   position: fixed;
   margin: 30px auto auto 880px;
   font-weight: 550;

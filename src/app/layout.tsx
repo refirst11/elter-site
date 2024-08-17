@@ -5,6 +5,7 @@ import { ThemeProvider } from 'next-themes'
 import '../../node_modules/typedcssx/dist/core/styles/global.css'
 import 'syntax/_syntax.css'
 import { Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({ subsets: ['latin'], variable: '--Inter' })
 export const fetchCache = 'force-cache'
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <Menu />
           {children}
+          <Analytics />
           <Footer />
         </ThemeProvider>
       </body>

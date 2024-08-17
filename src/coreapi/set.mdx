@@ -1,0 +1,55 @@
+---
+title: 'Style.set'
+subtitle: 'The Style Class Guide'
+date: '2024/06/17'
+---
+
+<TocBot />
+
+# Style.set
+In set you define the properties directly, there's no need to worry about classNames here, we recommend using the variable name ~Style.
+```ts title="style.css.ts"
+import { Style } from 'typedcssx'
+
+export const linkStyle = Style.set({
+  fontSize: '14px',
+  color: 'var(--color-link)',
+  textDecoration: 'none'
+})
+
+export const boxStyle = Style.set({
+  display: 'block',
+  padding: 20,
+  width: 60,
+  height: 60
+})
+
+export const containerStyle = Style.set({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+})
+```
+
+### Compiled set
+The hash of the object is directly attached to the className.
+```css title="css"
+._jo139 {
+  font-size: 14px;
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+._AAbLv {
+  display: block;
+  padding: 20px;
+  width: 60px;
+  height: 60px;
+}
+
+._Ux5Y4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```

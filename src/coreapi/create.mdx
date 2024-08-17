@@ -1,0 +1,38 @@
+---
+title: 'Style.create'
+subtitle: 'The Style Class Guide'
+date: '2024/06/16'
+---
+
+<TocBot />
+
+# Style.create
+Create a stylesheet that takes the key as a className.  
+Since this function is created almost only once, we recommend using styles as the variable name.
+```ts title="style.css.ts"
+import Style from 'typedcssx'
+
+export const styles = Style.create({
+  container: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  link: {
+    fontSize: '14px',
+    textDecoration: 'none'
+  },
+})
+```
+### Compiled create
+A hashed prefix of the object is added to the class name, so styles do not conflicts between different components.
+```css title="css"
+.container_40ExT {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link_40ExT {
+  font-size: 14px;
+  text-decoration: none;
+}
+```

@@ -11,7 +11,7 @@ date: '2024-06-07'
 
 ## NPM
 
-This page describes installation and build settings, and other details.
+This page describes installation and compiler settings, and other details.
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
   {/* prettier-ignore */}
@@ -40,7 +40,7 @@ This page describes installation and build settings, and other details.
   </Tab>
 </Tabs>
 
-## Build setting
+## Compiler setting
 
 Add the compile command to the `package.json` script field.
 
@@ -56,8 +56,7 @@ Add the compile command to the `package.json` script field.
   </Tab>
 </Tabs>
 
-### tsconfig.json
-Add **/*css.ts and **/*css.tsx to icludes in tsconfig.json
+Add css.ts and css.tsx to icludes in tsconfig.json.
 <Tabs>
   <Tab>
   ```json title="tsconfig.json"
@@ -76,7 +75,8 @@ import '../../node_modules/typedcssx/dist/core/styles/global.css'
   </Tab>
 </Tabs>
 
-## Support Node.js v18 - 22
+## Supported Node.js
 
-This project has been tested and is confirmed to work with Node.js versions from v18 to v22. Please you are using one of these versions for optimal compatibility and performance.
+This project has been tested and is confirmed to work with Node.js versions from v18 to v22.  
+Please you are using one of these versions for optimal compatibility and performance.
 

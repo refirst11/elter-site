@@ -1,0 +1,52 @@
+---
+title: 'Style.global'
+subtitle: 'The Style Class Guide'
+date: '2024/06/18'
+---
+
+<TocBot />
+
+# Style.global
+Global css can be defined here.  
+There is no need to put it in a variable, you can preview it by importing it to 'use client' and loading it.
+```ts title="global.css.ts"
+Style.global({
+  body: {
+    color: 'var(--color-text)',
+    background: 'var(--color-bg)',
+    margin: '0 auto'
+  },
+  h2: {
+    color: 'var(--color-heading)',
+    fontSize: '30px',
+    fontWeight: '550'
+  },
+  ".headings": {
+    color: 'var(--color-heading)',
+    fontSize: '24px',
+    fontWeight: '450'
+  }
+});
+  ```
+
+### Compiled global
+In addition to html elements, global allows you to directly define attributes and class names for pseudo elements and class.
+```css title="css"
+body {
+  color: var(--color-text);
+  background: var(--color-bg);
+  margin: 0 auto;
+}
+
+h2 {
+  color: var(--color-heading);
+  font-size: 30px;
+  font-weight: 550;
+}
+
+.headings {
+  color: var(--color-heading);
+  font-size: 24px;
+  font-weight: 450;
+}
+```

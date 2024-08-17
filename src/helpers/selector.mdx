@@ -1,13 +1,49 @@
 ---
-title: 'Pseudo Selector'
-subtitle: 'The Pseudo Selector Guide'
-date: '2024-06-18'
+title: 'Selector'
+subtitle: 'The Selector Guide'
+date: '2024/07/07'
 ---
-
 
 <TocBot />
 
-# Pseudo selector
+# selector
+
+### & string Selector
+You can write the selector as a wrapper by starting the string expression with &.  
+The string following & can be anything.
+```ts title="style.css.ts"
+export const andStyle = Style.set({
+  '& ul li': {
+    fontSize: '12px',
+    color: '#333',
+  },
+  '&::after:hover': {
+    fontSize: '12px',
+    color: '#333',
+  },
+  '&:has(> h1:is(:hover, :focus)) h2': {
+    fontSize: '12px',
+    color: '#333',
+  },
+});
+```
+
+### Compiled & string Selector
+The characters you enter after & continue directly after the className.
+```css title="css"
+._p6lcU ul li {
+  font-size: 12px;
+  color: #333;
+}
+._p6lcU::after:hover {
+  font-size: 12px;
+  color: #333;
+}
+._p6lcU:has(> h1:is(:hover, :focus)) h2 {
+  font-size: 12px;
+  color: #333;
+}
+```
 
 ## Wrapper selectors
 The following pseudo-classes and pseudo-elements can be used as wrapper selectors.
@@ -258,39 +294,3 @@ Also, more complex expressions can be written directly using &.
 }
 ```
 
-### & string Selector
-You can write the selector as a wrapper by starting the string expression with &.  
-The string following & can be anything.
-```ts title="style.css.ts"
-export const andStyle = Style.set({
-  '& ul li': {
-    fontSize: '12px',
-    color: '#333',
-  },
-  '&::after:hover': {
-    fontSize: '12px',
-    color: '#333',
-  },
-  '&:has(> h1:is(:hover, :focus)) h2': {
-    fontSize: '12px',
-    color: '#333',
-  },
-});
-```
-
-### Compiled & string Selector
-The characters you enter after & continue directly after the className.
-```css title="css"
-._p6lcU ul li {
-  font-size: 12px;
-  color: #333;
-}
-._p6lcU::after:hover {
-  font-size: 12px;
-  color: #333;
-}
-._p6lcU:has(> h1:is(:hover, :focus)) h2 {
-  font-size: 12px;
-  color: #333;
-}
-```

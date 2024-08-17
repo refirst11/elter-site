@@ -1,0 +1,75 @@
+---
+title: 'Style.root'
+subtitle: 'The Style Class Guide'
+date: '2024/06/19'
+---
+
+<TocBot />
+
+# Style.root
+The root was created primarily to manage CSS variables.
+```ts title="global.css.ts"
+import Style, { dark, light } from 'typedcssx'
+
+Style.root({
+  [dark]: {
+    '--color-text': 'rgb(180 180 190)',
+    '--color-bg': 'rgb(42 43 43)',
+    '--color-heading': 'rgb(230, 255, 247)',
+    '--color-border': 'rgba(30, 30, 30, 0.43)',
+    '--color-link': 'rgb(100 200 200)',
+    '--color-list': 'rgba(80, 87, 80, 0.3)',
+    '--color-sub': 'rgb(220 220 220)',
+    '--color-card': 'rgba(33, 33, 33, 0.3)',
+    '--color-logo': 'rgb(100 220 200)',
+    '--color-accent': 'rgb(206 206 206)',
+  },
+
+  [light]: {
+    '--color-text': '#4b5563',
+    '--color-bg': 'rgb(255, 255, 255)',
+    '--color-heading': 'rgb(70, 86, 86)',
+    '--color-border': '#eaeaea',
+    '--color-link': 'rgb(60, 135, 232)',
+    '--color-list': '#e0efff',
+    '--color-sub': '#222',
+    '--color-card': 'rgb(245 245 245)',
+    '--color-logo': 'rgb(60 165 140) ',
+    '--color-accent': 'rgb(70, 86, 86)',
+  }
+})
+```
+
+### Compiled root
+You'll notice that the root is converted directly to :root and the &selector is added as an attribute.
+```css title="css"
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: rgb(180 180 190);
+    --color-bg: rgb(42 43 43);
+    --color-heading: rgb(230, 255, 247);
+    --color-border: rgba(30, 30, 30, 0.43);
+    --color-link: rgb(100 200 200);
+    --color-list: rgba(80, 87, 80, 0.3);
+    --color-sub: rgb(220 220 220);
+    --color-card: rgba(33, 33, 33, 0.3);
+    --color-logo: rgb(100 220 200);
+    --color-accent: rgb(206 206 206);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-text: #4b5563;
+    --color-bg: rgb(255, 255, 255);
+    --color-heading: rgb(70, 86, 86);
+    --color-border: #eaeaea;
+    --color-link: rgb(60, 135, 232);
+    --color-list: #e0efff;
+    --color-sub: #222;
+    --color-card: rgb(245 245 245);
+    --color-logo: rgb(60 165 140) ;
+    --color-accent: rgb(70, 86, 86);
+  }
+}
+```

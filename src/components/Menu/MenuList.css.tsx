@@ -177,7 +177,7 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
               <ul className={`${styles.documentItems} ${hook ? styles.visible : ''}`}>
                 {hooks.map(({ slug, title }) => (
                   <li key={slug}>
-                    <Link href={`/hooks/${title}`} className={styles.active} onClick={() => setOpen(false)} aria-current={'/API/useFiremotion' === pathname ? 'page' : 'false'}>
+                    <Link href={`/hooks/${title}`} className={styles.active} onClick={() => setOpen(false)} aria-current={'/hooks/useFiremotion' === pathname ? 'page' : 'false'}>
                       {title}
                     </Link>
                   </li>

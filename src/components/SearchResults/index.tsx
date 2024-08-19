@@ -2,7 +2,6 @@ import { extractHeadingsAndParagraphs } from 'lib/extractHeadingsAndParagraphs'
 import Link from 'next/link'
 import { styles } from './style.css'
 import { useEffect, useState, useMemo, useCallback } from 'react'
-import getAllPosts from 'lib/getAllPosts'
 import type PostsData from 'types/PostsData'
 import PostContent, { HeadingWithParagraphs } from 'types/PostContent'
 
@@ -17,9 +16,10 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   const [isContentLoading, setIsContentLoading] = useState(true)
   const [cachedContents, setCachedContents] = useState<{ [slug: string]: PostContent }>({})
   const [loadingPosts, setLoadingPosts] = useState<Set<string>>(new Set())
+  const [backgroundLoading, setBackgroundLoading] = useState(false)
 
   useEffect(() => {
-    const fetchPostsAndContents = async () => {
+    const fetchPosts = async () => {
       setIsLoading(true)
       const response = await fetch('/api/getAllPosts')
       const postsData: PostsData[] = await response.json()
@@ -27,36 +27,66 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
       setIsLoading(false)
     }
 
-    fetchPostsAndContents()
+    fetchPosts()
   }, [])
 
-  useEffect(() => {
-    const fetchPostContent = async (slug: string) => {
+  const fetchPostContent = useCallback(
+    async (slug: string) => {
       if (!cachedContents[slug] && !loadingPosts.has(slug)) {
         setLoadingPosts((prev) => new Set(prev).add(slug))
-        const response = await fetch(`/api/getPostMdx?slug=${slug}`)
-        if (!response.ok) {
-          throw new Error(`Failed to fetch post content for ${slug}`)
+        try {
+          const response = await fetch(`/api/getPostMdx?slug=${slug}`)
+          if (!response.ok) {
+            throw new Error(`Failed to fetch post content for ${slug}`)
+          }
+          const { meta, content } = await response.json()
+          const matchedSections = extractHeadingsAndParagraphs(content)
+          setCachedContents((prev) => ({
+            ...prev,
+            [slug]: { meta, content, matchedSections }
+          }))
+        } catch (error) {
+          console.error(`Error fetching content for ${slug}:`, error)
+        } finally {
+          setLoadingPosts((prev) => {
+            const newSet = new Set(prev)
+            newSet.delete(slug)
+            return newSet
+          })
+          setIsContentLoading(false)
         }
-        const { meta, content } = await response.json()
-        const matchedSections = extractHeadingsAndParagraphs(content)
-        setCachedContents((prev) => ({
-          ...prev,
-          [slug]: { meta, content, matchedSections }
-        }))
-        setLoadingPosts((prev) => {
-          const newSet = new Set(prev)
-          newSet.delete(slug)
-          return newSet
-        })
-        setIsContentLoading(false)
+      }
+    },
+    [cachedContents, loadingPosts]
+  )
+
+  useEffect(() => {
+    let isMounted = true
+    const loadRemainingContent = async () => {
+      if (!backgroundLoading && posts.length > 0) {
+        setBackgroundLoading(true)
+        for (const post of posts) {
+          if (!cachedContents[post.slug] && !loadingPosts.has(post.slug)) {
+            await fetchPostContent(post.slug)
+            if (!isMounted) break
+          }
+        }
+        setBackgroundLoading(false)
       }
     }
 
+    loadRemainingContent()
+
+    return () => {
+      isMounted = false
+    }
+  }, [posts, cachedContents, loadingPosts, backgroundLoading, fetchPostContent])
+
+  useEffect(() => {
     if (keyword) {
       posts.forEach(({ slug }) => fetchPostContent(slug))
     }
-  }, [keyword, posts, cachedContents, loadingPosts])
+  }, [fetchPostContent, keyword, posts])
 
   const { filteredPosts, matchedSectionsMap } = useMemo(() => {
     if (!keyword) return { filteredPosts: [], matchedSectionsMap: new Map() }
@@ -84,7 +114,6 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     const element = document.getElementById(id)
     if (element) {
       const elementPosition = element.getBoundingClientRect().top + window.scrollY - 76
-
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'

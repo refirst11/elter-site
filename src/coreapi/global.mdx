@@ -10,6 +10,8 @@ date: '2024/06/18'
 Global css can be defined here.  
 There is no need to put it in a variable, you can preview it by importing it to 'use client' and loading it.
 ```ts title="global.css.ts"
+import Style from 'typedcssx'
+
 Style.global({
   body: {
     color: 'var(--color-text)',

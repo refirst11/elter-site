@@ -43,11 +43,11 @@ By making the transition time of the exit animation shorter than the value of th
 ```tsx title="Animation.css.tsx"
 'use client';
 
-import Firemotion from 'firemotion';
+import useFiremotion from 'firemotion';
 import Style from 'typedcssx';
 
 const Animation = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const animate = Firemotion(styles.base, [styles.entry, styles.exit], 0.2);
+  const animate = useFiremotion(styles.base, [styles.entry, styles.exit], 0.2);
   return <div className={animate}>{children}</div>;
 };
 

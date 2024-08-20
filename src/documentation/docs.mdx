@@ -37,6 +37,16 @@ Styles exported by the compiler as static CSS Modules are split into components 
 ```tsx title="Header.css.tsx"
 import Style from 'typedcssx';
 
+export const Header = () => {
+return (
+  <header className={styles.header_nav}>
+    <nav className={navStyle}>
+      <a>home</a>
+      <a>about</a>
+    </nav>
+  </header>
+)};
+
 const styles = Style.create({
   header_nav: {
     position: 'absolute',
@@ -47,19 +57,9 @@ const styles = Style.create({
 const navStyle = Style.set({
   '& a':{
     fontSize: 16,
-    color: 'black',
+    color: '#333',
   },
 });
-
-export const Header = () => {
-return (
-  <header className={styles.header_nav}>
-    <nav className={navStyle}>
-      <a>home</a>
-      <a>about</a>
-    </nav>
-  </header>
-)};
 ```
   </Tab>
 </Tabs>

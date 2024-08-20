@@ -76,7 +76,8 @@ pre {
 }
 
 code {
-  font-family: 'Consolas', 'Menlo', 'Ubuntu Mono', 'DejaVu Sans Mono', 'Courier New', 'Courier', monospace;
+  font-family: ui-monospace;
+  letter-spacing: 0.8px;
   color: var(--shiki-color-text);
 }
 

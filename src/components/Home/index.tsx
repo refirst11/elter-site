@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { styles } from './style.css'
 import Animation from 'components/Firemotion/Animation.css'

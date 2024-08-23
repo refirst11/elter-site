@@ -1,3 +1,5 @@
+'use client'
+
 import { ReactNode } from 'react'
 import useFiremotion from 'firemotion'
 import Style from 'typedcssx'

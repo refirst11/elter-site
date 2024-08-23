@@ -70,7 +70,7 @@ const Accordion = ({ core, helpers, hooks }: AccordionProps) => {
         <ul className={stylesA.list}>
           {hooks.map(({ slug, title }) => (
             <li key={slug}>
-              <Link href={`/hooks/${slug}`} className={styles.active} aria-current={'/API/useFiremotion' === pathname ? 'page' : 'false'}>
+              <Link href={`/hooks/${slug}`} className={styles.active} aria-current={'/hooks/useFiremotion' === pathname ? 'page' : 'false'}>
                 {title}
               </Link>
             </li>

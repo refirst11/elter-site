@@ -29,15 +29,32 @@ export const styles = Style.create({
   logo: {
     position: 'absolute',
     color: 'var(--color-heading)',
-    fontWeight: '700',
+    fontWeight: 400,
     left: '50%',
-    transform: 'translate(-608%)',
+    transform: 'translate(-420%)',
     top: 18,
-    width: 110,
+    width: 160,
+    padding: '2px 4px',
+    borderRadius: '8px',
     textDecoration: 'none',
     [max_xl]: {
       display: 'none'
+    },
+    outline: '3px solid transparent',
+    hover: {
+      transition: 'all 0.2s',
+      outline: '3px solid skyblue'
     }
+  },
+
+  ontline: {
+    transition: 'all 0.4s',
+    outline: '3px solid skyblue'
+  },
+
+  version: {
+    fontWeight: 400,
+    fontSize: 12.4
   },
 
   link: {

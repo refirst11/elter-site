@@ -9,8 +9,10 @@ import { usePathname } from 'next/navigation'
 import { ToggleDarkMode } from 'components/ToggleDarkMode'
 import { GitIcon } from 'components/GitIcon'
 import { SearchBox } from 'components/SearchBox'
+import { useVersion } from './useVersion'
 
 export const Header = () => {
+  const { version } = useVersion()
   const pathname = usePathname()
   const links = [
     { href: '/', label: 'Home' },
@@ -19,8 +21,8 @@ export const Header = () => {
 
   return (
     <header className={styles.container}>
-      <Link href="/" className={styles.logo}>
-        Typed CSS X
+      <Link href="/" className={`${styles.logo} ${pathname == '/' ? styles.ontline : ''}`}>
+        typedcssx <span className={styles.version}>v{version}</span>
       </Link>
       <GitIcon />
       <ToggleDarkMode />

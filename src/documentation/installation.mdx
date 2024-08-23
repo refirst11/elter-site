@@ -65,6 +65,22 @@ Add css.ts and css.tsx to icludes in tsconfig.json.
   </Tab>
 </Tabs>
 
+## Server Component Preview
+If the anchorEnabled argument is false, you will not be able to see the server component styles unless you manually reload the page once, but if it is true, you can collect the server component styles by mimicking the behavior of the a tag and reloading the page when transitioning via Link.
+This true behavior remembers the page you clicked once and will not reload it thereafter.
+```tsx title="layout.tsx"
+import { PreviewServerCSS } from 'typedcssx'
+
+    <html>
+      <head>
+        <PreviewServerCSS anchorEnabled={true} />
+      </head>
+      <body>
+          {children}
+      </body>
+    </html>
+```
+
 ## Global style sheet
 Load global.css in layout.tsx, which is the root directory of the app.
 <Tabs>

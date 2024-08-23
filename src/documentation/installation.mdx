@@ -71,14 +71,16 @@ This true behavior remembers the page you clicked once and will not reload it th
 ```tsx title="layout.tsx"
 import { PreviewServerCSS } from 'typedcssx'
 
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
     <html>
       <head>
         <PreviewServerCSS anchorEnabled={true} />
       </head>
-      <body>
-          {children}
-      </body>
+      <body>{children}</body>
     </html>
+  )
+}    
 ```
 
 ## Global style sheet

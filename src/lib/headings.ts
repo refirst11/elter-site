@@ -12,6 +12,7 @@ export const headings = [
     heading: [
       { id: 'npm', text: '# NPM' },
       { id: 'compiler-setting', text: '# Compiler setting' },
+      { id: 'server-component-preview', text: '# Server Component Preview' },
       { id: 'global-style-sheet', text: '# Global style sheet' },
       { id: 'supported-nodejs', text: '# Supported Node.js' }
     ]

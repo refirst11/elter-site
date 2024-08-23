@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { styles } from './style.css'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import getAllPosts from 'lib/getAllPosts'
 import PostsData from 'types/PostsData'
 
 export const NextPage = () => {
   const pathname = usePathname()
   const [prevPost, setPrevPost] = useState<PostsData | null>(null)
   const [nextPost, setNextPost] = useState<PostsData | null>(null)
+  const [firstPost, setFirstPost] = useState<PostsData | null>(null)
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -22,13 +22,20 @@ export const NextPage = () => {
         return postPath === pathname
       })
 
+      if (allPosts.length > 0) {
+        setFirstPost(allPosts[0])
+      }
+
       if (currentIndex > 0) {
         setPrevPost(allPosts[currentIndex - 1])
       } else {
         setPrevPost(null)
       }
+
       if (currentIndex >= 0 && currentIndex < allPosts.length - 1) {
         setNextPost(allPosts[currentIndex + 1])
+      } else if (currentIndex === allPosts.length - 1) {
+        setNextPost(allPosts[0])
       } else {
         setNextPost(null)
       }
@@ -51,7 +58,7 @@ export const NextPage = () => {
       )}
       {nextPost && (
         <Link href={getPostLink(nextPost)} className={styles.next}>
-          <span className={styles.desc}>Next page</span>
+          <span className={styles.desc}>{nextPost === firstPost ? 'First page' : 'Next page'}</span>
           <span>{nextPost.title}</span>
         </Link>
       )}

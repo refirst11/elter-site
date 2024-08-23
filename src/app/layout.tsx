@@ -6,6 +6,7 @@ import '../../node_modules/typedcssx/dist/core/styles/global.css'
 import 'syntax/_syntax.css'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { PreviewServerCSS } from 'typedcssx'
 
 const inter = Inter({ subsets: ['latin'], variable: '--Inter' })
 export const fetchCache = 'force-cache'
@@ -14,6 +15,9 @@ export const dynamicParams = false
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <PreviewServerCSS anchorEnabled={true} />
+      </head>
       <body className={inter.variable}>
         <ThemeProvider>
           <Header />

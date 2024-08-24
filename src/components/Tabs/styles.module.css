@@ -1,0 +1,107 @@
+.button_initialize {
+  z-index: 0;
+  position: relative;
+  top: 24px;
+  left: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.code_box {
+  z-index: 0;
+  position: relative;
+  bottom: 15px;
+}
+
+.wrapper {
+  margin-top: 30px;
+  display: flex;
+  align-items: flex-end;
+  height: 0;
+  width: 100%;
+}
+.copyButton {
+  z-index: 1;
+  position: absolute;
+  font-size: 12px;
+  right: 56px;
+  top: 30px;
+  height: 26px;
+  width: 26px;
+  background-color: rgb(245, 245, 253);
+  border: solid 1px rgb(220, 220, 220);
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.icon_position {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+
+.noactive {
+  transition: all 0.2s;
+  scale: 1.2;
+}
+
+.active {
+  transition: all 0.2s;
+}
+
+.visible {
+  opacity: 0.9;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.tooltipWrapper {
+  position: absolute;
+  right: 0;
+}
+
+.tooltip {
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  bottom: 100%;
+  top: -26px;
+  height: max-content;
+  margin-left: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+@media screen and (max-width: 739.98px) {
+  .copyButton {
+    scale: 0.7;
+    right: 0;
+    top: 22px;
+  }
+  .tooltip {
+    scale: 0.7;
+    margin-left: -24px;
+    top: -18px;
+  }
+}

@@ -1,9 +1,8 @@
 'use client'
 
-import React, { ReactNode, useState } from 'react'
-import { styles } from './style.css'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
-import { FiCopy } from 'react-icons/fi'
+import React, { ReactNode, useState, useRef, useEffect } from 'react'
+import { FiCopy, FiCheck } from 'react-icons/fi'
+import styles from './styles.module.css'
 
 type TabsProps = {
   children: ReactNode
@@ -14,6 +13,9 @@ export const Tabs = ({ items, children }: TabsProps) => {
   const [activeTab, setActiveTab] = useState(0)
   const [copied, setCopied] = useState(false)
   const [visible, setVisible] = useState(false)
+  const [showTooltip, setShowTooltip] = useState(false)
+  const codeRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   const handleTabClick = (index: number) => {
     setActiveTab(index)
@@ -21,26 +23,41 @@ export const Tabs = ({ items, children }: TabsProps) => {
   }
 
   const handleCopy = () => {
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    if (codeRef.current) {
+      const fragment = document.createDocumentFragment()
+      fragment.appendChild(codeRef.current.cloneNode(true))
+
+      const figcaptions = fragment.querySelectorAll('figcaption')
+      figcaptions.forEach((figcaption) => figcaption.remove())
+
+      const text = fragment.textContent || ''
+
+      navigator.clipboard.writeText(text).then(() => {
+        setCopied(true)
+        setTimeout(() => setCopied(false), 800)
+      })
+    }
   }
 
-  const getTextFromChildren = (children: ReactNode): string => {
-    let text = ''
-    React.Children.forEach(children, (child) => {
-      if (typeof child === 'string') {
-        text += child
-      } else if (React.isValidElement(child)) {
-        if (child.type === 'figcaption') {
-          return
-        }
-        text += getTextFromChildren(child.props.children)
+  const handleCodeBoxInteraction = () => {
+    setVisible(true)
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (buttonRef.current && !buttonRef.current.contains(event.target as Node) && codeRef.current && !codeRef.current.contains(event.target as Node)) {
+        setVisible(false)
       }
-    })
-    return text
-  }
+    }
 
-  const codeToCopy = getTextFromChildren(React.Children.toArray(children)[activeTab])
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('touchstart', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [])
 
   return (
     <>
@@ -57,17 +74,26 @@ export const Tabs = ({ items, children }: TabsProps) => {
             {item}
           </button>
         ))}
-        <CopyToClipboard text={codeToCopy} onCopy={handleCopy}>
+        <div className={styles.tooltipWrapper}>
           <button
-            onMouseEnter={() => setVisible(true)}
+            ref={buttonRef}
+            onClick={handleCopy}
+            onMouseEnter={() => {
+              setShowTooltip(true)
+              handleCodeBoxInteraction()
+            }}
+            onMouseLeave={() => setShowTooltip(false)}
+            onFocus={() => setShowTooltip(true)}
+            onBlur={() => setShowTooltip(false)}
             className={`${copied ? styles.noactive + ' ' + styles.copyButton : styles.active + ' ' + styles.copyButton} ${visible ? styles.visible : styles.hidden}`}>
             <div className={styles.icon_position}>
-              <FiCopy size={16} color={copied ? '#555' : 'gray'} className={copied ? styles.noactive : styles.active} />
+              {copied ? <FiCheck size={16} color="#555" className={styles.noactive} /> : <FiCopy size={16} color="gray" className={styles.active} />}
             </div>
           </button>
-        </CopyToClipboard>
+          {showTooltip && <div className={styles.tooltip}>{copied ? 'Copied!' : 'clipboard'}</div>}
+        </div>
       </div>
-      <div onMouseEnter={() => setVisible(true)} onMouseLeave={() => setVisible(false)} className={styles.code_box}>
+      <div ref={codeRef} onMouseEnter={handleCodeBoxInteraction} onMouseLeave={() => setVisible(false)} onTouchStart={handleCodeBoxInteraction} className={styles.code_box}>
         {React.Children.toArray(children)[activeTab]}
       </div>
     </>

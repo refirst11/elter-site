@@ -40,17 +40,16 @@ This page describes installation and compiler settings, and other details.
   </Tab>
 </Tabs>
 
-## Compiler setting
+## Compiler Command Setting
 
-Add the compile command to the `package.json` script field.
+Add the compile command to the package.json build command <code>\`npx typedcssx --compile\`</code>
 
 <Tabs>
   {/* prettier-ignore */}
   <Tab>
   ```json title="package.json"
     "scripts": {
-      "build": "npm run compile && next build",
-      "compile": "cd node_modules/typedcssx && npm run compiler"
+      "build": "npx typedcssx --compile && next build",
     },
   ```
   </Tab>
@@ -83,12 +82,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }    
 ```
 
-## Global style sheet
-Load global.css in layout.tsx, which is the root directory of the app.
+## Global Style Sheet
+If there is a src folder in the root of the app or in the root, the typedcssx-global.css file will be generated there during compilation, load typedcssx-global.css in layout.tsx, which is the root directory of the app.
 <Tabs>
   <Tab>
 ```tsx title="layout.tsx"
-import '../../node_modules/typedcssx/dist/core/styles/global.css'
+import 'styles/typedcssx-global.css'
 ```
   </Tab>
 </Tabs>

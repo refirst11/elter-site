@@ -11,9 +11,9 @@ export const headings = [
   {
     heading: [
       { id: 'npm', text: '# NPM' },
-      { id: 'compiler-setting', text: '# Compiler setting' },
+      { id: 'compiler-command-setting', text: '# Compiler Command Setting' },
       { id: 'server-component-preview', text: '# Server Component Preview' },
-      { id: 'global-style-sheet', text: '# Global style sheet' },
+      { id: 'global-style-sheet', text: '# Global Style Sheet' },
       { id: 'supported-nodejs', text: '# Supported Node.js' }
     ]
   }

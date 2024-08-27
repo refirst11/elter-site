@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run compile && next build",
+    "build": "npx typedcssx --compile && next build",
     "start": "next start",
     "lint": "next lint",
-    "compile": "cd node_modules/typedcssx && npm run compiler",
     "prettier": "prettier --write ."
   },
   "dependencies": {
@@ -31,7 +30,7 @@
     "remark-gfm": "^4.0.0",
     "shiki": "^1.6.5",
     "tocbot": "^4.28.2",
-    "typedcssx": "^2.2.3"
+    "typedcssx": "^2.2.7"
   },
   "devDependencies": {
     "@types/node": "^20.14.2",

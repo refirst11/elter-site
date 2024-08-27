@@ -78,7 +78,7 @@ pre {
 code {
   font-family: ui-monospace;
   letter-spacing: 0.8px;
-  color: var(--shiki-color-text);
+  font-size: 12.8px;
 }
 
 [data-rehype-pretty-code-figure] pre code span {

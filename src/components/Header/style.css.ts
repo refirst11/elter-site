@@ -31,10 +31,9 @@ export const styles = Style.create({
     color: 'var(--color-heading)',
     fontWeight: 400,
     left: '50%',
-    transform: 'translate(-420%)',
-    top: 18,
-    width: 160,
-    padding: '2px 4px',
+    transform: 'translate(-410%)',
+    top: 14,
+    padding: '4px 24px',
     borderRadius: '8px',
     textDecoration: 'none',
     [max_xl]: {

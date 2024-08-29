@@ -66,8 +66,8 @@ dependencies:
     specifier: ^4.28.2
     version: 4.29.0
   typedcssx:
-    specifier: ^2.2.7
-    version: 2.2.7
+    specifier: ^2.2.9
+    version: 2.2.9
 
 devDependencies:
   '@types/node':
@@ -4307,8 +4307,8 @@ packages:
     resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
     dev: false
 
-  /tsx@4.18.0:
-    resolution: {integrity: sha512-a1jaKBSVQkd6yEc1/NI7G6yHFfefIcuf3QJST7ZEyn4oQnxLYrZR5uZAM8UrwUa3Ge8suiZHcNS1gNrEvmobqg==}
+  /tsx@4.19.0:
+    resolution: {integrity: sha512-bV30kM7bsLZKZIOCHeMNVMJ32/LuJzLVajkQI/qf92J2Qr08ueLQvW00PUZGiuLPP760UINwupgUj8qrSCPUKg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
@@ -4374,12 +4374,12 @@ packages:
       possible-typed-array-names: 1.0.0
     dev: true
 
-  /typedcssx@2.2.7:
-    resolution: {integrity: sha512-yJsYhsZAhuYLv9IzGN76NO6hcy8iaF5CQ7PAogCIJiAxLMQKRKkg/O5uUo4YEuu8+i0msJ4NcuFMMOKe/Hsq/A==}
+  /typedcssx@2.2.9:
+    resolution: {integrity: sha512-SnHCsx5hQ/g9oPjjT+swDMcwJ+9eTOfNNur2xfgwekRA7hx4A4ImKIu7iNoBX6vbq/9BZuhMxwTBfIitiKPeAA==}
     hasBin: true
     dependencies:
       fast-glob: 3.3.2
-      tsx: 4.18.0
+      tsx: 4.19.0
     dev: false
 
   /typescript@5.5.4:

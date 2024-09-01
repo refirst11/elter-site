@@ -3,7 +3,7 @@ import Style, { max_xl } from 'typedcssx'
 export const styles = Style.create({
   top_wrapper: {
     [max_xl]: {
-      height: '1280px'
+      height: '1460px'
     }
   },
   link1: {
@@ -24,7 +24,7 @@ export const styles = Style.create({
       background: 'var(--color-logo)'
     },
     [max_xl]: {
-      top: -240
+      top: -344
     }
   },
   link2: {
@@ -46,7 +46,7 @@ export const styles = Style.create({
       background: 'var(--color-bg3)'
     },
     [max_xl]: {
-      top: -240
+      top: -344
     }
   },
   Logo: {
@@ -59,7 +59,7 @@ export const styles = Style.create({
     height: '75px',
     color: 'var(--color-logo)',
     [max_xl]: {
-      top: -476,
+      top: -580,
       fontSize: 45
     }
   },
@@ -75,7 +75,7 @@ export const styles = Style.create({
     height: '75px',
     color: 'var(--color-accent)',
     [max_xl]: {
-      top: -376,
+      top: -480,
       fontSize: 26
     }
   },
@@ -90,7 +90,7 @@ export const styles = Style.create({
     left: 16,
     color: 'var(--color-text)',
     [max_xl]: {
-      top: -318,
+      top: -422,
       fontSize: 14
     }
   },
@@ -102,7 +102,7 @@ export const styles = Style.create({
     alignItems: 'center',
     gap: 40,
     [max_xl]: {
-      bottom: 200,
+      bottom: 304,
       flexDirection: 'column'
     }
   },

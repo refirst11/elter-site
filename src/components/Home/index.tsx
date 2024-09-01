@@ -8,13 +8,13 @@ export function Home() {
       <div className={styles.top_wrapper}>
         <div className={styles.container}>
           <span className={styles.Logo}>Typed CSS X</span>
+          <p className={styles.text}>CSS in JS</p>
           <Link className={styles.link1} href="/docs">
             Get Started
           </Link>
           <Link className={styles.link2} href="/installation">
             Installation
           </Link>
-          <p className={styles.text}>CSS in JS</p>
           <p className={styles.tagline}>A Type Safety and seamless CSS in JS on Next.js</p>
           <section className={styles.card_container}>
             <div>

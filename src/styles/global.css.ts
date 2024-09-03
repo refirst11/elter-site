@@ -1,4 +1,4 @@
-import Style, { max_xl } from 'typedcssx'
+import Style, { max_md } from 'typedcssx'
 
 Style.global({
   html: {
@@ -10,13 +10,14 @@ Style.global({
   body: {
     fontFamily: "-apple-system, system-ui, var(--Inter), BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     textAlign: 'center',
+    textWrap: 'balance',
     fontSize: 16,
     lineHeight: 1.6,
     wordBreak: 'break-all',
     margin: '0 auto',
     color: 'var(--color-text)',
     background: 'var(--color-bg)',
-    [max_xl]: {
+    [max_md]: {
       padding: '64px 24px',
       fontSize: 14
     }
@@ -27,11 +28,12 @@ Style.global({
     position: 'relative',
     minHeight: '100vh',
     top: 64,
-    width: '928px',
+    maxWidth: '928px',
+    width: '100%',
     padding: '16px 48px',
     margin: '0 auto',
     textAlign: 'left',
-    [max_xl]: {
+    [max_md]: {
       top: 14,
       width: '100%',
       padding: 0,
@@ -62,7 +64,7 @@ Style.global({
     padding: '20px 0',
     margin: '20px 0',
     fontWeight: '600',
-    [max_xl]: {
+    [max_md]: {
       padding: '8px 0',
       fontSize: 30
     }
@@ -75,7 +77,7 @@ Style.global({
     height: '50px',
     paddingBottom: '4px',
     borderBottom: 'solid 1px var(--color-border)',
-    [max_xl]: {
+    [max_md]: {
       fontSize: 26
     }
   },
@@ -84,7 +86,7 @@ Style.global({
     fontSize: '24px',
     fontWeight: '550',
     margin: '36px 0 0',
-    [max_xl]: {
+    [max_md]: {
       fontSize: 22
     }
   },
@@ -93,7 +95,7 @@ Style.global({
     fontSize: '22px',
     fontWeight: '500',
     margin: '0 auto',
-    [max_xl]: {
+    [max_md]: {
       fontSize: 20
     }
   },

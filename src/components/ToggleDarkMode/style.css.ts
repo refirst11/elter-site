@@ -1,4 +1,5 @@
-import Style, { max_xl } from 'typedcssx'
+import Style, { max_md } from 'typedcssx'
+import { md768_1414 } from 'lib/media'
 
 export const styles = Style.create({
   toggle_button: {
@@ -27,11 +28,17 @@ export const styles = Style.create({
       border: 'solid 1px var(--color-accent)'
     },
     transition: 'all 0.2s',
-    [max_xl]: {
+    [max_md]: {
       position: 'absolute',
       marginLeft: 'auto',
       top: 22,
       right: 68
+    },
+    [md768_1414]: {
+      position: 'absolute',
+      top: 20,
+      right: 80,
+      transform: 'translate(0%)'
     }
   }
 })

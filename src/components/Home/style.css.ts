@@ -1,9 +1,10 @@
-import Style, { max_xl } from 'typedcssx'
+import Style, { max_md } from 'typedcssx'
 
 export const styles = Style.create({
   top_wrapper: {
-    [max_xl]: {
-      height: '1460px'
+    [max_md]: {
+      height: '1460px',
+      left: -240
     }
   },
   link1: {
@@ -23,7 +24,7 @@ export const styles = Style.create({
     hover: {
       background: 'var(--color-logo)'
     },
-    [max_xl]: {
+    [max_md]: {
       top: -344
     }
   },
@@ -45,7 +46,7 @@ export const styles = Style.create({
     hover: {
       background: 'var(--color-bg3)'
     },
-    [max_xl]: {
+    [max_md]: {
       top: -344
     }
   },
@@ -58,7 +59,7 @@ export const styles = Style.create({
     top: -250,
     height: '75px',
     color: 'var(--color-logo)',
-    [max_xl]: {
+    [max_md]: {
       top: -580,
       fontSize: 45
     }
@@ -74,7 +75,7 @@ export const styles = Style.create({
     left: 12,
     height: '75px',
     color: 'var(--color-accent)',
-    [max_xl]: {
+    [max_md]: {
       top: -480,
       fontSize: 26
     }
@@ -89,7 +90,7 @@ export const styles = Style.create({
     top: -20,
     left: 16,
     color: 'var(--color-text)',
-    [max_xl]: {
+    [max_md]: {
       top: -422,
       fontSize: 14
     }
@@ -101,7 +102,7 @@ export const styles = Style.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 40,
-    [max_xl]: {
+    [max_md]: {
       bottom: 304,
       flexDirection: 'column'
     }
@@ -123,7 +124,7 @@ export const styles = Style.create({
       background: 'var(--color-card)',
       padding: '10px 20px',
       borderRadius: '16px',
-      [max_xl]: {
+      [max_md]: {
         top: 60,
         height: 220
       }
@@ -136,14 +137,14 @@ export const styles = Style.create({
       '&::after': {
         content: 'none'
       },
-      [max_xl]: {
+      [max_md]: {
         fontSize: 22
       }
     },
 
     '& div p': {
       marginTop: 8,
-      [max_xl]: {
+      [max_md]: {
         fontSize: 14
       }
     },
@@ -152,7 +153,7 @@ export const styles = Style.create({
       top: 6,
       display: 'block',
       fontSize: 36,
-      [max_xl]: {
+      [max_md]: {
         top: 8,
         fontSize: 34
       }

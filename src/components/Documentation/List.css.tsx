@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import PostsData from 'types/PostsData'
 import { usePathname } from 'next/navigation'
-import Style, { max_xl } from 'typedcssx'
+import Style, { max_md } from 'typedcssx'
+import { max_1414 } from 'lib/media'
 import Accordion from './Accordion.css'
 
 type ListsProps = {
@@ -37,6 +38,7 @@ export default Lists
 export const styles = Style.create({
   list_position: {
     position: 'fixed',
+    width: 240,
     display: 'flex',
     flexDirection: 'column',
     fontSize: 14,
@@ -57,9 +59,15 @@ export const styles = Style.create({
       borderRadius: '4px'
     }
   },
-  [max_xl]: {
+  [max_md]: {
     list_position: {
       display: 'none'
+    }
+  },
+  [max_1414]: {
+    list_position: {
+      left: 0,
+      transform: 'translate(0%, 0%)'
     }
   },
   active: {
@@ -77,7 +85,7 @@ export const styles = Style.create({
       background: 'transparent',
       transition: 'background 0.15s, font-weight 0s'
     },
-    [max_xl]: {
+    [max_md]: {
       visibility: 'hidden'
     }
   }

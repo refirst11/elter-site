@@ -1,4 +1,5 @@
-import Style, { max_xl } from 'typedcssx'
+import Style, { max_md } from 'typedcssx'
+import { md768_1414 } from 'lib/media'
 
 export const styles = Style.create({
   list: {
@@ -24,11 +25,15 @@ export const styles = Style.create({
       padding: 0,
       marginTop: 40
     },
-    [max_xl]: {
+    [max_md]: {
       left: '0',
-      transform: 'translate(0)',
+      transform: 'translate(0%)',
       width: '100%',
       height: 'calc(100% - 64px)'
+    },
+    [md768_1414]: {
+      left: 276,
+      transform: 'translate(0%)'
     }
   },
 

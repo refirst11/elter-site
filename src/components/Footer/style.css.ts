@@ -1,4 +1,4 @@
-import Style, { max_xl } from 'typedcssx'
+import Style, { max_md } from 'typedcssx'
 
 export const styles = Style.create({
   footer_main: {
@@ -24,7 +24,7 @@ export const styles = Style.create({
   license: {
     position: 'relative',
     right: '600px',
-    [max_xl]: {
+    [max_md]: {
       position: 'absolute',
       right: 'auto',
       left: '20px'
@@ -33,7 +33,7 @@ export const styles = Style.create({
   nextlogo: {
     position: 'relative',
     left: '600px',
-    [max_xl]: {
+    [max_md]: {
       position: 'absolute',
       left: 'auto',
       right: '20px'

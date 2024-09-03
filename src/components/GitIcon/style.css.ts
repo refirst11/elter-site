@@ -1,4 +1,5 @@
-import Style, { max_xl } from 'typedcssx'
+import Style, { max_md } from 'typedcssx'
+import { md768_1414 } from 'lib/media'
 
 export const iconStyle = Style.set({
   zIndex: '3',
@@ -22,11 +23,15 @@ export const styles = Style.create({
     height: 26,
     borderLeft: 'solid 1px var(--color-border)',
     borderRight: 'solid 1px var(--color-border)',
-    [max_xl]: {
+    [max_md]: {
       position: 'absolute',
       marginLeft: 'auto',
       top: 20,
       right: 110
+    },
+    [md768_1414]: {
+      position: 'absolute',
+      right: 120
     }
   }
 })

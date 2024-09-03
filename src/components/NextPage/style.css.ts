@@ -1,4 +1,4 @@
-import Style, { max_xl } from 'typedcssx'
+import Style, { max_md } from 'typedcssx'
 
 export const styles = Style.create({
   container: {
@@ -40,7 +40,7 @@ export const styles = Style.create({
     hover: {
       border: 'solid 1px var(--color-link)'
     },
-    [max_xl]: {
+    [max_md]: {
       width: 120
     }
   },
@@ -62,7 +62,7 @@ export const styles = Style.create({
     hover: {
       border: 'solid 1px var(--color-link)'
     },
-    [max_xl]: {
+    [max_md]: {
       width: 120
     }
   }

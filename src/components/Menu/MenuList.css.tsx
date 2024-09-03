@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, Fragment } from 'react'
-import Style, { min_xl } from 'typedcssx'
+import Style, { min_md } from 'typedcssx'
 import Link from 'next/link'
 import type PostsData from 'types/PostsData'
 import { usePathname, useRouter } from 'next/navigation'
@@ -264,7 +264,7 @@ const styles = Style.create({
       translate: '0 0',
       rotate: '0deg'
     },
-    [min_xl]: {
+    [min_md]: {
       display: 'none'
     }
   },
@@ -277,7 +277,7 @@ const styles = Style.create({
     '&[aria-hidden="false"] ul': {
       transform: 'translateY(0%)'
     },
-    [min_xl]: {
+    [min_md]: {
       display: 'none'
     }
   },

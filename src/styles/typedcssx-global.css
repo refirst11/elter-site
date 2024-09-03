@@ -9,6 +9,7 @@ html {
 body {
   font-family: -apple-system, system-ui, var(--Inter), BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   text-align: center;
+  text-wrap: balance;
   font-size: 16px;
   line-height: 1.6;
   word-break: break-all;
@@ -22,7 +23,8 @@ main {
   position: relative;
   min-height: 100vh;
   top: 64px;
-  width: 928px;
+  max-width: 928px;
+  width: 100%;
   padding: 16px 48px;
   margin: 0 auto;
   text-align: left;
@@ -175,7 +177,7 @@ input::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 768px) {
   body {
     padding: 64px 24px;
     font-size: 14px;
@@ -183,7 +185,7 @@ input::-webkit-scrollbar-thumb {
 }
 
 
-@media (max-width: 1280px) {
+@media (max-width: 768px) {
   main {
     top: 14px;
     width: 100%;
@@ -193,7 +195,7 @@ input::-webkit-scrollbar-thumb {
 }
 
 
-@media (max-width: 1280px) {
+@media (max-width: 768px) {
   h1 {
     padding: 8px 0;
     font-size: 30px;
@@ -201,21 +203,21 @@ input::-webkit-scrollbar-thumb {
 }
 
 
-@media (max-width: 1280px) {
+@media (max-width: 768px) {
   h2 {
     font-size: 26px;
   }
 }
 
 
-@media (max-width: 1280px) {
+@media (max-width: 768px) {
   h3 {
     font-size: 22px;
   }
 }
 
 
-@media (max-width: 1280px) {
+@media (max-width: 768px) {
   h4 {
     font-size: 20px;
   }

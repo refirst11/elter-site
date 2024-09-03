@@ -93,7 +93,7 @@
   border-color: #333 transparent transparent transparent;
 }
 
-@media screen and (max-width: 739.98px) {
+@media screen and (max-width: 768px) {
   .copyButton {
     scale: 0.7;
     right: 0;

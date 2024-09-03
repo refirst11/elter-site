@@ -1,4 +1,5 @@
-import Style, { max_xl } from 'typedcssx'
+import Style, { max_md } from 'typedcssx'
+import { md768_1414 } from 'lib/media'
 
 export const styles = Style.create({
   container: {
@@ -15,15 +16,25 @@ export const styles = Style.create({
 
   wrapper: {
     zIndex: '2',
-    position: 'relative',
+    position: 'relative', // デフォルトはrelative
     display: 'flex',
     justifyContent: 'center',
     gap: '20px',
     top: '-40px',
-    left: '420px',
+    left: '380px',
     height: '0',
     listStyleType: 'none',
-    listStylePosition: 'inside'
+    listStylePosition: 'inside',
+    [md768_1414]: {
+      display: 'flex',
+      position: 'absolute', // absoluteに変更
+      right: '240px', // 右からの距離を設定（任意の距離に調整可能）
+      left: 'auto',
+      top: '20px' // トップとの高さを保つ
+    },
+    ['@media (max-width: 964px)']: {
+      display: 'none'
+    }
   },
 
   logo: {
@@ -36,8 +47,12 @@ export const styles = Style.create({
     padding: '4px 24px',
     borderRadius: '8px',
     textDecoration: 'none',
-    [max_xl]: {
+    [max_md]: {
       display: 'none'
+    },
+    [md768_1414]: {
+      left: '48px',
+      transform: 'translate(0%)'
     },
     outline: '3px solid transparent',
     hover: {
@@ -61,7 +76,7 @@ export const styles = Style.create({
     textDecoration: 'none',
     width: 'fit-content',
     height: '26px',
-    [max_xl]: {
+    [max_md]: {
       display: 'none'
     }
   },

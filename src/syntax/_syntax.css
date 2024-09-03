@@ -149,7 +149,7 @@ code[data-line-numbers] .line::before {
   counter-increment: lineNumber;
 }
 
-@media screen and (max-width: 1079px) {
+@media screen and (max-width: 1414px) {
   pre {
     width: 100%;
   }

@@ -1,11 +1,12 @@
-import Style, { max_xl } from 'typedcssx'
+import Style, { max_md } from 'typedcssx'
+import { md768_1414 } from 'lib/media'
 
 export const styles = Style.create({
   inputBox: {
     display: 'flex',
     zIndex: '3',
     position: 'relative',
-    top: -12,
+    top: -11.5,
     background: 'var(--color-card)',
     border: 'none',
     width: 240,
@@ -21,17 +22,22 @@ export const styles = Style.create({
       outline: '3px solid skyblue'
     },
     color: 'var(--color-text)',
-    [max_xl]: {
+    [max_md]: {
       transform: 'translate(0)',
       top: 16,
       left: 20,
       width: '50%'
+    },
+    [md768_1414]: {
+      top: 15,
+      left: 280,
+      transform: 'translate(0%)'
     }
   },
   cmdk: {
     zIndex: '3',
     position: 'fixed',
-    top: 18,
+    top: 17,
     height: 30,
     display: 'flex',
     justifyContent: 'center',
@@ -44,10 +50,14 @@ export const styles = Style.create({
     scale: 0.65,
     left: '50%',
     transform: 'translate(-730%)',
-    [max_xl]: {
+    [max_md]: {
       transform: 'translate(0)',
       top: 18,
       marginLeft: -30
+    },
+    [md768_1414]: {
+      left: 470,
+      transform: 'translate(0%)'
     }
   }
 })

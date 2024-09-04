@@ -66,8 +66,8 @@ dependencies:
     specifier: ^4.28.2
     version: 4.29.0
   typedcssx:
-    specifier: ^2.2.9
-    version: 2.2.9
+    specifier: ^2.3.0
+    version: 2.3.0
 
 devDependencies:
   '@types/node':
@@ -4374,8 +4374,8 @@ packages:
       possible-typed-array-names: 1.0.0
     dev: true
 
-  /typedcssx@2.2.9:
-    resolution: {integrity: sha512-SnHCsx5hQ/g9oPjjT+swDMcwJ+9eTOfNNur2xfgwekRA7hx4A4ImKIu7iNoBX6vbq/9BZuhMxwTBfIitiKPeAA==}
+  /typedcssx@2.3.0:
+    resolution: {integrity: sha512-guC8lGuq+FaHJJNID5ee+tBV/JICeUL5YtZlW9+FX+AuCDOy5UHUXnDM2jy6pqIWR1y0mzEf0BhnIuLih/NDFg==}
     hasBin: true
     dependencies:
       fast-glob: 3.3.2

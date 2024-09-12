@@ -1,17 +1,17 @@
 ---
-title: 'Style.root'
-subtitle: 'The Style Class Guide'
+title: 'root'
+subtitle: 'The cssx class guide'
 date: '2024/06/19'
 ---
 
 <TocBot />
 
-# Style.root
+# cssx.root
 The root was created primarily to manage CSS variables.
-```ts title="global.css.ts"
-import Style, { dark, light } from 'typedcssx'
+```ts title="global.ts"
+import cssx, { dark, light } from 'typedcssx'
 
-Style.root({
+cssx.root({
   [dark]: {
     '--color-text': 'rgb(180 180 190)',
     '--color-bg': 'rgb(42 43 43)',

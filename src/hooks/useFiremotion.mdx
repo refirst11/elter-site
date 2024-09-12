@@ -44,14 +44,14 @@ By making the transition time of the exit animation shorter than the value of th
 'use client';
 
 import useFiremotion from 'firemotion';
-import Style from 'typedcssx';
+import cssx from 'typedcssx';
 
 const Animation = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const animate = useFiremotion(styles.base, [styles.entry, styles.exit], 0.2);
+  const animate = useFiremotion(css.base, [css.entry, css.exit], 0.2);
   return <div className={animate}>{children}</div>;
 };
 
-const styles = Style.create({
+const css = cssx.create({
   base: {
     opacity: 1,
     transition: 'all 0.3s',

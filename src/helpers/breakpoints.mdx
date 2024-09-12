@@ -1,6 +1,6 @@
 ---
 title: 'BreakPoints'
-subtitle: 'The Media Guide'
+subtitle: 'The breakpoints media Guide'
 date: '2024/07/08'
 ---
 
@@ -24,10 +24,10 @@ date: '2024/07/08'
 
 ## Input
 Take a look at the media queries in the mobile functions and compare them.
-```ts title="style.css.ts"
-import Style, { max_md } from 'typedcssx';
+```ts title="style.ts"
+import cssx, { max_md } from 'typedcssx';
 
-export const styles = Style.create({
+export const css = cssx.create({
     logo: {
       left: 400,
       top: 12,
@@ -38,7 +38,7 @@ export const styles = Style.create({
     },
 });
 
-Style.global({
+cssx.global({
   [max_md]: {
     body: {
       width: '100%',

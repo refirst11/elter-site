@@ -9,7 +9,7 @@ date: '2024-06-02'
 
 # Orverview
 
-## What is Typed CSS X?
+## What is Typed cssx?
 
 ### Zero Runtime and RSC
 
@@ -24,38 +24,36 @@ You can preview smoothly using the "use client", and you can also preview the \`
 ### Hard Type and Hot Reload
 
 It is properties is typed and does not allow typos as much as possible.  
-Therefore, it may feel strange if you are not used to TypeScript development.
-
-Since objects are attached to dynamic styles in development mode, there is no need to reload during development.
+Since objects are attached to dynamic css in development mode, there is no need to reload during development.
 
 ### Production environment
 
-Styles exported by the compiler as static CSS Modules are split into components and further optimized by the framework.
+css exported by the compiler as static CSS Modules are split into components and further optimized by the framework.
 
 
 <Tabs>
   <Tab>
-```tsx title="Header.css.tsx"
-import Style from 'typedcssx';
+```tsx title="Header.tsx"
+import cssx from 'typedcssx';
 
 export const Header = () => {
 return (
-  <header className={styles.header_nav}>
-    <nav className={navStyle}>
+  <header className={css.header_main}>
+    <nav className={cssNav}>
       <a>home</a>
       <a>about</a>
     </nav>
   </header>
 )};
 
-const styles = Style.create({
-  header_nav: {
+const css = cssx.create({
+  header_main: {
     position: 'absolute',
     top: 0,
   },
 });
 
-const navStyle = Style.set({
+const cssNav = cssx.set({
   '& a':{
     fontSize: 16,
     color: '#333',
@@ -73,7 +71,7 @@ Although this library is a fairly latecomer to the CSS in JS world, it is heavil
 
 - **[Emotion](https://emotion.sh/docs/introduction/):** I found writing **template literals easy**. This was the standard CSS in JS in React.
 
-- **[React Native](https://reactnative.dev/):** **StyleSheet Class** is impeccable. It's standard in Typed CSS is inspired by React Native.
+- **[React Native](https://reactnative.dev/):** **cssheet Class** is impeccable. It's standard in Typed CSS is inspired by React Native.
 
 - **[Vue.js](https://vuejs.org/):** **Scoped CSS** in Vue.js excels in simplicity and directness.
 

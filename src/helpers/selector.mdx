@@ -12,7 +12,7 @@ date: '2024/07/05'
 You can write the selector as a wrapper by starting the string expression with &.  
 The string following & can be anything.
 ```ts title="style.css.ts"
-export const andStyle = Style.set({
+export const cssAnd = cssx.set({
   '& ul li': {
     fontSize: '12px',
     color: '#333',
@@ -87,8 +87,8 @@ The following pseudo-classes and pseudo-elements can be used as wrapper selector
 
 ### Pseudo hover example
 Other pseudo-classes and pseudo-elements, such as before and after, can also be treated as wrappers in the same way.
-```ts title="style.css.ts"
-  export const hoverStyle = Style.set({
+```ts title="style.ts"
+  export const hocssxAer = cssx.set({
     fontSize: '14px',
     color: '#333',
     hover: {
@@ -117,8 +117,8 @@ Selectors such as lang and not are implemented as argument selectors and are han
   
 ### Pseudo lang example
 So let's look at it the same way.
-```ts title="style.css.ts"
-  export const langStyle = Style.set({
+```ts title="style.ts"
+  export const cssLang = cssx.set({
     langEn: {
       color: 'skyblue',
     },
@@ -140,8 +140,8 @@ So let's look at it the same way.
 
 ### Pseudo not example
 If you connect it to notClass using camel case, the part following will become the class name as an argument.
-```ts title="style.css.ts"
-  export const notStyle = Style.set({
+```ts title="style.ts"
+  export const cssNot = cssx.set({
     notDiv: {
       fontSize: '14px',
       color: '#333',
@@ -168,8 +168,8 @@ If you connect it to notClass using camel case, the part following will become t
 
 ### Pseudo has example
 It's a bit long, but let's look at it.
-```ts title="style.css.ts"
-export const hasStyle = Style.set({
+```ts title="style.ts"
+export const cssxHas = cssx.set({
   hasDiv: {
     fontSize: '12px',
     color: '#333',

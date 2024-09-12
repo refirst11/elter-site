@@ -9,9 +9,9 @@ date: '2024/07/06'
 # Keyframes
 
 ## Input
-@keyframes is defined in Style.global.
-```ts title="global.css.ts"
-Style.global({
+@keyframes is defined in cssx.global.
+```ts title="global.ts"
+cssx.global({
   '@keyframes fade': {
     from: {
       opacity: 0,
@@ -53,9 +53,9 @@ Style.global({
 ```
 
 ## Uses
-The created animation can be used with Style.create, Style.set, etc.
+The created animation can be used with cssx.create, cssx.set, etc.
 ```ts title="style.css.ts"
-const styles = Style.create({
+const css = cssx.create({
   box: {
     padding: '20px',
     animation: 'move 2s'

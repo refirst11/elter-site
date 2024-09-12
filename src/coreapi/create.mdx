@@ -1,18 +1,18 @@
 ---
-title: 'Style.create'
-subtitle: 'The Style Class Guide'
+title: 'create'
+subtitle: 'The cssx class guide'
 date: '2024/06/16'
 ---
 
 <TocBot />
 
-# Style.create
+# cssx.create
 Create a stylesheet that takes the key as a className.  
-Since this function is created almost only once, we recommend using styles as the variable name.
-```ts title="style.css.ts"
-import Style from 'typedcssx'
+Since this function is created almost only once, we recommend using css as the variable name.
+```ts title="style.ts"
+import cssx from 'typedcssx'
 
-export const styles = Style.create({
+export const css = cssx.create({
   container: {
     display: 'flex',
     justifyContent: 'space-between'

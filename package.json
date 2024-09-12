@@ -30,7 +30,7 @@
     "remark-gfm": "^4.0.0",
     "shiki": "^1.6.5",
     "tocbot": "^4.28.2",
-    "typedcssx": "^2.4.0"
+    "typedcssx": "^2.4.1"
   },
   "devDependencies": {
     "@types/node": "^22.5.4",

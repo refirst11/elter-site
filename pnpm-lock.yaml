@@ -69,8 +69,8 @@ importers:
         specifier: ^4.28.2
         version: 4.29.0
       typedcssx:
-        specifier: ^2.4.0
-        version: 2.4.0
+        specifier: ^2.4.1
+        version: 2.4.1
     devDependencies:
       '@types/node':
         specifier: ^22.5.4
@@ -451,9 +451,6 @@ packages:
 
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
-
-  '@types/node@20.16.1':
-    resolution: {integrity: sha512-zJDo7wEadFtSyNz5QITDfRcrhqDvQI1xQNQ0VoizPjM/dVAODqqIUWbJPkvsxmTI0MYRGRikcdjMPhOssnPejQ==}
 
   '@types/node@22.5.4':
     resolution: {integrity: sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==}
@@ -2227,8 +2224,8 @@ packages:
     resolution: {integrity: sha512-/OxDN6OtAk5KBpGb28T+HZc2M+ADtvRxXrKKbUwtsLgdoxgX13hyy7ek6bFRl5+aBs2yZzB0c4CnQfAtVypW/g==}
     engines: {node: '>= 0.4'}
 
-  typedcssx@2.4.0:
-    resolution: {integrity: sha512-gnIQXMrc/dXcsDZRC2Ky4UFRtijSI1+YeIlBQIBUw3GvOPSX5def0FLUPF0g63kb/aLe6I0VDYHiofNoC4QpFA==}
+  typedcssx@2.4.1:
+    resolution: {integrity: sha512-W5WBRv1SzXt9brxE+0qAlH+tJdmeH/VzmPIhoXSCddL4MsO5RIuRwW24BtJA6HfPTX/PFvlOsPJr/zPUTUtfrQ==}
     hasBin: true
 
   typescript@5.5.4:
@@ -2659,10 +2656,6 @@ snapshots:
   '@types/mdx@2.0.13': {}
 
   '@types/ms@0.7.34': {}
-
-  '@types/node@20.16.1':
-    dependencies:
-      undici-types: 6.19.8
 
   '@types/node@22.5.4':
     dependencies:
@@ -3942,7 +3935,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 20.16.1
+      '@types/node': 22.5.4
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -5077,7 +5070,7 @@ snapshots:
       is-typed-array: 1.1.13
       possible-typed-array-names: 1.0.0
 
-  typedcssx@2.4.0:
+  typedcssx@2.4.1:
     dependencies:
       fast-glob: 3.3.2
       tsx: 4.19.1

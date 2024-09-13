@@ -3,7 +3,7 @@ import { NpmPackage } from 'types/NpmPackage'
 
 const getVersion = async (): Promise<NpmPackage> => {
   const url = process.env.VERSION_URL || ''
-  const response = await fetch(url) // 1week
+  const response = await fetch(url, { cache: 'force-cache' })
 
   const data: NpmPackage = await response.json()
   return data

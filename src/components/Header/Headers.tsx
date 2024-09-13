@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { styles } from './style.css'
+import { css } from './style'
 import Link from 'next/link'
 import isCurrentLink from 'lib/isCurrentLink'
 import { usePathname } from 'next/navigation'
@@ -17,16 +17,16 @@ export const Headers = ({ version }: { version: string }) => {
   ]
 
   return (
-    <header className={styles.container}>
-      <Link href="/" className={`${styles.logo} ${pathname == '/' ? styles.ontline : ''}`}>
-        typedcssx <span className={styles.version}>v{version}</span>
+    <header className={css.container}>
+      <Link href="/" className={`${css.logo} ${pathname == '/' ? css.ontline : ''}`}>
+        typedcssx <span className={css.version}>v{version}</span>
       </Link>
       <GitIcon />
       <ToggleDarkMode />
       <SearchBox />
-      <nav className={styles.wrapper}>
+      <nav className={css.wrapper}>
         {links.map((link) => (
-          <Link key={link.href} href={link.href} className={styles.link + ' ' + styles.active} aria-current={isCurrentLink(link.href, pathname) ? 'page' : 'false'}>
+          <Link key={link.href} href={link.href} className={css.link + ' ' + css.active} aria-current={isCurrentLink(link.href, pathname) ? 'page' : 'false'}>
             {link.label}
           </Link>
         ))}

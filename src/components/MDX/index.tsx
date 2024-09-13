@@ -2,7 +2,7 @@
 
 import { Tabs, Tab } from 'components/Tabs'
 import { TocBot } from 'components/TocBot'
-import Animation from 'components/Firemotion/Animation.css'
+import Animation from 'components/Firemotion/Animation'
 import { MDXRemoteSerializeResult, MDXRemote } from 'next-mdx-remote'
 
 const components = {

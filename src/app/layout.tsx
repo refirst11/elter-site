@@ -3,11 +3,11 @@ import { Menu } from 'components/Menu'
 import { Footer } from 'components/Footer'
 import { ThemeProvider } from 'next-themes'
 import 'styles/typedcssx-global.css'
-import 'styles/global.css'
+import 'styles/global'
 import 'syntax/_syntax.css'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import { PreviewServerCSS } from 'typedcssx'
+import { PreviewServerCSS } from 'typedcssx/server'
 
 const inter = Inter({ subsets: ['latin'], variable: '--Inter' })
 export const fetchCache = 'force-cache'

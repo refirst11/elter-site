@@ -1,12 +1,12 @@
 import React from 'react'
 import { ImGithub } from 'react-icons/im'
-import { iconStyle, styles } from './style.css'
+import { cssIcon, css } from './style'
 
 export const GitIcon = () => {
   return (
-    <div className={styles.border_wrapper}>
+    <div className={css.border_wrapper}>
       <a href="https://github.com/typedcsslab/typedcssx/" target="_brank">
-        <ImGithub size={20} className={iconStyle} />
+        <ImGithub size={20} className={cssIcon} />
       </a>
     </div>
   )

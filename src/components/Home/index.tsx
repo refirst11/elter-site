@@ -1,22 +1,22 @@
 import Link from 'next/link'
-import { styles } from './style.css'
-import Animation from 'components/Firemotion/Animation.css'
+import { css } from './style'
+import Animation from 'components/Firemotion/Animation'
 
 export function Home() {
   return (
     <Animation>
-      <div className={styles.top_wrapper}>
-        <div className={styles.container}>
-          <span className={styles.Logo}>Typed CSS X</span>
-          <p className={styles.text}>CSS in JS</p>
-          <Link className={styles.link1} href="/docs">
+      <div className={css.top_wrapper}>
+        <div className={css.container}>
+          <span className={css.Logo}>Typed CSS X</span>
+          <p className={css.text}>CSS in JS</p>
+          <Link className={css.link1} href="/docs">
             Get Started
           </Link>
-          <Link className={styles.link2} href="/installation">
+          <Link className={css.link2} href="/installation">
             Installation
           </Link>
-          <p className={styles.tagline}>A Type Safety and seamless CSS in JS on Next.js</p>
-          <section className={styles.card_container}>
+          <p className={css.tagline}>A Type Safety and seamless CSS in JS on Next.js</p>
+          <section className={css.card_container}>
             <div>
               <span>📡</span>
               <h2>Console lover</h2>

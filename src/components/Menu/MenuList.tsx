@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, Fragment } from 'react'
-import Style, { min_md } from 'typedcssx'
+import cssx, { min_md } from 'typedcssx'
 import Link from 'next/link'
 import type PostsData from 'types/PostsData'
 import { usePathname, useRouter } from 'next/navigation'
@@ -68,7 +68,7 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
 
   return (
     <>
-      <div className={styles.Line}>
+      <div className={css.Line}>
         <button
           aria-expanded={open}
           onClick={() => {
@@ -81,33 +81,33 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
           <span />
         </button>
       </div>
-      <div className={styles.menu} aria-hidden={!open}>
-        <ul className={styles.menu_list}>
+      <div className={css.menu} aria-hidden={!open}>
+        <ul className={css.menu_list}>
           <li>
-            <Link className={styles.active} href="/" onClick={() => setOpen(false)} aria-current={'/' === pathname ? 'page' : 'false'}>
+            <Link className={css.active} href="/" onClick={() => setOpen(false)} aria-current={'/' === pathname ? 'page' : 'false'}>
               Home
             </Link>
           </li>
           <li>
-            <button className={`${styles.docs} ${isListVisible ? styles.activeDocs : ''}`} onClick={() => setIsListVisible(!isListVisible)}>
+            <button className={`${css.docs} ${isListVisible ? css.activeDocs : ''}`} onClick={() => setIsListVisible(!isListVisible)}>
               Documentation
               <IoMdArrowDropright style={{ rotate: isListVisible ? '90deg' : '0deg' }} />
             </button>
           </li>
-          <ul className={`${styles.documentItems} ${isListVisible ? styles.visible : ''}`}>
+          <ul className={`${css.documentItems} ${isListVisible ? css.visible : ''}`}>
             {docs?.map(({ slug, title }, postIndex) => (
               <Fragment key={postIndex}>
                 <li key={slug}>
-                  <Link className={styles.active} href={`/${slug}`} onClick={() => setOpen(false)} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
+                  <Link className={css.active} href={`/${slug}`} onClick={() => setOpen(false)} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
                     {title}
                   </Link>
                 </li>
                 {pathname === '/' + slug && (
-                  <ul className={styles.headingItems}>
+                  <ul className={css.headingItems}>
                     {headings[postIndex]?.heading.map((heading, headingIndex) => (
                       <li key={`${slug}-heading-${headingIndex}`}>
                         <Link
-                          className={styles.active}
+                          className={css.active}
                           href={`/${slug}#${heading.id}`}
                           onClick={(e) => {
                             handleLinkClick(router, e, slug, heading.id)
@@ -123,25 +123,21 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
               </Fragment>
             ))}
             <li>
-              <button className={`${styles.docs} ${api ? styles.activeDocs : ''}`} onClick={() => setAPI(!api)}>
+              <button className={`${css.docs} ${api ? css.activeDocs : ''}`} onClick={() => setAPI(!api)}>
                 Core API
                 <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
               </button>
             </li>
             {api && (
-              <ul className={`${styles.documentItems} ${api ? styles.visible : ''}`}>
-                <li className={`${styles.docs} ${style ? styles.activeDocs : ''}`} onClick={() => setStyle(!style)}>
-                  Style <IoMdArrowDropright style={{ rotate: style ? '90deg' : '0deg' }} />
+              <ul className={`${css.documentItems} ${api ? css.visible : ''}`}>
+                <li className={`${css.docs} ${style ? css.activeDocs : ''}`} onClick={() => setStyle(!style)}>
+                  cssx <IoMdArrowDropright style={{ rotate: style ? '90deg' : '0deg' }} />
                 </li>
                 {style && (
-                  <ul className={`${styles.documentItems} ${style ? styles.visible : ''}`}>
+                  <ul className={`${css.documentItems} ${style ? css.visible : ''}`}>
                     {core?.map(({ slug, title }) => (
                       <li key={slug}>
-                        <Link
-                          href={`/core-api/${slug}`}
-                          className={styles.active}
-                          onClick={() => setOpen(false)}
-                          aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
+                        <Link href={`/core-api/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
                           {title}
                         </Link>
                       </li>
@@ -151,16 +147,16 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
               </ul>
             )}
             <li>
-              <button className={`${styles.docs} ${help ? styles.activeDocs : ''}`} onClick={() => setHelp(!help)}>
+              <button className={`${css.docs} ${help ? css.activeDocs : ''}`} onClick={() => setHelp(!help)}>
                 Helpers
                 <IoMdArrowDropright style={{ rotate: help ? '90deg' : '0deg' }} />
               </button>
             </li>
             {help && (
-              <ul className={`${styles.documentItems} ${help ? styles.visible : ''}`}>
+              <ul className={`${css.documentItems} ${help ? css.visible : ''}`}>
                 {helpers?.map(({ slug, title }) => (
                   <li key={slug}>
-                    <Link href={`/helpers/${slug}`} className={styles.active} onClick={() => setOpen(false)} aria-current={'/helpers/' + slug === pathname ? 'page' : 'false'}>
+                    <Link href={`/helpers/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/helpers/' + slug === pathname ? 'page' : 'false'}>
                       {title}
                     </Link>
                   </li>
@@ -168,16 +164,16 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
               </ul>
             )}
             <li>
-              <button className={`${styles.docs} ${hook ? styles.activeDocs : ''}`} onClick={() => setHook(!hook)}>
+              <button className={`${css.docs} ${hook ? css.activeDocs : ''}`} onClick={() => setHook(!hook)}>
                 Hooks
                 <IoMdArrowDropright style={{ rotate: hook ? '90deg' : '0deg' }} />
               </button>
             </li>
             {hook && (
-              <ul className={`${styles.documentItems} ${hook ? styles.visible : ''}`}>
+              <ul className={`${css.documentItems} ${hook ? css.visible : ''}`}>
                 {hooks.map(({ slug, title }) => (
                   <li key={slug}>
-                    <Link href={`/hooks/${title}`} className={styles.active} onClick={() => setOpen(false)} aria-current={'/hooks/useFiremotion' === pathname ? 'page' : 'false'}>
+                    <Link href={`/hooks/${title}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/hooks/useFiremotion' === pathname ? 'page' : 'false'}>
                       {title}
                     </Link>
                   </li>
@@ -193,7 +189,7 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
 
 export default MenuList
 
-const styles = Style.create({
+const css = cssx.create({
   Line: {
     zIndex: '4',
     position: 'fixed',

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { SearchResults } from 'components/SearchResults'
-import { styles } from './style.css'
+import { css } from './style'
 
 export const SearchBox = () => {
   const [keyword, setKeyword] = useState('')
@@ -48,7 +48,7 @@ export const SearchBox = () => {
     <div ref={containerRef}>
       <input
         ref={inputRef}
-        className={styles.inputBox}
+        className={css.inputBox}
         value={keyword}
         placeholder={'Search Documents...'}
         type="text"
@@ -58,7 +58,7 @@ export const SearchBox = () => {
         }}
         onKeyDown={handleInputKeyDown}
       />
-      <div className={styles.cmdk}>{keyword ? 'ESC' : '⌘ K'}</div>
+      <div className={css.cmdk}>{keyword ? 'ESC' : '⌘ K'}</div>
       {showResults && keyword && <SearchResults onClick={closeLink} keyword={keyword} />}
     </div>
   )

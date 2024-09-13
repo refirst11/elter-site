@@ -1,7 +1,7 @@
-import Style, { max_md } from 'typedcssx'
+import cssx, { max_md } from 'typedcssx'
 import { md768_1414 } from 'lib/media'
 
-export const styles = Style.create({
+export const css = cssx.create({
   container: {
     zIndex: '2',
     position: 'fixed',
@@ -16,7 +16,7 @@ export const styles = Style.create({
 
   wrapper: {
     zIndex: '2',
-    position: 'relative', // デフォルトはrelative
+    position: 'relative',
     display: 'flex',
     justifyContent: 'center',
     gap: '20px',
@@ -27,10 +27,10 @@ export const styles = Style.create({
     listStylePosition: 'inside',
     [md768_1414]: {
       display: 'flex',
-      position: 'absolute', // absoluteに変更
-      right: '240px', // 右からの距離を設定（任意の距離に調整可能）
+      position: 'absolute',
+      right: '240px',
       left: 'auto',
-      top: '20px' // トップとの高さを保つ
+      top: '20px'
     },
     ['@media (max-width: 964px)']: {
       display: 'none'

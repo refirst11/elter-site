@@ -3,9 +3,9 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { IoMdArrowDropright } from 'react-icons/io'
-import Style from 'typedcssx'
+import cssx from 'typedcssx'
 import PostsData from 'types/PostsData'
-import { styles } from './List.css'
+import { css } from './List'
 import { usePathname } from 'next/navigation'
 
 type AccordionProps = {
@@ -23,22 +23,22 @@ const Accordion = ({ core, helpers, hooks }: AccordionProps) => {
 
   return (
     <>
-      <button className={`${stylesA.accordion} ${api && stylesA.button_active}`} onClick={() => setAPI(!api)}>
+      <button className={`${cssA.accordion} ${api && cssA.button_active}`} onClick={() => setAPI(!api)}>
         Core API
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {api && (
-        <ul className={stylesA.list}>
+        <ul className={cssA.list}>
           <li>
-            <button className={`${style && stylesA.button_active}`} onClick={() => setStyle(!style)}>
-              Style <IoMdArrowDropright className={stylesA.arrow} style={{ rotate: style ? '90deg' : '0deg' }} />
+            <button className={`${style && cssA.button_active}`} onClick={() => setStyle(!style)}>
+              cssx <IoMdArrowDropright className={cssA.arrow} style={{ rotate: style ? '90deg' : '0deg' }} />
             </button>
           </li>
           {style && (
-            <ul className={stylesA.list_style}>
+            <ul className={cssA.list_style}>
               {core.map(({ slug, title }) => (
                 <li key={slug}>
-                  <Link href={`/core-api/${slug}`} className={styles.active} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
+                  <Link href={`/core-api/${slug}`} className={css.active} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
                     {title}
                   </Link>
                 </li>
@@ -47,30 +47,30 @@ const Accordion = ({ core, helpers, hooks }: AccordionProps) => {
           )}
         </ul>
       )}
-      <button className={`${stylesA.accordion} ${help && stylesA.button_active}`} onClick={() => setHelp(!help)}>
+      <button className={`${cssA.accordion} ${help && cssA.button_active}`} onClick={() => setHelp(!help)}>
         Helpers
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {help && (
-        <ul className={stylesA.list}>
+        <ul className={cssA.list}>
           {helpers.map(({ slug, title }) => (
             <li key={slug}>
-              <Link href={`/helpers/${slug}`} className={styles.active} aria-current={'/helpers/' + slug === pathname ? 'page' : 'false'}>
+              <Link href={`/helpers/${slug}`} className={css.active} aria-current={'/helpers/' + slug === pathname ? 'page' : 'false'}>
                 {title}
               </Link>
             </li>
           ))}
         </ul>
       )}
-      <button className={`${stylesA.accordion} ${hook && stylesA.button_active}`} onClick={() => setHook(!hook)}>
+      <button className={`${cssA.accordion} ${hook && cssA.button_active}`} onClick={() => setHook(!hook)}>
         Hooks
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {hook && (
-        <ul className={stylesA.list}>
+        <ul className={cssA.list}>
           {hooks.map(({ slug, title }) => (
             <li key={slug}>
-              <Link href={`/hooks/${slug}`} className={styles.active} aria-current={'/hooks/useFiremotion' === pathname ? 'page' : 'false'}>
+              <Link href={`/hooks/${slug}`} className={css.active} aria-current={'/hooks/useFiremotion' === pathname ? 'page' : 'false'}>
                 {title}
               </Link>
             </li>
@@ -83,7 +83,7 @@ const Accordion = ({ core, helpers, hooks }: AccordionProps) => {
 
 export default Accordion
 
-const stylesA = Style.create({
+const cssA = cssx.create({
   arrow: {
     position: 'absolute',
     right: 8

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { styles } from './style.css'
+import { styles } from './style'
 import { FiMoon, FiSun } from 'react-icons/fi'
 
 export const ToggleDarkMode = (): JSX.Element | null => {

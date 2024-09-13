@@ -1,7 +1,7 @@
-import Style, { max_md } from 'typedcssx'
+import cssx, { max_md } from 'typedcssx'
 import { md768_1414 } from 'lib/media'
 
-export const styles = Style.create({
+export const styles = cssx.create({
   toggle_button: {
     zIndex: '3',
     position: 'relative',

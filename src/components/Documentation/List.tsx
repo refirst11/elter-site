@@ -3,9 +3,9 @@
 import Link from 'next/link'
 import PostsData from 'types/PostsData'
 import { usePathname } from 'next/navigation'
-import Style, { max_md } from 'typedcssx'
+import cssx, { max_md } from 'typedcssx'
 import { max_1414 } from 'lib/media'
-import Accordion from './Accordion.css'
+import Accordion from './Accordion'
 
 type ListsProps = {
   docs: PostsData[]
@@ -19,10 +19,10 @@ const Lists = ({ docs, core, helpers, hooks }: ListsProps) => {
 
   return (
     pathname !== '/' && (
-      <ul className={styles.list_position}>
+      <ul className={css.list_position}>
         {docs?.map(({ slug, title }) => (
           <li key={slug}>
-            <Link className={styles.active} href={`/${slug}`} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
+            <Link className={css.active} href={`/${slug}`} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
               {title}
             </Link>
           </li>
@@ -35,7 +35,7 @@ const Lists = ({ docs, core, helpers, hooks }: ListsProps) => {
 
 export default Lists
 
-export const styles = Style.create({
+export const css = cssx.create({
   list_position: {
     position: 'fixed',
     width: 240,

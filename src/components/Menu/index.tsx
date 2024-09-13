@@ -1,6 +1,6 @@
 import getAllPosts from 'lib/getAllPosts'
 
-import MenuList from './MenuList.css'
+import MenuList from './MenuList'
 
 async function getDocs() {
   const docs = await getAllPosts('documentation')

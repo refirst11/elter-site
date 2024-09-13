@@ -1,5 +1,5 @@
 import getAllPosts from 'lib/getAllPosts'
-import Lists from './List.css'
+import Lists from './List'
 
 async function getDocs() {
   const docs = await getAllPosts('documentation')

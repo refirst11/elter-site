@@ -1,6 +1,6 @@
-import Style, { max_md } from 'typedcssx'
+import cssx, { max_md } from 'typedcssx'
 
-export const styles = Style.create({
+export const css = cssx.create({
   footer_main: {
     position: 'relative',
     display: 'flex',

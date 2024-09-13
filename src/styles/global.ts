@@ -1,6 +1,6 @@
-import Style, { max_md } from 'typedcssx'
+import cssx, { max_md } from 'typedcssx'
 
-Style.global({
+cssx.global({
   html: {
     width: '100%',
     height: '100%',
@@ -178,7 +178,7 @@ Style.global({
   }
 })
 
-Style.root({
+cssx.root({
   "&[data-theme='dark']": {
     '--color-text': 'rgb(180 180 190)',
     '--color-bg': 'rgb(42 43 43)',

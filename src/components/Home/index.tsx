@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from 'next/link'
 import { css } from './style'
 import Animation from 'components/Firemotion/Animation'
@@ -7,8 +8,8 @@ export function Home() {
     <Animation>
       <div className={css.top_wrapper}>
         <div className={css.container}>
-          <span className={css.Logo}>Typed CSS X</span>
-          <p className={css.text}>CSS in JS</p>
+          <span className={css.Logo}>Typed cssx</span>
+          <p className={css.text}>Write CSS in TypeScript</p>
           <Link className={css.link1} href="/docs">
             Get Started
           </Link>

@@ -69,8 +69,8 @@ importers:
         specifier: ^4.28.2
         version: 4.29.0
       typedcssx:
-        specifier: ^2.4.1
-        version: 2.4.1
+        specifier: ^2.4.5
+        version: 2.4.5
     devDependencies:
       '@types/node':
         specifier: ^22.5.4
@@ -2224,8 +2224,8 @@ packages:
     resolution: {integrity: sha512-/OxDN6OtAk5KBpGb28T+HZc2M+ADtvRxXrKKbUwtsLgdoxgX13hyy7ek6bFRl5+aBs2yZzB0c4CnQfAtVypW/g==}
     engines: {node: '>= 0.4'}
 
-  typedcssx@2.4.1:
-    resolution: {integrity: sha512-W5WBRv1SzXt9brxE+0qAlH+tJdmeH/VzmPIhoXSCddL4MsO5RIuRwW24BtJA6HfPTX/PFvlOsPJr/zPUTUtfrQ==}
+  typedcssx@2.4.5:
+    resolution: {integrity: sha512-ivfsiMouvtCojEXa38WP53MHmFPykFFpDqFP0dRdKQdBsdGORL1k6reA6ck0+GHgNzGCAcQXYE8lmTiGb5AkJQ==}
     hasBin: true
 
   typescript@5.5.4:
@@ -5070,7 +5070,7 @@ snapshots:
       is-typed-array: 1.1.13
       possible-typed-array-names: 1.0.0
 
-  typedcssx@2.4.1:
+  typedcssx@2.4.5:
     dependencies:
       fast-glob: 3.3.2
       tsx: 4.19.1

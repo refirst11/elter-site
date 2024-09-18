@@ -10,10 +10,11 @@ export const headings = [
   },
   {
     heading: [
-      { id: 'npm', text: '# NPM' },
-      { id: 'compiler-command-setting', text: '# Compiler Command Setting' },
-      { id: 'server-component-preview', text: '# Server Component Preview' },
-      { id: 'global-style-sheet', text: '# Global Style Sheet' },
+      { id: 'install-packages', text: '# Install packages' },
+      { id: 'integration', text: '# Integration' },
+      { id: 'compile-command', text: '# Compile Command' },
+      { id: 'server-component', text: '# Server Component' },
+      { id: 'global-style-sheet', text: '# Global Style' },
       { id: 'supported-nodejs', text: '# Supported Node.js' }
     ]
   }

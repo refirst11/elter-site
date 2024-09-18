@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import tocbot from 'tocbot'
+const tocbot = require('tocbot')
 
 export const TocBot = () => {
   useEffect(() => {

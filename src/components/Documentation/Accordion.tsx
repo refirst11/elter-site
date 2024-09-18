@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { IoMdArrowDropright } from 'react-icons/io'
-import cssx from 'typedcssx'
+import cssx, { union } from 'typedcssx'
 import PostsData from 'types/PostsData'
 import { css } from './List'
 import { usePathname } from 'next/navigation'
@@ -23,14 +23,14 @@ const Accordion = ({ core, helpers, hooks }: AccordionProps) => {
 
   return (
     <>
-      <button className={`${cssA.accordion} ${api && cssA.button_active}`} onClick={() => setAPI(!api)}>
+      <button className={union(cssA.accordion, api && cssA.button_active)} onClick={() => setAPI(!api)}>
         Core API
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {api && (
         <ul className={cssA.list}>
           <li>
-            <button className={`${style && cssA.button_active}`} onClick={() => setStyle(!style)}>
+            <button className={union(style && cssA.button_active)} onClick={() => setStyle(!style)}>
               cssx <IoMdArrowDropright className={cssA.arrow} style={{ rotate: style ? '90deg' : '0deg' }} />
             </button>
           </li>

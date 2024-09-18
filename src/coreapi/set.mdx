@@ -1,30 +1,30 @@
 ---
 title: 'set'
 subtitle: 'The cssx class guide'
-date: '2024/06/17'
+date: '2024/06/19'
 ---
 
 <TocBot />
 
 # cssx.set
 In set you define the properties directly, there's no need to worry about classNames here, we recommend using the variable name css~.
-```ts title="style.ts"
+```ts title="Something.tsx"
 import cssx from 'typedcssx'
 
-export const cssLink = cssx.set({
+const cssLink = cssx.set({
   fontSize: '14px',
   color: 'var(--color-link)',
   textDecoration: 'none'
 })
 
-export const cssBox = cssx.set({
+const cssBox = cssx.set({
   display: 'block',
   padding: 20,
   width: 60,
   height: 60
 })
 
-export const cssContainer = cssx.set({
+const cssContainer = cssx.set({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center'

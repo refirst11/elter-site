@@ -1,0 +1,50 @@
+---
+title: 'union'
+subtitle: 'The cssx class guide'
+date: '2024/09/17'
+---
+
+<TocBot />
+
+# cssx.union
+## union
+
+Merges multiple conditional class names into one.  
+It also supports named export for use within className.
+```ts title="Something.tsx"
+"use client"
+
+import cssx, { union } from 'typedcssx'
+import { usePathname } from 'next/navigation'
+
+export default function Page () {
+  const pathname = usePathname()
+
+  return(
+    <Link href="/" className={union(cssLink, pathname === "/" ? cssActive : "")}>
+        Home        
+    </Link>
+  )
+}
+
+const cssLink = cssx.set({
+  fontSize: '14px',
+  color: 'var(--color-link)',
+  textDecoration: 'none'
+})
+
+const cssActive = cssx.set({
+  fontWeight: 'bold',
+  borderBottom: 'solid 2px skylbue'
+})
+```
+This simplifies the syntax:
+```tsx
+<div className={union(css.link, css.active)}>
+```
+
+The following is how it is written so far.
+```tsx
+<div className={css.link + ' ' + css.active}>
+<div className={`${css.link} ${css.active}`}>
+```

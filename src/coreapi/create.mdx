@@ -9,10 +9,10 @@ date: '2024/06/16'
 # cssx.create
 Create a stylesheet that takes the key as a className.  
 Since this function is created almost only once, we recommend using css as the variable name.
-```ts title="style.ts"
+```ts title="Something.tsx"
 import cssx from 'typedcssx'
 
-export const css = cssx.create({
+const css = cssx.create({
   container: {
     display: 'flex',
     justifyContent: 'space-between'

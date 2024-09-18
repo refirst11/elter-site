@@ -4,15 +4,12 @@ subtitle: 'The Installation Guide'
 date: '2024-06-07'
 ---
 
-
 <TocBot />
 
 # Installation
-
-## NPM
-
 This page describes installation and compiler settings, and other details.
 
+## Install packages
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
   {/* prettier-ignore */}
   <Tab>
@@ -40,9 +37,63 @@ This page describes installation and compiler settings, and other details.
   </Tab>
 </Tabs>
 
-## Compiler Command Setting
+<Tabs items={['Next.js', 'Vite', 'Webpack']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash title="shell"
+    pnpm install --save-dev typedcssx-next-plugin
+    ```
+  </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash title="shell"
+    under development.
+    ```
+  </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash title="shell"
+    under development.
+    ```
+  </Tab>
+</Tabs>
 
-Add the compile command to the package.json build command <code>\`npx typedcssx --compile\`</code>
+## Integration
+you need to configure it in your configuration file.
+<Tabs items={['Next.js', 'Vite', 'Webpack']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```js title="shell"
+    const { TypedCSSXNextPlugin, configCSSModule } = require('typedcssx-next-plugin')
+
+    /** @type {import('next').NextConfig} */
+    const nextConfig = {
+      webpack: (config) => {
+        config.plugins.push(new TypedCSSXNextPlugin())
+        return configCSSModule(config)
+      },
+    }
+
+    module.exports = nextConfig
+    ```
+  </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash title="shell"
+    under development.
+    ```
+  </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash title="shell"
+    under development.
+    ```
+  </Tab>
+</Tabs>
+
+## Compiler Command
+
+Add to your build command <code>\`npx typedcssx --compile\`</code>
 
 <Tabs>
   <Tab>
@@ -54,11 +105,14 @@ Add the compile command to the package.json build command <code>\`npx typedcssx 
   </Tab>
 </Tabs>
 
-## Server Component Preview
-If the anchorEnabled argument is false, you will not be able to see the server component styles unless you manually reload the page once, but if it is true, you can collect the server component styles by mimicking the behavior of the a tag and reloading the page when transitioning via Link.  
+## Server Component
+If the anchorEnabled argument is false, you will not be able to see the server component styles unless you manually reload the page once.
+
+but if it is true, you can collect the server component styles by mimicking the behavior of the a tag and reloading the page when transitioning via Link.
+
 This true behavior remembers the page you clicked once and will not reload it thereafter.
 ```tsx title="layout.tsx"
-import { PreviewServerCSS } from 'typedcssx'
+import { PreviewServerCSS } from 'typedcssx/server'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -72,12 +126,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }    
 ```
 
-## Global Style Sheet
-If there is a src folder in the root of the app or in the root, the typedcssx-global.css file will be generated there during compilation, load typedcssx-global.css in layout.tsx, which is the root directory of the app.
+## Global Style
+All you have to do is import the file that calls the cssx.global method.
 <Tabs>
   <Tab>
 ```tsx title="layout.tsx"
-import 'styles/typedcssx-global.css'
+import 'styles/global'
 ```
   </Tab>
 </Tabs>

@@ -10,7 +10,7 @@ cssx.global({
   body: {
     fontFamily: "-apple-system, system-ui, var(--Inter), BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     textAlign: 'center',
-    textWrap: 'balance',
+    textWrap: 'pretty',
     fontSize: 16,
     lineHeight: 1.6,
     wordBreak: 'break-all',

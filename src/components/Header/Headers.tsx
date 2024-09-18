@@ -78,7 +78,7 @@ const css = cssx.create({
     fontWeight: 400,
     left: '50%',
     transform: 'translate(-410%)',
-    top: 14,
+    top: 15,
     padding: '4px 24px',
     borderRadius: '8px',
     textDecoration: 'none',

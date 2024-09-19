@@ -131,8 +131,8 @@ const css = cssx.create({
     zIndex: 1,
     position: 'absolute',
     fontSize: 12,
-    right: 56,
-    top: 30,
+    right: 58,
+    top: 32,
     height: 26,
     width: 26,
     backgroundColor: 'rgb(245, 245, 253)',
@@ -201,8 +201,8 @@ const css = cssx.create({
   [max_md]: {
     copyButton: {
       scale: 0.7,
-      right: 0,
-      top: 22
+      right: 6,
+      top: 28
     },
     tooltip: {
       scale: 0.7,

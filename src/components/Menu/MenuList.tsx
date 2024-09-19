@@ -124,7 +124,7 @@ const MenuList = ({ docs, apiData, helperData, hookData }: MenuProps) => {
             ))}
             <li>
               <button className={`${css.docs} ${api ? css.activeDocs : ''}`} onClick={() => setAPI(!api)}>
-                apiData API
+                API
                 <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
               </button>
             </li>
@@ -148,7 +148,7 @@ const MenuList = ({ docs, apiData, helperData, hookData }: MenuProps) => {
             )}
             <li>
               <button className={`${css.docs} ${help ? css.activeDocs : ''}`} onClick={() => setHelp(!help)}>
-                Helpers
+                Helper
                 <IoMdArrowDropright style={{ rotate: help ? '90deg' : '0deg' }} />
               </button>
             </li>
@@ -165,7 +165,7 @@ const MenuList = ({ docs, apiData, helperData, hookData }: MenuProps) => {
             )}
             <li>
               <button className={`${css.docs} ${hook ? css.activeDocs : ''}`} onClick={() => setHook(!hook)}>
-                Hooks
+                Hook
                 <IoMdArrowDropright style={{ rotate: hook ? '90deg' : '0deg' }} />
               </button>
             </li>

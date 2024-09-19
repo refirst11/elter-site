@@ -1,6 +1,6 @@
 ---
 title: 'Introduction'
-subtitle: 'An Introduction to Typed CSS X'
+subtitle: 'An Introduction to TypedCSSX'
 date: '2024-06-02'
 ---
 
@@ -10,7 +10,7 @@ date: '2024-06-02'
 
 ## What is TypedCSSX ?
 
-### Zero Runtime and RSC
+### Zero Runtime
 
 It's a CSS in JS library with a simple syntax.  
 Its characteristic feature is the powerful typed that enables autocomplete during development.
@@ -18,46 +18,58 @@ Its characteristic feature is the powerful typed that enables autocomplete durin
 It is exported as static CSS at production build time.  
 Since it is embedded in the build process, It can be cached by the browser and by CDNs.
 
-You can preview smoothly using the "use client", and you can also preview the \`Server Component\` by using the PreviewServerCSS API.
+You can preview smoothly using the "use client", and you can also preview the \`Server Component\`  
+by using the PreviewServerCSS Component.
 
-### Hard Type and Hot Reload
+### Type safe
 
-It is properties is typed and does not allow typos as much as possible.  
-Since objects are attached to dynamic css in development mode, there is no need to reload during development.
+The property is typed. And detects syntax errors.  
+Static type checking is performed at compile time, so the CSS generated after compilation is reliable.
 
-### Production environment
+### Dry principle
+Defining scoped styles typically involves writing one-to-one, which doesn't adhere to the DRY principle.
+If you create multiple shareable styles, the className notation becomes a combination of more than one.
 
-css exported by the compiler as static CSS Modules are split into components and further optimized by the framework.
+If you want to share encapsulated styles, extract them as export constants for reuse.
+The best practice is to apply a single style to a single class name only once.
+
+Of course, we also provide APIs for complex use cases where you want to apply multiple conditional styles.
+
+### How to use
+
+Write a cssx method and write the style to the object.  
+The method just returns a string, so just apply it to the class name.  
+
+Styles can be written outside of a component.
 
 
-<Tabs>
+<Tabs items={['tsx', 'css']}>
   <Tab>
-```tsx title="Header.tsx"
+```tsx title="Component.tsx"
 import cssx from 'typedcssx';
 
-export const Header = () => {
-return (
-  <header className={css.header_main}>
-    <nav className={cssNav}>
-      <a>home</a>
-      <a>about</a>
-    </nav>
-  </header>
-)};
+export const UIComponent = () => {
+  return (
+    <div className={css.blue}>
+      BlueText
+    </div>
+  )
+};
 
 const css = cssx.create({
-  header_main: {
-    position: 'absolute',
-    top: 0,
-  },
-});
-
-const cssNav = cssx.set({
-  '& a':{
+  blue: {
     fontSize: 16,
-    color: '#333',
+    color: 'blue'
   },
 });
+```
+  </Tab>
+  <Tab>
+```css
+.blue_f8ah90 {
+  font-size: 16px;
+  color: blue;
+}
 ```
   </Tab>
 </Tabs>
@@ -66,16 +78,11 @@ const cssNav = cssx.set({
 
 Although this library is a fairly latecomer to the CSS in JS world, it is heavily by these and other earlier libraries.
 
-- **[Styled-JSX](https://styled-system.com/):** Very stable CSS in JS, template literals were easy to write with **VSC's autocompletion**.
-
-- **[Emotion](https://emotion.sh/docs/introduction/):** I found writing **template literals easy**. This was the standard CSS in JS in React.
-
-- **[React Native](https://reactnative.dev/):** **cssheet Class** is impeccable. It's standard in Typed CSS is inspired by React Native.
-
+- **[React Native](https://reactnative.dev/):** **StyleSheet Class** is impeccable. It's standard in Typed CSS is inspired by React Native.
 - **[Vue.js](https://vuejs.org/):** **Scoped CSS** in Vue.js excels in simplicity and directness.
-
+- **[Styled-JSX](https://styled-system.com/):** Very stable CSS in JS, template literals were easy to write with **VSC's autocompletion**.
+- **[Emotion](https://emotion.sh/docs/introduction/):** I found writing **template literals easy**. This was the standard CSS in JS in React.
 - **[Vanilla Extract](https://vanilla-extract.style/):** It is inspired by vanilla extract's concept of **object, property types**.
-
 - **[Linaria](https://github.com/callstack/linaria):**  Typed CSS was also inspired by the concept of **static CSS extraction**.
 
 There integrated the standout features from each of these libraries into Typed CSS X. This is our expression of gratitude to these exceptional open-source projects and our contribution to the community.

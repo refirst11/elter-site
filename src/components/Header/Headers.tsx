@@ -14,7 +14,7 @@ export const Headers = ({ version }: { version: string }) => {
   const pathname = usePathname()
   const links = [
     { href: '/', label: 'Home' },
-    { href: '/docs', label: 'Documentation' }
+    { href: '/introduction', label: 'Documentation' }
   ]
 
   return (

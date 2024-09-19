@@ -25,12 +25,15 @@ date: '2024/07/01'
 TypedCSSX's mediaQuery uses the same wrapper format as conventional CSS.  
 This makes it easy to transition from CSS.
 
-## Input
-Take a look at the media queries in the mobile functions and compare them.
-```ts title="style.ts"
+## Write and compile
+Take a look at the media queries in compare them.  
+If you wrap a property and selector, the selector will be split and output.
+<Tabs items={[ 'tsx', 'css']}>
+  <Tab>
+```ts title="Something.tsx"
 import cssx, { max_md } from 'typedcssx';
 
-export const css = cssx.create({
+const css = cssx.create({
     logo: {
       left: 400,
       top: 12,
@@ -63,23 +66,22 @@ cssx.global({
   },
 });
 ```
-
-## Output
-If you wrap a property, the selector will be split and output.
+  </Tab>
+  <Tab>
 ```css title="css"
-.logo_nBXWJ {
+.logo_ow7hbb {
   left: 400px;
   top: 12px;
 }
 
-@media (max-width: 768px) {
-  .logo_nBXWJ {
+@media screen and (max-width: 768px) {
+  .logo_ow7hbb {
     left: 6px;
     top: 6px;
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   body {
     width: 100%;
     padding: 120px 24px;
@@ -101,3 +103,17 @@ If you wrap a property, the selector will be split and output.
   }
 }
 ```
+  </Tab>
+</Tabs>
+
+## Best Practices
+To appear multiple times MediaQuery is the only css that can achieve dry code.  
+It is recommended to change one value to all.
+```ts title="lib/media.ts"
+import { max_md } from 'typedcssx'
+export const mobile = max_md
+export const medium = '@media (min-width: 768px) and (max-width: 1536px)'
+```
+
+
+

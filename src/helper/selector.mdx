@@ -12,11 +12,14 @@ date: '2024/07/05'
 TypedCSSX pseudo elements use a wrapper format.  
 This avoids code redundancy and supports simple and intuitive coding.
 
-### & string Selector
+## Write & string selector and compile
 You can write the selector as a wrapper by starting the string expression with &.  
-The string following & can be anything.
-```ts title="style.css.ts"
-export const cssAnd = cssx.set({
+The string following & can be anything. And that it is follows the class name.
+
+<Tabs items={[ 'tsx', 'css' ]}>
+  <Tab>
+```ts title="Something.tsx"
+const cssAnd = cssx.set({
   '& ul li': {
     fontSize: '12px',
     color: '#333',
@@ -31,23 +34,29 @@ export const cssAnd = cssx.set({
   },
 });
 ```
-
-### Compiled & string Selector
-The characters you enter after & continue directly after the className.
+  </Tab>
+  <Tab>
 ```css title="css"
-._p6lcU ul li {
+.lwrtafil ul li {
   font-size: 12px;
   color: #333;
 }
-._p6lcU::after:hover {
+
+.lwrtafil::after:hover {
   font-size: 12px;
   color: #333;
 }
-._p6lcU:has(> h1:is(:hover, :focus)) h2 {
+
+.lwrtafil:has(> h1:is(:hover, :focus)) h2 {
   font-size: 12px;
   color: #333;
 }
-```
+```  
+  </Tab>
+</Tabs>
+
+
+
 
 ## Property selectors
 The following pseudo-classes and pseudo-elements can be used as wrapper selectors.
@@ -91,8 +100,10 @@ The following pseudo-classes and pseudo-elements can be used as wrapper selector
 
 ### Pseudo hover example
 Other pseudo-classes and pseudo-elements, such as before and after, can also be treated as wrappers in the same way.
-```ts title="style.ts"
-  export const cssHover = cssx.set({
+<Tabs items={[ 'tsx', 'css' ]}>
+  <Tab>
+```ts title="Something.tsx"
+  const cssHover = cssx.set({
     fontSize: '14px',
     color: '#333',
     hover: {
@@ -102,27 +113,29 @@ Other pseudo-classes and pseudo-elements, such as before and after, can also be 
     }
   })
 ```
-
-### Compiled hover
+  </Tab>
+  <Tab>
 ```css title="css"
-._a6JtM {
+.lkbtyade {
   font-size: 14px;
   color: #333;
 }
 
-._a6JtM:hover {
+.lkbtyade:hover {
   font-size: 16px;
   color: skyblue;
   font-weight: 500;
 }
-```
-Some of you may be wondering about the "undefined" that doesn't match the CustomCSSProperty here.  
-Selectors such as lang and not are implemented as argument selectors and are handled in camel case, such as langEn and notDiv.
-  
+```  
+  </Tab>
+</Tabs>
+
 ### Pseudo lang example
-So let's look at it the same way.
-```ts title="style.ts"
-  export const cssLang = cssx.set({
+The camel case parts are the arguments.
+<Tabs items={[ 'tsx', 'css']}>
+  <Tab>
+```ts title="Something.tsx"
+  const cssLang = cssx.set({
     langEn: {
       color: 'skyblue',
     },
@@ -131,21 +144,28 @@ So let's look at it the same way.
     }
   })
 ```
-
-### Compiled lang 
+  </Tab>
+  <Tab>
 ```css title="css"
-._lEQJa:lang(en) {
+.mw0x9rwl:lang(en) {
   color: skyblue;
 }
-._lEQJa:lang(it) {
+
+.mw0x9rwl:lang(it) {
   color: yellow;
 }
-```
+```  
+  </Tab>
+</Tabs>
+
+
 
 ### Pseudo not example
-If you connect it to notClass using camel case, the part following will become the class name as an argument.
-```ts title="style.ts"
-  export const cssNot = cssx.set({
+Anything other than camel cased HTML tags will be considered a class name.
+<Tabs items={[ 'tsx', 'css']}>
+  <Tab>
+```ts title="Something.tsx"
+  const cssNot = cssx.set({
     notDiv: {
       fontSize: '14px',
       color: '#333',
@@ -156,24 +176,30 @@ If you connect it to notClass using camel case, the part following will become t
     }
   })
 ```
-
-### Compiled not
+  </Tab>
+  <Tab>
 ```css title="css"
-._jBLNF:not(div) {
+.ocki96p9:not(div) {
   font-size: 14px;
   color: #333;
 }
 
-._jBLNF:not(.header-main) {
+.ocki96p9:not(.header-main) {
   font-size: 12px;
   color: #444;
 }
 ```
+  </Tab>
+</Tabs>
+
 
 ### Pseudo has example
-It's a bit long, but let's look at it.
-```ts title="style.ts"
-export const cssHas = cssx.set({
+The selector for has can express a+b or a>b at most.  
+Also, more complex expressions can be written directly using &.
+<Tabs items={[ 'tsx', 'css']}>
+  <Tab>
+```ts title="Something.tsx"
+const cssHas = cssx.set({
   hasDiv: {
     fontSize: '12px',
     color: '#333',
@@ -208,49 +234,50 @@ export const cssHas = cssx.set({
   },
 });
 ```
-
-### Compiled has
-The selector for has can express a+b or a>b at most.  
-Also, more complex expressions can be written directly using &.
+  </Tab>
+  <Tab>
 ```css title="css"
-._jwLUn:has(div) {
+.l85s1sz2:has(div) {
   font-size: 12px;
   color: #333;
 }
 
-._jwLUn:has(.tapestry) {
+.l85s1sz2:has(.tapestry) {
   font-size: 12px;
   color: #333;
 }
 
-._jwLUn:has(+ div) {
+.l85s1sz2:has(+ div) {
   font-size: 12px;
   color: #333;
 }
 
-._jwLUn:has(> .tapestry) {
+.l85s1sz2:has(> .tapestry) {
   font-size: 12px;
   color: #333;
 }
 
-._jwLUn:has(div + .tapestry) {
+.l85s1sz2:has(div + .tapestry) {
   font-size: 12px;
   color: #333;
 }
 
-._jwLUn:has(.tapestry + div) {
+.l85s1sz2:has(.tapestry + div) {
   font-size: 12px;
   color: #333;
 }
 
-._jwLUn:has(.tapestry > div) {
+.l85s1sz2:has(.tapestry > div) {
   font-size: 12px;
   color: #333;
 }
 
-._jwLUn:has(div > .tapestry) {
+.l85s1sz2:has(div > .tapestry) {
   font-size: 12px;
   color: #333;
 }
 ```
+  </Tab>
+</Tabs>
+
 

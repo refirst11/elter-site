@@ -8,8 +8,9 @@ date: '2024/07/02'
 
 # keyframes
 
-## Input
-@keyframes is defined in cssx.global.
+@keyframes can be defined in cssx.global.
+<Tabs items={[ 'global.ts', 'css']}>
+  <Tab>
 ```ts title="global.ts"
 cssx.global({
   '@keyframes fade': {
@@ -30,8 +31,8 @@ cssx.global({
   },
 });
 ```
-
-## Output
+  </Tab>
+  <Tab>
 ```css title="css"
 @keyframes fade {
   from {
@@ -50,11 +51,17 @@ cssx.global({
     transform: translate(100px);
   }
 }
-```
+```  
+  </Tab>
+</Tabs>
+
+
 
 ## Uses
 The created animation can be used with cssx.create, cssx.set, etc.
-```ts title="style.css.ts"
+<Tabs items={[ 'tsx', 'css']}>
+  <Tab>
+```ts title="Something.tsx"
 const css = cssx.create({
   box: {
     padding: '20px',
@@ -66,3 +73,18 @@ const css = cssx.create({
   }
 });
 ```
+  </Tab>
+  <Tab>
+```css title="css"
+.box_ocinp0 {
+  padding: 20px;
+  animation: move 2s;
+}
+
+.heading_ocinp0 {
+  font-size: 24px;
+  animation: fade 3s infinite;
+}
+```  
+  </Tab>
+</Tabs>

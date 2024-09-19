@@ -7,8 +7,13 @@ date: '2024/06/18'
 <TocBot />
 
 # cssx.global
-Global css can be defined here.  
-There is no need to put it in a variable, you can preview it by importing it to layout.tsx and loading it.
+Used to define global CSS.  
+There is no need to put it in a variable, you can preview it by importing it to the file you want to apply and loading it.
+
+## Write global and compile
+In addition to html elements, global allows you to directly define attributes and class names for pseudo elements and class.
+<Tabs items={[ 'global.ts', 'css']}>
+  <Tab>
 ```ts title="global.ts"
 import cssx from 'typedcssx'
 
@@ -29,10 +34,9 @@ cssx.global({
     fontWeight: '450'
   }
 });
-  ```
-
-### Compiled global
-In addition to html elements, global allows you to directly define attributes and class names for pseudo elements and class.
+```
+  </Tab>
+  <Tab>
 ```css title="css"
 body {
   color: var(--color-text);
@@ -52,3 +56,8 @@ h2 {
   font-weight: 450;
 }
 ```
+  </Tab>
+</Tabs>
+  
+
+

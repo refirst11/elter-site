@@ -7,9 +7,14 @@ date: '2024/07/07'
 <TocBot />
 
 # theme
-Just like traditional CSS, you can set the theme at the root using the data attribute.
+Just like traditional CSS, you can set the theme at the root using the data attribute.  
 
-```ts title="global.css.ts"
+## Write theme and compile
+You'll notice that the root is converted directly to :root and the &selector is added as an attribute.
+
+<Tabs items={[ 'global.ts', 'css']}>
+  <Tab>
+```ts title="global.ts"
 cssx.root({
   "&[data-theme='dark']":  {
   '--color-text': '#e0e0e0',
@@ -27,9 +32,8 @@ cssx.root({
 }
 })
 ```
-
-### Compiled attribute
-You'll notice that the root is converted directly to :root and the &selector is added as an attribute.
+  </Tab>
+  <Tab>
 ```css title="css"
 :root[data-theme='dark'] {
   --color-text: #e0e0e0;
@@ -46,3 +50,6 @@ You'll notice that the root is converted directly to :root and the &selector is 
   --color-bg: #f5f5f5;
 }
 ```
+  </Tab>
+</Tabs>
+

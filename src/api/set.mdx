@@ -1,0 +1,62 @@
+---
+title: 'set'
+subtitle: 'The cssx class guide'
+date: '2024/06/19'
+---
+
+<TocBot />
+
+# cssx.set
+In set a single syntax is supported. There's no need to think about classNames here.  
+we recommend using the variable name css + subject
+## Write set and compile 
+The hash of the object is directly attached to the className.
+
+<Tabs items={['tsx', 'css' ]}>
+  <Tab>
+    ```tsx title="Something.tsx"
+    import cssx from 'typedcssx'
+
+    const cssLink = cssx.set({
+      fontSize: '14px',
+      color: 'var(--color-link)',
+      textDecoration: 'none'
+    })
+
+    const cssBox = cssx.set({
+      display: 'block',
+      padding: 20,
+      width: 60,
+      height: 60
+    })
+
+    const cssContainer = cssx.set({
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    })
+    ```
+  </Tab>
+  <Tab>
+    ```css title="css"
+    .sxygohx9 {
+      font-size: 14px;
+      color: var(--color-link);
+      text-decoration: none;
+    }
+
+    .x2wp4abk {
+      display: block;
+      padding: 20px;
+      width: 60px;
+      height: 60px;
+    }
+    
+    .fe8x7811 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    ```
+  </Tab>
+</Tabs>

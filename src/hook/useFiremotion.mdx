@@ -40,7 +40,11 @@ date: '2024/07/01'
 ## Example css motion
 
 By making the transition time of the exit animation shorter than the value of the third argument, you can get a natural animation without a transition in the middle of the animation.
-```tsx title="Animation.css.tsx"
+It also works with just exit or entry by putting undefined in it.
+
+<Tabs items={[ 'tsx', 'uses']}>
+  <Tab>
+```tsx title="Animation.tsx"
 'use client';
 
 import useFiremotion from 'firemotion';
@@ -70,16 +74,13 @@ const css = cssx.create({
 
 export default Animation;
 ```
-
-## Uses
-
-In this example, I've created a wrapper component that provides animations.
-It also works with just exit or entry by putting undefined in it.
-```tsx
-import Animation from 'components/Animation.css';
+  </Tab>
+  <Tab>
+```tsx title="anyComponent"
+import Animation from 'components/Animation';
 
 const Page = () => {
-  return (
+  return
     <Animation>
       <h1>hello world</h1>
     </Animation>
@@ -87,4 +88,8 @@ const Page = () => {
 };
 
 export default Page;
-```
+```  
+  </Tab>
+</Tabs>
+
+

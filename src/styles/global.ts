@@ -180,7 +180,7 @@ cssx.global({
 
 cssx.root({
   "&[data-theme='dark']": {
-    '--color-text': 'rgb(180 180 190)',
+    '--color-text': 'rgb(200 208 208)',
     '--color-bg': 'rgb(42 43 43)',
     '--color-heading': 'rgb(230, 255, 247)',
     '--color-border': 'rgba(10, 10, 10, 0.24)',

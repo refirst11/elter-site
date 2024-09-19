@@ -9,19 +9,19 @@ date: '2024-06-02'
 # TypedCSSX Structures
 
 ## Ease of introduction
-The TypedCSSX mechanism scans and compiles cssx method descriptions using an AST (Abstract Syntax Tree).
+The TypedCSSX mechanism scans and compiles cssx method define using an AST (Abstract Syntax Tree).
 This allows it to operate in a Node.js environment where JavaScript can be executed.
 This means it's not dependent on any specific framework.
 
 ### Concise API
 The learning curve is very gentle.
 It works with zero configuration in Next.js by default.
-All you need to do is compile with npx typedcssx --compile and
+All you need to do is compile with `npx typedcssx --compile` and
 introduce the optimization plugin.
 
 ### Simple methods
 To be able to use the existing className API, the main methods create and set only return strings.
-The rest are just the root method for describing variables at the root, and the global method for describing globals.
+The rest are just the root method for writing variables at the root, and the global method for writing globals.
 The last one is the union method for merging class names.
 
 These are very concise and easy to handle, so you can start writing without much reference to the documentation.
@@ -39,10 +39,10 @@ Since the same thing can be done by using the existing inline style API to injec
 
 By reducing the cost of developing unnecessary APIs, we've naturally been able to keep the library size to a minimum.
 
-### Complete static determinism
+### Completely definite and static
 In TypedCSSX, styles are completely statically determined.
-This means that CSS is completely statically determined at compile time, providing a deterministic and fully static CSS solution.
-You can create maintainable, scalable, deterministic, and easy-to-manage CSS.
+This means that CSS is completely absolutely definite at compile time, providing a fully static CSS solution.
+You can create maintainable, scalable, definite, and easy-to-manage CSS.
 
 This means it's compatible with static site generators and server-side caching strategies.
 
@@ -61,7 +61,7 @@ There's no need to calculate or resolve styles at runtime, optimizing performanc
 
 ### Optimization
 Style objects passed across component boundaries are all removed at build time.
-This means that even as a result of natural description, the style object bundle doesn't increase, and only lightweight CSS remains.
+This means that even as a result of natural writing, the style object bundle doesn't increase, and only lightweight CSS remains.
 
 ## Scope range
 Scoping is done on a per-method basis.
@@ -69,10 +69,10 @@ Class names are given a unique id using the method's object.
 Even if exactly the same method is created between methods, the compiled CSS is always just one.
 
 ### Collision lottery range
-The design of using TypedCSSX objects as hashes for IDs results in collision drawing at the function level,
-which dramatically reduces the number of draws.
-For example, if you're converting strings to IDs at the class name level, collisions can occur even within functions.
-This means that the number of draws increases each time a class name is created.
+The design of using TypedCSSX objects as hashes for IDs results in collision lottery at the method level,
+which dramatically reduces the number of lots.
+For example, if you're converting strings to IDs at the class name level, collisions can occur even within methods.
+This means that the number of lots increases each time a class name is created.
 
 ### Class Name readability
 The create method takes the key as the class name and gives a 6-character hash of the object at the end.
@@ -82,8 +82,6 @@ so you can find them quickly without getting lost when using developer tools.
 ### Universally
 Class names are changed by objects, but when objects are determined, class names become universal.
 Therefore, when methods are determined, class names can be used as CSS arguments (has and not).
-This cannot be achieved with a design that generates random hashes with each compilation.
-
 
 ## Reason for object notation
 Why didn't TypedCSSX use template literals?

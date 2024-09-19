@@ -137,7 +137,7 @@ const MenuList = ({ docs, apiData, helperData, hookData }: MenuProps) => {
                   <ul className={`${css.documentItems} ${style ? css.visible : ''}`}>
                     {apiData?.map(({ slug, title }) => (
                       <li key={slug}>
-                        <Link href={`/api/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/api/' + slug === pathname ? 'page' : 'false'}>
+                        <Link href={`/core-api/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
                           {title}
                         </Link>
                       </li>

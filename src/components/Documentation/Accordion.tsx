@@ -38,7 +38,7 @@ const Accordion = ({ apiData, helperData, hookData }: AccordionProps) => {
             <ul className={cssA.list_style}>
               {apiData.map(({ slug, title }) => (
                 <li key={slug}>
-                  <Link href={`/api/${slug}`} className={css.active} aria-current={'/api/' + slug === pathname ? 'page' : 'false'}>
+                  <Link href={`/core-api/${slug}`} className={css.active} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
                     {title}
                   </Link>
                 </li>

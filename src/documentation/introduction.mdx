@@ -6,27 +6,26 @@ date: '2024-06-02'
 
 <TocBot />
 
-# Introduction
-
-## What is TypedCSSX ?
-
-### Zero Runtime
-
+# Introduction to TypedCSSX
 It's a CSS in JS library with a simple syntax.  
 Its characteristic feature is the powerful typed that enables autocomplete during development.
 
-It is exported as static CSS at production build time.  
-Since it is embedded in the build process, It can be cached by the browser and by CDNs.
+It provides an easy-to-maintainable solution while supporting traditional CSS notation such as Media Query and pseudo-elements.
 
-You can preview smoothly using the "use client", and you can also preview the \`Server Component\`  
+## Zero Runtime
+It is exported as static CSS at compile process.  
+Since it is embedded in the directly build process, It can cached the browser and CDN.
+
+
+## RSC
+You can preview using the "use client", and you can also preview the \`Server Component\`  
 by using the PreviewServerCSS Component.
 
-### Type safe
-
+## Type safe
 The property is typed. And detects syntax errors.  
 Static type checking is performed at compile time, so the CSS generated after compilation is reliable.
 
-### Dry principle
+## Dry principle
 Defining scoped styles typically involves writing one-to-one, which doesn't adhere to the DRY principle.
 If you create multiple shareable styles, the className notation becomes a combination of more than one.
 
@@ -35,8 +34,7 @@ The best practice is to apply a single style to a single class name only once.
 
 Of course, we also provide APIs for complex use cases where you want to apply multiple conditional styles.
 
-### How to use
-
+## How to use
 Write a cssx method and write the style to the object.  
 The method just returns a string, so just apply it to the class name.  
 
@@ -75,21 +73,20 @@ const css = cssx.create({
 </Tabs>
 
 ## Inspirations
-
 Although this library is a fairly latecomer to the CSS in JS world, it is heavily by these and other earlier libraries.
 
-- **[React Native](https://reactnative.dev/):** **StyleSheet Class** is impeccable. It's standard in Typed CSS is inspired by React Native.
+- **[React Native](https://reactnative.dev/):** **StyleSheet Class** is impeccable. It's standard in TypedCSSX is inspired by React Native.
 - **[Vue.js](https://vuejs.org/):** **Scoped CSS** in Vue.js excels in simplicity and directness.
 - **[Styled-JSX](https://styled-system.com/):** Very stable CSS in JS, template literals were easy to write with **VSC's autocompletion**.
 - **[Emotion](https://emotion.sh/docs/introduction/):** I found writing **template literals easy**. This was the standard CSS in JS in React.
 - **[Vanilla Extract](https://vanilla-extract.style/):** It is inspired by vanilla extract's concept of **object, property types**.
-- **[Linaria](https://github.com/callstack/linaria):**  Typed CSS was also inspired by the concept of **static CSS extraction**.
+- **[Linaria](https://github.com/callstack/linaria):**  TypedCSSX was also inspired by the concept of **static CSS extraction**.
 
-There integrated the standout features from each of these libraries into Typed CSS X. This is our expression of gratitude to these exceptional open-source projects and our contribution to the community.
+There integrated the standout features from each of these libraries into TypedCSSX. This is our expression of gratitude to these exceptional open-source projects and our contribution to the community.
 
 ## What's Next?
 
-Where good devlopment experience and simple is the Typed CSSX.  
+Where good devlopment experience and simple is the TypedCSSX.  
 Dive into class functions or explore Pseudo docs to unleash its full potential.
 
-Welcome to Typed CSSX. We can't wait to see what you'll create.
+Welcome to TypedCSSX. We can't wait to see what you'll create.

@@ -2,6 +2,7 @@ export const headings = [
   {
     heading: [
       { id: 'zero-runtime', text: '# Zero Runtime' },
+      { id: 'rsc', text: '# RSC' },
       { id: 'type-safe', text: '# Type safe' },
       { id: 'dry-principle', text: '# Dry principle' },
       { id: 'how-to-use', text: '# How to use' },

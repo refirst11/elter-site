@@ -9,12 +9,12 @@ import { css } from './List'
 import { usePathname } from 'next/navigation'
 
 type AccordionProps = {
-  core: PostsData[]
-  helpers: PostsData[]
-  hooks: PostsData[]
+  apiData: PostsData[]
+  helperData: PostsData[]
+  hookData: PostsData[]
 }
 
-const Accordion = ({ core, helpers, hooks }: AccordionProps) => {
+const Accordion = ({ apiData, helperData, hookData }: AccordionProps) => {
   const [api, setAPI] = useState(true)
   const [style, setStyle] = useState(true)
   const [help, setHelp] = useState(true)
@@ -24,7 +24,7 @@ const Accordion = ({ core, helpers, hooks }: AccordionProps) => {
   return (
     <>
       <button className={union(cssA.accordion, api && cssA.button_active)} onClick={() => setAPI(!api)}>
-        Core API
+        API
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {api && (
@@ -36,9 +36,9 @@ const Accordion = ({ core, helpers, hooks }: AccordionProps) => {
           </li>
           {style && (
             <ul className={cssA.list_style}>
-              {core.map(({ slug, title }) => (
+              {apiData.map(({ slug, title }) => (
                 <li key={slug}>
-                  <Link href={`/core-api/${slug}`} className={css.active} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
+                  <Link href={`/api/${slug}`} className={css.active} aria-current={'/api/' + slug === pathname ? 'page' : 'false'}>
                     {title}
                   </Link>
                 </li>
@@ -48,14 +48,14 @@ const Accordion = ({ core, helpers, hooks }: AccordionProps) => {
         </ul>
       )}
       <button className={`${cssA.accordion} ${help && cssA.button_active}`} onClick={() => setHelp(!help)}>
-        Helpers
+        Helper
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {help && (
         <ul className={cssA.list}>
-          {helpers.map(({ slug, title }) => (
+          {helperData.map(({ slug, title }) => (
             <li key={slug}>
-              <Link href={`/helpers/${slug}`} className={css.active} aria-current={'/helpers/' + slug === pathname ? 'page' : 'false'}>
+              <Link href={`/helper/${slug}`} className={css.active} aria-current={'/helper/' + slug === pathname ? 'page' : 'false'}>
                 {title}
               </Link>
             </li>
@@ -63,14 +63,14 @@ const Accordion = ({ core, helpers, hooks }: AccordionProps) => {
         </ul>
       )}
       <button className={`${cssA.accordion} ${hook && cssA.button_active}`} onClick={() => setHook(!hook)}>
-        Hooks
+        Hook
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {hook && (
         <ul className={cssA.list}>
-          {hooks.map(({ slug, title }) => (
+          {hookData.map(({ slug, title }) => (
             <li key={slug}>
-              <Link href={`/hooks/${slug}`} className={css.active} aria-current={'/hooks/useFiremotion' === pathname ? 'page' : 'false'}>
+              <Link href={`/hook/${slug}`} className={css.active} aria-current={'/hook/useFiremotion' === pathname ? 'page' : 'false'}>
                 {title}
               </Link>
             </li>

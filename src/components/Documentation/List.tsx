@@ -9,12 +9,12 @@ import Accordion from './Accordion'
 
 type ListsProps = {
   docs: PostsData[]
-  core: PostsData[]
-  helpers: PostsData[]
-  hooks: PostsData[]
+  apiData: PostsData[]
+  helperData: PostsData[]
+  hookData: PostsData[]
 }
 
-const Lists = ({ docs, core, helpers, hooks }: ListsProps) => {
+const Lists = ({ docs, apiData, helperData, hookData }: ListsProps) => {
   const pathname = usePathname()
 
   return (
@@ -27,7 +27,7 @@ const Lists = ({ docs, core, helpers, hooks }: ListsProps) => {
             </Link>
           </li>
         ))}
-        <Accordion core={core} helpers={helpers} hooks={hooks} />
+        <Accordion apiData={apiData} helperData={helperData} hookData={hookData} />
       </ul>
     )
   )

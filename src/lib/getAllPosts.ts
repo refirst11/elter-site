@@ -20,14 +20,14 @@ const getAllPosts = async (sourcePath: string): Promise<PostsData[]> => {
         case 'documentation':
           category = ''
           break
-        case 'coreapi':
+        case 'api':
           category = 'core-api/'
           break
-        case 'helpers':
-          category = 'helpers/'
+        case 'helper':
+          category = 'helper/'
           break
-        case 'hooks':
-          category = 'hooks/'
+        case 'hook':
+          category = 'hook/'
           break
         default:
           category = ''

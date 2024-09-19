@@ -8,12 +8,12 @@ import { Documentation } from 'components/Documentation'
 import { PostContent } from 'components/MDX'
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { meta } = await getPostMdx(params.slug, 'coreapi')
+  const { meta } = await getPostMdx(params.slug, 'api')
   return generateSEOData({ title: meta.title, subtitle: meta.subtitle, date: meta.date })
 }
 
 export default async function Page({ params }: Params) {
-  const { content } = await getPostMdx(params.slug, 'coreapi')
+  const { content } = await getPostMdx(params.slug, 'api')
 
   return (
     <main>
@@ -25,7 +25,7 @@ export default async function Page({ params }: Params) {
 }
 
 export async function generateStaticParams() {
-  const posts = await getSlugPath('coreapi')
+  const posts = await getSlugPath('api')
 
   return posts.map((post) => ({
     slug: post.slug

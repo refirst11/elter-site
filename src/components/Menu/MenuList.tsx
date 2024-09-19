@@ -11,12 +11,12 @@ import { headings } from 'lib/headings'
 
 type MenuProps = {
   docs: PostsData[]
-  core: PostsData[]
-  helpers: PostsData[]
-  hooks: PostsData[]
+  apiData: PostsData[]
+  helperData: PostsData[]
+  hookData: PostsData[]
 }
 
-const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
+const MenuList = ({ docs, apiData, helperData, hookData }: MenuProps) => {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [isListVisible, setIsListVisible] = useState(true)
@@ -124,7 +124,7 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
             ))}
             <li>
               <button className={`${css.docs} ${api ? css.activeDocs : ''}`} onClick={() => setAPI(!api)}>
-                Core API
+                apiData API
                 <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
               </button>
             </li>
@@ -135,9 +135,9 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
                 </li>
                 {style && (
                   <ul className={`${css.documentItems} ${style ? css.visible : ''}`}>
-                    {core?.map(({ slug, title }) => (
+                    {apiData?.map(({ slug, title }) => (
                       <li key={slug}>
-                        <Link href={`/core-api/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
+                        <Link href={`/api/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/api/' + slug === pathname ? 'page' : 'false'}>
                           {title}
                         </Link>
                       </li>
@@ -154,9 +154,9 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
             </li>
             {help && (
               <ul className={`${css.documentItems} ${help ? css.visible : ''}`}>
-                {helpers?.map(({ slug, title }) => (
+                {helperData?.map(({ slug, title }) => (
                   <li key={slug}>
-                    <Link href={`/helpers/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/helpers/' + slug === pathname ? 'page' : 'false'}>
+                    <Link href={`/helper/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/helper/' + slug === pathname ? 'page' : 'false'}>
                       {title}
                     </Link>
                   </li>
@@ -171,9 +171,9 @@ const MenuList = ({ docs, core, helpers, hooks }: MenuProps) => {
             </li>
             {hook && (
               <ul className={`${css.documentItems} ${hook ? css.visible : ''}`}>
-                {hooks.map(({ slug, title }) => (
+                {hookData.map(({ slug, title }) => (
                   <li key={slug}>
-                    <Link href={`/hooks/${title}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/hooks/useFiremotion' === pathname ? 'page' : 'false'}>
+                    <Link href={`/hook/${title}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/hook/useFiremotion' === pathname ? 'page' : 'false'}>
                       {title}
                     </Link>
                   </li>

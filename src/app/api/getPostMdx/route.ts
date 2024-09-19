@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import getPostMdx from 'lib/getPostMdx'
 
-const categories = ['documentation', 'coreapi', 'helpers', 'hooks']
+const categories = ['documentation', 'api', 'helper', 'hook']
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)

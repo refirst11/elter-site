@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import getAllPosts from 'lib/getAllPosts'
 
-const categories = ['documentation', 'coreapi', 'helpers', 'hooks']
+const categories = ['documentation', 'api', 'helper', 'hook']
 
 export async function GET() {
   const allPosts = await Promise.all(categories.map((category) => getAllPosts(category)))

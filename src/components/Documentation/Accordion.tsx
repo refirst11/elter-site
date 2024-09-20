@@ -92,7 +92,6 @@ const cssA = cssx.create({
   accordion: {
     fontSize: '13.7px',
     textDecoration: 'none',
-    color: '#959595',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -116,7 +115,6 @@ const cssA = cssx.create({
     width: 176,
     padding: '0 0 0 12px',
     margin: '0 0 0 12px',
-    color: '#959595',
     cursor: 'pointer',
     borderLeft: 'solid 1px var(--color-border)',
 

@@ -51,7 +51,7 @@ export const css = cssx.create({
     '& a': {
       fontSize: '13.7px',
       textDecoration: 'none',
-      color: '#959595',
+      color: 'var(--color-accordion-text)',
       display: 'block',
       width: 200,
       height: 32,

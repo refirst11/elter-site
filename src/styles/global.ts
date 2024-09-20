@@ -180,14 +180,15 @@ cssx.global({
 
 cssx.root({
   "&[data-theme='dark']": {
-    '--color-text': 'rgb(200 208 208)',
-    '--color-bg': 'rgb(42 43 43)',
+    '--color-text': 'rgb(225, 232, 237)',
+    '--color-bg': 'rgb(26, 27, 27)',
     '--color-heading': 'rgb(230, 255, 247)',
-    '--color-border': 'rgba(10, 10, 10, 0.24)',
+    '--color-border': 'rgba(200, 200, 200, 0.24)',
     '--color-link': 'rgb(100 200 200)',
     '--color-list': 'rgba(80, 87, 80, 0.3)',
-    '--color-sub': 'rgb(220 220 220)',
-    '--color-card': 'rgba(33, 33, 33, 0.3)',
+    '--color-sub': 'rgb(211, 211, 211)',
+    '--color-card': 'rgba(56, 55, 55, 0.3)',
+    '--color-accordion-text': '#eaeaea',
     '--color-logo': 'rgb(100 220 200)',
     '--color-accent': 'rgb(206 206 206)',
     '--color-bg2': 'rgb(56 56 56)',
@@ -206,6 +207,7 @@ cssx.root({
     '--color-list': '#e0efff',
     '--color-sub': '#222',
     '--color-card': 'rgb(245 245 245)',
+    '--color-accordion-text': '#4d4d4d',
     '--color-logo': 'rgb(60 165 140) ',
     '--color-accent': 'rgb(70, 86, 86)',
     '--color-bg2': '#4b5563',

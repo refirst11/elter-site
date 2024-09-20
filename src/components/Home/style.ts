@@ -74,7 +74,7 @@ export const css = cssx.create({
     top: -80,
     left: 12,
     height: '75px',
-    color: 'var(--color-accent)',
+    color: 'var(--color-heading)',
     [max_md]: {
       top: -480,
       fontSize: 26

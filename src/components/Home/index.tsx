@@ -10,13 +10,13 @@ export function Home() {
         <div className={css.container}>
           <span className={css.Logo}>TypedCSSX</span>
           <p className={css.text}>Write CSS in TypeScript</p>
+          <p className={css.tagline}>A Type safe and stable CSS in JS on Next.js</p>
           <Link className={css.link1} href="/introduction">
             Get Started
           </Link>
           <Link className={css.link2} href="/structures">
             Structures
           </Link>
-          <p className={css.tagline}>A Type safe and stable CSS in JS on Next.js</p>
           <section className={css.card_container}>
             <div>
               <span>📡</span>

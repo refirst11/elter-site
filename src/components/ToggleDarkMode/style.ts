@@ -31,7 +31,7 @@ export const styles = cssx.create({
     [max_md]: {
       position: 'absolute',
       marginLeft: 'auto',
-      top: 22,
+      top: 23,
       right: 68
     },
     [md768_1414]: {

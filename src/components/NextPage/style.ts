@@ -11,25 +11,29 @@ export const css = cssx.create({
     marginTop: '16px',
     display: 'flex',
     justifyContent: 'space-between',
-    borderTop: 'solid 1px var(--color-border)'
+    borderTop: 'solid 1px var(--color-border)',
+    gap: 16
   },
   desc: {
     position: 'absolute',
-    top: 4,
-    fontSize: 12,
+    top: 8,
+    fontSize: 14,
     color: 'var(--color-text)'
   },
+
   title: {
-    fontSize: 14
+    position: 'relative',
+    bottom: '4px'
   },
+
   prev: {
     position: 'absolute',
     textDecoration: 'none',
-    fontSize: 14,
+    fontSize: 16,
     left: 0,
     bottom: 0,
-    width: 280,
-    height: 54,
+    width: 'calc(50% - 8px)',
+    height: 64,
     padding: '0 0 6px 12px',
     display: 'flex',
     justifyContent: 'flex-start',
@@ -39,19 +43,16 @@ export const css = cssx.create({
     border: 'solid 1px var(--color-border2)',
     hover: {
       border: 'solid 1px var(--color-link)'
-    },
-    [max_md]: {
-      width: 120
     }
   },
   next: {
     position: 'absolute',
     textDecoration: 'none',
-    fontSize: 14,
+    fontSize: 16,
     right: 0,
     bottom: 0,
-    width: 280,
-    height: 54,
+    width: 'calc(50% - 8px)',
+    height: 64,
     padding: '0 12px 6px 0',
     display: 'flex',
     justifyContent: 'flex-end',
@@ -61,9 +62,6 @@ export const css = cssx.create({
     border: 'solid 1px var(--color-border2)',
     hover: {
       border: 'solid 1px var(--color-link)'
-    },
-    [max_md]: {
-      width: 120
     }
   }
 })

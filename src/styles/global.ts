@@ -34,6 +34,7 @@ cssx.global({
     margin: '0 auto',
     textAlign: 'left',
     [max_md]: {
+      overflow: 'hidden',
       top: 14,
       width: '100%',
       padding: 0,
@@ -180,6 +181,7 @@ cssx.global({
 
 cssx.root({
   "&[data-theme='dark']": {
+    '--color-x-style': '#41c6ff',
     '--color-text': 'rgb(225, 232, 237)',
     '--color-bg': 'rgb(26, 27, 27)',
     '--color-heading': 'rgb(230, 255, 247)',
@@ -199,6 +201,7 @@ cssx.root({
   },
 
   "&[data-theme='light']": {
+    '--color-x-style': '#72b6ff',
     '--color-text': '#4b5563',
     '--color-bg': 'rgb(255, 255, 255)',
     '--color-heading': 'rgb(70, 86, 86)',
@@ -208,12 +211,12 @@ cssx.root({
     '--color-sub': '#222',
     '--color-card': 'rgb(245 245 245)',
     '--color-accordion-text': '#4d4d4d',
-    '--color-logo': 'rgb(60 165 140) ',
+    '--color-logo': 'rgb(105, 158, 193) ',
     '--color-accent': 'rgb(70, 86, 86)',
     '--color-bg2': '#4b5563',
     '--color-bg3': 'rgb(95 105 119)',
     '--color-text2': 'rgb(255, 255, 255)',
-    '--color-logo2': 'rgb(40 145 120) ',
+    '--color-logo2': 'rgb(40, 119, 145) ',
     '--color-border2': 'rgba(200, 200, 200, 0.2)'
   }
 })

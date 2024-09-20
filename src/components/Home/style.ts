@@ -57,12 +57,22 @@ export const css = cssx.create({
     fontSize: 55,
     fontWeight: '600',
     top: -250,
+    marginLeft: 16,
     height: '75px',
     color: 'var(--color-logo)',
     [max_md]: {
       top: -580,
       fontSize: 45
     }
+  },
+  XStyle: {
+    position: 'relative',
+    top: 0,
+    left: 20,
+    color: 'var(--color-x-style)',
+    fontWeight: 20,
+    transform: 'skew(-48deg, -22deg)',
+    scale: 1.2
   },
   text: {
     position: 'absolute',

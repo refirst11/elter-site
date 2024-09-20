@@ -19,8 +19,9 @@ export const Headers = ({ version }: { version: string }) => {
 
   return (
     <header className={css.container}>
-      <Link href="/" className={union(css.logo, pathname == '/' ? css.ontline : '')}>
-        typedcssx <span className={css.version}>v{version}</span>
+      <Link href="/" className={css.logo}>
+        TypedCSS<span className={css.XStyle}>X</span>
+        <span className={css.version}>v{version}</span>
       </Link>
       <GitIcon />
       <ToggleDarkMode />
@@ -74,11 +75,12 @@ const css = cssx.create({
 
   logo: {
     position: 'absolute',
-    color: 'var(--color-heading)',
-    fontWeight: 400,
+    color: 'var(--color-logo)',
+    fontSize: 14,
+    fontWeight: 500,
     left: '50%',
-    transform: 'translate(-410%)',
-    top: 15,
+    transform: 'translate(-425%)',
+    top: 18,
     padding: '4px 24px',
     borderRadius: '8px',
     textDecoration: 'none',
@@ -88,20 +90,24 @@ const css = cssx.create({
     [md768_1414]: {
       left: '48px',
       transform: 'translate(0%)'
-    },
-    outline: '3px solid transparent',
-    hover: {
-      transition: 'all 0.2s',
-      outline: '3px solid skyblue'
     }
   },
 
-  ontline: {
-    transition: 'all 0.4s',
-    outline: '3px solid skyblue'
+  XStyle: {
+    position: 'relative',
+    display: 'inline-block',
+    whiteSpace: 'nowrap',
+    top: 0,
+    left: 6,
+    color: 'var(--color-x-style)',
+    fontWeight: 20,
+    transform: 'skew(-48deg, -22deg)',
+    scale: 1.2
   },
 
   version: {
+    position: 'relative',
+    left: 16,
     fontWeight: 400,
     fontSize: 12.4
   },

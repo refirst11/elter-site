@@ -8,7 +8,9 @@ export function Home() {
     <Animation>
       <div className={css.top_wrapper}>
         <div className={css.container}>
-          <span className={css.Logo}>TypedCSSX</span>
+          <span className={css.Logo}>
+            TypedCSS<span className={css.XStyle}>X</span>
+          </span>
           <p className={css.text}>Write CSS in TypeScript</p>
           <p className={css.tagline}>A Type safe and stable CSS in JS on Next.js</p>
           <Link className={css.link1} href="/introduction">

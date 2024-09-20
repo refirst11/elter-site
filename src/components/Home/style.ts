@@ -57,7 +57,7 @@ export const css = cssx.create({
     fontSize: 55,
     fontWeight: '600',
     top: -250,
-    marginLeft: 16,
+    marginRight: 12,
     height: '75px',
     color: 'var(--color-logo)',
     [max_md]: {

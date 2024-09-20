@@ -34,7 +34,6 @@ cssx.global({
     margin: '0 auto',
     textAlign: 'left',
     [max_md]: {
-      overflow: 'hidden',
       top: 14,
       width: '100%',
       padding: 0,

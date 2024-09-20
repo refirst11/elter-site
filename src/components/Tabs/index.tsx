@@ -178,9 +178,9 @@ const css = cssx.create({
     borderRadius: '4px',
     fontSize: 12,
     bottom: '100%',
-    top: -26,
+    top: -30,
     height: 'max-content',
-    marginLeft: -70,
+    marginLeft: -72,
     left: '50%',
     transform: 'translateX(-50%)',
     whiteSpace: 'nowrap',
@@ -200,14 +200,13 @@ const css = cssx.create({
 
   [max_md]: {
     copyButton: {
-      scale: 0.7,
-      right: 6,
-      top: 28
+      scale: 0.8,
+      right: 8,
+      top: 30
     },
     tooltip: {
-      scale: 0.7,
-      marginLeft: -24,
-      top: -18
+      marginLeft: -20,
+      top: -26
     }
   }
 })

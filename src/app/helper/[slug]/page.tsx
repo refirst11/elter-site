@@ -6,6 +6,7 @@ import getSlugPath from 'lib/getSlugPath'
 import { NextPage } from 'components/NextPage'
 import { Documentation } from 'components/Documentation'
 import { PostContent } from 'components/MDX'
+import { cssMain } from '../../[slug]/style'
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { meta } = await getPostMdx(params.slug, 'helper')
@@ -16,7 +17,7 @@ export default async function Page({ params }: Params) {
   const { content } = await getPostMdx(params.slug, 'helper')
 
   return (
-    <main>
+    <main className={cssMain}>
       <Documentation />
       <PostContent content={content} />
       <NextPage />

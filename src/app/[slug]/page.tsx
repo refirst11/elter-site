@@ -6,7 +6,7 @@ import getSlugPath from 'lib/getSlugPath'
 import { NextPage } from 'components/NextPage'
 import { Documentation } from 'components/Documentation'
 import { PostContent } from 'components/MDX'
-import { cssMain } from './styles'
+import { cssMain } from './style'
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { meta } = await getPostMdx(params.slug, 'documentation')

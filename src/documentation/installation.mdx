@@ -53,7 +53,7 @@ This page describes installation and compile and plubin, and other details.
   {/* prettier-ignore */}
   <Tab>
     ```bash title="shell"
-    under development.
+    pnpm install --save-dev typedcssx-webpack-plugin
     ```
   </Tab>
 </Tabs>
@@ -63,7 +63,7 @@ you need to configure it in your configuration file.
 <Tabs items={['Next.js', 'Vite', 'Webpack']}>
   {/* prettier-ignore */}
   <Tab>
-    ```js title="shell"
+    ```js title="next.config.js"
     const { TypedCSSXNextPlugin, configCSSModule } = require('typedcssx-next-plugin')
 
     /** @type {import('next').NextConfig} */
@@ -85,8 +85,28 @@ you need to configure it in your configuration file.
   </Tab>
   {/* prettier-ignore */}
   <Tab>
-    ```bash title="shell"
-    under development.
+    ```js title="webpack.config.js"
+    const webpack = require("webpack");
+    const { TypedCSSXWebpackPlugin } = require("typedcssx-webpack-plugin");
+
+    module.exports = {
+      resolve: {
+        fallback: {
+          fs: false,
+          vm: false,
+          path: require.resolve("path-browserify"),
+          crypto: require.resolve("crypto-browserify"),
+          stream: require.resolve("stream-browserify"),
+        },
+      },
+      plugins: [
+        new TypedCSSXWebpackPlugin(),
+        new webpack.ProvidePlugin({
+          process: "process/browser",
+          Buffer: ["buffer", "Buffer"],
+        }),
+      ],
+    };
     ```
   </Tab>
 </Tabs>

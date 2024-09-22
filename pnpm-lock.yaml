@@ -69,8 +69,8 @@ importers:
         specifier: ^4.28.2
         version: 4.29.0
       typedcssx:
-        specifier: ^2.5.0
-        version: 2.5.0
+        specifier: ^2.5.1
+        version: 2.5.1
     devDependencies:
       '@types/node':
         specifier: ^22.5.4
@@ -2340,8 +2340,8 @@ packages:
   typedcssx-next-plugin@0.0.4:
     resolution: {integrity: sha512-6U3gDTXHGnruo3YkKM6tgpi0dgteCLMS+ekXZnrDyKwJ1fiuiiHodWzL+JJvKWo+rFRHFUfqRf9brKl3i/ASdA==}
 
-  typedcssx@2.5.0:
-    resolution: {integrity: sha512-zmyl+z6mX4F0a4wCwth4AA99FPUlXPXdP1GLC1aD+VcoHfpi4TMPRRN+bEtC2H1EYgpF8VczJM63YBC/6WST5Q==}
+  typedcssx@2.5.1:
+    resolution: {integrity: sha512-rE6yu5jKfqf7IJaOdHxMlXA+Vmd8WOONmhuoun83vrOmyP8qVuT+a/HQoumyNQptH6fc8n73jMzJNQjl4RpNlQ==}
     hasBin: true
 
   typescript@5.6.2:
@@ -5368,7 +5368,7 @@ snapshots:
       - uglify-js
       - webpack-cli
 
-  typedcssx@2.5.0:
+  typedcssx@2.5.1:
     dependencies:
       fast-glob: 3.3.2
       tsx: 4.19.1

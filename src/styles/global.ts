@@ -183,7 +183,7 @@ cssx.root({
     '--color-x-style': '#41c6ff',
     '--color-text': 'rgb(225, 232, 237)',
     '--color-bg': 'rgb(26, 27, 27)',
-    '--color-heading': 'rgb(230, 255, 247)',
+    '--color-heading': 'rgb(230, 240, 240)',
     '--color-border': 'rgba(200, 200, 200, 0.24)',
     '--color-link': 'rgb(100 200 200)',
     '--color-list': 'rgba(80, 87, 80, 0.3)',

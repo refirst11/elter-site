@@ -100,15 +100,6 @@ you need to configure it in your configuration file.
     const { TypedCSSXWebpackPlugin } = require("typedcssx-webpack-plugin");
 
     module.exports = {
-      resolve: {
-        fallback: {
-          fs: false,
-          vm: false,
-          path: require.resolve("path-browserify"),
-          crypto: require.resolve("crypto-browserify"),
-          stream: require.resolve("stream-browserify"),
-        },
-      },
       plugins: [
         new TypedCSSXWebpackPlugin(),
         new webpack.ProvidePlugin({

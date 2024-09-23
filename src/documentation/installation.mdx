@@ -47,7 +47,7 @@ This page describes installation and compile and plubin, and other details.
   {/* prettier-ignore */}
   <Tab>
     ```bash title="shell"
-    under development.
+    pnpm install --save-dev vite-plugin-node-polyfills
     ```
   </Tab>
   {/* prettier-ignore */}
@@ -79,8 +79,18 @@ you need to configure it in your configuration file.
   </Tab>
   {/* prettier-ignore */}
   <Tab>
-    ```bash title="shell"
-    under development.
+    ```js title="vite.config.js"
+    import { defineConfig } from "vite";
+    import { nodePolyfills } from "vite-plugin-node-polyfills";
+
+    export default defineConfig({
+      plugins: [nodePolyfills({ include: ["crypto", "stream"] })],
+      build: {
+        rollupOptions: {
+          external: ["fs", "path", "util", "vm"],
+        },
+      },
+    });
     ```
   </Tab>
   {/* prettier-ignore */}

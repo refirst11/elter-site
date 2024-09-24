@@ -81,15 +81,11 @@ you need to configure it in your configuration file.
   <Tab>
     ```js title="vite.config.js"
     import { defineConfig } from "vite";
+    import react from "@vitejs/plugin-react";
     import { nodePolyfills } from "vite-plugin-node-polyfills";
 
     export default defineConfig({
-      plugins: [nodePolyfills({ include: ["crypto", "stream"] })],
-      build: {
-        rollupOptions: {
-          external: ["fs", "path", "util", "vm"],
-        },
-      },
+      plugins: [nodePolyfills({ include: ["fs", "path"] })],
     });
     ```
   </Tab>

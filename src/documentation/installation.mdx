@@ -81,7 +81,6 @@ you need to configure it in your configuration file.
   <Tab>
     ```js title="vite.config.js"
     import { defineConfig } from "vite";
-    import react from "@vitejs/plugin-react";
     import { nodePolyfills } from "vite-plugin-node-polyfills";
 
     export default defineConfig({
@@ -92,17 +91,10 @@ you need to configure it in your configuration file.
   {/* prettier-ignore */}
   <Tab>
     ```js title="webpack.config.js"
-    const webpack = require("webpack");
     const { TypedCSSXWebpackPlugin } = require("typedcssx-webpack-plugin");
 
     module.exports = {
-      plugins: [
-        new TypedCSSXWebpackPlugin(),
-        new webpack.ProvidePlugin({
-          process: "process/browser",
-          Buffer: ["buffer", "Buffer"],
-        }),
-      ],
+      plugins: [new TypedCSSXWebpackPlugin()]
     };
     ```
   </Tab>

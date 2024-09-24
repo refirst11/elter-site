@@ -11,14 +11,13 @@ Good to know when using TypedCSSX or other CSS solutions.
 
 ## Ease of introduction
 The TypedCSSX mechanism scans and compiles cssx method define using an AST (Abstract Syntax Tree).
-This allows it to operate in a Node.js environment where JavaScript can be executed.
+This allows it to operate in a Node.js environment where TypeScript can be executed.
 This means it's not dependent on any specific framework.
 
 ### Concise API
 The learning curve is very gentle.
-It works with zero configuration in Next.js by default.
-All you need to do is compile with `npx typedcssx --compile` and
-introduce the optimization plugin.
+It works with zero configuration in Next.js and Vite by default.  
+All you need to do is install the optimization plugin and just compile with `npx typedcssx --compile`.
 
 ### Simple methods
 To be able to use the existing className API, the main methods create and set only return strings.

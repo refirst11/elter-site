@@ -8,9 +8,11 @@ date: '2024-06-02'
 
 # Introduction to TypedCSSX
 It's a CSS in JS library with a simple syntax.  
-Its characteristic feature is the powerful typed that enables autocomplete during development.
+It works with most js frameworks and also works with a single ts file.  
 
-It provides an easy-to-maintainable solution while supporting traditional CSS notation such as Media Query and pseudo-elements.
+Its characteristic feature is the powerful typed that enables autocomplete during development.  
+Supported traditional CSS notation such as Media Query and pseudo-elements, Provides solutions for large-scale applications that are easy to maintain.  
+
 
 ## Zero Runtime
 It is exported as static CSS at compile process.  
@@ -46,7 +48,7 @@ Styles can be written outside of a component.
 ```tsx title="Component.tsx"
 import cssx from 'typedcssx';
 
-export const UIComponent = () => {
+export const Component = () => {
   return (
     <div className={css.blue}>
       BlueText

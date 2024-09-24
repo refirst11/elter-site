@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import Link from 'next/link'
 import { css } from './style'
 import Animation from 'components/Firemotion/Animation'
@@ -12,7 +11,7 @@ export function Home() {
             TypedCSS<span className={css.XStyle}>X</span>
           </span>
           <p className={css.text}>Write CSS in TypeScript</p>
-          <p className={css.tagline}>A Type safe and stable CSS in JS on Next.js</p>
+          <p className={css.tagline}>A Type safe and stable CSS in JS Frameworks</p>
           <Link className={css.link1} href="/introduction">
             Get Started
           </Link>

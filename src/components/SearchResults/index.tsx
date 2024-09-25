@@ -13,80 +13,40 @@ type KeywordProps = {
 export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   const [posts, setPosts] = useState<PostsData[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const [isContentLoading, setIsContentLoading] = useState(true)
   const [cachedContents, setCachedContents] = useState<{ [slug: string]: PostContent }>({})
-  const [loadingPosts, setLoadingPosts] = useState<Set<string>>(new Set())
-  const [backgroundLoading, setBackgroundLoading] = useState(false)
 
   useEffect(() => {
     const fetchPosts = async () => {
       setIsLoading(true)
-      const response = await fetch('/api/getAllPosts')
-      const postsData: PostsData[] = await response.json()
-      setPosts(postsData)
-      setIsLoading(false)
+      try {
+        const response = await fetch('/api/getAllPosts')
+        const postsData: PostsData[] = await response.json()
+        setPosts(postsData)
+
+        const cachedData: { [slug: string]: PostContent } = {}
+        await Promise.all(
+          postsData.map(async (post) => {
+            const slug = post.slug
+            const contentResponse = await fetch(`/api/getPostMdx?slug=${slug}`)
+            if (!contentResponse.ok) {
+              throw new Error(`Failed to fetch post content for ${slug}`)
+            }
+            const { meta, content } = await contentResponse.json()
+            const matchedSections = extractHeadingsAndParagraphs(content)
+            cachedData[slug] = { meta, content, matchedSections }
+          })
+        )
+
+        setCachedContents(cachedData)
+      } catch (error) {
+        console.error('Error fetching posts:', error)
+      } finally {
+        setIsLoading(false)
+      }
     }
 
     fetchPosts()
   }, [])
-
-  const fetchPostContent = useCallback(
-    async (slug: string) => {
-      if (!cachedContents[slug] && !loadingPosts.has(slug)) {
-        setLoadingPosts((prev) => new Set(prev).add(slug))
-        try {
-          const response = await fetch(`/api/getPostMdx?slug=${slug}`)
-          if (!response.ok) {
-            throw new Error(`Failed to fetch post content for ${slug}`)
-          }
-          const { meta, content } = await response.json()
-          const matchedSections = extractHeadingsAndParagraphs(content)
-          setCachedContents((prev) => ({
-            ...prev,
-            [slug]: { meta, content, matchedSections }
-          }))
-        } catch (error) {
-          console.error(`Error fetching content for ${slug}:`, error)
-        } finally {
-          setLoadingPosts((prev) => {
-            const newSet = new Set(prev)
-            newSet.delete(slug)
-            return newSet
-          })
-          setIsContentLoading(false)
-        }
-      }
-    },
-    [cachedContents, loadingPosts]
-  )
-
-  useEffect(() => {
-    let isMounted = true
-    const loadRemainingContent = async () => {
-      if (!backgroundLoading && posts.length > 0) {
-        setBackgroundLoading(true)
-        for (const post of posts) {
-          if (!cachedContents[post.slug] && !loadingPosts.has(post.slug)) {
-            await fetchPostContent(post.slug)
-            if (!isMounted) break
-          }
-        }
-        setBackgroundLoading(false)
-      }
-    }
-
-    loadRemainingContent()
-
-    return () => {
-      isMounted = false
-    }
-  }, [posts, cachedContents, loadingPosts, backgroundLoading, fetchPostContent])
-
-  useEffect(() => {
-    if (keyword) {
-      posts.forEach(({ slug }) => fetchPostContent(slug))
-    }
-  }, [fetchPostContent, keyword, posts])
 
   const { filteredPosts, matchedSectionsMap } = useMemo(() => {
     if (!keyword) return { filteredPosts: [], matchedSectionsMap: new Map() }
@@ -96,10 +56,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     posts.forEach((post) => {
       const { slug } = post
       const matchedSections = cachedContents[slug]?.matchedSections || []
-      const filteredSections = matchedSections.filter(
-        ({ heading, paragraphs }) =>
-          heading.toLowerCase().includes(keyword.toLowerCase()) || paragraphs.some((paragraph) => paragraph.toLowerCase().includes(keyword.toLowerCase()))
-      )
+      const filteredSections = matchedSections.filter(({ heading }) => heading.toLowerCase().includes(keyword.toLowerCase()))
 
       if (filteredSections.length > 0) {
         filteredPostsArray.push(post)
@@ -131,7 +88,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     ))
   }, [])
 
-  if (isLoading || isContentLoading) {
+  if (isLoading) {
     return (
       <ul className={css.list}>
         <p className={css.no_result}>Loading...</p>
@@ -144,10 +101,6 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
       {filteredPosts.length > 0 ? (
         filteredPosts.map(({ slug, category }, index) => {
           const matchedSections = matchedSectionsMap.get(slug) as HeadingWithParagraphs[]
-
-          if (!cachedContents[slug]) {
-            return <li key={index}>Loading post content...</li>
-          }
 
           return (
             <li key={index}>
@@ -166,7 +119,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
 
                     {paragraphs.map((paragraph, idx) => (
                       <p className={css.desc} key={idx}>
-                        {highlightText(paragraph, keyword)}
+                        {highlightText(paragraph, keyword)} {/* ハイライト適用 */}
                       </p>
                     ))}
                   </div>

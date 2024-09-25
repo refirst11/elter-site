@@ -1,12 +1,17 @@
 'use server'
 
 import fs from 'fs/promises'
+import { existsSync } from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 import PostsData from 'types/PostsData'
 import PostsDataMap from 'types/PostsDataMap'
 
 const getAllPosts = async (sourcePath: string): Promise<PostsData[]> => {
+  const dirPath = path.join(process.cwd(), 'src', sourcePath)
+  if (!existsSync(dirPath)) {
+    return []
+  }
   const folder = path.join(process.cwd(), `/src/${sourcePath}`)
   const files = await fs.readdir(folder)
   const posts = await Promise.all(

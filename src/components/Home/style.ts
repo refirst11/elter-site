@@ -71,6 +71,7 @@ export const css = cssx.create({
     }
   },
   left_icon: {
+    filter: 'var(--color-filter)',
     position: 'relative',
     top: 8
   },

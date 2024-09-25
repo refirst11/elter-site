@@ -196,7 +196,8 @@ cssx.root({
     '--color-bg3': 'rgb(66 66 66)',
     '--color-text2': 'rgb(206 206 206)',
     '--color-logo2': 'rgb(80 200 180)',
-    '--color-border2': 'rgba(200, 200, 200, 0.2)'
+    '--color-border2': 'rgba(200, 200, 200, 0.2)',
+    '--color-filter': 'invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%)'
   },
 
   "&[data-theme='light']": {
@@ -216,6 +217,7 @@ cssx.root({
     '--color-bg3': 'rgb(95 105 119)',
     '--color-text2': 'rgb(255, 255, 255)',
     '--color-logo2': 'rgb(40, 119, 145) ',
-    '--color-border2': 'rgba(200, 200, 200, 0.2)'
+    '--color-border2': 'rgba(200, 200, 200, 0.2)',
+    '--color-filter': 'none'
   }
 })

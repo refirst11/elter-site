@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { css } from './style'
 import Animation from 'components/Firemotion/Animation'
+import Image from 'next/image'
 
 export function Home() {
   return (
@@ -8,7 +9,8 @@ export function Home() {
       <div className={css.top_wrapper}>
         <div className={css.container}>
           <span className={css.Logo}>
-            TypedCSS<span className={css.XStyle}>X</span>
+            <Image className={css.left_icon} src="/left_logo.png" alt={'Main_Logo'} width={92} height={36} />
+            TypedCSSX
           </span>
           <p className={css.text}>Write CSS in TypeScript</p>
           <p className={css.tagline}>A Type safe and stable CSS in JS Frameworks</p>

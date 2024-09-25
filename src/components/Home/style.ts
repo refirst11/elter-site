@@ -54,27 +54,25 @@ export const css = cssx.create({
     position: 'absolute',
     display: 'flex',
     alignItems: 'center',
-    fontSize: 55,
-    fontWeight: '600',
+    fontSize: 40,
+    fontWeight: 'bold',
     top: -250,
-    marginLeft: 16,
+    marginRight: 109,
     height: '75px',
+    gap: 29,
     color: 'var(--color-logo)',
     [max_md]: {
+      scale: 0.75,
+      whiteSpace: 'nowrap',
       marginLeft: 0,
-      marginRight: 6,
+      marginRight: 60,
       top: -580,
-      fontSize: 45
+      fontSize: 40
     }
   },
-  XStyle: {
+  left_icon: {
     position: 'relative',
-    top: 0,
-    left: 20,
-    color: 'var(--color-x-style)',
-    fontWeight: 20,
-    transform: 'skew(-48deg, -22deg)',
-    scale: 1.2
+    top: 8
   },
   text: {
     position: 'absolute',

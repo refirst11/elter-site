@@ -9,6 +9,7 @@ import { GitIcon } from 'components/GitIcon'
 import { SearchBox } from 'components/SearchBox'
 import cssx, { union, max_md } from 'typedcssx'
 import { md768_1414 } from 'lib/media'
+import Image from 'next/image'
 
 export const Headers = ({ version }: { version: string }) => {
   const pathname = usePathname()
@@ -20,8 +21,8 @@ export const Headers = ({ version }: { version: string }) => {
   return (
     <header className={css.container}>
       <Link href="/" className={css.logo}>
-        TypedCSS<span className={css.XStyle}>X</span>
-        <span className={css.version}>v{version}</span>
+        <Image className={css.left_icon} src="/left_logo.png" alt={'Main_Logo'} width={32.2} height={12.6} />
+        TypedCSSX<span className={css.version}>v{version}</span>
       </Link>
       <GitIcon />
       <ToggleDarkMode />
@@ -75,11 +76,14 @@ const css = cssx.create({
 
   logo: {
     position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    gap: 10.15,
     color: 'var(--color-logo)',
     fontSize: 14,
-    fontWeight: 500,
+    fontWeight: 'bold',
     left: '50%',
-    transform: 'translate(-425%)',
+    transform: 'translate(-316%)',
     top: 18,
     padding: '4px 24px',
     borderRadius: '8px',
@@ -93,21 +97,13 @@ const css = cssx.create({
     }
   },
 
-  XStyle: {
+  left_icon: {
     position: 'relative',
-    display: 'inline-block',
-    whiteSpace: 'nowrap',
-    top: 0,
-    left: 6,
-    color: 'var(--color-x-style)',
-    fontWeight: 20,
-    transform: 'skew(-48deg, -22deg)',
-    scale: 1.2
+    top: 2
   },
 
   version: {
     position: 'relative',
-    left: 16,
     fontWeight: 400,
     fontSize: 12.4
   },

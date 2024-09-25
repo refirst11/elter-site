@@ -210,7 +210,7 @@ cssx.root({
     '--color-sub': '#222',
     '--color-card': 'rgb(245 245 245)',
     '--color-accordion-text': '#4d4d4d',
-    '--color-logo': 'rgb(92, 168, 176) ',
+    '--color-logo': 'rgb(100 200 200)',
     '--color-accent': 'rgb(70, 86, 86)',
     '--color-bg2': '#4b5563',
     '--color-bg3': 'rgb(95 105 119)',

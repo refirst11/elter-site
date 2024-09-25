@@ -4,6 +4,8 @@ import { css } from './style'
 import { useEffect, useState, useMemo, useCallback } from 'react'
 import type PostsData from 'types/PostsData'
 import PostContent, { HeadingWithParagraphs } from 'types/PostContent'
+import { useAtom } from 'jotai'
+import { menuAtom } from 'lib/jotai'
 
 type KeywordProps = {
   keyword: string
@@ -11,6 +13,7 @@ type KeywordProps = {
 }
 
 export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
+  const [, setMenu] = useAtom(menuAtom)
   const [posts, setPosts] = useState<PostsData[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [cachedContents, setCachedContents] = useState<{ [slug: string]: PostContent }>({})
@@ -114,11 +117,12 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
                   key={index}
                   className={css.link}
                   href={`/${category}${slug}`}
-                  onClick={() =>
+                  onClick={() => {
                     setTimeout(() => {
                       scrollToHeading(id)
                     }, 120)
-                  }>
+                    setMenu(false)
+                  }}>
                   <div className={css.box}>
                     <div className={css.heading3}>{highlightText(heading, keyword)}</div>
 

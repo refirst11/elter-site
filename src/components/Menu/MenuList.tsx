@@ -8,6 +8,9 @@ import { usePathname, useRouter } from 'next/navigation'
 import { IoMdArrowDropright } from 'react-icons/io'
 import { handleLinkClick } from 'lib/handleLinkClick'
 import { headings } from 'lib/headings'
+import { SearchBox } from 'components/SearchBox'
+import { useAtom } from 'jotai'
+import { menuAtom } from 'lib/jotai'
 
 type MenuProps = {
   docs: PostsData[]
@@ -18,7 +21,7 @@ type MenuProps = {
 
 const MenuList = ({ docs, apiData, helperData, hookData }: MenuProps) => {
   const pathname = usePathname()
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useAtom(menuAtom)
   const [isListVisible, setIsListVisible] = useState(true)
   const [api, setAPI] = useState(true)
   const [style, setStyle] = useState(true)

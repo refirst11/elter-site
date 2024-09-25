@@ -16,6 +16,10 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
   const [cachedContents, setCachedContents] = useState<{ [slug: string]: PostContent }>({})
 
   useEffect(() => {
+    if (Object.keys(cachedContents).length > 0) {
+      setIsLoading(false)
+      return
+    }
     const fetchPosts = async () => {
       setIsLoading(true)
       try {
@@ -46,10 +50,11 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     }
 
     fetchPosts()
-  }, [])
+  }, [cachedContents])
 
   const { filteredPosts, matchedSectionsMap } = useMemo(() => {
     if (!keyword) return { filteredPosts: [], matchedSectionsMap: new Map() }
+
     const filteredPostsArray: PostsData[] = []
     const matchedSectionsMap = new Map()
 

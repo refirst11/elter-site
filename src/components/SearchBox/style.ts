@@ -6,7 +6,7 @@ export const css = cssx.create({
     display: 'flex',
     zIndex: '3',
     position: 'relative',
-    top: -11.5,
+    top: -16,
     background: 'var(--color-card)',
     border: 'none',
     width: 240,
@@ -29,7 +29,7 @@ export const css = cssx.create({
       width: '50%'
     },
     [md768_1414]: {
-      top: 15,
+      top: 16,
       left: 280,
       transform: 'translate(0%)'
     }

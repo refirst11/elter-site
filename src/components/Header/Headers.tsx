@@ -57,7 +57,7 @@ const css = cssx.create({
     display: 'flex',
     justifyContent: 'center',
     gap: '20px',
-    top: '-40px',
+    top: '-46px',
     left: '380px',
     height: '0',
     listStyleType: 'none',

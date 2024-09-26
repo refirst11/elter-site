@@ -37,11 +37,11 @@
 
 .toc {
   position: fixed;
-  margin: 40px auto auto 860px;
+  margin: 40px auto auto 872px;
 }
 
 .toc-list {
-  padding-left: 20px;
+  padding-left: 10px;
   list-style-type: none;
 }
 

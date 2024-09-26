@@ -1,4 +1,4 @@
-import cssx, { max_md } from 'typedcssx'
+import cssx, { max_md, light, dark } from 'typedcssx'
 
 cssx.global({
   html: {
@@ -175,6 +175,27 @@ cssx.global({
   },
   'input::-webkit-scrollbar-thumb': {
     background: '#888'
+  },
+  "[data-theme='dark'] .moonsun": {
+    position: 'relative',
+    left: 1,
+    bottom: 3,
+    marginLeft: '-8.75px',
+    height: 12,
+    width: 12,
+    borderRadius: '50%',
+    boxShadow: '2.8125px 2.8125px 0 0 #d0d5d2'
+  },
+  "[data-theme='light'] .moonsun::after": {
+    content: "'🔆'",
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 0.2,
+    width: 22,
+    height: 22,
+    filter: 'brightness(0%)  contrast(10%)'
   }
 })
 

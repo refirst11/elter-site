@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <PreviewServerCSS anchorEnabled={true} />
       </head>
       <body className={inter.variable}>
-        <ThemeProvider>
+        <ThemeProvider enableSystem={true} defaultTheme="system">
           <Header />
           <Menu />
           {children}

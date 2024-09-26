@@ -28,7 +28,7 @@ export const css = cssx.create({
       borderLeft: 'solid 0px var(--color-border)',
       marginLeft: 'auto',
       top: 20,
-      right: 110
+      right: 116
     },
     [md768_1414]: {
       position: 'absolute',

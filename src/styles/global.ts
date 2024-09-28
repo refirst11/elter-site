@@ -195,6 +195,9 @@ cssx.global({
     height: 15,
     scale: 0.9,
     filter: 'brightness(0%)  contrast(50%)'
+  },
+  "[data-theme='dark'] .nextlogo_joad0v": {
+    filter: 'invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%)'
   }
 })
 

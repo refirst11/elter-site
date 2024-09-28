@@ -188,14 +188,13 @@ cssx.global({
   },
   "[data-theme='light'] .moonsun::after": {
     content: "'🔆'",
-    position: 'relative',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    top: 0.2,
-    width: 22,
-    height: 22,
-    filter: 'brightness(0%)  contrast(10%)'
+    width: 15,
+    height: 15,
+    scale: 0.9,
+    filter: 'brightness(0%)  contrast(50%)'
   }
 })
 

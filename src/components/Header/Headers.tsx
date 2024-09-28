@@ -66,7 +66,7 @@ const css = cssx.create({
     [md768_1414]: {
       display: 'flex',
       position: 'absolute',
-      right: '240px',
+      right: '260px',
       left: 'auto'
     },
     ['@media (max-width: 964px)']: {
@@ -92,7 +92,7 @@ const css = cssx.create({
       display: 'none'
     },
     [md768_1414]: {
-      left: '48px',
+      left: '16px',
       transform: 'translate(0%)'
     }
   },

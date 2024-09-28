@@ -33,11 +33,14 @@
   font-weight: 550;
   font-size: 14px;
   color: var(--color-heading);
+  white-space: nowrap;
 }
 
 .toc {
   position: fixed;
   margin: 40px auto auto 872px;
+  width: 86.35px;
+  white-space: nowrap;
 }
 
 .toc-list {
@@ -153,11 +156,21 @@ code[data-line-numbers] .line::before {
     width: 100%;
   }
 
-  .disp {
-    display: none;
+  .title {
+    right: 134px;
+  }
+
+  .toc {
+    right: 140px;
   }
 
   code {
     font-size: 12.4px;
+  }
+}
+
+@media (max-width: 1124px) {
+  .disp {
+    display: none;
   }
 }

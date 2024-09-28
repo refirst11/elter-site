@@ -49,11 +49,10 @@ export const css = cssx.create({
       listStyleType: 'none'
     },
     '& a': {
+      display: 'block',
       fontSize: '13.7px',
       textDecoration: 'none',
       color: 'var(--color-accordion-text)',
-      display: 'block',
-      width: 200,
       height: 32,
       padding: '6px 8px',
       borderRadius: '4px'

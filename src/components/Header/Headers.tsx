@@ -53,21 +53,21 @@ const css = cssx.create({
 
   wrapper: {
     zIndex: '2',
-    position: 'relative',
+    position: 'absolute',
     display: 'flex',
     justifyContent: 'center',
     gap: '20px',
-    top: '-46px',
-    left: '380px',
-    height: '0',
+    top: '18px',
+    left: '50%',
+    marginLeft: 250,
+    height: '64px',
     listStyleType: 'none',
     listStylePosition: 'inside',
     [md768_1414]: {
       display: 'flex',
       position: 'absolute',
       right: '240px',
-      left: 'auto',
-      top: '20px'
+      left: 'auto'
     },
     ['@media (max-width: 964px)']: {
       display: 'none'
@@ -110,6 +110,8 @@ const css = cssx.create({
   },
 
   link: {
+    display: 'flex',
+    alignItems: 'center',
     fontSize: '14px',
     textDecoration: 'none',
     width: 'fit-content',

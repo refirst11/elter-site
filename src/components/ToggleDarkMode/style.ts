@@ -9,8 +9,8 @@ export const styles = cssx.create({
     color: 'var(--color-text)',
     height: 32,
     width: 32,
-    top: 18,
-    marginLeft: 20,
+    bottom: 8,
+    marginLeft: 1200,
     transition: 'all 0.2s',
     [max_md]: {
       position: 'absolute',
@@ -20,15 +20,15 @@ export const styles = cssx.create({
     },
     [md768_1414]: {
       position: 'absolute',
-      top: 16,
-      right: 80,
-      transform: 'translate(0%)'
+      marginLeft: 'auto',
+      top: 18,
+      right: 66
     }
   },
   button_inner: {
     height: 22,
     width: 22,
-    display: 'inline-flex',
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '50%',

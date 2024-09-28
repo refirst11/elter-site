@@ -14,11 +14,9 @@ export const cssIcon = cssx.set({
 export const css = cssx.create({
   border_wrapper: {
     position: 'relative',
-    display: 'inline-flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: 18,
-    marginLeft: 1146,
+    top: 20,
+    left: '50%',
+    marginLeft: 500,
     width: 60,
     height: 26,
     borderLeft: 'solid 1px var(--color-border)',
@@ -32,6 +30,7 @@ export const css = cssx.create({
     },
     [md768_1414]: {
       position: 'absolute',
+      marginLeft: 'auto',
       right: 120
     }
   }

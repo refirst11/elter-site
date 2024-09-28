@@ -178,6 +178,9 @@ cssx.global({
   },
   "[data-theme='dark'] .moonsun": {
     position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     left: 1,
     bottom: 3,
     marginLeft: '-8.75px',
@@ -188,12 +191,13 @@ cssx.global({
   },
   "[data-theme='light'] .moonsun::after": {
     content: "'🔆'",
+    position: 'relative',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 15,
-    height: 15,
-    scale: 0.9,
+    fontSize: 10,
+    width: 12,
+    height: 12,
     filter: 'brightness(0%)  contrast(50%)'
   },
   "[data-theme='dark'] .nextlogo_joad0v": {

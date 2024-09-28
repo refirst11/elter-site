@@ -3,10 +3,10 @@ import { md768_1414 } from 'lib/media'
 
 export const css = cssx.create({
   inputBox: {
-    display: 'flex',
     zIndex: '3',
     position: 'relative',
-    top: -16,
+    display: 'flex',
+    top: -42,
     background: 'var(--color-card)',
     border: 'none',
     width: 240,

@@ -6,7 +6,7 @@ import { Footer } from 'components/Footer'
 import { ThemeProvider } from 'next-themes'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import { PreviewServerCSS } from 'typedcssx/server'
+import { PreviewServerCSS } from 'typedcssx/next'
 
 const inter = Inter({ subsets: ['latin'], variable: '--Inter' })
 export const fetchCache = 'force-cache'

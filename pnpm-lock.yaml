@@ -88,8 +88,8 @@ importers:
         specifier: 14.2.3
         version: 14.2.3(eslint@8.57.1)(typescript@5.6.2)
       typedcssx:
-        specifier: ^2.5.6
-        version: 2.5.6
+        specifier: ^2.6.0
+        version: 2.6.0
       typedcssx-next-plugin:
         specifier: ^0.0.4
         version: 0.0.4
@@ -2355,8 +2355,8 @@ packages:
   typedcssx-next-plugin@0.0.4:
     resolution: {integrity: sha512-6U3gDTXHGnruo3YkKM6tgpi0dgteCLMS+ekXZnrDyKwJ1fiuiiHodWzL+JJvKWo+rFRHFUfqRf9brKl3i/ASdA==}
 
-  typedcssx@2.5.6:
-    resolution: {integrity: sha512-mwBcTMTMECrErPV4Lou/l4aZIXzasMNwBMcA96e4p/RYSuM3SJ0qcePWrHSJFUFLzuw19lAqagY29p+GWGJAiQ==}
+  typedcssx@2.6.0:
+    resolution: {integrity: sha512-Wh/avETuTeSKby0NhJzVuj7/U/Q4VtcMhvnqGPECgMbRUNvFZu4UPGxVybfYFPIvx6RxKcn5bqOiiufH5FYnVw==}
     hasBin: true
 
   typescript@5.6.2:
@@ -5388,7 +5388,7 @@ snapshots:
       - uglify-js
       - webpack-cli
 
-  typedcssx@2.5.6:
+  typedcssx@2.6.0:
     dependencies:
       fast-glob: 3.3.2
       tsx: 4.19.1

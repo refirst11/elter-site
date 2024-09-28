@@ -38,7 +38,7 @@
     "@types/react-dom": "^18.3.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.3",
-    "typedcssx": "^2.5.5",
+    "typedcssx": "^2.5.6",
     "typedcssx-next-plugin": "^0.0.4",
     "typescript": "^5.4.5"
   }

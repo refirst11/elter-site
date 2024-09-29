@@ -13,13 +13,15 @@ export function Home() {
             TypedCSSX
           </span>
           <p className={css.text}>Write CSS in TypeScript</p>
-          <p className={css.tagline}>A Type safe and stable CSS in JS Frameworks</p>
-          <Link className={css.link1} href="/introduction">
-            Get Started
-          </Link>
-          <Link className={css.link2} href="/structures">
-            Structures
-          </Link>
+          <p className={css.tagline}>A Type safe and stably CSS in Framework</p>
+          <section className={css.link_wrapper}>
+            <Link className={union(css.link, css.link_color1)} href="/introduction">
+              Get Started
+            </Link>
+            <Link className={union(css.link, css.link_color2)} href="/structure">
+              Structure
+            </Link>
+          </section>
           <section className={css.card_container}>
             <div>
               <span>📡</span>

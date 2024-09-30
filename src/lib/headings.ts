@@ -4,10 +4,19 @@ export const headings = [
       { id: 'zero-runtime', text: '# Zero Runtime' },
       { id: 'rsc', text: '# RSC' },
       { id: 'type-safe', text: '# Type safe' },
-      { id: 'dry-principle', text: '# Dry principle' },
       { id: 'how-to-use', text: '# How to use' },
       { id: 'inspirations', text: '# Inspirations' },
       { id: 'whats-next', text: "# What'sNext" }
+    ]
+  },
+  {
+    heading: [
+      { id: 'install-packages', text: '# Install packages' },
+      { id: 'integration', text: '# Integration' },
+      { id: 'compile-command', text: '# Compile Command' },
+      { id: 'server-component', text: '# Server Component' },
+      { id: 'global-style-sheet', text: '# Global Style' },
+      { id: 'supported-nodejs', text: '# Supported Node.js' }
     ]
   },
   {
@@ -25,19 +34,17 @@ export const headings = [
       { id: 'scope-range', text: '# Scope range' },
       { id: 'collision-lottery-range', text: '# Collision lottery range' },
       { id: 'class-name-readablity', text: '# Class Name readability' },
-      { id: 'universally', text: '# Universally' },
-      { id: 'reason-for-object-notation', text: '# Reason for object notation' },
-      { id: 'shareble-objects', text: '# Shareable objects' }
+      { id: 'universally', text: '# Universally' }
     ]
   },
   {
     heading: [
-      { id: 'install-packages', text: '# Install packages' },
-      { id: 'integration', text: '# Integration' },
-      { id: 'compile-command', text: '# Compile Command' },
-      { id: 'server-component', text: '# Server Component' },
-      { id: 'global-style-sheet', text: '# Global Style' },
-      { id: 'supported-nodejs', text: '# Supported Node.js' }
+      { id: 'dry-principle', text: '# DRY principle' },
+      { id: 'why-for-what', text: '# Why for What' },
+      { id: 'involved-only-development', text: '# Involved only development' },
+      { id: 'why-objects', text: '# Why Objects' },
+      { id: 'thoughts-on-css-in-js', text: '# Thoughts on CSS-in-JS' },
+      { id: 'why-it-was-made', text: '# Why it was made' }
     ]
   }
 ]

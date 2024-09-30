@@ -10,7 +10,7 @@ export const styles = cssx.create({
     height: 32,
     width: 32,
     bottom: 8,
-    marginLeft: 1200,
+    marginLeft: 1120,
     transition: 'all 0.2s',
     [max_md]: {
       position: 'absolute',
@@ -22,7 +22,7 @@ export const styles = cssx.create({
       position: 'absolute',
       marginLeft: 'auto',
       top: 18,
-      right: 66
+      right: 106
     }
   },
   button_inner: {

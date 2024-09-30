@@ -1,0 +1,64 @@
+---
+title: 'Intention'
+subtitle: 'Thoughts on TypedCSSX'
+date: '2024-09-30'
+---
+
+<TocBot />
+
+# Intention
+
+## DRY principle
+Defining scoped styles typically involves writing one-to-one, which doesn't adhere to the DRY principle.
+If you create multiple shareable styles, the className notation becomes a combination of more than one.
+
+If you want to share encapsulated styles, extract them as export constants for reuse.
+The best practice is to apply a single style to a single class name only once as possible.
+
+Of course, we also provide APIs for complex use cases where you want to apply multiple conditional styles.
+
+## Why for What
+The design philosophy of TypedCSSX was as follows.
+1. Lightweight
+2. Easy to use and not many APIs
+3. Inherits the feel of writing CSS
+
+And it was made for the following framework.  
+- React
+- Next.js
+- Remix
+- Vue.js 
+- Svelte
+
+We recommend using a React derivative that can handle tsx.  
+But Vue.js and Svelte can also handle it by cutting it into a separate file as ts.
+
+## Involved only development
+We recommend including this library in your devDependencies.
+The reason is that it only provides type definitions, a development runtime, and a pure type compiler.
+The pure definition is not zero runtime, but no runtime, as it guarantees that it does nothing in production.
+
+
+## Why Objects
+Why didn't TypedCSSX use template literals?
+It's because the keys of objects being unique and singular had an affinity with the concept of CSS conflicts.
+Of course, there's compatibility with TypeScript for auto-completion and automatic error detection,
+but the primary reason we chose it was the existence of object keys.
+
+## Thoughts on CSS-in-JS    
+CSS libraries and frameworks can be likened to the clothes people wear.
+Yes, it's assumed from the start that they will be tried, switched, discarded, and replaced.
+Just as people change the clothes they wear every day, the libraries used for each project are also different.
+
+We encourage you to try out different libraries if possible, as the knowledge you gain from one CSS-in-JS solution can be reused in other CSS-in-JS solutions.
+
+## Why it was made
+Just on October 26, 2022, next.js13 was announced.  
+I read the next documentation many times and realized that front-end developers need to be aware of the client-server boundary and build Next.js, and I also realized that all existing CSS in JS solutions that work on the client side will not work.
+
+At that point, there were about four options: use CSS, use Tailwind CSS, use Linaria or Vanilla Extract. In either case, using regular CSS was the easiest and best way to style server components.
+
+As you can probably guess by now, I wanted a lightweight library that could style server components. (Ideally, it should be written directly in the component.)
+
+typedcssx is by no means a dream library like tailwindcss, and it does not have outstanding mechanics like the atomic approach of stylex, but I think it is a library that you will notice its robustness and simplicity as you use it.
+

@@ -16,7 +16,7 @@ export const css = cssx.create({
     position: 'relative',
     top: 20,
     left: '50%',
-    marginLeft: 500,
+    marginLeft: 462,
     width: 60,
     height: 26,
     borderLeft: 'solid 1px var(--color-border)',
@@ -31,7 +31,7 @@ export const css = cssx.create({
     [md768_1414]: {
       position: 'absolute',
       marginLeft: 'auto',
-      right: 120
+      right: 158
     }
   }
 })

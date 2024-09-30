@@ -15,32 +15,20 @@ import { menuAtom } from 'lib/jotai'
 type MenuProps = {
   docs: PostsData[]
   apiData: PostsData[]
-  helperData: PostsData[]
-  hookData: PostsData[]
+  inherData: PostsData[]
+  animaData: PostsData[]
 }
 
-const MenuList = ({ docs, apiData, helperData, hookData }: MenuProps) => {
+const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
   const pathname = usePathname()
   const [open, setOpen] = useAtom(menuAtom)
   const [isListVisible, setIsListVisible] = useState(true)
   const [api, setAPI] = useState(true)
-  const [style, setStyle] = useState(true)
-  const [help, setHelp] = useState(true)
+  const [cssx, setCSSX] = useState(true)
+  const [inher, setInher] = useState(true)
   const [hook, setHook] = useState(true)
   const [activeHeading, setActiveHeading] = useState('')
   const router = useRouter()
-
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'visible'
-    }
-
-    return () => {
-      document.body.style.overflow = 'visible'
-    }
-  }, [open])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -133,11 +121,11 @@ const MenuList = ({ docs, apiData, helperData, hookData }: MenuProps) => {
             </li>
             {api && (
               <ul className={`${css.documentItems} ${api ? css.visible : ''}`}>
-                <li className={`${css.docs} ${style ? css.activeDocs : ''}`} onClick={() => setStyle(!style)}>
-                  cssx <IoMdArrowDropright style={{ rotate: style ? '90deg' : '0deg' }} />
+                <li className={`${css.docs} ${cssx ? css.activeDocs : ''}`} onClick={() => setCSSX(!cssx)}>
+                  cssx <IoMdArrowDropright style={{ rotate: cssx ? '90deg' : '0deg' }} />
                 </li>
-                {style && (
-                  <ul className={`${css.documentItems} ${style ? css.visible : ''}`}>
+                {cssx && (
+                  <ul className={`${css.documentItems} ${cssx ? css.visible : ''}`}>
                     {apiData?.map(({ slug, title }) => (
                       <li key={slug}>
                         <Link href={`/core-api/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
@@ -150,16 +138,20 @@ const MenuList = ({ docs, apiData, helperData, hookData }: MenuProps) => {
               </ul>
             )}
             <li>
-              <button className={`${css.docs} ${help ? css.activeDocs : ''}`} onClick={() => setHelp(!help)}>
-                Helper
-                <IoMdArrowDropright style={{ rotate: help ? '90deg' : '0deg' }} />
+              <button className={`${css.docs} ${inher ? css.activeDocs : ''}`} onClick={() => setInher(!inher)}>
+                inherDatar
+                <IoMdArrowDropright style={{ rotate: inher ? '90deg' : '0deg' }} />
               </button>
             </li>
-            {help && (
-              <ul className={`${css.documentItems} ${help ? css.visible : ''}`}>
-                {helperData?.map(({ slug, title }) => (
+            {inher && (
+              <ul className={`${css.documentItems} ${inher ? css.visible : ''}`}>
+                {inherData?.map(({ slug, title }) => (
                   <li key={slug}>
-                    <Link href={`/helper/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/helper/' + slug === pathname ? 'page' : 'false'}>
+                    <Link
+                      href={`/inheritance/${slug}`}
+                      className={union(css.active, css.link)}
+                      onClick={() => setOpen(false)}
+                      aria-current={'/inheritance/' + slug === pathname ? 'page' : 'false'}>
                       {title}
                     </Link>
                   </li>
@@ -174,9 +166,13 @@ const MenuList = ({ docs, apiData, helperData, hookData }: MenuProps) => {
             </li>
             {hook && (
               <ul className={`${css.documentItems} ${hook ? css.visible : ''}`}>
-                {hookData.map(({ slug, title }) => (
+                {animaData.map(({ slug, title }) => (
                   <li key={slug}>
-                    <Link href={`/hook/${title}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/hook/useFiremotion' === pathname ? 'page' : 'false'}>
+                    <Link
+                      href={`/hook/${title}`}
+                      className={union(css.active, css.link)}
+                      onClick={() => setOpen(false)}
+                      aria-current={'/hook/useFiremotion' === pathname ? 'page' : 'false'}>
                       {title}
                     </Link>
                   </li>

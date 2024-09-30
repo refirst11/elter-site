@@ -16,10 +16,10 @@ export function Home() {
           <p className={css.tagline}>A Type safe and stably CSS in Framework</p>
           <section className={css.link_wrapper}>
             <Link className={union(css.link, css.link_color1)} href="/introduction">
-              Get Started
+              Introduction
             </Link>
-            <Link className={union(css.link, css.link_color2)} href="/structure">
-              Structure
+            <Link className={union(css.link, css.link_color2)} href="/incentive">
+              Incentive
             </Link>
           </section>
           <section className={css.card_container}>

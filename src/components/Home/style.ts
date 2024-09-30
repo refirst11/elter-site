@@ -11,6 +11,11 @@ export const css = cssx.create({
     position: 'absolute',
     display: 'flex',
     alignItems: 'center',
+    gap: 50,
+    top: -120,
+    right: 520
+  },
+  link_color1: {
     fontSize: 14,
     top: -140,
     marginRight: 160,
@@ -25,11 +30,25 @@ export const css = cssx.create({
       background: 'var(--color-logo)'
     },
     [max_md]: {
-      top: -344
+      fontSize: 12,
+      width: 97.26
     }
   },
-  link2: {
-    position: 'absolute',
+
+  link_color2: {
+    width: 125.75,
+    fontSize: 14,
+    background: 'var(--color-bg2)',
+    color: 'var(--color-text2)',
+    hover: {
+      background: 'var(--color-bg3)'
+    },
+    [max_md]: {
+      fontSize: 12,
+      width: 105.127
+    }
+  },
+  link: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -47,7 +66,10 @@ export const css = cssx.create({
       background: 'var(--color-bg3)'
     },
     [max_md]: {
-      top: -344
+      height: 34.52,
+      position: 'relative',
+      top: '-340px',
+      right: '-490px'
     }
   },
   Logo: {

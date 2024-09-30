@@ -11,20 +11,20 @@ async function getAPI() {
   return api
 }
 
-async function getHelper() {
-  const helper = await getAllPosts('helper')
-  return helper
+async function getInher() {
+  const inher = await getAllPosts('inheritance')
+  return inher
 }
 
-async function getHook() {
-  const hook = await getAllPosts('hook')
-  return hook
+async function getAnima() {
+  const anima = await getAllPosts('animation')
+  return anima
 }
 
 export const Documentation = async () => {
   const docs = await getDocs()
   const api = await getAPI()
-  const helper = await getHelper()
-  const hook = await getHook()
-  return <Lists docs={docs} apiData={api} helperData={helper} hookData={hook} />
+  const inher = await getInher()
+  const anima = await getAnima()
+  return <Lists docs={docs} apiData={api} inherData={inher} animaData={anima} />
 }

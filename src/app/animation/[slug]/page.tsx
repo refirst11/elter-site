@@ -9,12 +9,12 @@ import { PostContent } from 'components/MDX'
 import { cssMain } from '../../[slug]/style'
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { meta } = await getPostMdx(params.slug, 'helper')
+  const { meta } = await getPostMdx(params.slug, 'animation')
   return generateSEOData({ title: meta.title, subtitle: meta.subtitle, date: meta.date })
 }
 
 export default async function Page({ params }: Params) {
-  const { content } = await getPostMdx(params.slug, 'helper')
+  const { content } = await getPostMdx(params.slug, 'animation')
 
   return (
     <main className={cssMain}>
@@ -26,7 +26,7 @@ export default async function Page({ params }: Params) {
 }
 
 export async function generateStaticParams() {
-  const posts = await getSlugPath('helper')
+  const posts = await getSlugPath('animation')
 
   return posts.map((post) => ({
     slug: post.slug

@@ -10,15 +10,15 @@ import { usePathname } from 'next/navigation'
 
 type AccordionProps = {
   apiData: PostsData[]
-  helperData: PostsData[]
-  hookData: PostsData[]
+  inherData: PostsData[]
+  animaData: PostsData[]
 }
 
-const Accordion = ({ apiData, helperData, hookData }: AccordionProps) => {
+const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
   const [api, setAPI] = useState(true)
-  const [style, setStyle] = useState(true)
-  const [help, setHelp] = useState(true)
-  const [hook, setHook] = useState(true)
+  const [cssx, setCSSX] = useState(true)
+  const [inher, setInher] = useState(true)
+  const [anima, setAnima] = useState(true)
   const pathname = usePathname()
 
   return (
@@ -30,11 +30,11 @@ const Accordion = ({ apiData, helperData, hookData }: AccordionProps) => {
       {api && (
         <ul className={cssA.list}>
           <li>
-            <button className={union(style && cssA.button_active)} onClick={() => setStyle(!style)}>
-              cssx <IoMdArrowDropright className={cssA.arrow} style={{ rotate: style ? '90deg' : '0deg' }} />
+            <button className={union(cssx && cssA.button_active)} onClick={() => setCSSX(!cssx)}>
+              cssx <IoMdArrowDropright className={cssA.arrow} style={{ rotate: cssx ? '90deg' : '0deg' }} />
             </button>
           </li>
-          {style && (
+          {cssx && (
             <ul className={cssA.list_style}>
               {apiData.map(({ slug, title }) => (
                 <li key={slug}>
@@ -47,30 +47,30 @@ const Accordion = ({ apiData, helperData, hookData }: AccordionProps) => {
           )}
         </ul>
       )}
-      <button className={`${cssA.accordion} ${help && cssA.button_active}`} onClick={() => setHelp(!help)}>
-        Helper
+      <button className={`${cssA.accordion} ${inher && cssA.button_active}`} onClick={() => setInher(!inher)}>
+        Inheritance
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
-      {help && (
+      {inher && (
         <ul className={cssA.list}>
-          {helperData.map(({ slug, title }) => (
+          {inherData.map(({ slug, title }) => (
             <li key={slug}>
-              <Link href={`/helper/${slug}`} className={css.active} aria-current={'/helper/' + slug === pathname ? 'page' : 'false'}>
+              <Link href={`/inheritance/${slug}`} className={css.active} aria-current={'/inheritance/' + slug === pathname ? 'page' : 'false'}>
                 {title}
               </Link>
             </li>
           ))}
         </ul>
       )}
-      <button className={`${cssA.accordion} ${hook && cssA.button_active}`} onClick={() => setHook(!hook)}>
-        Hook
+      <button className={`${cssA.accordion} ${anima && cssA.button_active}`} onClick={() => setAnima(!anima)}>
+        Animation
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
-      {hook && (
+      {anima && (
         <ul className={cssA.list}>
-          {hookData.map(({ slug, title }) => (
+          {animaData.map(({ slug, title }) => (
             <li key={slug}>
-              <Link href={`/hook/${slug}`} className={css.active} aria-current={'/hook/useFiremotion' === pathname ? 'page' : 'false'}>
+              <Link href={`/animation/${slug}`} className={css.active} aria-current={'/animation/firemotion' === pathname ? 'page' : 'false'}>
                 {title}
               </Link>
             </li>

@@ -1,13 +1,13 @@
 ---
-title: 'Structure'
-subtitle: 'A Structure to TypedCSSX'
-date: '2024-06-02'
+title: 'Incentive'
+subtitle: 'How does TypedCSSX work?'
+date: '2024-09-30'
 ---
 
 <TocBot />
 
-# Structure
-Good to know when using TypedCSSX or other CSS solutions.
+# Incentive
+Good to know when using TypedCSSX or other CSS-in-JS solutions.
 
 ## Ease of introduction
 The TypedCSSX mechanism scans and compiles cssx method define using an AST (Abstract Syntax Tree).
@@ -82,17 +82,3 @@ so you can find them quickly without getting lost when using developer tools.
 ### Universally
 Class names are changed by objects, but when objects are determined, class names become universal.
 Therefore, when methods are determined, class names can be used as CSS arguments (has and not).
-
-## Reason for object notation
-Why didn't TypedCSSX use template literals?
-It's because the keys of objects being unique and singular had an affinity with the concept of CSS conflicts.
-Of course, there's compatibility with TypeScript for auto-completion and automatic error detection,
-but the primary reason we chose it was the existence of object keys.
-
-## Shareable objects
-CSS libraries and frameworks can be likened to the clothes people wear.
-Yes, it's assumed from the start that they will be tried, switched, discarded, and replaced.
-Just as people change the clothes they wear every day, the libraries used for each project are also different.
-
-Code written as objects can be reused in other CSS-in-JS solutions, so it can be said to be a relatively
-easy-to-handle format.

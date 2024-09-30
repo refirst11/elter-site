@@ -10,11 +10,11 @@ import Accordion from './Accordion'
 type ListsProps = {
   docs: PostsData[]
   apiData: PostsData[]
-  helperData: PostsData[]
-  hookData: PostsData[]
+  inherData: PostsData[]
+  animaData: PostsData[]
 }
 
-const Lists = ({ docs, apiData, helperData, hookData }: ListsProps) => {
+const Lists = ({ docs, apiData, inherData, animaData }: ListsProps) => {
   const pathname = usePathname()
 
   return (
@@ -27,7 +27,7 @@ const Lists = ({ docs, apiData, helperData, hookData }: ListsProps) => {
             </Link>
           </li>
         ))}
-        <Accordion apiData={apiData} helperData={helperData} hookData={hookData} />
+        <Accordion apiData={apiData} inherData={inherData} animaData={animaData} />
       </ul>
     )
   )

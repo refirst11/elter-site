@@ -8,24 +8,24 @@ async function getDocs() {
 }
 
 async function getAPI() {
-  const core = await getAllPosts('api')
-  return core
+  const api = await getAllPosts('api')
+  return api
 }
 
-async function getHelper() {
-  const helpers = await getAllPosts('helper')
-  return helpers
+async function getInher() {
+  const inher = await getAllPosts('inheritance')
+  return inher
 }
 
-async function getHook() {
-  const hook = await getAllPosts('hook')
-  return hook
+async function getAnima() {
+  const anima = await getAllPosts('animation')
+  return anima
 }
 
 export const Menu = async () => {
   const docs = await getDocs()
   const api = await getAPI()
-  const helper = await getHelper()
-  const hook = await getHook()
-  return <MenuList docs={docs} apiData={api} helperData={helper} hookData={hook} />
+  const inher = await getInher()
+  const anima = await getAnima()
+  return <MenuList docs={docs} apiData={api} inherData={inher} animaData={anima} />
 }

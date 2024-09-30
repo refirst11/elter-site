@@ -222,7 +222,7 @@ cssx.root({
     '--color-bg2': 'rgb(56 56 56)',
     '--color-bg3': 'rgb(66 66 66)',
     '--color-text2': 'rgb(206 206 206)',
-    '--color-logo2': 'rgb(80 200 180)',
+    '--color-logo2': 'rgb(90, 200, 190)',
     '--color-border2': 'rgba(200, 200, 200, 0.2)',
     '--color-filter': 'invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%)'
   },
@@ -243,7 +243,7 @@ cssx.root({
     '--color-bg2': '#4b5563',
     '--color-bg3': 'rgb(95 105 119)',
     '--color-text2': 'rgb(255, 255, 255)',
-    '--color-logo2': 'rgb(40, 119, 145) ',
+    '--color-logo2': 'rgb(92, 182, 192) ',
     '--color-border2': 'rgba(200, 200, 200, 0.2)',
     '--color-filter': 'none'
   }

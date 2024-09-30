@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, Fragment } from 'react'
-import cssx, { min_md } from 'typedcssx'
+import cssx, { min_md, union } from 'typedcssx'
 import Link from 'next/link'
 import type PostsData from 'types/PostsData'
 import { usePathname, useRouter } from 'next/navigation'
@@ -53,10 +53,6 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
     }
   }, [])
 
-  useEffect(() => {
-    if (pathname !== '/') setIsListVisible(true)
-  }, [pathname])
-
   return (
     <>
       <div className={css.Line}>
@@ -74,8 +70,9 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
       </div>
       <div className={css.menu} aria-hidden={!open}>
         <ul className={css.menu_list}>
+          <SearchBox classBox={css.box} />
           <li>
-            <Link className={css.active} href="/" onClick={() => setOpen(false)} aria-current={'/' === pathname ? 'page' : 'false'}>
+            <Link className={union(css.active, css.link)} href="/" onClick={() => setOpen(false)} aria-current={'/' === pathname ? 'page' : 'false'}>
               Home
             </Link>
           </li>
@@ -89,7 +86,7 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
             {docs?.map(({ slug, title }, postIndex) => (
               <Fragment key={postIndex}>
                 <li key={slug}>
-                  <Link className={css.active} href={`/${slug}`} onClick={() => setOpen(false)} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
+                  <Link className={union(css.active, css.link)} href={`/${slug}`} onClick={() => setOpen(false)} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
                     {title}
                   </Link>
                 </li>
@@ -98,7 +95,7 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
                     {headings[postIndex]?.heading.map((heading, headingIndex) => (
                       <li key={`${slug}-heading-${headingIndex}`}>
                         <Link
-                          className={css.active}
+                          className={union(css.active, css.link)}
                           href={`/${slug}#${heading.id}`}
                           onClick={(e) => {
                             handleLinkClick(router, e, slug, heading.id)
@@ -128,7 +125,11 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
                   <ul className={`${css.documentItems} ${cssx ? css.visible : ''}`}>
                     {apiData?.map(({ slug, title }) => (
                       <li key={slug}>
-                        <Link href={`/core-api/${slug}`} className={css.active} onClick={() => setOpen(false)} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
+                        <Link
+                          href={`/core-api/${slug}`}
+                          className={union(css.active, css.link)}
+                          onClick={() => setOpen(false)}
+                          aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
                           {title}
                         </Link>
                       </li>
@@ -169,10 +170,10 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
                 {animaData.map(({ slug, title }) => (
                   <li key={slug}>
                     <Link
-                      href={`/hook/${title}`}
+                      href={`/animation/${title}`}
                       className={union(css.active, css.link)}
                       onClick={() => setOpen(false)}
-                      aria-current={'/hook/useFiremotion' === pathname ? 'page' : 'false'}>
+                      aria-current={'/animation/firemotion' === pathname ? 'page' : 'false'}>
                       {title}
                     </Link>
                   </li>
@@ -189,6 +190,12 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
 export default MenuList
 
 const css = cssx.create({
+  box: {
+    position: 'relative',
+    top: -8,
+    transform: 'translate(-20px)',
+    width: '100%'
+  },
   Line: {
     zIndex: '4',
     position: 'fixed',
@@ -282,7 +289,7 @@ const css = cssx.create({
     position: 'fixed',
     top: 64,
     left: 0,
-    display: 'flex',
+    display: 'inline-flex',
     flexDirection: 'column',
     gap: 4,
     width: '100%',
@@ -300,16 +307,17 @@ const css = cssx.create({
     },
     '& li': {
       listStyleType: 'none'
-    },
-    '& a': {
-      textDecoration: 'none',
-      color: '#959595',
-      display: 'block',
-      width: '100%',
-      height: 32,
-      padding: '6px 8px',
-      borderRadius: '4px'
     }
+  },
+
+  link: {
+    textDecoration: 'none',
+    color: '#959595',
+    display: 'block',
+    width: '100%',
+    height: 32,
+    padding: '6px 8px',
+    borderRadius: '4px'
   },
 
   docs: {

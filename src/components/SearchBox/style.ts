@@ -51,9 +51,7 @@ export const css = cssx.create({
     left: '50%',
     transform: 'translate(-730%)',
     [max_md]: {
-      transform: 'translate(0)',
-      top: 18,
-      marginLeft: -30
+      display: 'none'
     },
     [md768_1414]: {
       left: 470,

@@ -7,7 +7,7 @@ export const css = cssx.create({
       left: -240
     }
   },
-  link1: {
+  link_wrapper: {
     position: 'absolute',
     display: 'flex',
     alignItems: 'center',
@@ -17,26 +17,17 @@ export const css = cssx.create({
   },
   link_color1: {
     fontSize: 14,
-    top: -140,
-    marginRight: 160,
-    height: '40px',
-    padding: '12px 24px',
     background: 'var(--color-logo2)',
     color: 'var(--color-bg)',
-    fontWeight: '500',
-    borderRadius: '20px',
-    textDecoration: 'none',
     hover: {
       background: 'var(--color-logo)'
     },
     [max_md]: {
-      fontSize: 12,
-      width: 97.26
+      fontSize: 12
     }
   },
 
   link_color2: {
-    width: 125.75,
     fontSize: 14,
     background: 'var(--color-bg2)',
     color: 'var(--color-text2)',
@@ -44,28 +35,22 @@ export const css = cssx.create({
       background: 'var(--color-bg3)'
     },
     [max_md]: {
-      fontSize: 12,
-      width: 105.127
+      fontSize: 12
     }
   },
   link: {
+    width: 116.36,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    top: -140,
-    marginLeft: 160,
+    whiteSpace: 'nowrap',
     height: '40px',
-    width: 125.75,
     padding: '12px 20px',
-    background: 'var(--color-bg2)',
-    color: 'var(--color-text2)',
     fontWeight: '500',
     borderRadius: '20px',
     textDecoration: 'none',
-    hover: {
-      background: 'var(--color-bg3)'
-    },
     [max_md]: {
+      width: 97.26,
       height: 34.52,
       position: 'relative',
       top: '-340px',
@@ -74,22 +59,37 @@ export const css = cssx.create({
   },
   Logo: {
     position: 'absolute',
+    fontFamily: 'var(--Inter)',
     display: 'flex',
     alignItems: 'center',
-    fontSize: 40,
+    fontSize: 44,
     fontWeight: 'bold',
     top: -250,
-    marginRight: 109,
+    marginRight: 4,
     height: '75px',
     gap: 29,
     color: 'var(--color-logo)',
     [max_md]: {
-      scale: 0.75,
+      fontSize: 38,
+      top: -580
+    }
+  },
+
+  desp: {
+    position: 'absolute',
+    fontFamily: 'var(--Inter)',
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: 16,
+    fontWeight: '300',
+    color: 'var(--color-desc)',
+    top: -195,
+    height: '75px',
+    gap: 29,
+    [max_md]: {
       whiteSpace: 'nowrap',
-      marginLeft: 0,
-      marginRight: 60,
-      top: -580,
-      fontSize: 40
+      top: -530,
+      fontSize: 12.8
     }
   },
   left_icon: {
@@ -109,7 +109,7 @@ export const css = cssx.create({
     height: '75px',
     color: 'var(--color-heading)',
     [max_md]: {
-      top: -480,
+      top: -390,
       fontSize: 26
     }
   },
@@ -124,7 +124,8 @@ export const css = cssx.create({
     left: 16,
     color: 'var(--color-text)',
     [max_md]: {
-      top: -422,
+      whiteSpace: 'nowrap',
+      top: -332,
       fontSize: 14
     }
   },

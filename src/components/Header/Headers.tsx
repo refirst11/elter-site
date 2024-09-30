@@ -22,11 +22,12 @@ export const Headers = ({ version }: { version: string }) => {
     <header className={css.container}>
       <Link href="/" className={css.logo}>
         <Image className={css.left_icon} src="/left_logo.png" alt={'Main_Logo'} width={32.2} height={12.6} />
-        TypedCSSX<span className={css.version}>v{version}</span>
+        <span className={css.display}>TypedCSSX</span>
+        <span className={css.version}>v{version}</span>
       </Link>
       <GitIcon />
       <ToggleDarkMode />
-      <SearchBox />
+      <SearchBox classDisplay={css.display} />
       <nav className={css.wrapper}>
         {links.map((link) => (
           <Link key={link.href} href={link.href} className={union(css.link, css.active)} aria-current={isCurrentLink(link.href, pathname) ? 'page' : 'false'}>
@@ -75,6 +76,7 @@ const css = cssx.create({
   },
 
   logo: {
+    fontFamily: 'var(--Inter)',
     position: 'absolute',
     display: 'flex',
     alignItems: 'center',
@@ -89,11 +91,19 @@ const css = cssx.create({
     borderRadius: '8px',
     textDecoration: 'none',
     [max_md]: {
-      display: 'none'
+      left: 0,
+      top: 16,
+      transform: 'none'
     },
     [md768_1414]: {
       left: '16px',
       transform: 'translate(0%)'
+    }
+  },
+
+  display: {
+    [max_md]: {
+      display: 'none'
     }
   },
 
@@ -105,8 +115,12 @@ const css = cssx.create({
 
   version: {
     position: 'relative',
+    right: 6,
     fontWeight: 400,
-    fontSize: 12.4
+    fontSize: 12.4,
+    [max_md]: {
+      top: 2
+    }
   },
 
   link: {

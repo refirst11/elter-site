@@ -1,17 +1,15 @@
 import Link from 'next/link'
 import { css } from './style'
 import Animation from 'components/Firemotion/Animation'
-import Image from 'next/image'
+import { union } from 'typedcssx'
 
 export function Home() {
   return (
     <Animation>
       <div className={css.top_wrapper}>
         <div className={css.container}>
-          <span className={css.Logo}>
-            <Image className={css.left_icon} src="/left_logo.png" alt={'Main_Logo'} width={92} height={36} />
-            TypedCSSX
-          </span>
+          <span className={css.Logo}>TypedCSSX</span>
+          <span className={css.desp}>A type-first CSS library for stably building user interfaces</span>
           <p className={css.text}>Write CSS in TypeScript</p>
           <p className={css.tagline}>A Type safe and stably CSS in Framework</p>
           <section className={css.link_wrapper}>

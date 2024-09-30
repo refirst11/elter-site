@@ -3,8 +3,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { SearchResults } from 'components/SearchResults'
 import { css } from './style'
+import { union } from 'typedcssx'
 
-export const SearchBox = () => {
+export const SearchBox = ({ classDisplay, classBox }: { classDisplay?: string; classBox?: string }) => {
   const [keyword, setKeyword] = useState('')
   const [showResults, setShowResults] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -45,10 +46,10 @@ export const SearchBox = () => {
   }
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className={classDisplay}>
       <input
         ref={inputRef}
-        className={css.inputBox}
+        className={union(css.inputBox, classBox)}
         value={keyword}
         placeholder={'Search Documents...'}
         type="text"

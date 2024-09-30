@@ -29,7 +29,7 @@ export const css = cssx.create({
       left: '0',
       transform: 'translate(0%)',
       width: '100%',
-      height: 'calc(100% - 64px)'
+      height: 'calc(100% - 48px)'
     },
     [md768_1414]: {
       left: 276,

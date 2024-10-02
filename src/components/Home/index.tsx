@@ -24,7 +24,7 @@ export function Home() {
             <div>
               <span>📡</span>
               <h2>Console lover</h2>
-              <p>Compiled CSS code is directly output to the console, ensuring you never write incorrect code during development.</p>
+              <p>Compiled CSS code is directly output to the console, you never write incorrect code during development.</p>
             </div>
 
             <div>

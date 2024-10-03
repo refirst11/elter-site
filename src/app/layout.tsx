@@ -6,7 +6,7 @@ import { Footer } from 'components/Footer'
 import { ThemeProvider } from 'next-themes'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import { PreviewServerCSS } from 'typedcssx/next'
+import { ServerStylePreview } from 'typedcssx/next'
 
 const inter = Inter({ subsets: ['latin'], variable: '--Inter' })
 export const fetchCache = 'force-cache'
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <PreviewServerCSS anchorEnabled={true} />
+        <ServerStylePreview />
       </head>
       <body className={inter.variable}>
         <ThemeProvider enableSystem={true} defaultTheme="system">

@@ -13,7 +13,7 @@ cssx.global({
     textWrap: 'pretty',
     fontSize: 16,
     lineHeight: 1.6,
-    wordBreak: 'break-all',
+    wordBreak: 'break-word',
     margin: '0 auto',
     color: 'var(--color-text)',
     background: 'var(--color-bg)',

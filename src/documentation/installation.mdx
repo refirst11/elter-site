@@ -115,22 +115,17 @@ Add to your build command <code>\`npx typedcssx --compile\`</code>
 </Tabs>
 
 ## Server Component
-If the anchorEnabled argument is false, you will not be able to see the server component styles unless you manually reload the page once.
-
-but if it is true, you can collect the server component styles by mimicking the behavior of the a tag and reloading the page when transitioning via Link.
-
-This true behavior remembers the page you clicked once and will not reload it thereafter.
+You can statically preview a ServerComponent using `ServerStylePreview`.
 ```tsx title="layout.tsx"
-import { PreviewServerCSS } from 'typedcssx/next'
+import { ServerStylePreview } from 'typedcssx/next'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html>
       <head>
-        <PreviewServerCSS anchorEnabled={true} />
+        <ServerStylePreview />
       </head>
       .....
-    </html>
   )
 }    
 ```

@@ -7,30 +7,34 @@ date: '2024-06-02'
 <TocBot />
 
 # Introduction
-It's a CSS in JS library with a simple syntax and High type safety.  
+It's a CSS in JS library written in TypeScript. with a simple syntax and High type safety and expandability. 
+
 It's characteristic feature is the powerful typed that enables autocomplete during development.  
 It works with most js frameworks and also works with a single ts file.  
+
+It use the philosophy of [tsx](https://tsx.is/) and compilation is verry faster.
 
 Supported traditional CSS notation such as Media Query and pseudo-elements.  
 Provides solutions for large-scale applications that are easy to maintain.  
 
 
-## Zero Runtime
+## No Runtime
 It is exported as static CSS at compile process.  
-Since it is embedded in the directly build process, It can cached the browser and CDN.
-
-
-## RSC
-You can preview using the "use client", and you can also preview the \`Server Component\`  
-by using the PreviewServerCSS Component.
+Since it is embedded in the directly build process, It can cache the build and CDN.
 
 ## Type safe
 The property is typed. And detects syntax errors.  
-Static type checking is performed at compile time, so the CSS generated after compilation is reliable.
+Static type checking is performed at compile time, Compilation with errors is not permitted.  
+So the CSS generated after compilation is reliable.
+
+## RSC support
+If you use Next.js's App Router, you can achieve a static preview of server components by including the ServerStylePreview component in the head.
+
+
 
 ## How to use
 Write a cssx method and write the style to the object.  
-The method just returns a string, so just apply it to the class name.  
+The method just returns a string, so just css.active apply it to the classname.  
 
 Styles can be written outside of a component.
 

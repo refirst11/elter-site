@@ -28,11 +28,11 @@ const getAllPosts = async (sourcePath: string): Promise<PostsData[]> => {
         case 'api':
           category = 'core-api/'
           break
-        case 'helper':
-          category = 'helper/'
+        case 'inheritance':
+          category = 'inheritance/'
           break
-        case 'hook':
-          category = 'hook/'
+        case 'animation':
+          category = 'animation/'
           break
         default:
           category = ''

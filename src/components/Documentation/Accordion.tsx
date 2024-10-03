@@ -3,9 +3,8 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { IoMdArrowDropright } from 'react-icons/io'
-import cssx, { union } from 'typedcssx'
+import cssx, { union, max_md } from 'typedcssx'
 import PostsData from 'types/PostsData'
-import { css } from './List'
 import { usePathname } from 'next/navigation'
 
 type AccordionProps = {
@@ -23,19 +22,19 @@ const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
 
   return (
     <>
-      <button className={union(cssA.accordion, api && cssA.button_active)} onClick={() => setAPI(!api)}>
+      <button className={union(css.accordion, api && css.button_active)} onClick={() => setAPI(!api)}>
         API
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {api && (
-        <ul className={cssA.list}>
+        <ul className={css.list}>
           <li>
-            <button className={union(cssx && cssA.button_active)} onClick={() => setCSSX(!cssx)}>
-              cssx <IoMdArrowDropright className={cssA.arrow} style={{ rotate: cssx ? '90deg' : '0deg' }} />
+            <button className={union(cssx && css.button_active)} onClick={() => setCSSX(!cssx)}>
+              cssx <IoMdArrowDropright className={css.arrow} style={{ rotate: cssx ? '90deg' : '0deg' }} />
             </button>
           </li>
           {cssx && (
-            <ul className={cssA.list_style}>
+            <ul className={css.list_style}>
               {apiData.map(({ slug, title }) => (
                 <li key={slug}>
                   <Link href={`/core-api/${slug}`} className={css.active} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
@@ -47,12 +46,12 @@ const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
           )}
         </ul>
       )}
-      <button className={`${cssA.accordion} ${inher && cssA.button_active}`} onClick={() => setInher(!inher)}>
+      <button className={`${css.accordion} ${inher && css.button_active}`} onClick={() => setInher(!inher)}>
         Inheritance
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {inher && (
-        <ul className={cssA.list}>
+        <ul className={css.list}>
           {inherData.map(({ slug, title }) => (
             <li key={slug}>
               <Link href={`/inheritance/${slug}`} className={css.active} aria-current={'/inheritance/' + slug === pathname ? 'page' : 'false'}>
@@ -62,12 +61,12 @@ const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
           ))}
         </ul>
       )}
-      <button className={`${cssA.accordion} ${anima && cssA.button_active}`} onClick={() => setAnima(!anima)}>
+      <button className={`${css.accordion} ${anima && css.button_active}`} onClick={() => setAnima(!anima)}>
         Animation
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {anima && (
-        <ul className={cssA.list}>
+        <ul className={css.list}>
           {animaData.map(({ slug, title }) => (
             <li key={slug}>
               <Link href={`/animation/${slug}`} className={css.active} aria-current={'/animation/firemotion' === pathname ? 'page' : 'false'}>
@@ -83,7 +82,7 @@ const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
 
 export default Accordion
 
-const cssA = cssx.create({
+const css = cssx.create({
   arrow: {
     position: 'absolute',
     right: 8
@@ -153,5 +152,24 @@ const cssA = cssx.create({
   button_active: {
     background: 'var(--color-card)',
     color: 'var(--color-sub)'
+  },
+  active: {
+    "&[aria-current='false']:hover": {
+      background: 'var(--color-card)',
+      color: 'var(--color-sub)',
+      transition: 'all 0.2s'
+    },
+    "&[aria-current='page']": {
+      fontWeight: 600,
+      color: 'var(--color-link)',
+      background: 'var(--color-list)'
+    },
+    "&[aria-current='false']": {
+      background: 'transparent',
+      transition: 'background 0.15s, font-weight 0s'
+    },
+    [max_md]: {
+      visibility: 'hidden'
+    }
   }
 })

@@ -22,7 +22,7 @@ export const styles = cssx.create({
       position: 'absolute',
       marginLeft: 'auto',
       top: 18,
-      right: 106
+      right: 122
     }
   },
   button_inner: {

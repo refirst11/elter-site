@@ -22,12 +22,12 @@ export const Headers = ({ version }: { version: string }) => {
     <header className={css.container}>
       <Link href="/" className={css.logo}>
         <Image className={css.left_icon} src="/left_logo.png" alt={'Main_Logo'} width={32.2} height={12.6} />
-        <span className={css.display}>TypedCSSX</span>
+        <span className={css.display_logo}>TypedCSSX</span>
         <span className={css.version}>v{version}</span>
       </Link>
       <GitIcon />
       <ToggleDarkMode />
-      <SearchBox classDisplay={css.display} />
+      <SearchBox classDisplay={css.display_search} />
       <nav className={css.wrapper}>
         {links.map((link) => (
           <Link key={link.href} href={link.href} className={union(css.link, css.active)} aria-current={isCurrentLink(link.href, pathname) ? 'page' : 'false'}>
@@ -67,7 +67,7 @@ const css = cssx.create({
     [md768_1414]: {
       display: 'flex',
       position: 'absolute',
-      right: '260px',
+      right: '284px',
       left: 'auto'
     },
     ['@media (max-width: 964px)']: {
@@ -101,7 +101,14 @@ const css = cssx.create({
     }
   },
 
-  display: {
+  display_search: {
+    height: 0,
+    [max_md]: {
+      display: 'none'
+    }
+  },
+
+  display_logo: {
     [max_md]: {
       display: 'none'
     }

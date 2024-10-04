@@ -31,7 +31,7 @@ export const css = cssx.create({
     [md768_1414]: {
       position: 'absolute',
       marginLeft: 'auto',
-      right: 158
+      right: 174
     }
   }
 })

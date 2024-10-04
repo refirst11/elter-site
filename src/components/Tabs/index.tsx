@@ -2,8 +2,7 @@
 
 import React, { ReactNode, useState, useRef, useEffect } from 'react'
 import { FiCopy, FiCheck } from 'react-icons/fi'
-import cssx, { max_md } from 'typedcssx'
-
+import { css } from './css'
 type TabsProps = {
   children: ReactNode
   items?: string[]
@@ -15,11 +14,32 @@ export const Tabs = ({ items, children }: TabsProps) => {
   const [visible, setVisible] = useState(false)
   const [showTooltip, setShowTooltip] = useState(false)
   const codeRef = useRef<HTMLDivElement>(null)
-  const buttonRef = useRef<HTMLButtonElement>(null)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const isHoveringCodeBlockRef = useRef(false)
+  const isHoveringButtonRef = useRef(false)
 
-  const handleTabClick = (index: number) => {
-    setActiveTab(index)
-    setCopied(false)
+  const handleMouseEnterCodeBlock = () => {
+    isHoveringCodeBlockRef.current = true
+    setVisible(true)
+  }
+
+  const handleMouseLeaveCodeBlock = () => {
+    isHoveringCodeBlockRef.current = false
+    if (!copied && !isHoveringButtonRef.current) {
+      setVisible(false)
+    }
+  }
+
+  const handleMouseEnterButton = () => {
+    isHoveringButtonRef.current = true
+    setVisible(true)
+  }
+
+  const handleMouseLeaveButton = () => {
+    isHoveringButtonRef.current = false
+    if (!isHoveringCodeBlockRef.current && !copied) {
+      setVisible(false)
+    }
   }
 
   const handleCopy = () => {
@@ -34,28 +54,56 @@ export const Tabs = ({ items, children }: TabsProps) => {
 
       navigator.clipboard.writeText(text).then(() => {
         setCopied(true)
-        setTimeout(() => setCopied(false), 800)
+        setShowTooltip(true)
+        setTimeout(() => {
+          setCopied(false)
+          setShowTooltip(false)
+        }, 2500)
       })
     }
   }
 
-  const handleCodeBoxInteraction = () => {
-    setVisible(true)
+  useEffect(() => {
+    const clear = timeoutRef.current
+    return () => {
+      if (clear) clearTimeout(clear)
+    }
+  }, [])
+
+  const handleTabClick = (index: number) => {
+    setActiveTab(index)
+    setCopied(false)
   }
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (buttonRef.current && !buttonRef.current.contains(event.target as Node) && codeRef.current && !codeRef.current.contains(event.target as Node)) {
+    if (visible == true) {
+      if (codeRef.current) {
+        const figcaptions = codeRef.current.querySelectorAll('figcaption')
+        figcaptions.forEach((figcaption) => {
+          ;(figcaption as HTMLElement).style.display = 'none'
+        })
+      }
+    } else {
+      if (codeRef.current) {
+        const figcaptions = codeRef.current.querySelectorAll('figcaption')
+        figcaptions.forEach((figcaption) => {
+          ;(figcaption as HTMLElement).style.display = ''
+        })
+      }
+    }
+  }, [visible])
+
+  useEffect(() => {
+    const handleTouchOutside = (event: TouchEvent) => {
+      if (codeRef.current && !codeRef.current.contains(event.target as Node)) {
         setVisible(false)
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('touchstart', handleClickOutside)
+    document.addEventListener('touchend', handleTouchOutside)
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('touchstart', handleClickOutside)
+      document.removeEventListener('touchend', handleTouchOutside)
     }
   }, [])
 
@@ -76,24 +124,18 @@ export const Tabs = ({ items, children }: TabsProps) => {
         ))}
         <div className={css.tooltipWrapper}>
           <button
-            ref={buttonRef}
-            onClick={handleCopy}
-            onMouseEnter={() => {
-              setShowTooltip(true)
-              handleCodeBoxInteraction()
-            }}
-            onMouseLeave={() => setShowTooltip(false)}
-            onFocus={() => setShowTooltip(true)}
-            onBlur={() => setShowTooltip(false)}
-            className={`${copied ? css.noactive + ' ' + css.copyButton : css.active + ' ' + css.copyButton} ${visible ? css.visible : css.hidden}`}>
+            onPointerDown={handleCopy}
+            onMouseEnter={handleMouseEnterButton}
+            onMouseLeave={handleMouseLeaveButton}
+            className={`${copied ? css.noactive + ' ' + css.copyButton : css.active + ' ' + css.copyButton} ${visible || copied ? css.visible : css.hidden}`}>
             <div className={css.icon_position}>
               {copied ? <FiCheck size={16} color="#555" className={css.noactive} /> : <FiCopy size={16} color="gray" className={css.active} />}
             </div>
           </button>
-          {showTooltip && <div className={css.tooltip}>{copied ? 'Copied!' : 'clipboard'}</div>}
+          {showTooltip && <div className={css.tooltip}>{copied ? 'Copied' : 'Failed to copy'}</div>}
         </div>
       </div>
-      <div ref={codeRef} onMouseEnter={handleCodeBoxInteraction} onMouseLeave={() => setVisible(false)} onTouchStart={handleCodeBoxInteraction} className={css.code_box}>
+      <div ref={codeRef} onMouseEnter={handleMouseEnterCodeBlock} onMouseLeave={handleMouseLeaveCodeBlock} className={css.code_box}>
         {React.Children.toArray(children)[activeTab]}
       </div>
     </>
@@ -101,112 +143,3 @@ export const Tabs = ({ items, children }: TabsProps) => {
 }
 
 export const Tab = ({ children }: { children: ReactNode }) => <>{children}</>
-
-const css = cssx.create({
-  button_initialize: {
-    zIndex: 0,
-    position: 'relative',
-    top: 24,
-    left: 4,
-    padding: '10px 20px',
-    cursor: 'pointer',
-    display: 'inline-block'
-  },
-
-  code_box: {
-    zIndex: 0,
-    position: 'relative',
-    bottom: 15
-  },
-
-  wrapper: {
-    marginTop: 30,
-    display: 'flex',
-    alignItems: 'flex-end',
-    height: 0,
-    width: '100%'
-  },
-
-  copyButton: {
-    zIndex: 1,
-    position: 'absolute',
-    fontSize: 12,
-    right: 58,
-    top: 32,
-    height: 26,
-    width: 26,
-    backgroundColor: 'rgb(245, 245, 253)',
-    border: 'solid 1px rgb(220, 220, 220)',
-    padding: '5px 10px',
-    cursor: 'pointer',
-    borderRadius: '6px'
-  },
-
-  icon_position: {
-    position: 'absolute',
-    right: 4,
-    top: 4
-  },
-
-  noactive: {
-    transition: 'all 0.2s',
-    scale: 1.2
-  },
-
-  active: {
-    transition: 'all 0.2s'
-  },
-
-  visible: {
-    opacity: 0.9
-  },
-
-  hidden: {
-    opacity: 0
-  },
-
-  tooltipWrapper: {
-    position: 'absolute',
-    right: 0
-  },
-
-  tooltip: {
-    position: 'absolute',
-    background: '#333',
-    color: '#fff',
-    padding: '5px 10px',
-    borderRadius: '4px',
-    fontSize: 12,
-    bottom: '100%',
-    top: -30,
-    height: 'max-content',
-    marginLeft: -72,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    whiteSpace: 'nowrap',
-    pointerEvents: 'none',
-    zIndex: 1000,
-    '&::after': {
-      content: '',
-      position: 'absolute',
-      top: '100%',
-      left: '50%',
-      marginLeft: '-5px',
-      borderWidth: '5px',
-      borderStyle: 'solid',
-      borderColor: '#333 transparent transparent transparent'
-    }
-  },
-
-  [max_md]: {
-    copyButton: {
-      scale: 0.8,
-      right: 8,
-      top: 30
-    },
-    tooltip: {
-      marginLeft: -20,
-      top: -26
-    }
-  }
-})

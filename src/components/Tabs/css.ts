@@ -1,12 +1,14 @@
+import { md768_1414 } from 'lib/media'
 import cssx, { max_md } from 'typedcssx'
 
 export const css = cssx.create({
   button_initialize: {
-    zIndex: 0,
+    zIndex: 4,
     position: 'relative',
-    top: 24,
-    left: 4,
-    padding: '10px 20px',
+    top: 26,
+    left: 1,
+    fontSize: 12,
+    padding: '8px 16px 12px 16px',
     cursor: 'pointer',
     display: 'inline-block'
   },
@@ -25,12 +27,37 @@ export const css = cssx.create({
     width: '100%'
   },
 
+  items_block: {
+    before: {
+      content: "''",
+      zIndex: 0,
+      position: 'relative',
+      display: 'flex',
+      top: 64,
+      borderRadius: '4px 4px 0 0 ',
+      height: '42px',
+      width: '830px',
+      border: 'solid 1px var(--color-border)',
+      background: 'var(--color-items)',
+
+      [md768_1414]: {
+        width: 'calc(100vw - 570px)'
+      },
+      ['@media (max-width: 1124px)']: {
+        width: 'calc(100vw - 330px)'
+      },
+      [max_md]: {
+        width: 'calc(100vw - 50px)'
+      }
+    }
+  },
+
   copyButton: {
     zIndex: 1,
     position: 'absolute',
     fontSize: 12,
     right: 56,
-    top: 32,
+    top: 33,
     height: 26,
     width: 26,
     backgroundColor: 'rgb(245, 245, 253)',
@@ -79,7 +106,7 @@ export const css = cssx.create({
     borderRadius: '4px',
     fontSize: 12,
     bottom: '100%',
-    top: 30,
+    top: 31,
     right: 85,
     height: 'max-content',
     whiteSpace: 'nowrap',
@@ -105,7 +132,7 @@ export const css = cssx.create({
     },
     tooltip: {
       scale: 0.8,
-      right: 30
+      right: 28
     }
   }
 })

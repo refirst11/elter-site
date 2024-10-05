@@ -225,7 +225,8 @@ cssx.root({
     '--color-text2': 'rgb(206 206 206)',
     '--color-logo2': 'rgb(90, 200, 190)',
     '--color-border2': 'rgba(200, 200, 200, 0.2)',
-    '--color-filter': 'invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%)'
+    '--color-filter': 'invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%)',
+    '--color-items': 'rgb(26, 27, 27)'
   },
 
   "&[data-theme='light']": {
@@ -247,6 +248,7 @@ cssx.root({
     '--color-text2': 'rgb(255, 255, 255)',
     '--color-logo2': 'rgb(92, 182, 192) ',
     '--color-border2': 'rgba(200, 200, 200, 0.2)',
-    '--color-filter': 'none'
+    '--color-filter': 'none',
+    '--color-items': '#fefff8'
   }
 })

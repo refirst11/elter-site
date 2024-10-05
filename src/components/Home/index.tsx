@@ -16,8 +16,8 @@ export function Home() {
             <Link className={union(css.link, css.link_color1)} href="/introduction">
               Introduction
             </Link>
-            <Link className={union(css.link, css.link_color2)} href="/incentive">
-              Incentive
+            <Link className={union(css.link, css.link_color2)} href="/installation">
+              Installation
             </Link>
           </section>
           <section className={css.card_container}>

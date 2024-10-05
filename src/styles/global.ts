@@ -1,6 +1,10 @@
 import cssx, { max_md, light, dark } from 'typedcssx'
 
 cssx.global({
+  '*': {
+    boxSizing: 'border-box',
+    scrollbarColor: 'rgb(166, 166, 166) rgb(241, 241, 241)'
+  },
   html: {
     width: '100%',
     height: '100%',
@@ -158,10 +162,7 @@ cssx.global({
   'ul li p': {
     marginTop: 12
   },
-  '*': {
-    boxSizing: 'border-box',
-    scrollbarColor: 'rgb(166, 166, 166) rgb(241, 241, 241)'
-  },
+
   'h1::after, h2::after, h3::after, h4::after, h5::after, h6::after': {
     content: '"#"',
     position: 'relative',
@@ -226,7 +227,8 @@ cssx.root({
     '--color-logo2': 'rgb(90, 200, 190)',
     '--color-border2': 'rgba(200, 200, 200, 0.2)',
     '--color-filter': 'invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%)',
-    '--color-items': 'rgb(26, 27, 27)'
+    '--color-items': 'rgb(26, 27, 27)',
+    '--color-shadow': '0 0 2px -0.5px rgba(255, 255, 255, 0.4)'
   },
 
   "&[data-theme='light']": {
@@ -249,6 +251,7 @@ cssx.root({
     '--color-logo2': 'rgb(92, 182, 192) ',
     '--color-border2': 'rgba(200, 200, 200, 0.2)',
     '--color-filter': 'none',
-    '--color-items': '#fefff8'
+    '--color-items': '#fefff8',
+    '--color-shadow': '0 0 2px -0.5px rgb(0 0 0 / 40%)'
   }
 })

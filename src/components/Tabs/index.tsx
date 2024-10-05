@@ -103,20 +103,18 @@ export const Tabs = ({ items, children }: TabsProps) => {
   return (
     <>
       <div className={css.wrapper}>
-        <div className={css.items_block}>
-          {items?.map((item, index) => (
-            <button
-              style={{
-                borderBottom: activeTab === index ? 'solid 2px lightblue' : 'white',
-                color: activeTab === index ? 'skyblue' : 'var(--color-heading)'
-              }}
-              className={css.button_initialize}
-              key={index}
-              onClick={() => handleTabClick(index)}>
-              {item}
-            </button>
-          ))}
-        </div>
+        {items?.map((item, index) => (
+          <button
+            style={{
+              borderBottom: activeTab === index ? 'solid 2px lightblue' : 'white',
+              color: activeTab === index ? 'skyblue' : 'var(--color-heading)'
+            }}
+            className={css.button_initialize}
+            key={index}
+            onClick={() => handleTabClick(index)}>
+            {item}
+          </button>
+        ))}
         <div className={css.tooltipWrapper}>
           <button
             onPointerDown={handleCopy}

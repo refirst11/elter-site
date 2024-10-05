@@ -5,12 +5,11 @@ export const css = cssx.create({
   button_initialize: {
     zIndex: 4,
     position: 'relative',
-    top: 26,
-    left: 1,
+    top: -53,
+    left: 0,
     fontSize: 12,
     padding: '8px 16px 12px 16px',
-    cursor: 'pointer',
-    display: 'inline-block'
+    cursor: 'pointer'
   },
 
   code_box: {
@@ -20,35 +19,19 @@ export const css = cssx.create({
   },
 
   wrapper: {
-    marginTop: 30,
-    display: 'flex',
-    alignItems: 'flex-end',
+    marginTop: 42,
     height: 0,
-    width: '100%'
-  },
-
-  items_block: {
     before: {
       content: "''",
       zIndex: 0,
       position: 'relative',
       display: 'flex',
-      top: 64,
+      top: -16,
       borderRadius: '4px 4px 0 0 ',
       height: '42px',
-      width: '830px',
-      border: 'solid 1px var(--color-border)',
-      background: 'var(--color-items)',
-
-      [md768_1414]: {
-        width: 'calc(100vw - 570px)'
-      },
-      ['@media (max-width: 1124px)']: {
-        width: 'calc(100vw - 330px)'
-      },
-      [max_md]: {
-        width: 'calc(100vw - 50px)'
-      }
+      width: '100%',
+      boxShadow: 'var(--color-shadow)',
+      background: 'var(--color-items)'
     }
   },
 
@@ -57,7 +40,7 @@ export const css = cssx.create({
     position: 'absolute',
     fontSize: 12,
     right: 56,
-    top: 33,
+    bottom: 18,
     height: 26,
     width: 26,
     backgroundColor: 'rgb(245, 245, 253)',
@@ -105,8 +88,7 @@ export const css = cssx.create({
     padding: '5px 10px',
     borderRadius: '4px',
     fontSize: 12,
-    bottom: '100%',
-    top: 31,
+    bottom: 17,
     right: 85,
     height: 'max-content',
     whiteSpace: 'nowrap',
@@ -127,12 +109,13 @@ export const css = cssx.create({
   [max_md]: {
     copyButton: {
       scale: 0.8,
-      right: 8,
-      top: 32
+      right: 4,
+      bottom: 22
     },
     tooltip: {
       scale: 0.8,
-      right: 28
+      right: 24,
+      bottom: 20
     }
   }
 })

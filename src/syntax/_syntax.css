@@ -101,7 +101,7 @@ pre {
   width: 100%;
   padding: 20px;
   margin: 40px 0;
-  border: solid 1px var(--color-border);
+  box-shadow: var(--color-shadow);
   background: var(--shiki-color-background);
   overflow-x: auto;
 }

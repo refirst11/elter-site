@@ -11,6 +11,7 @@ import { headings } from 'lib/headings'
 import { SearchBox } from 'components/SearchBox'
 import { useAtom } from 'jotai'
 import { menuAtom } from 'lib/jotai'
+import { HiOutlineExternalLink } from 'react-icons/hi'
 
 type MenuProps = {
   docs: PostsData[]
@@ -20,6 +21,7 @@ type MenuProps = {
 }
 
 const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
+  const discuss = process.env.NEXT_PUBLIC_DISCUSS_URL || ''
   const pathname = usePathname()
   const [open, setOpen] = useAtom(menuAtom)
   const [isListVisible, setIsListVisible] = useState(true)
@@ -82,6 +84,14 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
               <IoMdArrowDropright style={{ rotate: isListVisible ? '90deg' : '0deg' }} />
             </button>
           </li>
+
+          {!isListVisible && (
+            <li>
+              <a className={union(css.hover, css.link)} href={discuss} target="_blank">
+                Discussions <HiOutlineExternalLink style={{ position: 'relative', top: 2, right: 3 }} />
+              </a>
+            </li>
+          )}
           <ul className={`${css.documentItems} ${isListVisible ? css.visible : ''}`}>
             {docs?.map(({ slug, title }, postIndex) => (
               <Fragment key={postIndex}>
@@ -361,6 +371,13 @@ const css = cssx.create({
   visible: {
     opacity: 1,
     visibility: 'visible'
+  },
+
+  hover: {
+    hover: {
+      color: 'var(--color-link)',
+      transition: 'all 0.2s'
+    }
   },
 
   active: {

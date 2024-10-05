@@ -10,8 +10,10 @@ import { SearchBox } from 'components/SearchBox'
 import cssx, { union, max_md } from 'typedcssx'
 import { md768_1414 } from 'lib/media'
 import Image from 'next/image'
+import { HiOutlineExternalLink } from 'react-icons/hi'
 
 export const Headers = ({ version }: { version: string }) => {
+  const discuss = process.env.NEXT_PUBLIC_DISCUSS_URL || ''
   const pathname = usePathname()
   const links = [
     { href: '/', label: 'Home' },
@@ -34,6 +36,10 @@ export const Headers = ({ version }: { version: string }) => {
             {link.label}
           </Link>
         ))}
+
+        <a className={union(css.hover, css.link)} href={discuss} target="_blank">
+          Discussions <HiOutlineExternalLink />
+        </a>
       </nav>
     </header>
   )
@@ -60,7 +66,7 @@ const css = cssx.create({
     gap: '20px',
     top: '18px',
     left: '50%',
-    marginLeft: 250,
+    marginLeft: 160,
     height: '64px',
     listStyleType: 'none',
     listStylePosition: 'inside',
@@ -70,7 +76,7 @@ const css = cssx.create({
       right: '284px',
       left: 'auto'
     },
-    ['@media (max-width: 964px)']: {
+    ['@media (max-width: 1084px)']: {
       display: 'none'
     }
   },
@@ -134,6 +140,7 @@ const css = cssx.create({
     display: 'flex',
     alignItems: 'center',
     fontSize: '14px',
+    color: 'var(--color-heading)',
     textDecoration: 'none',
     width: 'fit-content',
     height: '26px',
@@ -141,13 +148,17 @@ const css = cssx.create({
       display: 'none'
     }
   },
+  hover: {
+    hover: {
+      color: 'var(--color-link)',
+      transition: 'all 0.2s'
+    }
+  },
   active: {
     "&[aria-current='page']": {
-      color: 'var(--color-heading)',
       fontWeight: '550'
     },
     "&[aria-current='false']": {
-      color: 'var(--color-heading)',
       fontWeight: '300'
     }
   }

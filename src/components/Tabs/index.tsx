@@ -25,7 +25,7 @@ export const Tabs = ({ items, children }: TabsProps) => {
 
   const handleMouseLeaveCodeBlock = () => {
     isHoveringCodeBlockRef.current = false
-    if (!copied && !isHoveringButtonRef.current) {
+    if (!isHoveringButtonRef.current) {
       setVisible(false)
     }
   }
@@ -37,7 +37,7 @@ export const Tabs = ({ items, children }: TabsProps) => {
 
   const handleMouseLeaveButton = () => {
     isHoveringButtonRef.current = false
-    if (!isHoveringCodeBlockRef.current && !copied) {
+    if (!isHoveringCodeBlockRef.current) {
       setVisible(false)
     }
   }
@@ -58,6 +58,9 @@ export const Tabs = ({ items, children }: TabsProps) => {
         setTimeout(() => {
           setCopied(false)
           setShowTooltip(false)
+          if (!isHoveringCodeBlockRef.current && !isHoveringButtonRef.current) {
+            setVisible(false)
+          }
         }, 2500)
       })
     }
@@ -76,24 +79,6 @@ export const Tabs = ({ items, children }: TabsProps) => {
   }
 
   useEffect(() => {
-    if (visible == true) {
-      if (codeRef.current) {
-        const figcaptions = codeRef.current.querySelectorAll('figcaption')
-        figcaptions.forEach((figcaption) => {
-          ;(figcaption as HTMLElement).style.display = 'none'
-        })
-      }
-    } else {
-      if (codeRef.current) {
-        const figcaptions = codeRef.current.querySelectorAll('figcaption')
-        figcaptions.forEach((figcaption) => {
-          ;(figcaption as HTMLElement).style.display = ''
-        })
-      }
-    }
-  }, [visible])
-
-  useEffect(() => {
     const handleTouchOutside = (event: TouchEvent) => {
       if (codeRef.current && !codeRef.current.contains(event.target as Node)) {
         setVisible(false)
@@ -107,21 +92,31 @@ export const Tabs = ({ items, children }: TabsProps) => {
     }
   }, [])
 
+  useEffect(() => {
+    if (copied) {
+      setVisible(true)
+    } else if (!isHoveringCodeBlockRef.current && !isHoveringButtonRef.current) {
+      setVisible(false)
+    }
+  }, [copied])
+
   return (
     <>
       <div className={css.wrapper}>
-        {items?.map((item, index) => (
-          <button
-            style={{
-              borderBottom: activeTab === index ? 'solid 2px lightblue' : 'white',
-              color: activeTab === index ? 'skyblue' : 'var(--color-heading)'
-            }}
-            className={css.button_initialize}
-            key={index}
-            onClick={() => handleTabClick(index)}>
-            {item}
-          </button>
-        ))}
+        <div className={css.items_block}>
+          {items?.map((item, index) => (
+            <button
+              style={{
+                borderBottom: activeTab === index ? 'solid 2px lightblue' : 'white',
+                color: activeTab === index ? 'skyblue' : 'var(--color-heading)'
+              }}
+              className={css.button_initialize}
+              key={index}
+              onClick={() => handleTabClick(index)}>
+              {item}
+            </button>
+          ))}
+        </div>
         <div className={css.tooltipWrapper}>
           <button
             onPointerDown={handleCopy}

@@ -150,7 +150,7 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
             )}
             <li>
               <button className={`${css.docs} ${inher ? css.activeDocs : ''}`} onClick={() => setInher(!inher)}>
-                inherDatar
+                inheritance
                 <IoMdArrowDropright style={{ rotate: inher ? '90deg' : '0deg' }} />
               </button>
             </li>
@@ -171,7 +171,7 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
             )}
             <li>
               <button className={`${css.docs} ${hook ? css.activeDocs : ''}`} onClick={() => setHook(!hook)}>
-                Hook
+                Animation
                 <IoMdArrowDropright style={{ rotate: hook ? '90deg' : '0deg' }} />
               </button>
             </li>

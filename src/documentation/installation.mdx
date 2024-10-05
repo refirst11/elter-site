@@ -104,16 +104,11 @@ you need to configure it in your configuration file.
 
 Add to your build command <code>\`npx typedcssx --compile\`</code>
 
-<Tabs>
-  <Tab>
   ```json title="package.json"
     "scripts": {
       "build": "npx typedcssx --compile && next build",
     },
   ```
-  </Tab>
-</Tabs>
-
 ## Server Component
 You can statically preview a ServerComponent using `ServerStylePreview`.
 ```tsx title="layout.tsx"
@@ -132,13 +127,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ## Global Style
 All you have to do is import the file that calls the cssx.global method.
-<Tabs>
-  <Tab>
 ```tsx title="layout.tsx"
 import 'styles/global'
 ```
-  </Tab>
-</Tabs>
 
 ## Supported Node.js
 

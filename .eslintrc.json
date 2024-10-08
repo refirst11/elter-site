@@ -1,3 +1,13 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:react-hooks/recommended"]
+  "plugins": ["css"],
+  "extends": ["next/core-web-vitals", "plugin:react-hooks/recommended", "plugin:css/recommended"],
+  "settings": {
+    "css": {
+      "target": {
+        "defineFunctions": {
+          "typedcssx": [["default", "/^\\w+$/u"]]
+        }
+      }
+    }
+  }
 }

@@ -96,16 +96,18 @@ you need to configure it in your configuration file.
 </Tabs>
 
 ## Compile command
-
-Add to your build command <code>\`npx typedcssx --compile\`</code>
+<code>\`npx cssx\`</code> compiles without type checking.  
+Adding the argument --compile will include compilation checking using TypeScript.  
+It is recommended to generating server-side static CSS with a faster compile before next dev.
 
   ```json title="package.json"
     "scripts": {
-      "build": "npx typedcssx --compile && next build",
-    },
+      "dev": "npx cssx && next dev",
+      "build": "npx cssx --compile && next build",
+    }
   ```
 ## Server component
-You can statically preview a ServerComponent using `ServerStylePreview`.
+You can statically preview a ServerComponent using <code>\`\<ServerStylePreview \/\>\`</code>.
 ```tsx title="layout.tsx"
 import { ServerStylePreview } from 'typedcssx/next'
 

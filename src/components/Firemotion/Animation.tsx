@@ -9,7 +9,7 @@ type AnimationProps = {
 }
 
 const Animation = ({ children }: AnimationProps): JSX.Element => {
-  const animate = useFiremotion(styles.base, [styles.entry, styles.exit], 0.2)
+  const animate = useFiremotion(styles.base, [styles.entry, styles.exit], 0.11)
 
   return <main className={animate}>{children}</main>
 }
@@ -17,7 +17,7 @@ const Animation = ({ children }: AnimationProps): JSX.Element => {
 const styles = cssx.create({
   base: {
     opacity: 1,
-    transition: 'all 0.4s'
+    transition: 'all 0.12s'
   },
 
   entry: {
@@ -27,8 +27,7 @@ const styles = cssx.create({
 
   exit: {
     opacity: 0,
-    filter: 'blur(16px)',
-    transition: 'all 0.17s'
+    transition: 'all 0.1s'
   }
 })
 

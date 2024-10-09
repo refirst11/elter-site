@@ -13,10 +13,10 @@ export const headings = [
     heading: [
       { id: 'install-packages', text: '# Install packages' },
       { id: 'integration', text: '# Integration' },
-      { id: 'compile-command', text: '# Compile Command' },
-      { id: 'server-component', text: '# Server Component' },
-      { id: 'global-style-sheet', text: '# Global Style' },
-      { id: 'supported-nodejs', text: '# Supported Node.js' }
+      { id: 'compile-command', text: '# Compile command' },
+      { id: 'server-component', text: '# Server component' },
+      { id: 'global-style-sheet', text: '# Global style' },
+      { id: 'supported-deps', text: '# Supported deps' }
     ]
   },
   {
@@ -45,6 +45,14 @@ export const headings = [
       { id: 'why-objects', text: '# Why Objects' },
       { id: 'thoughts-on-css-in-js', text: '# Thoughts on CSS-in-JS' },
       { id: 'why-it-was-made', text: '# Why it was made' }
+    ]
+  },
+  {
+    heading: [
+      { id: 'linter', text: '# Linter' },
+      { id: 'color-highlighter', text: '# Color highlighter' },
+      { id: 'vite', text: '# Vite' },
+      { id: 'nextjs', text: '# Next.js' }
     ]
   }
 ]

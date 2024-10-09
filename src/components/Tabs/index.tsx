@@ -3,6 +3,7 @@
 import React, { ReactNode, useState, useRef, useEffect } from 'react'
 import { FiCopy, FiCheck } from 'react-icons/fi'
 import { css } from './css'
+import { union } from 'typedcssx'
 type TabsProps = {
   children: ReactNode
   items?: string[]
@@ -104,14 +105,7 @@ export const Tabs = ({ items, children }: TabsProps) => {
     <>
       <div className={css.wrapper}>
         {items?.map((item, index) => (
-          <button
-            style={{
-              borderBottom: activeTab === index ? 'solid 2px lightblue' : 'white',
-              color: activeTab === index ? 'skyblue' : 'var(--color-heading)'
-            }}
-            className={css.button_initialize}
-            key={index}
-            onClick={() => handleTabClick(index)}>
+          <button className={union(css.button_initialize, activeTab === index ? css.tab_active : css.tab_noactive)} key={index} onClick={() => handleTabClick(index)}>
             {item}
           </button>
         ))}

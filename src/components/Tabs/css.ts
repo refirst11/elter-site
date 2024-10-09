@@ -81,6 +81,15 @@ export const css = cssx.create({
     right: 0
   },
 
+  tab_active: {
+    color: 'skyblue',
+    borderBottom: 'solid 2px lightblue'
+  },
+  tab_noactive: {
+    color: 'var(--color-heading)',
+    borderBottom: 'none'
+  },
+
   tooltip: {
     position: 'absolute',
     background: '#333',

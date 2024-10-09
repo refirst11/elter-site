@@ -63,7 +63,6 @@ you need to configure it in your configuration file.
     /** @type {import('next').NextConfig} */
     const nextConfig = {
       webpack: (config) => {
-        config.optimization.usedExports = true;
         return configCSSModule(config);
       },
     };

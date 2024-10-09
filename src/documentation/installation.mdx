@@ -1,5 +1,5 @@
 ---
-title: 'Installation'
+title: 'Installation | TypedCSSX'
 subtitle: 'The TypedCSSX Installation Guide'
 date: '2024-09-29'
 ---
@@ -37,7 +37,7 @@ This page describes installation and compile and plubin, and other details.
   </Tab>
 </Tabs>
 
-<Tabs items={['Next.js', 'Vite', 'Webpack']}>
+<Tabs items={['Next.js', 'Vite']}>
   {/* prettier-ignore */}
   <Tab>
     ```bash title="shell"
@@ -48,12 +48,6 @@ This page describes installation and compile and plubin, and other details.
   <Tab>
     ```bash title="shell"
     pnpm install --save-dev vite-plugin-node-polyfills
-    ```
-  </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash title="shell"
-    pnpm install --save-dev typedcssx-webpack-plugin
     ```
   </Tab>
 </Tabs>
@@ -90,16 +84,19 @@ you need to configure it in your configuration file.
   {/* prettier-ignore */}
   <Tab>
     ```js title="webpack.config.js"
-    const { TypedCSSXWebpackPlugin } = require("typedcssx-webpack-plugin");
-
     module.exports = {
-      plugins: [new TypedCSSXWebpackPlugin()]
+      resolve: {
+        fallback: {
+          fs: false,
+          path: false
+        }
+      },
     };
     ```
   </Tab>
 </Tabs>
 
-## Compile Command
+## Compile command
 
 Add to your build command <code>\`npx typedcssx --compile\`</code>
 
@@ -108,7 +105,7 @@ Add to your build command <code>\`npx typedcssx --compile\`</code>
       "build": "npx typedcssx --compile && next build",
     },
   ```
-## Server Component
+## Server component
 You can statically preview a ServerComponent using `ServerStylePreview`.
 ```tsx title="layout.tsx"
 import { ServerStylePreview } from 'typedcssx/next'
@@ -124,15 +121,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }    
 ```
 
-## Global Style
+## Global style
 All you have to do is import the file that calls the cssx.global method.
 ```tsx title="layout.tsx"
 import 'styles/global'
 ```
 
-## Supported Node.js
+## Supported deps
 
-This project has been tested and is confirmed to work with Node.js versions from 18 ~ ^20.  
-Please you are using one of these versions for optimal compatibility and performance.  
-@types/node version is ^22.5.4. and typescript version is ^5.4.5.
+I'ts confirmed to work with Node.js versions from 18, 20, 22.  
+If your project's dependencies are at an earlier version, update them.
+- @types/node: ^22.5.4.
+- typescript: ^5.4.5.
 

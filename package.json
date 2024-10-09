@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "npx typedcssx --compile && next build",
+    "dev": "npx cssx && next dev",
+    "build": "npx cssx --compile && next build",
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write ."
@@ -40,7 +40,7 @@
     "eslint-config-next": "14.2.3",
     "eslint-plugin-css": "^0.11.0",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "typedcssx": "2.6.6-beta.0",
+    "typedcssx": "^3.0.0",
     "typedcssx-next-plugin": "^2.7.1",
     "typescript": "^5.4.5"
   }

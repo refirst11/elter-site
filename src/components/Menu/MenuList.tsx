@@ -97,7 +97,7 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
               <Fragment key={postIndex}>
                 <li key={slug}>
                   <Link className={union(css.active, css.link)} href={`/${slug}`} onClick={() => setOpen(false)} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
-                    {title}
+                    {slug.substring(0, 1).toUpperCase() + slug.substring(1)}
                   </Link>
                 </li>
                 {pathname === '/' + slug && (
@@ -133,14 +133,14 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
                 </li>
                 {cssx && (
                   <ul className={`${css.documentItems} ${cssx ? css.visible : ''}`}>
-                    {apiData?.map(({ slug, title }) => (
+                    {apiData?.map(({ slug }) => (
                       <li key={slug}>
                         <Link
                           href={`/core-api/${slug}`}
                           className={union(css.active, css.link)}
                           onClick={() => setOpen(false)}
                           aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
-                          {title}
+                          {slug}
                         </Link>
                       </li>
                     ))}
@@ -156,14 +156,14 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
             </li>
             {inher && (
               <ul className={`${css.documentItems} ${inher ? css.visible : ''}`}>
-                {inherData?.map(({ slug, title }) => (
+                {inherData?.map(({ slug }) => (
                   <li key={slug}>
                     <Link
                       href={`/inheritance/${slug}`}
                       className={union(css.active, css.link)}
                       onClick={() => setOpen(false)}
                       aria-current={'/inheritance/' + slug === pathname ? 'page' : 'false'}>
-                      {title}
+                      {slug}
                     </Link>
                   </li>
                 ))}
@@ -177,14 +177,14 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
             </li>
             {hook && (
               <ul className={`${css.documentItems} ${hook ? css.visible : ''}`}>
-                {animaData.map(({ slug, title }) => (
+                {animaData.map(({ slug }) => (
                   <li key={slug}>
                     <Link
-                      href={`/animation/${title}`}
+                      href={`/animation/${slug}`}
                       className={union(css.active, css.link)}
                       onClick={() => setOpen(false)}
                       aria-current={'/animation/firemotion' === pathname ? 'page' : 'false'}>
-                      {title}
+                      {slug}
                     </Link>
                   </li>
                 ))}

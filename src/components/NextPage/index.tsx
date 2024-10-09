@@ -53,13 +53,13 @@ export const NextPage = () => {
       {prevPost && (
         <Link href={getPostLink(prevPost)} className={css.prev}>
           <span className={css.desc}>Previous page</span>
-          <span className={css.title}>{prevPost.title}</span>
+          <span className={css.title}>{prevPost.slug}</span>
         </Link>
       )}
       {nextPost && (
         <Link href={getPostLink(nextPost)} className={css.next}>
           <span className={css.desc}>{nextPost === firstPost ? 'First page' : 'Next page'}</span>
-          <span className={css.title}>{nextPost.title}</span>
+          <span className={css.title}>{nextPost.slug}</span>
         </Link>
       )}
     </div>

@@ -35,10 +35,10 @@ const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
           </li>
           {cssx && (
             <ul className={css.list_style}>
-              {apiData.map(({ slug, title }) => (
+              {apiData.map(({ slug }) => (
                 <li key={slug}>
                   <Link href={`/core-api/${slug}`} className={css.active} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
-                    {title}
+                    {slug}
                   </Link>
                 </li>
               ))}
@@ -52,10 +52,10 @@ const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
       </button>
       {inher && (
         <ul className={css.list}>
-          {inherData.map(({ slug, title }) => (
+          {inherData.map(({ slug }) => (
             <li key={slug}>
               <Link href={`/inheritance/${slug}`} className={css.active} aria-current={'/inheritance/' + slug === pathname ? 'page' : 'false'}>
-                {title}
+                {slug}
               </Link>
             </li>
           ))}
@@ -67,10 +67,10 @@ const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
       </button>
       {anima && (
         <ul className={css.list}>
-          {animaData.map(({ slug, title }) => (
+          {animaData.map(({ slug }) => (
             <li key={slug}>
               <Link href={`/animation/${slug}`} className={css.active} aria-current={'/animation/firemotion' === pathname ? 'page' : 'false'}>
-                {title}
+                {slug}
               </Link>
             </li>
           ))}

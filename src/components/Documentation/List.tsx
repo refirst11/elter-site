@@ -20,10 +20,10 @@ const Lists = ({ docs, apiData, inherData, animaData }: ListsProps) => {
   return (
     pathname !== '/' && (
       <ul className={css.list_position}>
-        {docs?.map(({ slug, title }) => (
+        {docs?.map(({ slug }) => (
           <li key={slug}>
             <Link className={css.active} href={`/${slug}`} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
-              {title}
+              {slug.substring(0, 1).toUpperCase() + slug.substring(1)}
             </Link>
           </li>
         ))}

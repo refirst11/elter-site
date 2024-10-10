@@ -6,6 +6,7 @@ import type PostsData from 'types/PostsData'
 import PostContent, { HeadingWithParagraphs } from 'types/PostContent'
 import { useAtom } from 'jotai'
 import { menuAtom } from 'lib/jotai'
+import { usePathname } from 'next/navigation'
 
 type KeywordProps = {
   keyword: string
@@ -13,6 +14,7 @@ type KeywordProps = {
 }
 
 export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
+  const pathname = usePathname()
   const [, setMenu] = useAtom(menuAtom)
   const [posts, setPosts] = useState<PostsData[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -53,7 +55,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     }
 
     fetchPosts()
-  }, [cachedContents])
+  }, [cachedContents, pathname])
 
   const { filteredPosts, matchedSectionsMap } = useMemo(() => {
     if (!keyword) return { filteredPosts: [], matchedSectionsMap: new Map() }

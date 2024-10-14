@@ -22,9 +22,9 @@ export function Home() {
           </section>
           <section className={css.card_container}>
             <div>
-              <span>📡</span>
-              <h2>Console lover</h2>
-              <p>Compiled CSS code is directly output to the console, you never write incorrect code during development.</p>
+              <span>🔦</span>
+              <h2>Ease API</h2>
+              <p>Transition smoothly to TypedCSSX with its intuitive API and familiar CSS-like syntax, reducing the learning curve for your team.</p>
             </div>
 
             <div>

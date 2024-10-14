@@ -8,38 +8,17 @@ date: '2024-10-09'
 
 # Plugins
 
+## Community
+### Next.js
+Resolves next.js specific CSSModule classname redundancies.
+- [typedcssx-next-plugin](https://www.npmjs.com/package/typedcssx-next-plugin)
+
 ## Third-party
 
 ### Linter
 It lints for invalid hex codes, invalid unit values, and invalid properties.
 - [eslint-plugin-css](https://www.npmjs.com/package/eslint-plugin-css)
 
-```json title=".eslintrc.json"
-{
-  "plugins": ["css"],
-  "extends": ["plugin:css/recommended"],
-  "settings": {
-    "css": {
-      "target": {
-        "defineFunctions": {
-          "typedcssx": [["default", "/^\\w+$/u"]]
-        }
-      }
-    }
-  }
-}
-```
-
 ### Color highlighter
 It highlights color codes written in strings.
 - [VSCode Color Picker](https://marketplace.visualstudio.com/items?itemName=MarkosTh09.color-picker)
-
-### Vite
-Resolves fs and paths to Vite, which is built for browser compatibility.
-- [vite-plugin-node-polyfills](https://www.npmjs.com/package/vite-plugin-node-polyfills)
-
-## Community
-### Next.js
-Resolves next.js specific CSSModule classname redundancies.
-- [typedcssx-next-plugin](https://www.npmjs.com/package/typedcssx-next-plugin)
-

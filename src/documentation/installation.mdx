@@ -37,17 +37,11 @@ This page describes installation and compile and plubin, and other details.
   </Tab>
 </Tabs>
 
-<Tabs items={['Next.js', 'Vite']}>
+<Tabs items={['Next.js']}>
   {/* prettier-ignore */}
   <Tab>
     ```bash title="shell"
     pnpm install --save-dev typedcssx-next-plugin
-    ```
-  </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash title="shell"
-    pnpm install --save-dev vite-plugin-node-polyfills
     ```
   </Tab>
 </Tabs>
@@ -72,12 +66,8 @@ you need to configure it in your configuration file.
   {/* prettier-ignore */}
   <Tab>
     ```js title="vite.config.js"
-    import { defineConfig } from "vite";
-    import { nodePolyfills } from "vite-plugin-node-polyfills";
-
-    export default defineConfig({
-      plugins: [nodePolyfills({ include: ["fs", "path"] })],
-    });
+      // Additional configuration is to remove type: "module" in package.json
+      // and change vite.config.ts to vite.config.mts.
     ```
   </Tab>
   {/* prettier-ignore */}
@@ -128,6 +118,81 @@ All you have to do is import the file that calls the cssx.global method.
 ```tsx title="layout.tsx"
 import 'styles/global'
 ```
+
+## Linter setting
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+<Tab>
+```sh
+npm install --save-dev eslint eslint-pulgin-css
+```
+</Tab>
+<Tab>
+```sh
+pnpm install --save-dev eslint eslint-pulgin-css
+```
+</Tab>
+<Tab>
+```sh
+yarn add -D eslint eslint-pulgin-css
+```
+</Tab>
+<Tab>
+```sh
+bun add -D eslint eslint-pulgin-css
+```
+</Tab>
+</Tabs>
+<Tabs items={['js', 'json', 'yaml']}>
+<Tab>
+```js title=".eslintrc.js"
+module.exports = {
+  plugins: ["css"],
+  extends: ["plugin:css/recommended"],
+  settings: {
+    css: {
+      target: {
+        defineFunctions: {
+          typedcssx: [["default", /^\w+$/u]]
+        }
+      }
+    }
+  }
+};
+```
+</Tab>
+<Tab>
+```json title=".eslintrc.json"
+{
+  "plugins": ["css"],
+  "extends": ["plugin:css/recommended"],
+  "settings": {
+    "css": {
+      "target": {
+        "defineFunctions": {
+          "typedcssx": [["default", "/^\\w+$/u"]]
+        }
+      }
+    }
+  }
+}
+```
+</Tab>
+<Tab>
+```yaml title=".eslintrc.yaml"
+plugins:
+  - css
+extends:
+  - plugin:css/recommended
+settings:
+  css:
+    target:
+      defineFunctions:
+        typedcssx:
+          - - default
+            - /^\w+$/u
+```
+</Tab>
+</Tabs>
 
 ## Supported deps
 

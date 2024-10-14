@@ -16,6 +16,7 @@ export const headings = [
       { id: 'compile-command', text: '# Compile command' },
       { id: 'server-component', text: '# Server component' },
       { id: 'global-style-sheet', text: '# Global style' },
+      { id: 'linter-setting', text: '# Linter setting' },
       { id: 'supported-deps', text: '# Supported deps' }
     ]
   },
@@ -49,10 +50,9 @@ export const headings = [
   },
   {
     heading: [
+      { id: 'nextjs', text: '# Next.js' },
       { id: 'linter', text: '# Linter' },
-      { id: 'color-highlighter', text: '# Color highlighter' },
-      { id: 'vite', text: '# Vite' },
-      { id: 'nextjs', text: '# Next.js' }
+      { id: 'color-highlighter', text: '# Color highlighter' }
     ]
   }
 ]

@@ -94,8 +94,8 @@ importers:
         specifier: ^4.6.2
         version: 4.6.2(eslint@8.57.1)
       typedcssx:
-        specifier: ^3.2.5
-        version: 3.2.5
+        specifier: ^3.2.6
+        version: 3.2.6
       typedcssx-next-plugin:
         specifier: ^2.7.1
         version: 2.7.2
@@ -2309,8 +2309,8 @@ packages:
   typedcssx-next-plugin@2.7.2:
     resolution: {integrity: sha512-lDA7/Tok9XNMOWVH4e/bijsZfqfJUNkkA7YMkb7CXgVUxmQJnG6GWXWKE2SLf4TY/9SEt8JE0nCpoWrSjq5/Hw==}
 
-  typedcssx@3.2.5:
-    resolution: {integrity: sha512-3akAHO/I0QkeIr0NCInn/E/fq0HsaeQKhPyeQypf8I1B8o1epJhDo4FoN9nGwe9wDwixeU50ul5oKZMf89LzAw==}
+  typedcssx@3.2.6:
+    resolution: {integrity: sha512-T2ySm8nPW3HnoyCtarxe5A1CsKe8Q0XIbFNgd9BIMC2vQ9zazAcuf1agqrlHxq1+OF0AQUJfqUPRZngoZnGo+w==}
     hasBin: true
 
   typescript@5.6.3:
@@ -5245,7 +5245,7 @@ snapshots:
 
   typedcssx-next-plugin@2.7.2: {}
 
-  typedcssx@3.2.5:
+  typedcssx@3.2.6:
     dependencies:
       globby: 14.0.2
       tsx: 4.19.1

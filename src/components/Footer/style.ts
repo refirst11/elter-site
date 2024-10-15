@@ -23,7 +23,7 @@ export const css = cssx.create({
 
   license: {
     position: 'relative',
-    right: '600px',
+    right: '520px',
     [max_md]: {
       position: 'absolute',
       right: 'auto',
@@ -32,7 +32,7 @@ export const css = cssx.create({
   },
   nextlogo: {
     position: 'relative',
-    left: '600px',
+    left: '460px',
     [max_md]: {
       position: 'absolute',
       left: 'auto',

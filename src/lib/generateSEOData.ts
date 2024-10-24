@@ -18,7 +18,7 @@ const generateSEOData = ({ title, subtitle, date }: SeoData) => {
       url: process.env.PROD_URL,
       type: 'website',
       images: {
-        url: url + '/typedcssx_ogp.png',
+        url: url + '/ogp.png',
         width: 1200,
         height: 600
       }
@@ -28,12 +28,10 @@ const generateSEOData = ({ title, subtitle, date }: SeoData) => {
       title: title,
       description: subtitle,
       images: {
-        url: url + '/typedcssx_ogp.png',
+        url: url + '/ogp.png',
         width: 1200,
         height: 600
-      },
-      site: '@refirst11',
-      creator: '@refirst11'
+      }
     }
   }
 }

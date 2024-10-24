@@ -7,7 +7,8 @@ const nextConfig = {
     config.experiments = { ...config.experiments, topLevelAwait: true }
     return configCSSModule(config)
   },
-  transpilePackages: ['next-mdx-remote']
+  transpilePackages: ['next-mdx-remote'],
+  reactStrictMode: false
 }
 
 module.exports = nextConfig

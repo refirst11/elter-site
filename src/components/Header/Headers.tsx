@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import { ToggleDarkMode } from 'components/ToggleDarkMode'
 import { GitIcon } from 'components/GitIcon'
 import { SearchBox } from 'components/SearchBox'
-import cssx, { union, max_md } from 'typedcssx'
+import elter, { union, max_md } from 'elter'
 import { md768_1414 } from 'lib/media'
 import Image from 'next/image'
 import { HiOutlineExternalLink } from 'react-icons/hi'
@@ -21,23 +21,23 @@ export const Headers = ({ version }: { version: string }) => {
   ]
 
   return (
-    <header className={css.container}>
-      <Link href="/" className={css.logo}>
-        <Image className={css.left_icon} src="/left_logo.png" alt={'Main_Logo'} width={32.2} height={12.6} />
-        <span className={css.display_logo}>TypedCSSX</span>
-        <span className={css.version}>v{version}</span>
+    <header className={styles.container}>
+      <Link href="/" className={styles.logo}>
+        <Image className={styles.left_logo} src="/logo.png" alt={'Main_Logo'} width={24} height={24} />
+        <span className={styles.display_logo}>elter</span>
+        <span className={styles.version}>v{version}</span>
       </Link>
       <GitIcon />
       <ToggleDarkMode />
-      <SearchBox classDisplay={css.display_search} />
-      <nav className={css.wrapper}>
+      <SearchBox classDisplay={styles.display_search} />
+      <nav className={styles.wrapper}>
         {links.map((link) => (
-          <Link key={link.href} href={link.href} className={union(css.link, css.active)} aria-current={isCurrentLink(link.href, pathname) ? 'page' : 'false'}>
+          <Link key={link.href} href={link.href} className={union(styles.link, styles.active)} aria-current={isCurrentLink(link.href, pathname) ? 'page' : 'false'}>
             {link.label}
           </Link>
         ))}
 
-        <a className={union(css.hover, css.link)} href={discuss} target="_blank">
+        <a className={union(styles.hover, styles.link)} href={discuss} target="_blank">
           Discussions <HiOutlineExternalLink />
         </a>
       </nav>
@@ -45,7 +45,7 @@ export const Headers = ({ version }: { version: string }) => {
   )
 }
 
-const css = cssx.create({
+const styles = elter.create({
   container: {
     zIndex: '2',
     position: 'fixed',
@@ -91,8 +91,8 @@ const css = cssx.create({
     fontSize: 14,
     fontWeight: 'bold',
     left: '50%',
-    transform: 'translate(-316%)',
-    top: 18,
+    transform: 'translate(-416%)',
+    top: 16,
     padding: '4px 24px',
     borderRadius: '8px',
     textDecoration: 'none',
@@ -104,6 +104,15 @@ const css = cssx.create({
     [md768_1414]: {
       left: '16px',
       transform: 'translate(0%)'
+    }
+  },
+
+  left_logo: {
+    position: 'relative',
+    top: 1,
+    left: 8,
+    [max_md]: {
+      left: 0
     }
   },
 
@@ -120,14 +129,9 @@ const css = cssx.create({
     }
   },
 
-  left_icon: {
-    filter: 'var(--color-filter)',
-    position: 'relative',
-    top: 2
-  },
-
   version: {
     position: 'relative',
+    top: 1,
     right: 6,
     fontWeight: 400,
     fontSize: 12.4,

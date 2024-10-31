@@ -1,6 +1,6 @@
 import { extractHeadingsAndParagraphs } from 'lib/extractHeadingsAndParagraphs'
 import Link from 'next/link'
-import { css } from './style'
+import { styles } from './style'
 import { useEffect, useState, useMemo, useCallback } from 'react'
 import type PostsData from 'types/PostsData'
 import PostContent, { HeadingWithParagraphs } from 'types/PostContent'
@@ -92,7 +92,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
     if (!keyword.trim()) return text
     const parts = text.split(new RegExp(`(${keyword})`, 'gi'))
     return parts.map((part, i) => (
-      <span key={i} className={part.toLowerCase() === keyword.toLowerCase() ? css.highlight : undefined}>
+      <span key={i} className={part.toLowerCase() === keyword.toLowerCase() ? styles.highlight : undefined}>
         {part}
       </span>
     ))
@@ -100,14 +100,14 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
 
   if (isLoading) {
     return (
-      <ul className={css.list}>
-        <p className={css.no_result}>Loading...</p>
+      <ul className={styles.list}>
+        <p className={styles.no_result}>Loading...</p>
       </ul>
     )
   }
 
   return (
-    <ul onClick={onClick} className={css.list}>
+    <ul onClick={onClick} className={styles.list}>
       {filteredPosts.length > 0 ? (
         filteredPosts.map(({ slug, category }, index) => {
           const matchedSections = matchedSectionsMap.get(slug) as HeadingWithParagraphs[]
@@ -117,7 +117,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
               {matchedSections.map(({ heading, paragraphs, id }, index) => (
                 <Link
                   key={index}
-                  className={css.link}
+                  className={styles.link}
                   href={`/${category}${slug}`}
                   onClick={() => {
                     setTimeout(() => {
@@ -125,11 +125,11 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
                     }, 120)
                     setMenu(false)
                   }}>
-                  <div className={css.box}>
-                    <div className={css.heading3}>{highlightText(heading, keyword)}</div>
+                  <div className={styles.box}>
+                    <div className={styles.heading3}>{highlightText(heading, keyword)}</div>
 
                     {paragraphs.map((paragraph, idx) => (
-                      <p className={css.desc} key={idx}>
+                      <p className={styles.desc} key={idx}>
                         {highlightText(paragraph, keyword)} {/* ハイライト適用 */}
                       </p>
                     ))}
@@ -140,7 +140,7 @@ export const SearchResults = ({ keyword, onClick }: KeywordProps) => {
           )
         })
       ) : (
-        <p className={css.no_result}>No results found.</p>
+        <p className={styles.no_result}>No results found.</p>
       )}
     </ul>
   )

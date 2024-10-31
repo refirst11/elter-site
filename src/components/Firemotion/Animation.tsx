@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react'
 import useFiremotion from 'firemotion'
-import cssx from 'typedcssx'
+import elter from 'elter'
 
 type AnimationProps = {
   children: ReactNode
@@ -14,7 +14,7 @@ const Animation = ({ children }: AnimationProps): JSX.Element => {
   return <main className={animate}>{children}</main>
 }
 
-const styles = cssx.create({
+const styles = elter.create({
   base: {
     opacity: 1,
     transition: 'all 0.12s'

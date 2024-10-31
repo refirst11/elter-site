@@ -1,7 +1,7 @@
-import cssx, { max_md, max_lg } from 'typedcssx'
+import elter, { max_md } from 'elter'
 import { md768_1414 } from 'lib/media'
 
-export const cssMain = cssx.set({
+export const cssMain = elter.style({
   [md768_1414]: {
     maxWidth: 'calc(100% - 240px)',
     left: 120,

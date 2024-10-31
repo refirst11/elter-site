@@ -1,6 +1,6 @@
-import cssx, { max_md } from 'typedcssx'
+import elter, { max_md } from 'elter'
 
-export const css = cssx.create({
+export const styles = elter.create({
   top_wrapper: {
     [max_md]: {
       height: '1460px',
@@ -62,7 +62,7 @@ export const css = cssx.create({
     fontFamily: 'var(--Inter)',
     display: 'flex',
     alignItems: 'center',
-    fontSize: 44,
+    fontSize: 35,
     fontWeight: 'bold',
     top: -250,
     marginRight: 4,
@@ -70,7 +70,7 @@ export const css = cssx.create({
     gap: 29,
     color: 'var(--color-logo)',
     [max_md]: {
-      fontSize: 38,
+      fontSize: 32,
       top: -580
     }
   },
@@ -80,7 +80,7 @@ export const css = cssx.create({
     fontFamily: 'var(--Inter)',
     display: 'flex',
     alignItems: 'center',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '300',
     color: 'var(--color-desc)',
     top: -195,
@@ -102,7 +102,7 @@ export const css = cssx.create({
     display: 'flex',
     alignItems: 'center',
     fontSize: 36,
-    fontWeight: '600',
+    fontWeight: '80',
     margin: 0,
     top: -80,
     left: 12,
@@ -118,7 +118,7 @@ export const css = cssx.create({
     display: 'flex',
     alignItems: 'center',
     fontSize: 24,
-    fontWeight: '400',
+    fontWeight: '200',
     margin: 0,
     top: -20,
     left: 16,

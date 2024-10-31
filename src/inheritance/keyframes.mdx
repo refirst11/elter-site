@@ -1,5 +1,5 @@
 ---
-title: 'keyframes | TypedCSSX'
+title: 'keyframes | elter'
 subtitle: 'The Keyframes Guide'
 date: '2024/07/02'
 ---
@@ -12,7 +12,7 @@ date: '2024/07/02'
 <Tabs items={[ 'global.ts', 'css']}>
   <Tab>
 ```ts title="global.ts"
-cssx.global({
+elter.global({
   '@keyframes fade': {
     from: {
       opacity: 0,
@@ -58,11 +58,11 @@ cssx.global({
 
 
 ## Uses
-The created animation can be used with cssx.create, cssx.set, etc.
+The created animation can be used with elter.create, elter.style, etc.
 <Tabs items={[ 'tsx', 'css']}>
   <Tab>
 ```ts title="Something.tsx"
-const css = cssx.create({
+const css = elter.create({
   box: {
     padding: '20px',
     animation: 'move 2s'

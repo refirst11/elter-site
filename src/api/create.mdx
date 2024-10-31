@@ -1,12 +1,12 @@
 ---
-title: 'create | TypedCSSX'
-subtitle: 'The cssx class guide'
+title: 'create | elter'
+subtitle: 'The elter class guide'
 date: '2024/06/16'
 ---
 
 <TocBot />
 
-# cssx.create
+# elter.create
 Create a method that takes the key as a className.  
 Since this method is created almost only once, we recommend using css as the variable name.
 ## Write create and compile
@@ -14,9 +14,9 @@ A hashed prefix of the object is added to the class name, so styles do not confl
 <Tabs items={[ 'tsx', 'css' ]}>
   <Tab>
     ```ts title="Something.tsx"
-    import cssx from 'typedcssx'
+    import elter from 'elter'
 
-    const css = cssx.create({
+    const styles = elter.create({
       container: {
         display: 'flex',
         justifyContent: 'space-between'
@@ -30,12 +30,12 @@ A hashed prefix of the object is added to the class name, so styles do not confl
   </Tab>
   <Tab>
     ```css title="css"
-    .container_kbc57v {
+    .container_ibxiag {
       display: flex;
       justify-content: space-between;
     }
 
-    .link_kbc57v {
+    .link_ibxiag {
       font-size: 14px;
       text-decoration: none;
     }

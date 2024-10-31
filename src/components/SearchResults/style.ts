@@ -1,7 +1,7 @@
-import cssx, { max_md } from 'typedcssx'
+import elter, { max_md } from 'elter'
 import { md768_1414 } from 'lib/media'
 
-export const css = cssx.create({
+export const styles = elter.create({
   list: {
     zIndex: '2',
     position: 'fixed',

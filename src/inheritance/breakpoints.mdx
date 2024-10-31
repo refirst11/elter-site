@@ -1,5 +1,5 @@
 ---
-title: 'breakpoints | TypedCSSX'
+title: 'breakpoints | elter'
 subtitle: 'The breakpoints media Guide'
 date: '2024/07/01'
 ---
@@ -22,7 +22,7 @@ date: '2024/07/01'
 | <code>\`max_2xl\`</code>         | 1536px          | <code>\`@media (max-width: 1536px) \{ ... }\`</code>|
 
 ## Wrapper concept
-TypedCSSX's mediaQuery uses the same wrapper format as conventional CSS.  
+elter's mediaQuery uses the same wrapper format as conventional CSS.  
 This makes it easy to transition from CSS.
 
 ## Write and compile
@@ -31,9 +31,9 @@ If you wrap a property and selector, the selector will be split and output.
 <Tabs items={[ 'tsx', 'css']}>
   <Tab>
 ```ts title="Something.tsx"
-import cssx, { max_md } from 'typedcssx';
+import elter, { max_md } from 'elter';
 
-const css = cssx.create({
+const css = elter.create({
     logo: {
       left: 400,
       top: 12,
@@ -44,7 +44,7 @@ const css = cssx.create({
     },
 });
 
-cssx.global({
+elter.global({
   [max_md]: {
     body: {
       width: '100%',
@@ -110,7 +110,7 @@ cssx.global({
 To appear multiple times MediaQuery is the only css that can achieve dry code.  
 It is recommended to change one value to all.
 ```ts title="lib/media.ts"
-import { max_md } from 'typedcssx'
+import { max_md } from 'elter'
 export const mobile = max_md
 export const medium = '@media (min-width: 768px) and (max-width: 1536px)'
 ```

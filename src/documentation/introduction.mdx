@@ -1,6 +1,6 @@
 ---
-title: 'Introduction | TypedCSSX'
-subtitle: 'An Introduction to TypedCSSX'
+title: 'Introduction | elter'
+subtitle: 'An Introduction to elter'
 date: '2024-06-02'
 ---
 
@@ -35,7 +35,7 @@ If you use Next.js's App Router, you can achieve a static preview of server comp
 
 
 ## How to use
-Write a cssx method and write the style to the object.  
+Write a elter method and write the style to the object.  
 The method just returns a string, so just css.active apply it to the classname.  
 
 Styles can be written outside of a component.
@@ -44,17 +44,17 @@ Styles can be written outside of a component.
 <Tabs items={['tsx', 'css']}>
   <Tab>
 ```tsx title="Component.tsx"
-import cssx from 'typedcssx';
+import elter from 'elter';
 
 export const Component = () => {
   return (
-    <div className={css.blue}>
+    <div className={styles.blue}>
       BlueText
     </div>
   )
 };
 
-const css = cssx.create({
+const styles = elter.create({
   blue: {
     fontSize: 16,
     color: 'blue'
@@ -64,7 +64,7 @@ const css = cssx.create({
   </Tab>
   <Tab>
 ```css
-.blue_f8ah90 {
+.blue_ec6cys {
   font-size: 16px;
   color: blue;
 }
@@ -75,18 +75,18 @@ const css = cssx.create({
 ## Inspirations
 Although this library is a fairly latecomer to the CSS in JS world, it is heavily by these and other earlier libraries.
 
-- **[React Native](https://reactnative.dev/):** **StyleSheet Class** is impeccable. It's standard in TypedCSSX is inspired by React Native.
+- **[React Native](https://reactnative.dev/):** **StyleSheet Class** is impeccable. It's standard in elter is inspired by React Native.
 - **[Vue.js](https://vuejs.org/):** **Scoped CSS** in Vue.js excels in simplicity and directness.
 - **[Styled-JSX](https://styled-system.com/):** Very stable CSS in JS, template literals were easy to write with **VSC's autocompletion**.
 - **[Emotion](https://emotion.sh/docs/introduction/):** I found writing **template literals easy**. This was the standard CSS in JS in React.
 - **[Vanilla Extract](https://vanilla-extract.style/):** It is inspired by vanilla extract's concept of **object, property types**.
-- **[Linaria](https://github.com/callstack/linaria):**  TypedCSSX was also inspired by the concept of **static CSS extraction**.
+- **[Linaria](https://github.com/callstack/linaria):**  elter was also inspired by the concept of **static CSS extraction**.
 
-There integrated the standout features from each of these libraries into TypedCSSX. This is our expression of gratitude to these exceptional open-source projects and our contribution to the community.
+There integrated the standout features from each of these libraries into elter. This is our expression of gratitude to these exceptional open-source projects and our contribution to the community.
 
 ## What's Next?
 
-Where good devlopment experience and simple is the TypedCSSX.  
+Where good devlopment experience and simple is the elter.  
 Dive into your incentive and intention docs to unleash its full potential.
 
-Welcome to TypedCSSX. We can't wait to see what you'll create.
+Welcome to elter. We can't wait to see what you'll create.

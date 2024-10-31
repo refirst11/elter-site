@@ -1,6 +1,6 @@
-import cssx, { max_md } from 'typedcssx'
+import elter, { max_md } from 'elter'
 
-export const css = cssx.create({
+export const styles = elter.create({
   footer_main: {
     position: 'relative',
     display: 'flex',

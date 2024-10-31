@@ -1,4 +1,4 @@
-const { configCSSModule } = require('typedcssx-next-plugin')
+const { configCSSModule } = require('next-plugin-elter')
 
 /** @type {import('next').NextConfig} */
 

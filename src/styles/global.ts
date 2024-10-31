@@ -1,6 +1,6 @@
-import cssx, { max_md, light, dark } from 'typedcssx'
+import elter, { max_md } from 'elter'
 
-cssx.global({
+elter.global({
   '*': {
     boxSizing: 'border-box',
     scrollbarColor: 'rgb(166, 166, 166) rgb(241, 241, 241)'
@@ -206,7 +206,7 @@ cssx.global({
   }
 })
 
-cssx.root({
+elter.root({
   "&[data-theme='dark']": {
     '--color-x-style': '#41c6ff',
     '--color-text': 'rgb(225, 232, 237)',

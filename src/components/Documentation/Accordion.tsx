@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { IoMdArrowDropright } from 'react-icons/io'
-import cssx, { union, max_md } from 'typedcssx'
+import elter, { union, max_md } from 'elter'
 import PostsData from 'types/PostsData'
 import { usePathname } from 'next/navigation'
 
@@ -15,29 +15,29 @@ type AccordionProps = {
 
 const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
   const [api, setAPI] = useState(true)
-  const [cssx, setCSSX] = useState(true)
+  const [state, setState] = useState(true)
   const [inher, setInher] = useState(true)
   const [anima, setAnima] = useState(true)
   const pathname = usePathname()
 
   return (
     <>
-      <button className={union(css.accordion, api && css.button_active)} onClick={() => setAPI(!api)}>
+      <button className={union(styles.accordion, api && styles.button_active)} onClick={() => setAPI(!api)}>
         API
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {api && (
-        <ul className={css.list}>
+        <ul className={styles.list}>
           <li>
-            <button className={union(cssx && css.button_active)} onClick={() => setCSSX(!cssx)}>
-              cssx <IoMdArrowDropright className={css.arrow} style={{ rotate: cssx ? '90deg' : '0deg' }} />
+            <button className={union(state && styles.button_active)} onClick={() => setState(!state)}>
+              elter <IoMdArrowDropright className={styles.arrow} style={{ rotate: state ? '90deg' : '0deg' }} />
             </button>
           </li>
-          {cssx && (
-            <ul className={css.list_style}>
+          {state && (
+            <ul className={styles.list_style}>
               {apiData.map(({ slug }) => (
                 <li key={slug}>
-                  <Link href={`/core-api/${slug}`} className={css.active} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
+                  <Link href={`/core-api/${slug}`} className={styles.active} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
                     {slug}
                   </Link>
                 </li>
@@ -46,30 +46,30 @@ const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
           )}
         </ul>
       )}
-      <button className={`${css.accordion} ${inher && css.button_active}`} onClick={() => setInher(!inher)}>
+      <button className={`${styles.accordion} ${inher && styles.button_active}`} onClick={() => setInher(!inher)}>
         Inheritance
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {inher && (
-        <ul className={css.list}>
+        <ul className={styles.list}>
           {inherData.map(({ slug }) => (
             <li key={slug}>
-              <Link href={`/inheritance/${slug}`} className={css.active} aria-current={'/inheritance/' + slug === pathname ? 'page' : 'false'}>
+              <Link href={`/inheritance/${slug}`} className={styles.active} aria-current={'/inheritance/' + slug === pathname ? 'page' : 'false'}>
                 {slug}
               </Link>
             </li>
           ))}
         </ul>
       )}
-      <button className={`${css.accordion} ${anima && css.button_active}`} onClick={() => setAnima(!anima)}>
+      <button className={`${styles.accordion} ${anima && styles.button_active}`} onClick={() => setAnima(!anima)}>
         Animation
         <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
       </button>
       {anima && (
-        <ul className={css.list}>
+        <ul className={styles.list}>
           {animaData.map(({ slug }) => (
             <li key={slug}>
-              <Link href={`/animation/${slug}`} className={css.active} aria-current={'/animation/firemotion' === pathname ? 'page' : 'false'}>
+              <Link href={`/animation/${slug}`} className={styles.active} aria-current={'/animation/firemotion' === pathname ? 'page' : 'false'}>
                 {slug}
               </Link>
             </li>
@@ -82,7 +82,7 @@ const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
 
 export default Accordion
 
-const css = cssx.create({
+const styles = elter.create({
   arrow: {
     position: 'absolute',
     right: 8

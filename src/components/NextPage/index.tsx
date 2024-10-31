@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { css } from './style'
+import { styles } from './style'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import PostsData from 'types/PostsData'
@@ -49,17 +49,17 @@ export const NextPage = () => {
   }
 
   return (
-    <div className={css.container}>
+    <div className={styles.container}>
       {prevPost && (
-        <Link href={getPostLink(prevPost)} className={css.prev}>
-          <span className={css.desc}>Previous page</span>
-          <span className={css.title}>{prevPost.slug}</span>
+        <Link href={getPostLink(prevPost)} className={styles.prev}>
+          <span className={styles.desc}>Previous page</span>
+          <span className={styles.title}>{prevPost.slug}</span>
         </Link>
       )}
       {nextPost && (
-        <Link href={getPostLink(nextPost)} className={css.next}>
-          <span className={css.desc}>{nextPost === firstPost ? 'First page' : 'Next page'}</span>
-          <span className={css.title}>{nextPost.slug}</span>
+        <Link href={getPostLink(nextPost)} className={styles.next}>
+          <span className={styles.desc}>{nextPost === firstPost ? 'First page' : 'Next page'}</span>
+          <span className={styles.title}>{nextPost.slug}</span>
         </Link>
       )}
     </div>

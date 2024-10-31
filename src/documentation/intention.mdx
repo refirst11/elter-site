@@ -1,6 +1,6 @@
 ---
-title: 'Intention | TypedCSSX'
-subtitle: 'Thoughts on TypedCSSX'
+title: 'Intention | elter'
+subtitle: 'Thoughts on elter'
 date: '2024-09-30'
 ---
 
@@ -18,7 +18,7 @@ The best practice is to apply a single style to a single class name only once as
 Of course, we also provide APIs for complex use cases where you want to apply multiple conditional styles.
 
 ## Why for What
-The design philosophy of TypedCSSX was as follows.
+The design philosophy of elter was as follows.
 1. Lightweight
 2. Easy to use and not many APIs
 3. Inherits the feel of writing CSS
@@ -41,7 +41,7 @@ The pure definition is not zero runtime, but no runtime, as it guarantees that i
 
 
 ## Why Objects
-Why didn't TypedCSSX use template literals?
+Why didn't elter use template literals?
 It's because the keys of objects being unique and singular had an affinity with the concept of CSS conflicts.
 Of course, there's compatibility with TypeScript for auto-completion and automatic error detection,
 but the primary reason we chose it was the existence of object keys.
@@ -55,11 +55,11 @@ We encourage you to try out different libraries if possible, as the knowledge yo
 
 ## Why it was made
 Just on October 26, 2022, next.js13 was announced.  
-I read the next documentation many times and realized that front-end developers need to be aware of the client-server boundary and build Next.js, and I also realized that all existing CSS in JS solutions that work on the client side will not work.
+I read the next documentation many times and realized that front-end developers need to be aware of the client-server boundary and build Next.js, I also realized that all the existing CSS in JS solutions that work client-side don't work server-side.
 
-At that point, there were about four options: use CSS, use Tailwind CSS, use Linaria or Vanilla Extract. In either case, using regular CSS was the easiest and best way to style server components.
+At that point, if you want to do styling in SC, you have to use CSS, use Tailwind CSS, use linaria or vanilla extract. In either case, using regular CSS was the easiest and best way to style server components.
 
-As you can probably guess by now, I wanted a lightweight library that could style server components. (Ideally, it should be written directly in the component.)
+As you can probably guess by now, I wanted a lightweight library that could style server components. (Ideally, it should be able to be written directly within the component or be separated freely)
 
-typedcssx is by no means a dream library like tailwindcss, and it does not have outstanding mechanics like the atomic approach of stylex, but I think it is a library that you will notice its robustness and simplicity as you use it.
+elter is by no means a groundbreaking library like tailwindcss, and it does not have outstanding mechanics like the atomic approach of stylex, but I think it is a library like emotion and styled jsx that you will notice its robustness and simplicity as you use it.
 

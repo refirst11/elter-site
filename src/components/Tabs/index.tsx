@@ -2,8 +2,8 @@
 
 import React, { ReactNode, useState, useRef, useEffect } from 'react'
 import { FiCopy, FiCheck } from 'react-icons/fi'
-import { css } from './css'
-import { union } from 'typedcssx'
+import { styles } from './style'
+import { union } from 'elter'
 type TabsProps = {
   children: ReactNode
   items?: string[]
@@ -103,26 +103,26 @@ export const Tabs = ({ items, children }: TabsProps) => {
 
   return (
     <>
-      <div className={css.wrapper}>
+      <div className={styles.wrapper}>
         {items?.map((item, index) => (
-          <button className={union(css.button_initialize, activeTab === index ? css.tab_active : css.tab_noactive)} key={index} onClick={() => handleTabClick(index)}>
+          <button className={union(styles.button_initialize, activeTab === index ? styles.tab_active : styles.tab_noactive)} key={index} onClick={() => handleTabClick(index)}>
             {item}
           </button>
         ))}
-        <div className={css.tooltipWrapper}>
+        <div className={styles.tooltipWrapper}>
           <button
             onPointerDown={handleCopy}
             onMouseEnter={handleMouseEnterButton}
             onMouseLeave={handleMouseLeaveButton}
-            className={`${copied ? css.noactive + ' ' + css.copyButton : css.active + ' ' + css.copyButton} ${visible || copied ? css.visible : css.hidden}`}>
-            <div className={css.icon_position}>
-              {copied ? <FiCheck size={16} color="#555" className={css.noactive} /> : <FiCopy size={16} color="gray" className={css.active} />}
+            className={`${copied ? styles.noactive + ' ' + styles.copyButton : styles.active + ' ' + styles.copyButton} ${visible || copied ? styles.visible : styles.hidden}`}>
+            <div className={styles.icon_position}>
+              {copied ? <FiCheck size={16} color="#555" className={styles.noactive} /> : <FiCopy size={16} color="gray" className={styles.active} />}
             </div>
           </button>
-          {showTooltip && <div className={css.tooltip}>{copied ? 'Copied' : 'Failed to copy'}</div>}
+          {showTooltip && <div className={styles.tooltip}>{copied ? 'Copied' : 'Failed to copy'}</div>}
         </div>
       </div>
-      <div ref={codeRef} onMouseEnter={handleMouseEnterCodeBlock} onMouseLeave={handleMouseLeaveCodeBlock} className={css.code_box}>
+      <div ref={codeRef} onMouseEnter={handleMouseEnterCodeBlock} onMouseLeave={handleMouseLeaveCodeBlock} className={styles.code_box}>
         {React.Children.toArray(children)[activeTab]}
       </div>
     </>

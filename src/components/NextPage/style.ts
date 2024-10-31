@@ -1,6 +1,6 @@
-import cssx, { max_md } from 'typedcssx'
+import elter from 'elter'
 
-export const css = cssx.create({
+export const styles = elter.create({
   container: {
     zIndex: '0',
     position: 'relative',

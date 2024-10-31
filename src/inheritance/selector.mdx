@@ -1,5 +1,5 @@
 ---
-title: 'selector | TypedCSSX'
+title: 'selector | elter'
 subtitle: 'The Selector Guide'
 date: '2024/07/05'
 ---
@@ -9,17 +9,19 @@ date: '2024/07/05'
 # selector
 
 ## Wrapper concept
-TypedCSSX pseudo elements use a wrapper format.  
+elter pseudo elements use a wrapper format.  
 This avoids code redundancy and supports simple and intuitive coding.
 
 ## Write & string selector and compile
 You can write the selector as a wrapper by starting the string expression with &.  
 The string following & can be anything. And that it is follows the class name.
 
+Pseudo-classes that require arguments, such as has, not, lang, and nth-child, are written using &.
+
 <Tabs items={[ 'tsx', 'css' ]}>
   <Tab>
 ```ts title="Something.tsx"
-const cssAnd = cssx.set({
+const styleAnd = elter.set({
   '& ul li': {
     fontSize: '12px',
     color: '#333',
@@ -61,41 +63,37 @@ const cssAnd = cssx.set({
 ## Property selectors
 The following pseudo-classes and pseudo-elements can be used as wrapper selectors.
 ```ts title="types.ts"
-  active
-  hover
-  link
-  visited
-  empty
-  lang
-  not
-  has
-  hasChild
-  hasPlus
-  firstChild
-  lastChild
-  nthChild
-  nthLastChild
-  nthLastOfType
-  nthOfType
-  checked
-  disabled
-  enabled
-  focus
-  inRange
-  invalid
-  valid
-  optional
-  outOfRange
-  readOnly
-  readWrite
-  required
-  target
-  after
-  before
-  firstLetter
-  firstLine
-  marker
-  selection
+type PseudoKeys =
+  | 'active'
+  | 'hover'
+  | 'link'
+  | 'visited'
+  | 'empty'
+  | 'firstChild'
+  | 'lastChild'
+  | 'firstOfType'
+  | 'lastOfType'
+  | 'onlyOfType'
+  | 'onlyChild'
+  | 'checked'
+  | 'disabled'
+  | 'enabled'
+  | 'focus'
+  | 'inRange'
+  | 'invalid'
+  | 'valid'
+  | 'optional'
+  | 'outOfRange'
+  | 'readOnly'
+  | 'readWrite'
+  | 'required'
+  | 'target'
+  | 'after'
+  | 'before'
+  | 'firstLetter'
+  | 'firstLine'
+  | 'marker'
+  | 'selection';
   ```
 
 ### Pseudo hover example
@@ -103,7 +101,7 @@ Other pseudo-classes and pseudo-elements, such as before and after, can also be 
 <Tabs items={[ 'tsx', 'css' ]}>
   <Tab>
 ```ts title="Something.tsx"
-  const cssHover = cssx.set({
+  const cssHover = elter.set({
     fontSize: '14px',
     color: '#333',
     hover: {
@@ -116,167 +114,17 @@ Other pseudo-classes and pseudo-elements, such as before and after, can also be 
   </Tab>
   <Tab>
 ```css title="css"
-.lkbtyade {
+.bg8tmp6j {
   font-size: 14px;
   color: #333;
 }
 
-.lkbtyade:hover {
+.bg8tmp6j:hover {
   font-size: 16px;
   color: skyblue;
   font-weight: 500;
 }
 ```  
-  </Tab>
-</Tabs>
-
-### Pseudo lang example
-The camel case parts are the arguments.
-<Tabs items={[ 'tsx', 'css']}>
-  <Tab>
-```ts title="Something.tsx"
-  const cssLang = cssx.set({
-    langEn: {
-      color: 'skyblue',
-    },
-    langIt: {
-      color: 'yellow',
-    }
-  })
-```
-  </Tab>
-  <Tab>
-```css title="css"
-.mw0x9rwl:lang(en) {
-  color: skyblue;
-}
-
-.mw0x9rwl:lang(it) {
-  color: yellow;
-}
-```  
-  </Tab>
-</Tabs>
-
-
-
-### Pseudo not example
-Anything other than camel cased HTML tags will be considered a class name.
-<Tabs items={[ 'tsx', 'css']}>
-  <Tab>
-```ts title="Something.tsx"
-  const cssNot = cssx.set({
-    notDiv: {
-      fontSize: '14px',
-      color: '#333',
-    },
-    notHeader_main: {
-      fontSize: '12px',
-      color: '#444',
-    }
-  })
-```
-  </Tab>
-  <Tab>
-```css title="css"
-.ocki96p9:not(div) {
-  font-size: 14px;
-  color: #333;
-}
-
-.ocki96p9:not(.header-main) {
-  font-size: 12px;
-  color: #444;
-}
-```
-  </Tab>
-</Tabs>
-
-
-### Pseudo has example
-The selector for has can express a+b or a>b at most.  
-Also, more complex expressions can be written directly using &.
-<Tabs items={[ 'tsx', 'css']}>
-  <Tab>
-```ts title="Something.tsx"
-const cssHas = cssx.set({
-  hasDiv: {
-    fontSize: '12px',
-    color: '#333',
-  },
-  hasTapestry: {
-    fontSize: '12px',
-    color: '#333',
-  },
-  hasPlusDiv: {
-    fontSize: '12px',
-    color: '#333',
-  },
-  hasChildTapestry: {
-    fontSize: '12px',
-    color: '#333',
-  },
-  hasDivPlusTapestry: {
-    fontSize: '12px',
-    color: '#333',
-  },
-  hasTapestryPlusDiv: {
-    fontSize: '12px',
-    color: '#333',
-  },
-  hasTapestryChildDiv: {
-    fontSize: '12px',
-    color: '#333',
-  },
-  hasDivChildTapestry: {
-    fontSize: '12px',
-    color: '#333',
-  },
-});
-```
-  </Tab>
-  <Tab>
-```css title="css"
-.l85s1sz2:has(div) {
-  font-size: 12px;
-  color: #333;
-}
-
-.l85s1sz2:has(.tapestry) {
-  font-size: 12px;
-  color: #333;
-}
-
-.l85s1sz2:has(+ div) {
-  font-size: 12px;
-  color: #333;
-}
-
-.l85s1sz2:has(> .tapestry) {
-  font-size: 12px;
-  color: #333;
-}
-
-.l85s1sz2:has(div + .tapestry) {
-  font-size: 12px;
-  color: #333;
-}
-
-.l85s1sz2:has(.tapestry + div) {
-  font-size: 12px;
-  color: #333;
-}
-
-.l85s1sz2:has(.tapestry > div) {
-  font-size: 12px;
-  color: #333;
-}
-
-.l85s1sz2:has(div > .tapestry) {
-  font-size: 12px;
-  color: #333;
-}
-```
   </Tab>
 </Tabs>
 

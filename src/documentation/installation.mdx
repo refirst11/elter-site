@@ -1,6 +1,6 @@
 ---
-title: 'Installation | TypedCSSX'
-subtitle: 'The TypedCSSX Installation Guide'
+title: 'Installation | elter'
+subtitle: 'The elter Installation Guide'
 date: '2024-09-29'
 ---
 
@@ -14,25 +14,25 @@ This page describes installation and compile and plubin, and other details.
   {/* prettier-ignore */}
   <Tab>
     ```bash title="shell"
-    npm install --save-dev typedcssx
+    npm install --save-dev elter
     ```
   </Tab>
   {/* prettier-ignore */}
   <Tab>
     ```bash title="shell"
-    pnpm install --save-dev typedcssx
+    pnpm install --save-dev elter
     ```
   </Tab>
   {/* prettier-ignore */}
   <Tab>
     ```bash title="shell"
-    yarn add -D typedcssx
+    yarn add -D elter
     ```
   </Tab>
   {/* prettier-ignore */}
   <Tab>
     ```bash title="shell"
-    bun add -D typedcssx
+    bun add -D elter
     ```
   </Tab>
 </Tabs>
@@ -41,7 +41,7 @@ This page describes installation and compile and plubin, and other details.
   {/* prettier-ignore */}
   <Tab>
     ```bash title="shell"
-    pnpm install --save-dev typedcssx-next-plugin
+    pnpm install --save-dev next-plugin-elter
     ```
   </Tab>
 </Tabs>
@@ -52,7 +52,7 @@ you need to configure it in your configuration file.
   {/* prettier-ignore */}
   <Tab>
     ```js title="next.config.js"
-    const { configCSSModule } = require('typedcssx-next-plugin')
+    const { configCSSModule } = require('next-plugin-elter')
 
     /** @type {import('next').NextConfig} */
     const nextConfig = {
@@ -93,20 +93,20 @@ It is recommended to generating server-side static CSS with a faster compile bef
 
   ```json title="package.json"
     "scripts": {
-      "dev": "cssx && next dev",
-      "build": "cssx --compile && next build",
+      "dev": "elter && next dev",
+      "build": "elter --compile && next build",
     }
   ```
 ## Server component
-You can statically preview a ServerComponent using <code>\`\<ServerStylePreview \/\>\`</code>.
+You can statically preview a ServerComponent using <code>\`\<ServerCSS \/\>\`</code>.
 ```tsx title="layout.tsx"
-import { ServerStylePreview } from 'typedcssx/next'
+import { ServerCSS } from 'elter/next'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html>
       <head>
-        <ServerStylePreview />
+        <ServerCSS />
       </head>
       .....
   )
@@ -152,7 +152,7 @@ module.exports = {
     css: {
       target: {
         defineFunctions: {
-          typedcssx: [["default", /^\w+$/u]]
+          elter: [["default", /^\w+$/u]]
         }
       }
     }
@@ -169,7 +169,7 @@ module.exports = {
     "css": {
       "target": {
         "defineFunctions": {
-          "typedcssx": [["default", "/^\\w+$/u"]]
+          "elter": [["default", "/^\\w+$/u"]]
         }
       }
     }
@@ -187,7 +187,7 @@ settings:
   css:
     target:
       defineFunctions:
-        typedcssx:
+        elter:
           - - default
             - /^\w+$/u
 ```

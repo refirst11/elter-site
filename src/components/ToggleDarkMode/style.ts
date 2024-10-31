@@ -1,7 +1,7 @@
-import cssx, { max_md } from 'typedcssx'
+import elter, { max_md } from 'elter'
 import { md768_1414 } from 'lib/media'
 
-export const styles = cssx.create({
+export const styles = elter.create({
   toggle_button: {
     zIndex: '3',
     position: 'relative',

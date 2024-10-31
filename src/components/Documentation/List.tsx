@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import PostsData from 'types/PostsData'
 import { usePathname } from 'next/navigation'
-import cssx, { max_md } from 'typedcssx'
+import elter, { max_md } from 'elter'
 import { max_1414 } from 'lib/media'
 import Accordion from './Accordion'
 
@@ -19,10 +19,10 @@ const Lists = ({ docs, apiData, inherData, animaData }: ListsProps) => {
 
   return (
     pathname !== '/' && (
-      <ul className={css.list_position}>
+      <ul className={styles.list_position}>
         {docs?.map(({ slug }) => (
           <li key={slug}>
-            <Link className={css.active} href={`/${slug}`} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
+            <Link className={styles.active} href={`/${slug}`} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
               {slug.substring(0, 1).toUpperCase() + slug.substring(1)}
             </Link>
           </li>
@@ -35,7 +35,7 @@ const Lists = ({ docs, apiData, inherData, animaData }: ListsProps) => {
 
 export default Lists
 
-export const css = cssx.create({
+export const styles = elter.create({
   list_position: {
     position: 'fixed',
     width: 240,

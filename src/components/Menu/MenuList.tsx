@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, Fragment } from 'react'
-import cssx, { min_md, union } from 'typedcssx'
+import elter, { min_md, union } from 'elter'
 import Link from 'next/link'
 import type PostsData from 'types/PostsData'
 import { usePathname, useRouter } from 'next/navigation'
@@ -26,7 +26,7 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
   const [open, setOpen] = useAtom(menuAtom)
   const [isListVisible, setIsListVisible] = useState(true)
   const [api, setAPI] = useState(true)
-  const [cssx, setCSSX] = useState(true)
+  const [stylesx, setstylesX] = useState(true)
   const [inher, setInher] = useState(true)
   const [hook, setHook] = useState(true)
   const [activeHeading, setActiveHeading] = useState('')
@@ -57,7 +57,7 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
 
   return (
     <>
-      <div className={css.Line}>
+      <div className={styles.Line}>
         <button
           aria-expanded={open}
           onClick={() => {
@@ -70,16 +70,16 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
           <span />
         </button>
       </div>
-      <div className={css.menu} aria-hidden={!open}>
-        <ul className={css.menu_list}>
-          <SearchBox classBox={css.box} />
+      <div className={styles.menu} aria-hidden={!open}>
+        <ul className={styles.menu_list}>
+          <SearchBox classBox={styles.box} />
           <li>
-            <Link className={union(css.active, css.link)} href="/" onClick={() => setOpen(false)} aria-current={'/' === pathname ? 'page' : 'false'}>
+            <Link className={union(styles.active, styles.link)} href="/" onClick={() => setOpen(false)} aria-current={'/' === pathname ? 'page' : 'false'}>
               Home
             </Link>
           </li>
           <li>
-            <button className={`${css.docs} ${isListVisible ? css.activeDocs : ''}`} onClick={() => setIsListVisible(!isListVisible)}>
+            <button className={`${styles.docs} ${isListVisible ? styles.activeDocs : ''}`} onClick={() => setIsListVisible(!isListVisible)}>
               Documentation
               <IoMdArrowDropright style={{ rotate: isListVisible ? '90deg' : '0deg' }} />
             </button>
@@ -87,25 +87,25 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
 
           {!isListVisible && (
             <li>
-              <a className={union(css.hover, css.link)} href={discuss} target="_blank">
+              <a className={union(styles.hover, styles.link)} href={discuss} target="_blank">
                 Discussions <HiOutlineExternalLink style={{ position: 'relative', top: 2, right: 3 }} />
               </a>
             </li>
           )}
-          <ul className={`${css.documentItems} ${isListVisible ? css.visible : ''}`}>
+          <ul className={`${styles.documentItems} ${isListVisible ? styles.visible : ''}`}>
             {docs?.map(({ slug, title }, postIndex) => (
               <Fragment key={postIndex}>
                 <li key={slug}>
-                  <Link className={union(css.active, css.link)} href={`/${slug}`} onClick={() => setOpen(false)} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
+                  <Link className={union(styles.active, styles.link)} href={`/${slug}`} onClick={() => setOpen(false)} aria-current={'/' + slug === pathname ? 'page' : 'false'}>
                     {slug.substring(0, 1).toUpperCase() + slug.substring(1)}
                   </Link>
                 </li>
                 {pathname === '/' + slug && (
-                  <ul className={css.headingItems}>
+                  <ul className={styles.headingItems}>
                     {headings[postIndex]?.heading.map((heading, headingIndex) => (
                       <li key={`${slug}-heading-${headingIndex}`}>
                         <Link
-                          className={union(css.active, css.link)}
+                          className={union(styles.active, styles.link)}
                           href={`/${slug}#${heading.id}`}
                           onClick={(e) => {
                             handleLinkClick(router, e, slug, heading.id)
@@ -121,23 +121,23 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
               </Fragment>
             ))}
             <li>
-              <button className={`${css.docs} ${api ? css.activeDocs : ''}`} onClick={() => setAPI(!api)}>
+              <button className={`${styles.docs} ${api ? styles.activeDocs : ''}`} onClick={() => setAPI(!api)}>
                 API
                 <IoMdArrowDropright style={{ rotate: api ? '90deg' : '0deg' }} />
               </button>
             </li>
             {api && (
-              <ul className={`${css.documentItems} ${api ? css.visible : ''}`}>
-                <li className={`${css.docs} ${cssx ? css.activeDocs : ''}`} onClick={() => setCSSX(!cssx)}>
-                  cssx <IoMdArrowDropright style={{ rotate: cssx ? '90deg' : '0deg' }} />
+              <ul className={`${styles.documentItems} ${api ? styles.visible : ''}`}>
+                <li className={`${styles.docs} ${stylesx ? styles.activeDocs : ''}`} onClick={() => setstylesX(!stylesx)}>
+                  stylesx <IoMdArrowDropright style={{ rotate: stylesx ? '90deg' : '0deg' }} />
                 </li>
-                {cssx && (
-                  <ul className={`${css.documentItems} ${cssx ? css.visible : ''}`}>
+                {stylesx && (
+                  <ul className={`${styles.documentItems} ${stylesx ? styles.visible : ''}`}>
                     {apiData?.map(({ slug }) => (
                       <li key={slug}>
                         <Link
                           href={`/core-api/${slug}`}
-                          className={union(css.active, css.link)}
+                          className={union(styles.active, styles.link)}
                           onClick={() => setOpen(false)}
                           aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
                           {slug}
@@ -149,18 +149,18 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
               </ul>
             )}
             <li>
-              <button className={`${css.docs} ${inher ? css.activeDocs : ''}`} onClick={() => setInher(!inher)}>
+              <button className={`${styles.docs} ${inher ? styles.activeDocs : ''}`} onClick={() => setInher(!inher)}>
                 inheritance
                 <IoMdArrowDropright style={{ rotate: inher ? '90deg' : '0deg' }} />
               </button>
             </li>
             {inher && (
-              <ul className={`${css.documentItems} ${inher ? css.visible : ''}`}>
+              <ul className={`${styles.documentItems} ${inher ? styles.visible : ''}`}>
                 {inherData?.map(({ slug }) => (
                   <li key={slug}>
                     <Link
                       href={`/inheritance/${slug}`}
-                      className={union(css.active, css.link)}
+                      className={union(styles.active, styles.link)}
                       onClick={() => setOpen(false)}
                       aria-current={'/inheritance/' + slug === pathname ? 'page' : 'false'}>
                       {slug}
@@ -170,18 +170,18 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
               </ul>
             )}
             <li>
-              <button className={`${css.docs} ${hook ? css.activeDocs : ''}`} onClick={() => setHook(!hook)}>
+              <button className={`${styles.docs} ${hook ? styles.activeDocs : ''}`} onClick={() => setHook(!hook)}>
                 Animation
                 <IoMdArrowDropright style={{ rotate: hook ? '90deg' : '0deg' }} />
               </button>
             </li>
             {hook && (
-              <ul className={`${css.documentItems} ${hook ? css.visible : ''}`}>
+              <ul className={`${styles.documentItems} ${hook ? styles.visible : ''}`}>
                 {animaData.map(({ slug }) => (
                   <li key={slug}>
                     <Link
                       href={`/animation/${slug}`}
-                      className={union(css.active, css.link)}
+                      className={union(styles.active, styles.link)}
                       onClick={() => setOpen(false)}
                       aria-current={'/animation/firemotion' === pathname ? 'page' : 'false'}>
                       {slug}
@@ -199,7 +199,7 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
 
 export default MenuList
 
-const css = cssx.create({
+const styles = elter.create({
   box: {
     position: 'relative',
     top: -8,

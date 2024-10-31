@@ -1,7 +1,6 @@
-import { md768_1414 } from 'lib/media'
-import cssx, { max_md } from 'typedcssx'
+import elter, { max_md } from 'elter'
 
-export const css = cssx.create({
+export const styles = elter.create({
   button_initialize: {
     zIndex: 4,
     position: 'relative',

@@ -1,6 +1,6 @@
 ---
-title: 'union | TypedCSSX'
-subtitle: 'The cssx class guide'
+title: 'union | elter'
+subtitle: 'The union guide'
 date: '2024/09/17'
 ---
 
@@ -14,37 +14,37 @@ It also supports named export for use within className.
 ```ts title="Something.tsx"
 "use client"
 
-import cssx, { union } from 'typedcssx'
+import elter, { union } from 'elter'
 import { usePathname } from 'next/navigation'
 
 export default function Page () {
   const pathname = usePathname()
 
   return(
-    <Link href="/" className={union(cssLink, pathname === "/" ? cssActive : "")}>
+    <Link href="/" className={union(styleLink, pathname === "/" ? styleActive : "")}>
         Home        
     </Link>
   )
 }
 
-const cssLink = cssx.set({
+const styleLink = cssx.set({
   fontSize: '14px',
   color: 'var(--color-link)',
   textDecoration: 'none'
 })
 
-const cssActive = cssx.set({
+const styleActive = cssx.set({
   fontWeight: 'bold',
   borderBottom: 'solid 2px skylbue'
 })
 ```
 This simplifies the syntax:
 ```tsx
-<div className={union(css.link, css.active)}>
+<div className={union(styles.link, styles.active)}>
 ```
 
 The following is how it is written so far.
 ```tsx
-<div className={css.link + ' ' + css.active}>
-<div className={`${css.link} ${css.active}`}>
+<div className={styles.link + ' ' + styles.active}>
+<div className={`${styles.link} ${styles.active}`}>
 ```

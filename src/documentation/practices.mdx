@@ -1,27 +1,21 @@
 ---
-title: 'Practices | TypedCSSX'
-subtitle: 'TypedCSSX Practices'
+title: 'Practices | elter'
+subtitle: 'elter practices'
 date: '2024-10-28'
 ---
 
 # Practices
 
-## TypedX(TypedCSSX)
-This name is certainly stiff, long, and difficult to remember.
-However, we initially decided on it because we thought it was the best name that clearly expressed the technical content.
-If we had to call it something, we think it would be easier to remember if we abbreviated it to TypedX.
 
 ## Q&A
 ### Compile error
-TypedX uses fs to build css, so it cannot parse imports such as .css and .svg and other image file extention. To deal with this issue, load images via src="".  
+elter uses fs to build css, so it cannot parse imports such as .css and .svg and other image file extention. To deal with this issue, load images via src="".  
 Do not use simultaneously on css and tsx (separate into ts files, or delete the css import)  
 
-TypedX only compiles ts or tsx files.  
+elter only compiles ts or tsx files.  
 This is to minimize build tim   es.
 
 ### Since when has the project been progressing?
 It started around October 2023, initially with react animation hooks.
 
-### Is TypedX easy to use?
-It's a pain to put a comma at the end of an object, but thanks to the React Property type, value completion works for the most part, so I think it's easy to use as a CSS in JS.
 

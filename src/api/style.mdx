@@ -1,36 +1,36 @@
 ---
-title: 'set | TypedCSSX'
-subtitle: 'The cssx class guide'
+title: 'style | elter'
+subtitle: 'The elter class guide'
 date: '2024/06/19'
 ---
 
 <TocBot />
 
-# cssx.set
-In set a single syntax is supported. There's no need to think about classNames here.  
-we recommend using the variable name css + subject
-## Write set and compile 
+# elter.style
+In style a single syntax is supported. There's no need to think about classNames here.  
+we recommend using the variable name style + subject
+## Write style and compile 
 The hash of the object is directly attached to the className.
 
 <Tabs items={['tsx', 'css' ]}>
   <Tab>
     ```tsx title="Something.tsx"
-    import cssx from 'typedcssx'
+    import elter from 'elter'
 
-    const cssLink = cssx.set({
+    const styleLink = elter.set({
       fontSize: '14px',
       color: 'var(--color-link)',
       textDecoration: 'none'
     })
 
-    const cssBox = cssx.set({
+    const styleBox = elter.set({
       display: 'block',
       padding: 20,
       width: 60,
       height: 60
     })
 
-    const cssContainer = cssx.set({
+    const styleContainer = elter.set({
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center'
@@ -39,20 +39,20 @@ The hash of the object is directly attached to the className.
   </Tab>
   <Tab>
     ```css title="css"
-    .sxygohx9 {
+    .bbhornk3 {
       font-size: 14px;
       color: var(--color-link);
       text-decoration: none;
     }
 
-    .x2wp4abk {
+    .fhviwm9n {
       display: block;
       padding: 20px;
       width: 60px;
       height: 60px;
     }
-    
-    .fe8x7811 {
+
+    .pb24s9y3 {
       display: flex;
       justify-content: center;
       align-items: center;

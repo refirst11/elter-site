@@ -1,6 +1,6 @@
 ---
-title: 'firemotion | TypedCSSX'
-subtitle: 'TypedCSSX Animation Practices'
+title: 'firemotion | elter'
+subtitle: 'elter animation practices'
 date: '2024/07/01'
 ---
 
@@ -50,14 +50,14 @@ It also works with just exit or entry by putting undefined in it.
 'use client';
 
 import useFiremotion from 'firemotion';
-import cssx from 'typedcssx';
+import elter from 'elter';
 
 const Animation = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const animate = useFiremotion(css.base, [css.entry, css.exit], 0.2);
+  const animate = useFiremotion(styles.base, [styles.entry, styles.exit], 0.2);
   return <div className={animate}>{children}</div>;
 };
 
-const css = cssx.create({
+const styles = elter.create({
   base: {
     opacity: 1,
     transition: 'all 0.3s',

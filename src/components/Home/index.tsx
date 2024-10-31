@@ -1,30 +1,30 @@
 import Link from 'next/link'
-import { css } from './style'
+import { styles } from './style'
 import Animation from 'components/Firemotion/Animation'
-import { union } from 'typedcssx'
+import { union } from 'elter'
 
 export function Home() {
   return (
     <Animation>
-      <div className={css.top_wrapper}>
-        <div className={css.container}>
-          <span className={css.Logo}>TypedCSSX</span>
-          <span className={css.desp}>A type-first CSS library for stably building user interfaces</span>
-          <p className={css.text}>Write CSS in TypeScript</p>
-          <p className={css.tagline}>A Type safe and stably CSS in Framework</p>
-          <section className={css.link_wrapper}>
-            <Link className={union(css.link, css.link_color1)} href="/introduction">
+      <div className={styles.top_wrapper}>
+        <div className={styles.container}>
+          <span className={styles.Logo}>elter</span>
+          <span className={styles.desp}>CSS-in-JS for stably building user interfaces</span>
+          <p className={styles.text}>Write CSS in TypeScript</p>
+          <p className={styles.tagline}>A Type safe and stably CSS in Framework</p>
+          <section className={styles.link_wrapper}>
+            <Link className={union(styles.link, styles.link_color1)} href="/introduction">
               Introduction
             </Link>
-            <Link className={union(css.link, css.link_color2)} href="/installation">
+            <Link className={union(styles.link, styles.link_color2)} href="/installation">
               Installation
             </Link>
           </section>
-          <section className={css.card_container}>
+          <section className={styles.card_container}>
             <div>
               <span>🔦</span>
               <h2>Ease API</h2>
-              <p>Transition smoothly to TypedCSSX with its intuitive API and familiar CSS-like syntax, reducing the learning curve for your team.</p>
+              <p>Transition smoothly to elter with its intuitive API and familiar CSS-like syntax, reducing the learning curve for your team.</p>
             </div>
 
             <div>

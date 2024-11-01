@@ -1,0 +1,114 @@
+---
+title: 'Typerange | elter'
+subtitle: 'elter typerange'
+date: '2024-11-01'
+---
+
+<TocBot />
+
+# Typerange
+This is the only core of elter's type definition.
+
+Basically, it recursively types React.CSSProperties and supports expand all values.  
+The extension part types unit values for properties that handle numeric values in CSS.  
+
+```ts
+type BaseCSSProperties = {
+  [K in keyof React.CSSProperties]: React.CSSProperties[K] | CSSVariableValue;
+};
+
+interface CustomExtendProperties extends BaseCSSProperties {
+  width?: CSSNumericValue | CSSLengthSubValue | 'auto';
+  height?: CSSNumericValue | CSSLengthSubValue | 'auto';
+  margin?: CSSEdgeSizeValue;
+  marginBottom?: CSSNumericValue | 'auto';
+  marginLeft?: CSSNumericValue | 'auto';
+  marginRight?: CSSNumericValue | 'auto';
+  marginTop?: CSSNumericValue | 'auto';
+  padding?: CSSEdgeSizeValue;
+  paddingBottom?: CSSNumericValue;
+  paddingLeft?: CSSNumericValue;
+  paddingRight?: CSSNumericValue;
+  paddingTop?: CSSNumericValue;
+  fontSize?: CSSNumericValue | CSSFontSizeSubValue;
+  scale?: CSSNumericValue | 'none';
+  opacity?: CSSNumericValue;
+  lineHeight?: CSSNumericValue | 'normal';
+  letterSpacing?: CSSNumericValue | 'normal';
+  wordSpacing?: CSSNumericValue | 'normal';
+  borderWidth?: CSSNumericValue | 'thin' | 'medium' | 'thick';
+  borderRadius?: CSSRadiusValues | number;
+  top?: CSSNumericValue | 'auto';
+  right?: CSSNumericValue | 'auto';
+  bottom?: CSSNumericValue | 'auto';
+  left?: CSSNumericValue | 'auto';
+  maxWidth?: CSSNumericValue | CSSLengthSubValue | 'auto';
+  maxHeight?: CSSNumericValue | CSSLengthSubValue | 'auto';
+  minWidth?: CSSNumericValue | CSSLengthSubValue | 'auto';
+  minHeight?: CSSNumericValue | CSSLengthSubValue | 'auto';
+  flexBasis?: CSSNumericValue | 'auto';
+  gap?: CSSNumericValue;
+  rowGap?: CSSNumericValue;
+  columnGap?: CSSNumericValue | 'normal';
+  columns?: CSSColumnsValue;
+  color?: CSSColorValue | CSSGlobalValue;
+  backgroundColor?: CSSColorValue | CSSGlobalValue;
+}
+```
+This is the only core of elter's type definition.
+
+```ts
+// No!!
+const styles elter.style({
+  fontSize: '24'
+})
+
+// Pass
+const styles elter.style({
+  fontSize: '24px'
+})
+
+const styles elter.style({
+  fontSize: '0'
+
+})
+const styles elter.style({
+  fontSize: 24,
+})
+```
+
+## Variables handling 
+Dynamic variable embedding is not supported.
+In the first place, there are restrictions that prevent it from being written inside a component, and template literal variables are not allowed.
+```ts
+// Can't
+const [count, setCount] = useState(0)
+const styles = elter.style({
+  fontSize: count,
+})
+```
+
+But for most web styling purposes, conditional class name branching will suffice.
+
+```ts
+const blue = elter.style({
+  color: blue
+})
+
+const red = elter.style({
+  color: red
+})
+...
+
+const [active, setActive] = useState(false)
+
+return (
+  <div className={active ? blue : red} />
+)
+```
+
+Therefore,
+It cannot be changed later・no irreversible phenomenon will occur.
+
+
+

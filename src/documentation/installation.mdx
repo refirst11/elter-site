@@ -98,7 +98,8 @@ It is recommended to generating server-side static CSS with a faster compile bef
     }
   ```
 ## Server component
-You can statically preview a ServerComponent using <code>\`\<ServerCSS \/\>\`</code>.
+You can statically preview a ServerComponent using <code>\`\<ServerCSS \/\>\`</code>.  
+This ServerCSS will be null in production.
 ```tsx title="layout.tsx"
 import { ServerCSS } from 'elter/next'
 

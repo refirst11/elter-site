@@ -85,8 +85,8 @@ importers:
         specifier: ^18.3.0
         version: 18.3.0
       elter:
-        specifier: ^1.0.3
-        version: 1.0.3
+        specifier: ^1.0.5
+        version: 1.0.5
       eslint:
         specifier: ^8.57.0
         version: 8.57.1
@@ -486,8 +486,8 @@ packages:
   '@types/node@22.7.5':
     resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
 
-  '@types/node@22.8.5':
-    resolution: {integrity: sha512-5iYk6AMPtsMbkZqCO1UGF9W5L38twq11S2pYWkybGHH2ogPUvXWNlQqJBzuEZWKj/WRH+QTeiv6ySWqJtvIEgA==}
+  '@types/node@22.8.6':
+    resolution: {integrity: sha512-tosuJYKrIqjQIlVCM4PEGxOmyg3FCPa/fViuJChnGeEIhjA46oy8FMVoF9su1/v8PNs2a8Q0iFNyOx0uOF91nw==}
 
   '@types/prop-types@15.7.13':
     resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
@@ -894,11 +894,11 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  electron-to-chromium@1.5.49:
-    resolution: {integrity: sha512-ZXfs1Of8fDb6z7WEYZjXpgIRF6MEu8JdeGA0A40aZq6OQbS+eJpnnV49epZRna2DU/YsEjSQuGtQPPtvt6J65A==}
+  electron-to-chromium@1.5.50:
+    resolution: {integrity: sha512-eMVObiUQ2LdgeO1F/ySTXsvqvxb6ZH2zPGaMYsWzRDdOddUa77tdmI0ltg+L16UpbWdhPmuF3wIQYyQq65WfZw==}
 
-  elter@1.0.3:
-    resolution: {integrity: sha512-xN6e/HAWF19b7270KMSFqXu5u4OnIXHW3PTZH9z5uahNTArbg4ovrqKkP3t0VBi7Uzu3hMWqhEVc5OIEH340BA==}
+  elter@1.0.5:
+    resolution: {integrity: sha512-5Pzq9OxzsF4hkPHbsqDA38KFzjW3NvjTYDEAAk9BfzLYRvrIi+PWLJLnvzcNb14B9QyOTaTVSeOLkPBLqaSIjg==}
     hasBin: true
 
   emoji-regex@8.0.0:
@@ -2788,7 +2788,7 @@ snapshots:
     dependencies:
       undici-types: 6.19.8
 
-  '@types/node@22.8.5':
+  '@types/node@22.8.6':
     dependencies:
       undici-types: 6.19.8
 
@@ -3086,7 +3086,7 @@ snapshots:
   browserslist@4.24.2:
     dependencies:
       caniuse-lite: 1.0.30001676
-      electron-to-chromium: 1.5.49
+      electron-to-chromium: 1.5.50
       node-releases: 2.0.18
       update-browserslist-db: 1.1.1(browserslist@4.24.2)
 
@@ -3252,9 +3252,9 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  electron-to-chromium@1.5.49: {}
+  electron-to-chromium@1.5.50: {}
 
-  elter@1.0.3:
+  elter@1.0.5:
     dependencies:
       globby: 14.0.2
       tsx: 4.19.2
@@ -4116,7 +4116,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.8.5
+      '@types/node': 22.8.6
       merge-stream: 2.0.0
       supports-color: 8.1.1
 

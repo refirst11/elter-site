@@ -14,10 +14,10 @@ type AccordionProps = {
 }
 
 const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
-  const [api, setAPI] = useState(true)
-  const [state, setState] = useState(true)
-  const [inher, setInher] = useState(true)
-  const [anima, setAnima] = useState(true)
+  const [api, setAPI] = useState(false)
+  const [state, setState] = useState(false)
+  const [inher, setInher] = useState(false)
+  const [anima, setAnima] = useState(false)
   const pathname = usePathname()
 
   return (

@@ -17,20 +17,20 @@ The hash of the object is directly attached to the className.
     ```tsx title="Something.tsx"
     import elter from 'elter'
 
-    const styleLink = elter.set({
+    const styleLink = elter.style({
       fontSize: '14px',
       color: 'var(--color-link)',
       textDecoration: 'none'
     })
 
-    const styleBox = elter.set({
+    const styleBox = elter.style({
       display: 'block',
       padding: 20,
       width: 60,
       height: 60
     })
 
-    const styleContainer = elter.set({
+    const styleContainer = elter.styleLink({
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center'

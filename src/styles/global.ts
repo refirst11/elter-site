@@ -203,12 +203,18 @@ elter.global({
   },
   "[data-theme='dark'] .nextlogo_spq1i0": {
     filter: 'invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%)'
+  },
+  "[data-theme='dark'] .left_logo_mkf8oe": {
+    filter: 'invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%)'
+  },
+  "[data-theme='dark'] .left_logo_hbz96m": {
+    filter: 'invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%)'
   }
 })
 
 elter.root({
   "&[data-theme='dark']": {
-    '--color-x-style': '#41c6ff',
+    '--color-wb': 'white',
     '--color-text': 'rgb(225, 232, 237)',
     '--color-bg': 'rgb(26, 27, 27)',
     '--color-heading': 'rgb(230, 240, 240)',
@@ -232,7 +238,7 @@ elter.root({
   },
 
   "&[data-theme='light']": {
-    '--color-x-style': '#72b6ff',
+    '--color-wb': 'black',
     '--color-text': '#4b5563',
     '--color-bg': 'rgb(255, 255, 255)',
     '--color-heading': 'rgb(70, 86, 86)',

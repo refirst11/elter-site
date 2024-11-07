@@ -2,13 +2,17 @@ import Link from 'next/link'
 import { styles } from './style'
 import Animation from 'components/Firemotion/Animation'
 import { union } from 'elter'
+import Image from 'next/image'
 
 export function Home() {
   return (
     <Animation>
       <div className={styles.top_wrapper}>
         <div className={styles.container}>
-          <span className={styles.Logo}>elter</span>
+          <span className={styles.logo}>
+            <Image className={styles.left_logo} src="/logo.png" alt={'Main_Logo'} width={100} height={100} />
+            elter
+          </span>
           <span className={styles.desp}>CSS-in-JS for stably building user interfaces</span>
           <p className={styles.text}>Write CSS in TypeScript</p>
           <p className={styles.tagline}>A Type safe and stably CSS in Framework</p>

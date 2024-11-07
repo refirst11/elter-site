@@ -57,22 +57,28 @@ export const styles = elter.create({
       right: '-490px'
     }
   },
-  Logo: {
+  logo: {
     position: 'absolute',
     fontFamily: 'var(--Inter)',
     display: 'flex',
     alignItems: 'center',
-    fontSize: 35,
+    fontSize: 28,
     fontWeight: 'bold',
     top: -250,
-    marginRight: 4,
+    marginRight: 130,
     height: '75px',
     gap: 29,
-    color: 'var(--color-logo)',
+    color: 'var(--color-wb)',
     [max_md]: {
-      fontSize: 32,
-      top: -580
+      top: -580,
+      whiteSpace: 'nowrap'
     }
+  },
+
+  left_logo: {
+    position: 'relative',
+    top: 0,
+    left: 54
   },
 
   desp: {

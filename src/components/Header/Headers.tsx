@@ -23,8 +23,8 @@ export const Headers = ({ version }: { version: string }) => {
   return (
     <header className={styles.container}>
       <Link href="/" className={styles.logo}>
-        <Image className={styles.left_logo} src="/logo.png" alt={'Main_Logo'} width={24} height={24} />
-        <span className={styles.display_logo}>elter</span>
+        <Image className={styles.left_logo} src="/logo.png" alt={'Main_Logo'} width={50} height={50} />
+        <span className={styles.elter}>elter</span>
         <span className={styles.version}>v{version}</span>
       </Link>
       <GitIcon />
@@ -87,18 +87,18 @@ const styles = elter.create({
     display: 'flex',
     alignItems: 'center',
     gap: 10.15,
-    color: 'var(--color-logo)',
+    color: 'var(--color-wb)',
     fontSize: 14,
     fontWeight: 'bold',
     left: '50%',
-    transform: 'translate(-416%)',
-    top: 16,
+    transform: 'translate(-398%)',
+    top: 2,
     padding: '4px 24px',
     borderRadius: '8px',
     textDecoration: 'none',
     [max_md]: {
-      left: 0,
-      top: 16,
+      left: -28,
+      top: 2,
       transform: 'none'
     },
     [md768_1414]: {
@@ -110,7 +110,7 @@ const styles = elter.create({
   left_logo: {
     position: 'relative',
     top: 1,
-    left: 8,
+    left: 24,
     [max_md]: {
       left: 0
     }
@@ -123,7 +123,9 @@ const styles = elter.create({
     }
   },
 
-  display_logo: {
+  elter: {
+    position: 'relative',
+    top: 1,
     [max_md]: {
       display: 'none'
     }
@@ -131,12 +133,13 @@ const styles = elter.create({
 
   version: {
     position: 'relative',
-    top: 1,
+    top: 2,
     right: 6,
     fontWeight: 400,
     fontSize: 12.4,
     [max_md]: {
-      top: 2
+      top: 2,
+      right: 20
     }
   },
 

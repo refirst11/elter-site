@@ -32,8 +32,8 @@ export function Home() {
             </div>
 
             <div>
-              <span>🌠</span>
-              <h2>Zero Runtime</h2>
+              <span>⚡︎</span>
+              <h2>Zero-Runtime</h2>
               <p>Experience efficiency with zero runtime overhead, boosting performance and streamlining your workflow.</p>
             </div>
             <div>
@@ -42,9 +42,9 @@ export function Home() {
               <p>Enjoy seamless coding with advanced autocomplete, speeding up development and improving accuracy. </p>
             </div>
             <div>
-              <span>🌌</span>
-              <h2>Support App Router</h2>
-              <p>Take full advantage of the App Router in Next.js to make the most of the latest features in React 18.</p>
+              <span>💫</span>
+              <h2>RSC Support</h2>
+              <p>Take full advantage of the App Router in Next.js to make the most of the latest features in React 19.</p>
             </div>
           </section>
         </div>

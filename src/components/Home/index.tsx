@@ -10,7 +10,7 @@ export function Home() {
       <div className={styles.top_wrapper}>
         <div className={styles.container}>
           <span className={styles.logo}>
-            <Image className={styles.left_logo} src="/logo.png" alt={'Main_Logo'} width={100} height={100} />
+            <Image className={styles.left_logo} src="/logo.png" alt={'B-logo'} width={100} height={100} quality={100} />
             elter
           </span>
           <span className={styles.desp}>CSS-in-JS for stably building user interfaces</span>

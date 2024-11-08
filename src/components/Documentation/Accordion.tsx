@@ -14,9 +14,8 @@ type AccordionProps = {
 }
 
 const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
-  const [api, setAPI] = useState(false)
-  const [state, setState] = useState(false)
-  const [inher, setInher] = useState(false)
+  const [api, setAPI] = useState(true)
+  const [inher, setInher] = useState(true)
   const [anima, setAnima] = useState(false)
   const pathname = usePathname()
 
@@ -28,22 +27,13 @@ const Accordion = ({ apiData, inherData, animaData }: AccordionProps) => {
       </button>
       {api && (
         <ul className={styles.list}>
-          <li>
-            <button className={union(state && styles.button_active)} onClick={() => setState(!state)}>
-              elter <IoMdArrowDropright className={styles.arrow} style={{ rotate: state ? '90deg' : '0deg' }} />
-            </button>
-          </li>
-          {state && (
-            <ul className={styles.list_style}>
-              {apiData.map(({ slug }) => (
-                <li key={slug}>
-                  <Link href={`/core-api/${slug}`} className={styles.active} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
-                    {slug}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
+          {apiData.map(({ slug }) => (
+            <li key={slug}>
+              <Link href={`/core-api/${slug}`} className={styles.active} aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
+                {slug}
+              </Link>
+            </li>
+          ))}
         </ul>
       )}
       <button className={`${styles.accordion} ${inher && styles.button_active}`} onClick={() => setInher(!inher)}>
@@ -134,19 +124,6 @@ const styles = elter.create({
         transition: 'all 0.2s',
         cursor: 'pointer'
       }
-    }
-  },
-  list_style: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 4,
-    width: 152,
-    padding: '0 0 0 12px',
-    margin: '0 0 0 12px',
-    borderLeft: 'solid 1px var(--color-border)',
-    '& a': {
-      width: 152,
-      padding: '6px 8px'
     }
   },
   button_active: {

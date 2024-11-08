@@ -17,6 +17,17 @@ It also supports named export for use within className.
 import elter, { union } from 'elter'
 import { usePathname } from 'next/navigation'
 
+const styleLink = elter.style({
+  fontSize: '14px',
+  color: 'var(--color-link)',
+  textDecoration: 'none'
+})
+
+const styleActive = elter.style({
+  fontWeight: 'bold',
+  borderBottom: 'solid 2px skylbue'
+})
+
 export default function Page () {
   const pathname = usePathname()
 
@@ -26,17 +37,6 @@ export default function Page () {
     </Link>
   )
 }
-
-const styleLink = cssx.set({
-  fontSize: '14px',
-  color: 'var(--color-link)',
-  textDecoration: 'none'
-})
-
-const styleActive = cssx.set({
-  fontWeight: 'bold',
-  borderBottom: 'solid 2px skylbue'
-})
 ```
 This simplifies the syntax:
 ```tsx

@@ -17,13 +17,12 @@ export const styles = elter.create({
     left: 0,
     textAlign: 'center',
     paddingTop: 46,
-    height: 120,
-    borderTop: 'solid 1px var(--color-border)'
+    height: 120
   },
 
   license: {
     position: 'relative',
-    right: '520px',
+    right: '300px',
     [max_md]: {
       position: 'absolute',
       right: 'auto',
@@ -32,7 +31,7 @@ export const styles = elter.create({
   },
   nextlogo: {
     position: 'relative',
-    left: '460px',
+    left: '300px',
     [max_md]: {
       position: 'absolute',
       left: 'auto',

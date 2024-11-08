@@ -201,7 +201,7 @@ elter.global({
     height: 12,
     filter: 'brightness(0%)  contrast(50%)'
   },
-  "[data-theme='dark'] .nextlogo_spq1i0": {
+  "[data-theme='dark'] .nextlogo_oznxqd": {
     filter: 'invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%)'
   },
   "[data-theme='dark'] .left_logo_mkf8oe": {

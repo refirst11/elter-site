@@ -26,7 +26,6 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
   const [open, setOpen] = useAtom(menuAtom)
   const [isListVisible, setIsListVisible] = useState(true)
   const [api, setAPI] = useState(true)
-  const [stylesx, setstylesX] = useState(true)
   const [inher, setInher] = useState(true)
   const [hook, setHook] = useState(true)
   const [activeHeading, setActiveHeading] = useState('')
@@ -128,24 +127,17 @@ const MenuList = ({ docs, apiData, inherData, animaData }: MenuProps) => {
             </li>
             {api && (
               <ul className={`${styles.documentItems} ${api ? styles.visible : ''}`}>
-                <li className={`${styles.docs} ${stylesx ? styles.activeDocs : ''}`} onClick={() => setstylesX(!stylesx)}>
-                  stylesx <IoMdArrowDropright style={{ rotate: stylesx ? '90deg' : '0deg' }} />
-                </li>
-                {stylesx && (
-                  <ul className={`${styles.documentItems} ${stylesx ? styles.visible : ''}`}>
-                    {apiData?.map(({ slug }) => (
-                      <li key={slug}>
-                        <Link
-                          href={`/core-api/${slug}`}
-                          className={union(styles.active, styles.link)}
-                          onClick={() => setOpen(false)}
-                          aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
-                          {slug}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                {apiData?.map(({ slug }) => (
+                  <li key={slug}>
+                    <Link
+                      href={`/core-api/${slug}`}
+                      className={union(styles.active, styles.link)}
+                      onClick={() => setOpen(false)}
+                      aria-current={'/core-api/' + slug === pathname ? 'page' : 'false'}>
+                      {slug}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             )}
             <li>

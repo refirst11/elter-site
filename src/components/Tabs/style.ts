@@ -101,17 +101,7 @@ export const styles = elter.create({
     height: 'max-content',
     whiteSpace: 'nowrap',
     pointerEvents: 'none',
-    zIndex: 1000,
-    '&::after': {
-      content: '',
-      position: 'absolute',
-      top: '100%',
-      left: '50%',
-      marginLeft: '-5px',
-      borderWidth: '5px',
-      borderStyle: 'solid',
-      borderColor: '#333 transparent transparent transparent'
-    }
+    zIndex: 1000
   },
 
   [max_md]: {
